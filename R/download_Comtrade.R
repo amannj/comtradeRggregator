@@ -386,7 +386,8 @@ download_Comtrade <- function(year = "2018", #  Years for which to extract
             }
           }
           ### Update message
-          message(j, "/", J, " for ", ag, " and year ", t, " completed.")
+          message(j, "/", J, " for ", ag, " and year ", t, " completed.\n\n")
+          message('')
         }
         ## Update index
         idx <- idx + .ext_cnt
