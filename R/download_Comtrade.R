@@ -164,12 +164,12 @@ download_Comtrade <- function(year = "2018", #  Years for which to extract
     comtradr::ct_register_token(token)
 
     if (100 < comtradr::ct_get_remaining_hourly_queries()) {
-      message("\nCOMTRADE token added; download limit set to ", ct_get_remaining_hourly_queries(), " hourly queries.\n")
+      message("\n Comtrade token added; download limit set to ", ct_get_remaining_hourly_queries(), " queries per hour.\n")
     } else {
-      message("\nCOMTRADE token incorrect; download restricted to ", ct_get_remaining_hourly_queries(), " hourly queries.\n")
+      message("\n Comtrade token incorrect; download restricted to ", ct_get_remaining_hourly_queries(), " queries per hour.\n")
     }
   } else {
-    message("\nNo COMTRADE token specified; download restricted to ", ct_get_remaining_hourly_queries(), " hourly queries.\n")
+    message("\n No Comtrade token specified; download restricted to ", ct_get_remaining_hourly_queries(), " queries per hour.\n")
   }
 
 
