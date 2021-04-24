@@ -31,7 +31,7 @@ download_Comtrade_wrapper <- function(rep = "Austria",
 
     ## Standard data extract
     if (is.mirrorData == FALSE) {
-      message("Regular data download.")
+      message("\nRegular data download.")
       df_download <- try({
         comtradr::ct_search(
           reporters = rep,
