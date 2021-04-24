@@ -1,0 +1,81 @@
+#' @title Convert Comtrade Trade Data
+#'
+#' @description This function offers conversion tables for Comtrade trade data following official tables from the
+#'  [UN Statistics Division (UNSD)](https://unstats.un.org/unsd/classifications/Econ#corresp-hs) and the
+#'  [World Integrated Trade Solution (WITS)](https://wits.worldbank.org/product_concordance.html) as provided below:
+#'
+#' | Table | to     |
+#' | ---   | ---    |
+#' | be    | added. |
+#'
+#'
+#' @param data A data frame.
+#' @param classification Name of variable containing the trade classification, e.g. `HS2007`; default is `classification`.
+#' @param commodity.code  Name of variable containing the commodity codes corresponding to trade classification; default is `commodity_code`.
+#' @param convert.to Abbreviation of target classification based on Concordance table provided above.
+#' @keywords concordance
+#' @export
+#' @import dplyr comtradr tibble readr rlang
+#' @examples
+#' \dontrun{
+#' # Extract Comtrade trade data first
+#' AT_World <- download_Comtrade(
+#'   year = "2018",
+#'   frequency = "annual",
+#'   countries = "Austria",
+#'   partners = "World",
+#'   tradecode = "HS2007",
+#'   ag = "AG6",
+#'   type = "commodities",
+#'   select.stats = "trade_value_usd",
+#'   direction = "all"
+#' )
+#'
+#' # Convert HS2007 trade data to ISIC Rev. 3
+#' AT_World %>%
+#'   convert_Comtrade(
+#'     classification = "classification",
+#'     commodity.code = "commodity_code",
+#'     convert.to = "I3"
+#'   )
+#' }
+convert_Comtrade <- function(data,
+                             classification = "classification",
+                             commodity.code = "commodity_code",
+                             convert.to = "I3") {
+  # Set symbols
+  .cls <- sym(classification)
+  .cc <- sym(commodity.code)
+
+  # Extract classification var.
+  convert.from <- data %>%
+    distinct(!!.cls) %>%
+    pull()
+
+  # Check for single trade classification in data
+  if (length(convert.from) != 1) {
+    stop("\nTrade data contains multiple classifications.")
+  }
+
+  # Look through concordance tables
+
+  ### from H3 to I3 ---------------
+  if (convert.from == "H3" & convert.to == "I3") {
+    df_cc <- readr::read_csv("data/Concordance_Tables/raw/JobID-48_Concordance_H3_to_I3.CSV",
+      col_types = readr::cols(.default = "c")
+    ) %>%
+      ## Harmonise key var.
+      rename(!!.cc := `HS 2007 Product Code`) %>%
+      ## Add leading zeros to codes
+      add_lzs(variable = commodity.code, variable.length = 6) %>%
+      add_lzs(variable = "ISIC Revision 3 Product Code", variable.length = 4)
+
+    ### No concordance available ---------------
+  } else {
+    stop("No concordance table available.")
+  }
+
+  # Merge and aggregate
+  data %>%
+    full_join(df_cc, by = paste(commodity.code))
+}
