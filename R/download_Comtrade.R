@@ -110,7 +110,7 @@ download_Comtrade <- function(year = "2018", #  Years for which to extract
   }
   ### Return warning message for monthly data.
   if (tolower(frequency) == "monthly") {
-    message("\nMonthly datasets may mix codes from multiple HS revisions and are provided as is except for standardization of trade flow and partner information, as well as conversion to U.S. dollars.\nPlease see https://comtrade.un.org for more information.\n")
+    message("\nMonthly datasets may mix codes from multiple HS revisions and are provided as is except for\nstandardization of trade flow and partner information, as well as conversion to U.S. dollars.\nPlease see https://comtrade.un.org for more information.\n")
   }
 
 
@@ -386,7 +386,7 @@ download_Comtrade <- function(year = "2018", #  Years for which to extract
             }
           }
           ### Update message
-          message(j, "/", J, " for ", ag, " and year ", t, " completed.")
+          message(j, "/", J, " for ", ag, " and year ", t, " completed.\n\n")
         }
         ## Update index
         idx <- idx + .ext_cnt
