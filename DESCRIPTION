@@ -1,5 +1,5 @@
 Package: comtradeRggregator
-Title: Download and Reclassify Large Chunks of Comtrade trade Data
+Title: Download and Reclassify Large Chunks of Comtrade Trade Data
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Juergen",
