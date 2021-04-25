@@ -188,10 +188,10 @@ To install the latest development version of `comtradeRggregator` directly from 
 ```{r echo=TRUE, message=FALSE, warning=FALSE}
 library(devtools)
 
-devtools::install_github("amannj/comtradeRggregator"
-                         ,ref="master"
-                         ,auth_token = "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"
-                         )
+devtools::install_github("amannj/comtradeRggregator",
+  ref = "master",
+  auth_token = "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"
+)
 ```
 
 ------------------------------------------------------------------------
@@ -225,17 +225,17 @@ To download global (`World`) `HS2007` `commodity`  trade data in `USD` for `all`
 
 ```{r}
 download_Comtrade(
-     year         = "2018",
-     frequency    = "annual", 
-     countries    = "Austria",
-     partners      = "World",
-     tradecode    = "HS2007",
-     ag           = "AG6",
-     type         = "commodities", 
-     select.stats = "trade_value_usd",
-     direction    = "all"
-) -> AT_World; AT_World
-
+  year = "2018",
+  frequency = "annual",
+  countries = "Austria",
+  partners = "World",
+  tradecode = "HS2007",
+  ag = "AG6",
+  type = "commodities",
+  select.stats = "trade_value_usd",
+  direction = "all"
+) -> AT_World
+AT_World
 ```
 
 
@@ -249,15 +249,15 @@ Sys.sleep(60)
 
 ```{r}
 download_Comtrade(
-    year         = "2018",
-    frequency    = "annual", 
-    countries    = "Austria",
-    partners     = "Germany",
-    tradecode    = "HS2007",
-    ag           = "AG6",
-    type         = "commodities", 
-    select.stats = "trade_value_usd",
-    direction    = "re_exports"
+  year = "2018",
+  frequency = "annual",
+  countries = "Austria",
+  partners = "Germany",
+  tradecode = "HS2007",
+  ag = "AG6",
+  type = "commodities",
+  select.stats = "trade_value_usd",
+  direction = "re_exports"
 )
 ```
 
@@ -278,20 +278,18 @@ download_Comtrade(
    type          = "commodities", 
    select.stats  = "trade_value_usd",
    direction     = "all"
-) -> AT_World_mirrored;AT_World_mirrored
+) -> AT_World_mirrored
 ```
 
 
 Mirrored trade data accounts for roughly $349B~\div~361B~\approx~97\%$ of total trade volume measured in USD reported by Austria in HS2017 in the year 2018.
 
+
 ```
-AT_World %>%
- summarise(sum(trade_value_usd)) %>% pull() -> a; a
-
-AT_World_mirrored %>%
- summarise(sum(trade_value_usd)) %>% pull() -> b; b
-
-b/a
+ AT_World_mirrored %>%
+  summarise(sum(trade_value_usd)) %>% pull() / AT_World %>%
+   summarise(sum(trade_value_usd)) %>% pull() 
+#    0.97
 ```
 
 
@@ -353,9 +351,11 @@ To get a list of all countries for which `annual`, `HS2007` trade data is availa
 
 
 ```{r}
-da1 <- is.available_Comtrade(frequency = 'annual', 
-                        tradecode = 'H3', 
-                        year = 2008)
+da1 <- is.available_Comtrade(
+  frequency = "annual",
+  tradecode = "H3",
+  year = 2008
+)
 
 da1
 ```
@@ -364,10 +364,12 @@ Similarly, you might want to know if a particular (set of) country/countries is 
 
 
 ```{r}
-da2 <- is.available_Comtrade(is.contained = c('Austria', 'Germany'), 
-                        frequency = 'annual', 
-                        tradecode = 'H2', 
-                        year = 2012)
+da2 <- is.available_Comtrade(
+  is.contained = c("Austria", "Germany"),
+  frequency = "annual",
+  tradecode = "H2",
+  year = 2012
+)
 
 da2
 ```
@@ -375,11 +377,13 @@ da2
 The same can also be done for monthly data. As seen below, only `Germany` has `monthly` `HS2007` trade date for the first month of `2020` available in Comtrade.
 
 ```{r}
-da3 <- is.available_Comtrade(is.contained = c('Austria', 'Germany'), 
-                        frequency = 'monthly', 
-                        month = '01',
-                        tradecode = 'H3', 
-                        year = 2020)
+da3 <- is.available_Comtrade(
+  is.contained = c("Austria", "Germany"),
+  frequency = "monthly",
+  month = "01",
+  tradecode = "H3",
+  year = 2020
+)
 
 da3
 ```
@@ -427,7 +431,6 @@ AT_World %>%
     convert.to = "I3"
   ) %>%
   select(classification, commodity_code, `ISIC Revision 3 Product Code`)
- 
 ```
 
 
@@ -449,9 +452,9 @@ Adds leading zeros to variable `var` of data frame such that `nchar(var) = lengt
 
 
 ```{r}
-df <- tibble(var= c("1", "11", "111"))
+df <- tibble(var = c("1", "11", "111"))
 
-df %>% add_lzs(variable = 'var', variable.length = 3)
+df %>% add_lzs(variable = "var", variable.length = 3)
 ```
 #### Arguments
 
