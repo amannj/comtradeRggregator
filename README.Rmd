@@ -28,10 +28,11 @@ lapply(pkgs[!(pkgs %in% installed.packages())], install.packages)
 lapply(pkgs, library, character.only = TRUE)
 ```
 
-# comtradeRggregator <img src="man/figures/logo2.png" align="right" height="139"/>
+# comtradeRggregator <img src='man/figures/logo2.png' align="right" height="139" />
 
 
 <!-- badges: start -->
+[![Build](https://img.shields.io/badge/build-passing-green)](https://github.com/amannj/comtradeRggregator)
 [![Status\_Badge](https://img.shields.io/badge/comtradeRggregator-v.0.01-informational)](https://github.com/amannj/comtradeRggregator)
 <!-- badges: end -->
 
@@ -219,7 +220,7 @@ To download global (`World`) `HS2007` `commodity`  trade data in `USD` for `all`
 
 
 ```{r}
-download_Comtrade(
+AT_World <- download_Comtrade(
   year = "2018",
   frequency = "annual",
   countries = "Austria",
@@ -229,7 +230,7 @@ download_Comtrade(
   type = "commodities",
   select.stats = "trade_value_usd",
   direction = "all"
-) -> AT_World
+)
 AT_World
 ```
 
@@ -256,35 +257,36 @@ download_Comtrade(
 )
 ```
 
-Sometimes trade data between countries does not add up. For example, say, in 2020 country A reported USD $X$ millions exports to country B while B was reporting USD $Y$ millions, where $X \neq Y$. In such cases it makes sense to use [mirrored Comtrade trade data](https://wits.worldbank.org/wits/wits/witshelp/Content/Data_Retrieval/T/Intro/B2.Imports_Exports_and_Mirror.htm). The function `download_Comtrade()` offers an easy option to accomplish this. The relation of the queries used for the extraction of trade data and mirrored trade data is illustrated in the example below:
+Sometimes trade data between countries does not add up. For example, say, in 2020 country A reported USD $X$ millions exports to country B while B was reporting USD $Y$ millions, where $X \neq Y$. In such cases it makes sense to use [mirrored Comtrade trade data](https://wits.worldbank.org/wits/wits/witshelp/Content/Data_Retrieval/T/Intro/B2.Imports_Exports_and_Mirror.htm). The function `download_Comtrade()` offers an easy option to accomplish this. The relation of the queries used for the extraction of trade data and mirrored trade data is illustrated in the example below.: Reported imports by Germany from Austria and reported mirrored exports by Austria to Germany are identical by definition:
 
 
-```{r}
-download_Comtrade(
-  year = "2018", #
+```{r message=FALSE, warning=FALSE}
+IM_DE_AT <- download_Comtrade(
+  year = "2018",
   frequency = "annual",
   countries = "Germany",
   partners = "Austria",
   tradecode = "HS2007",
-  ag = "AG6",
-  type = "commodities",
+  ag = "ag6",
   select.stats = "trade_value_usd",
   direction = "imports",
-) -> IM_DE_AT
+  type = "commodities",
+  is.mirrorData = FALSE
+)
 
-download_Comtrade(
-  year = c("2018"),
+mirrX_AT_DE <- download_Comtrade(
+  year = "2018",
   frequency = "annual",
   countries = "Austria",
   partners = "Germany",
   tradecode = "HS2007",
-  ag = "AG6",
-  type = "commodities",
+  ag = "ag6",
   select.stats = "trade_value_usd",
   direction = "exports",
-) -> mirrX_AT_DE
+  type = "commodities",
+  is.mirrorData = TRUE
+)
 
-# Extracted data is identical:
 IM_DE_AT %>%
   summarise(sum(trade_value_usd)) %>%
   pull() / mirrX_AT_DE %>%

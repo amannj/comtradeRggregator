@@ -1,10 +1,11 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# comtradeRggregator <img src="logo2.png" align="right" height="139"/>
+# comtradeRggregator <img src='man/figures/logo2.png' align="right" height="139" />
 
 <!-- badges: start -->
 
+[![Build](https://img.shields.io/badge/build-passing-green)](https://github.com/amannj/comtradeRggregator)
 [![Status\_Badge](https://img.shields.io/badge/comtradeRggregator-v.0.01-informational)](https://github.com/amannj/comtradeRggregator)
 <!-- badges: end -->
 
@@ -990,48 +991,8 @@ library(devtools)
 
 devtools::install_github("amannj/comtradeRggregator",
   ref = "master",
-  auth_token = "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"
+  auth_token = "..."
 )
-#> vctrs  (0.3.6 -> 0.3.7) [CRAN]
-#> utf8   (1.1.4 -> 1.2.1) [CRAN]
-#> tibble (3.0.6 -> 3.1.1) [CRAN]
-#> package 'vctrs' successfully unpacked and MD5 sums checked
-#> package 'utf8' successfully unpacked and MD5 sums checked
-#> 
-#> The downloaded binary packages are in
-#>  C:\Users\juerg\AppData\Local\Temp\RtmpOW9B7h\downloaded_packages
-#>          checking for file 'C:\Users\juerg\AppData\Local\Temp\RtmpOW9B7h\remotes2d74293751cd\amannj-comtradeRggregator-260cc32559414f5df35358c8e2f2d5c425a72542/DESCRIPTION' ...  v  checking for file 'C:\Users\juerg\AppData\Local\Temp\RtmpOW9B7h\remotes2d74293751cd\amannj-comtradeRggregator-260cc32559414f5df35358c8e2f2d5c425a72542/DESCRIPTION'
-#>       -  preparing 'comtradeRggregator': (1s)
-#>    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   v  checking DESCRIPTION meta-information
-#>       -  checking for LF line-endings in source and make files and shell scripts
-#>       -  checking for empty or unneeded directories
-#>       -  building 'comtradeRggregator_0.0.0.9000.tar.gz'
-#>   Warning in utils::tar(filepath, pkgname, compression = compression, compression_level = 9L,  :     Warning in utils::tar(filepath, pkgname, compression = compression, compression_level = 9L,  :
-#>      storing paths of more than 100 bytes is not portable:
-#>      'comtradeRggregator/data/Concordance_Tables/raw/HS 2012 to HS 1992 Correlation and conversion tables.xls'
-#>   Warning in utils::tar(filepath, pkgname, compression = compression, compression_level = 9L,  :     Warning in utils::tar(filepath, pkgname, compression = compression, compression_level = 9L,  :
-#>      storing paths of more than 100 bytes is not portable:
-#>      'comtradeRggregator/data/Concordance_Tables/raw/HS 2012 to HS 1996 Correlation and conversion tables.xls'
-#>   Warning in utils::tar(filepath, pkgname, compression = compression, compression_level = 9L,  :     Warning in utils::tar(filepath, pkgname, compression = compression, compression_level = 9L,  :
-#>      storing paths of more than 100 bytes is not portable:
-#>      'comtradeRggregator/data/Concordance_Tables/raw/HS 2012 to HS 2002 Correlation and conversion tables.xls'
-#>   Warning in utils::tar(filepath, pkgname, compression = compression, compression_level = 9L,  :     Warning in utils::tar(filepath, pkgname, compression = compression, compression_level = 9L,  :
-#>      storing paths of more than 100 bytes is not portable:
-#>      'comtradeRggregator/data/Concordance_Tables/raw/HS 2012 to HS 2007 Correlation and conversion tables.xls'
-#>   Warning in utils::tar(filepath, pkgname, compression = compression, compression_level = 9L,  :     Warning in utils::tar(filepath, pkgname, compression = compression, compression_level = 9L,  :
-#>      storing paths of more than 100 bytes is not portable:
-#>      'comtradeRggregator/data/Concordance_Tables/raw/HS 2012 to SITC Rev.4 Correlation and conversion tables.xls'
-#>   Warning in utils::tar(filepath, pkgname, compression = compression, compression_level = 9L,  :     Warning in utils::tar(filepath, pkgname, compression = compression, compression_level = 9L,  :
-#>      storing paths of more than 100 bytes is not portable:
-#>      'comtradeRggregator/data/Concordance_Tables/raw/HS 2012 to SITC1 Correlation and conversion tables.xls'
-#>   Warning in utils::tar(filepath, pkgname, compression = compression, compression_level = 9L,  :     Warning in utils::tar(filepath, pkgname, compression = compression, compression_level = 9L,  :
-#>      storing paths of more than 100 bytes is not portable:
-#>      'comtradeRggregator/data/Concordance_Tables/raw/HS 2012 to SITC2 Correlation and conversion tables.xls'
-#>   Warning in utils::tar(filepath, pkgname, compression = compression, compression_level = 9L,  :     Warning in utils::tar(filepath, pkgname, compression = compression, compression_level = 9L,  :
-#>      storing paths of more than 100 bytes is not portable:
-#>      'comtradeRggregator/data/Concordance_Tables/raw/HS 2012 to SITC3 Correlation and conversion tables.xls'
-#>      
-#> 
 ```
 
 ------------------------------------------------------------------------
@@ -1060,7 +1021,7 @@ for `all` trade flows (i.e. imports, exports as well as re-imports and
 re-exports) at `AG6` reported by `Austria` in `2018`, run:
 
 ``` r
-download_Comtrade(
+AT_World <- download_Comtrade(
   year = "2018",
   frequency = "annual",
   countries = "Austria",
@@ -1070,11 +1031,11 @@ download_Comtrade(
   type = "commodities",
   select.stats = "trade_value_usd",
   direction = "all"
-) -> AT_World
+)
 #> 
 #>  No Comtrade token specified; download restricted to 100 queries per hour.
 #> 
-#> New folder created in: 'data/tmp/2021-04-25_11.16AM'. Temporary files will be stored there.
+#> New folder created in: 'data/tmp/2021-04-25_12.36PM'. Temporary files will be stored there.
 #> 
 #> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-25'
 #>    in folder 'data/Comtrade_DataAvailability'
@@ -1126,7 +1087,7 @@ download_Comtrade(
 #> 
 #>  No Comtrade token specified; download restricted to 99 queries per hour.
 #> 
-#> New folder created in: 'data/tmp/2021-04-25_11.18AM'. Temporary files will be stored there.
+#> New folder created in: 'data/tmp/2021-04-25_12.38PM'. Temporary files will be stored there.
 #> 
 #> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-25'
 #>    in folder 'data/Comtrade_DataAvailability'
@@ -1147,33 +1108,47 @@ while B was reporting USD *Y* millions, where *X* ≠ *Y*. In such cases
 it makes sense to use [mirrored Comtrade trade
 data](https://wits.worldbank.org/wits/wits/witshelp/Content/Data_Retrieval/T/Intro/B2.Imports_Exports_and_Mirror.htm).
 The function `download_Comtrade()` offers an easy option to accomplish
-this. For example, if we want to download all `HS2007` commodity data
-(trade in USD only) at `AG6` *reported by all countries that traded with
-Austria* in 2018, run:
+this. The relation of the queries used for the extraction of trade data
+and mirrored trade data is illustrated in the example below.: Reported
+imports by Germany from Austria and reported mirrored exports by Austria
+to Germany are identical by definition:
 
-    download_Comtrade(
-       year          = "2018",
-       frequency     = "annual", 
-       countries     = "Austria",
-       partners      = "World",
-       is.mirrorData = TRUE,
-       tradecode     = "HS2007",
-       ag            = "AG6",
-       type          = "commodities", 
-       select.stats  = "trade_value_usd",
-       direction     = "all"
-    ) -> AT_World_mirrored
+``` r
+IM_DE_AT <- download_Comtrade(
+  year = "2018",
+  frequency = "annual",
+  countries = "Germany",
+  partners = "Austria",
+  tradecode = "HS2007",
+  ag = "ag6",
+  select.stats = "trade_value_usd",
+  direction = "imports",
+  type = "commodities",
+  is.mirrorData = FALSE
+)
 
-Mirrored trade data accounts for roughly 349*B* ÷ 361*B* ≈ 97% of total
-trade volume measured in USD reported by Austria in HS2017 in the year
-2018.
+mirrX_AT_DE <- download_Comtrade(
+  year = "2018",
+  frequency = "annual",
+  countries = "Austria",
+  partners = "Germany",
+  tradecode = "HS2007",
+  ag = "ag6",
+  select.stats = "trade_value_usd",
+  direction = "exports",
+  type = "commodities",
+  is.mirrorData = TRUE
+)
 
-     AT_World_mirrored %>%
-      summarise(sum(trade_value_usd)) %>% pull() / AT_World %>%
-       summarise(sum(trade_value_usd)) %>% pull() 
-    #    0.97
+IM_DE_AT %>%
+  summarise(sum(trade_value_usd)) %>%
+  pull() / mirrX_AT_DE %>%
+    summarise(sum(trade_value_usd)) %>%
+    pull()
+#> [1] 1
+```
 
-#### Arguments
+#### Arguments (use `?download_Comtrade` for full documentation)
 
 -   `year` - Year for which to extract data.
 
@@ -1386,7 +1361,7 @@ da3
 #> [1] FALSE  TRUE
 ```
 
-#### Arguments
+#### Arguments (use `?is.available_Comtrade` for full documentation)
 
 -   `is.contained` - Check if a particular (set of) country/countries is
     available for a particular data set; default is `NULL` which returns
@@ -1411,17 +1386,17 @@ da3
 
 -   `year` - Year for which to extract data.
 
-`folder` - Location of directory; default is
-`"data/Comtrade_DataAvailability"`.
+-   `folder` - Location of directory; default is
+    `"data/Comtrade_DataAvailability"`.
 
-`directory` - Location of Comtrade Data Availability file; default is
-`Comtrade_DataAvailability-<time and date stamp>.csv.gz`.
+-   `directory` - Location of Comtrade Data Availability file; default
+    is `Comtrade_DataAvailability-<time and date stamp>.csv.gz`.
 
 ------------------------------------------------------------------------
 
 ### `convert_Comtrade()`
 
-> **Note: Work in progress.**
+> **Work in progress.**
 
 Sometimes you might wish to reclassify trade data from one
 classification to a different one. Function `convert_Comtrade()` offers
@@ -1461,7 +1436,7 @@ AT_World %>%
 #> # ... with 9,602 more rows
 ```
 
-#### Arguments
+#### Arguments (use `?is.available_Comtrade` for full documentation)
 
 -   `classification` - Name of variable containing the trade
     classification (e.g. `H3`); default is ‘classification’.
@@ -1491,7 +1466,7 @@ df %>% add_lzs(variable = "var", variable.length = 3)
 #> 3 111
 ```
 
-#### Arguments
+#### Arguments (use `?add_lzs` for full documentation)
 
 -   `variable` - A variable name.
 -   `length.variable` - The desired length of variable `variable`;
@@ -1504,21 +1479,21 @@ df %>% add_lzs(variable = "var", variable.length = 3)
 Remove all temporary files and folders:
 
 -   If there exist temporary files to be deleted, function
-    `rm_temporaryFiles()` returns
-
-``` r
-rm_temporaryFiles(location.temporaryFiles = NULL)
-#> Temporary files delete.
-```
-
--   otherwise:
+    `rm_temporaryFiles()`, returns :
 
 ``` r
 rm_temporaryFiles(location.temporaryFiles = NULL)
 #> Temporary file directory already empty. Nothing to delete.
 ```
 
-#### Arguments
+-   Otherwise:
+
+``` r
+rm_temporaryFiles(location.temporaryFiles = NULL)
+#> Temporary file directory already empty. Nothing to delete.
+```
+
+#### Arguments Arguments (use `?rm_temporaryFiles` for full documentation)
 
 -   `location.temporaryFiles` - Location of temporary file downloads;
     default is
