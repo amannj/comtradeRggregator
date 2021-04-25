@@ -5,7 +5,7 @@
 
 <!-- badges: start -->
 
-[![Status\_Badge](https://img.shields.io/badge/comtradeRggregator-v.0.01-informational)](https://github.com/amannj/ComtradeBulk)
+[![Status\_Badge](https://img.shields.io/badge/comtradeRggregator-v.0.01-informational)](https://github.com/amannj/comtradeRggregator)
 <!-- badges: end -->
 
 The goal of the `comtradeRggregator` package is to provide a simple tool
@@ -986,10 +986,11 @@ directly from [GitHub](amannj/comtradeRggregator), use:
 
 ``` r
 library(devtools)
-#> Warning: package 'devtools' was built under R version 4.0.5
-#> Loading required package: usethis
-#> Warning: package 'usethis' was built under R version 4.0.5
-#\Kdevtools::install_github("amannj/comtradeRggregator")
+
+devtools::install_github("amannj/comtradeRggregator"
+                         ,ref="master"
+                         ,auth_token = "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"
+                         )
 ```
 
 ------------------------------------------------------------------------
@@ -1009,7 +1010,6 @@ First, load the package.
 
 ``` r
 library(comtradeRggregator)
-#> Loading required package: comtradr
 
 ## create folders...?
 ```
@@ -1018,17 +1018,47 @@ To download global (`World`) `HS2007` `commodity` trade data in `USD`
 for `all` trade flows (i.e. imports, exports as well as re-imports and
 re-exports) at `AG6` reported by `Austria` in `2018`, run:
 
-    download_Comtrade(
-         year         = "2018",
-         frequency    = "annual", 
-         countries    = "Austria",
-         partners      = "World",
-         tradecode    = "HS2007",
-         ag           = "AG6",
-         type         = "commodities", 
-         select.stats = "trade_value_usd",
-         direction    = "all"
-    ) -> AT_World; AT_World
+``` r
+download_Comtrade(
+     year         = "2018",
+     frequency    = "annual", 
+     countries    = "Austria",
+     partners      = "World",
+     tradecode    = "HS2007",
+     ag           = "AG6",
+     type         = "commodities", 
+     select.stats = "trade_value_usd",
+     direction    = "all"
+) -> AT_World; AT_World
+#> 
+#>  No Comtrade token specified; download restricted to 100 queries per hour.
+#> 
+#> New folder created in: 'data/tmp/2021-04-25_02.07AM'. Temporary files will be stored there.
+#> 
+#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-25'
+#>    in folder 'data/Comtrade_DataAvailability'
+#>    already exists and will be used for look-up.
+#> 
+#> Regular data download.
+#>    Austria; year 2018 direction 'all' done.
+#>     Going to sleep for 20 sec.
+#> 1/1 for AG6 and year 1 completed.
+#> 
+#> # A tibble: 9,432 x 8
+#>    classification period trade_flow reporter partner commodity_code commodity   
+#>    <chr>           <int> <chr>      <chr>    <chr>   <chr>          <chr>       
+#>  1 H3               2018 Export     Austria  World   010110         Live horses~
+#>  2 H3               2018 Import     Austria  World   010190         Live horses~
+#>  3 H3               2018 Export     Austria  World   010190         Live horses~
+#>  4 H3               2018 Import     Austria  World   010210         Live bovine~
+#>  5 H3               2018 Export     Austria  World   010210         Live bovine~
+#>  6 H3               2018 Import     Austria  World   010290         Live bovine~
+#>  7 H3               2018 Export     Austria  World   010290         Live bovine~
+#>  8 H3               2018 Import     Austria  World   010310         Live swine:~
+#>  9 H3               2018 Export     Austria  World   010310         Live swine:~
+#> 10 H3               2018 Import     Austria  World   010391         Live swine ~
+#> # ... with 9,422 more rows, and 1 more variable: trade_value_usd <dbl>
+```
 
 Sometimes you might want to extract very specific information on
 particular trade flows between two countries. For example, in order to
@@ -1038,20 +1068,34 @@ As you can see, this returns an empty data frame which means that there
 is no trade data recorded on [Comtrade](https://comtrade.un.org) that
 meets the specific characterisation.
 
-    download_Comtrade(
-        year         = "2018",
-        frequency    = "annual", 
-        countries    = "Austria",
-        partners     = "Germany",
-        tradecode    = "HS2007",
-        ag           = "AG6",
-        type         = "commodities", 
-        select.stats = "trade_value_usd",
-        direction    = "re_exports"
-    )
-
-    # A tibble: 0 x 8
-    # ... with 8 variables: classification <lgl>, period <lgl>, trade_flow <lgl>, reporter <lgl>, partner <lgl>, commodity_code <lgl>, commodity <lgl>, trade_value_usd <lgl>
+``` r
+download_Comtrade(
+    year         = "2018",
+    frequency    = "annual", 
+    countries    = "Austria",
+    partners     = "Germany",
+    tradecode    = "HS2007",
+    ag           = "AG6",
+    type         = "commodities", 
+    select.stats = "trade_value_usd",
+    direction    = "re_exports"
+)
+#> 
+#>  No Comtrade token specified; download restricted to 99 queries per hour.
+#> 
+#> New folder created in: 'data/tmp/2021-04-25_02.08AM'. Temporary files will be stored there.
+#> 
+#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-25'
+#>    in folder 'data/Comtrade_DataAvailability'
+#>    already exists and will be used for look-up.
+#> 
+#> Regular data download.
+#>    Austria; year 2018 direction 're_exports' done.
+#>     Going to sleep for 20 sec.
+#> 1/1 for AG6 and year 1 completed.
+#> 
+#> # A tibble: 0 x 0
+```
 
 Sometimes trade data between countries does not add up. For example,
 say, in 2020 country A reported USD *X* millions exports to country B
@@ -1076,34 +1120,17 @@ Austria* in 2018, run:
        direction     = "all"
     ) -> AT_World_mirrored;AT_World_mirrored
 
-    # A tibble: 11,449 x 8
-       classification period trade_flow reporter        partner commodity_code commodity                                                trade_value_usd
-       <chr>           <int> <chr>      <chr>           <chr>   <chr>          <chr>                                                              <dbl>
-     1 H3               2018 Export     Austria mirror~ World   010110         Live horses/asses/mules/hinnies: pure-bred breeding ani~         1279929
-     2 H3               2018 Export     Austria mirror~ World   010190         Live horses/asses/mules/hinnies other than pure-bred br~          387414
-     3 H3               2018 Export     Austria mirror~ World   010210         Live bovine animals: pure-bred breeding animals                 30496588
-     4 H3               2018 Export     Austria mirror~ World   010290         Live bovine animals other than pure-bred breeding anima~        27126942
-     5 H3               2018 Export     Austria mirror~ World   010310         Live swine: pure-bred breeding animals                            368517
-     6 H3               2018 Export     Austria mirror~ World   010391         Live swine other than pure-bred breeding animals, weigh~         2521822
-     7 H3               2018 Export     Austria mirror~ World   010392         Live swine other than pure-bred breeding animals, weigh~          394015
-     8 H3               2018 Export     Austria mirror~ World   010410         Live sheep                                                       1010234
-     9 H3               2018 Export     Austria mirror~ World   010420         Live goats                                                       1112197
-    10 H3               2018 Export     Austria mirror~ World   010511         Live fowls of species Gallus domesticus, weighing not >~         9870768
-
 Mirrored trade data accounts for roughly 349*B* ÷ 361*B* ≈ 97% of total
 trade volume measured in USD reported by Austria in HS2017 in the year
 2018.
 
     AT_World %>%
-     summarise(sum(trade_value_usd)) %>% pull()
-
-    [1] 361187166514
-
+     summarise(sum(trade_value_usd)) %>% pull() -> a; a
 
     AT_World_mirrored %>%
-     summarise(sum(trade_value_usd)) %>% pull()
+     summarise(sum(trade_value_usd)) %>% pull() -> b; b
 
-    [1] 349381736977
+    b/a
 
 #### Arguments
 
@@ -1198,43 +1225,116 @@ Comtrade Data Availability file which is updated on a daily basis.
 
 #### Examples
 
-First, load the package.
-
-    library(comtradeRggregator)
-
 To get a list of all countries for which `annual`, `HS2007` trade data
 is available for the year `2008`, run:
 
-    > is.available_Comtrade(frequency = 'annual', 
-                            tradecode = 'H3', 
-                            year = 2008)
+``` r
+da1 <- is.available_Comtrade(frequency = 'annual', 
+                        tradecode = 'H3', 
+                        year = 2008)
+#> 
+#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-25'
+#>    in folder 'data/Comtrade_DataAvailability'
+#>    already exists and will be used for look-up.
 
-    [1] "China, Hong Kong SAR"    "Hungary"          "Iceland"    "Ireland"                        
-    [6] "Italy"                   "Côte d'Ivoire"    "Jamaica"    "Japan"   
+da1
+#>   [1] "China, Hong Kong SAR"             "Hungary"                         
+#>   [3] "Iceland"                          "Ireland"                         
+#>   [5] "Israel"                           "Italy"                           
+#>   [7] "Côte d'Ivoire"                    "Jamaica"                         
+#>   [9] "Japan"                            "Jordan"                          
+#>  [11] "Kenya"                            "Rep. of Korea"                   
+#>  [13] "Kyrgyzstan"                       "Lebanon"                         
+#>  [15] "Latvia"                           "Lithuania"                       
+#>  [17] "Luxembourg"                       "China, Macao SAR"                
+#>  [19] "Madagascar"                       "Malawi"                          
+#>  [21] "Maldives"                         "Mali"                            
+#>  [23] "Chile"                            "China"                           
+#>  [25] "Colombia"                         "Mayotte"                         
+#>  [27] "Cook Isds"                        "Costa Rica"                      
+#>  [29] "Croatia"                          "Cyprus"                          
+#>  [31] "Czechia"                          "Denmark"                         
+#>  [33] "Dominican Rep."                   "Ecuador"                         
+#>  [35] "El Salvador"                      "Ethiopia"                        
+#>  [37] "Estonia"                          "Faeroe Isds"                     
+#>  [39] "Fiji"                             "Finland"                         
+#>  [41] "France"                           "State of Palestine"              
+#>  [43] "Germany"                          "Greece"                          
+#>  [45] "Greenland"                        "Guatemala"                       
+#>  [47] "Guyana"                           "Malta"                           
+#>  [49] "Mauritius"                        "Mexico"                          
+#>  [51] "Montenegro"                       "Namibia"                         
+#>  [53] "Netherlands"                      "New Caledonia"                   
+#>  [55] "New Zealand"                      "Nicaragua"                       
+#>  [57] "Norway"                           "Pakistan"                        
+#>  [59] "Panama"                           "Paraguay"                        
+#>  [61] "Peru"                             "Poland"                          
+#>  [63] "Portugal"                         "Romania"                         
+#>  [65] "Russian Federation"               "United Arab Emirates"            
+#>  [67] "Tunisia"                          "Turkey"                          
+#>  [69] "Uganda"                           "North Macedonia"                 
+#>  [71] "Egypt"                            "United Kingdom"                  
+#>  [73] "United Rep. of Tanzania"          "USA"                             
+#>  [75] "Uruguay"                          "Zambia"                          
+#>  [77] "Saudi Arabia"                     "Senegal"                         
+#>  [79] "Serbia"                           "Singapore"                       
+#>  [81] "Slovakia"                         "Viet Nam"                        
+#>  [83] "Slovenia"                         "South Africa"                    
+#>  [85] "Zimbabwe"                         "Spain"                           
+#>  [87] "Fmr Sudan"                        "Eswatini"                        
+#>  [89] "Sweden"                           "Switzerland"                     
+#>  [91] "Syria"                            "Thailand"                        
+#>  [93] "Togo"                             "Tonga"                           
+#>  [95] "Trinidad and Tobago"              "Algeria"                         
+#>  [97] "Andorra"                          "Azerbaijan"                      
+#>  [99] "Argentina"                        "Australia"                       
+#> [101] "Austria"                          "Bangladesh"                      
+#> [103] "Armenia"                          "Belgium"                         
+#> [105] "Bhutan"                           "Bolivia (Plurinational State of)"
+#> [107] "Bosnia Herzegovina"               "Brazil"                          
+#> [109] "EU-28"                            "Bulgaria"                        
+#> [111] "Belarus"                          "Cambodia"                        
+#> [113] "Canada"                           "Cabo Verde"                      
+#> [115] "Sri Lanka"
+```
 
 Similarly, you might want to know if a particular (set of)
 country/countries is available in a particular trade data set. To check
 if either `Austria` or `Germany` have `annual` trade data reported in
 `HS2007` for the year `2012`, run:
 
-    > is.available_Comtrade(is.contained = c('Austria', 'Germany'), 
-                            frequency = 'annual', 
-                            tradecode = 'H2', 
-                            year = 2012)
-                            
-    [1] TRUE  TRUE
+``` r
+da2 <- is.available_Comtrade(is.contained = c('Austria', 'Germany'), 
+                        frequency = 'annual', 
+                        tradecode = 'H2', 
+                        year = 2012)
+#> 
+#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-25'
+#>    in folder 'data/Comtrade_DataAvailability'
+#>    already exists and will be used for look-up.
+
+da2
+#> [1] TRUE TRUE
+```
 
 The same can also be done for monthly data. As seen below, only
 `Germany` has `monthly` `HS2007` trade date for the first month of
 `2020` available in Comtrade.
 
-    > is.available_Comtrade(is.contained = c('Austria', 'Germany'), 
-                            frequency = 'monthly', 
-                            month = '01',
-                            tradecode = 'H3', 
-                            year = 2020)
-                            
-    [1] FALSE  TRUE
+``` r
+da3 <- is.available_Comtrade(is.contained = c('Austria', 'Germany'), 
+                        frequency = 'monthly', 
+                        month = '01',
+                        tradecode = 'H3', 
+                        year = 2020)
+#> 
+#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-25'
+#>    in folder 'data/Comtrade_DataAvailability'
+#>    already exists and will be used for look-up.
+
+da3
+#> [1] FALSE  TRUE
+```
 
 #### Arguments
 
@@ -1283,35 +1383,33 @@ the [World Integrated Trade Solution
 
 #### Examples
 
-First, load the package.
-
-    library(comtradeRggregator)
-
 Using the abbreviations and information from the concordance table
 above, if you want to convert your Comtrade data set from `H3` to `I3`
 (ISIC Rev. 3), run:
 
-    AT_World %>%
-      convert_Comtrade(
-        classification = "classification",
-        commodity.code = "commodity_code",
-        convert.to = "I3"
-      ) %>%
-      select(classification, commodity_code, `ISIC Revision 3 Product Code`)
-      
-    # A tibble: 9,612 x 3
-       classification commodity_code `ISIC Revision 3 Product Code`
-       <chr>          <chr>          <chr>                         
-     1 H3             010110         0121                          
-     2 H3             010190         0121                          
-     3 H3             010190         0121                          
-     4 H3             010210         0121                          
-     5 H3             010210         0121                          
-     6 H3             010290         0121                          
-     7 H3             010290         0121                          
-     8 H3             010310         0122                          
-     9 H3             010310         0122                          
-    10 H3             010391         0122   
+``` r
+AT_World %>%
+  convert_Comtrade(
+    classification = "classification",
+    commodity.code = "commodity_code",
+    convert.to = "I3"
+  ) %>%
+  select(classification, commodity_code, `ISIC Revision 3 Product Code`)
+#> # A tibble: 9,612 x 3
+#>    classification commodity_code `ISIC Revision 3 Product Code`
+#>    <chr>          <chr>          <chr>                         
+#>  1 H3             010110         0121                          
+#>  2 H3             010190         0121                          
+#>  3 H3             010190         0121                          
+#>  4 H3             010210         0121                          
+#>  5 H3             010210         0121                          
+#>  6 H3             010290         0121                          
+#>  7 H3             010290         0121                          
+#>  8 H3             010310         0122                          
+#>  9 H3             010310         0122                          
+#> 10 H3             010391         0122                          
+#> # ... with 9,602 more rows
+```
 
 #### Arguments
 
@@ -1331,9 +1429,17 @@ above, if you want to convert your Comtrade data set from `H3` to `I3`
 Adds leading zeros to variable `var` of data frame such that
 `nchar(var) = length`.
 
-    df <- tibble(var= c("1", "11", "111"))
+``` r
+df <- tibble(var= c("1", "11", "111"))
 
-    df %>% add_lzs(variable = 'var', variable.length = 3)
+df %>% add_lzs(variable = 'var', variable.length = 3)
+#> # A tibble: 3 x 1
+#>   var  
+#>   <chr>
+#> 1 001  
+#> 2 011  
+#> 3 111
+```
 
 #### Arguments
 
@@ -1345,9 +1451,22 @@ Adds leading zeros to variable `var` of data frame such that
 
 ### `rm_temporaryFiles()`
 
-Remove all temporary files and folders.
+Remove all temporary files and folders:
 
-    rm_temporaryFiles(location.temporaryFiles = NULL)
+-   If there exist temporary files to be deleted, function
+    `rm_temporaryFiles()` returns
+
+``` r
+rm_temporaryFiles(location.temporaryFiles = NULL)
+#> Temporary files delete.
+```
+
+-   otherwise:
+
+``` r
+rm_temporaryFiles(location.temporaryFiles = NULL)
+#> Temporary file directory already empty. Nothing to delete.
+```
 
 #### Arguments
 

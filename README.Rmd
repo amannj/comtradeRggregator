@@ -182,7 +182,7 @@ Monthly trade data is only reported as 'HS Combined' (`HS`) which combines all r
 
 
 
-To install the latest development version of `comtradeRggregator` directly from [GitHub](amannj/comtradeRggregator), use:
+To install the latest development version of `comtradeRggregator` directly from [GitHub](https://github.com/amannj/comtradeRggregator), use:
 
 
 ```{r echo=TRUE, message=FALSE, warning=FALSE}
