@@ -13,8 +13,6 @@
 #' @keywords Comtrade data availability
 #' @export
 #' @import dplyr comtradr tibble readr rlang
-
-
 update_ComtradeDA <- function(directory = "data/Comtrade_DataAvailability",
                               file = paste0("Comtrade_DataAvailability-", Sys.Date())) {
   file_exists <- list.files(directory, pattern = file)
@@ -28,9 +26,9 @@ update_ComtradeDA <- function(directory = "data/Comtrade_DataAvailability",
       readr::write_csv(paste0(directory, "/", file, ".csv.gz"))
 
     message(paste0("\nComtrade Data Availability file updated and stored in file '", file, "' in folder '", directory, "'; will be used for look-up. Old files removed.\n"))
-    message('')
+    message("")
   } else if (!identical(file_exists, character(0))) {
     message(paste0("\nComtrade Data Availability file '", file, "'\n   in folder '", directory, "'\n   already exists and will be used for look-up.\n"))
-    message('')
+    message("")
   }
 }

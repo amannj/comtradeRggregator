@@ -136,7 +136,7 @@ check_args <- function(is, ok, arg) {
 #' @export
 #' @import dplyr comtradr tibble readr rlang
 #' @examples
-#' gen_lzs(c(1,2,5))
+#' gen_lzs(c(1, 2, 5))
 gen_lzs <- function(x) {
   if (is.numeric(x)) {
     lz <- function(x) {

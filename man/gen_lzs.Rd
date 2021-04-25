@@ -13,7 +13,7 @@ gen_lzs(x)
 Returns vectors with \code{x} repeated zeros based on input vector containing \code{x};
 }
 \examples{
-gen_lzs(c(1,2,5))
+gen_lzs(c(1, 2, 5))
 }
 \keyword{leading}
 \keyword{zero}

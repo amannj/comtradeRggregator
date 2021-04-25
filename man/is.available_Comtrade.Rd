@@ -47,11 +47,15 @@ will use this information no later than 24 hours after its publication.
 }
 \examples{
 \dontrun{
-is.available_Comtrade(frequency = 'annual', tradecode = 'H3', year = 2008)
-is.available_Comtrade(is.contained = c('Austria', 'Germany'),
-frequency = 'annual', tradecode = 'H2', year = 2012)
-is.available_Comtrade(is.contained = c('Austria', 'Germany'),
-frequency = 'monthly', month = '01', tradecode = 'H3', year = 2020)
+is.available_Comtrade(frequency = "annual", tradecode = "H3", year = 2008)
+is.available_Comtrade(
+  is.contained = c("Austria", "Germany"),
+  frequency = "annual", tradecode = "H2", year = 2012
+)
+is.available_Comtrade(
+  is.contained = c("Austria", "Germany"),
+  frequency = "monthly", month = "01", tradecode = "H3", year = 2020
+)
 }
 }
 \keyword{Availability}

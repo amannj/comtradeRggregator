@@ -24,26 +24,24 @@
 #' @import dplyr comtradr tibble readr rlang
 #' @examples
 #' \dontrun{
-#' is.available_Comtrade(frequency = 'annual', tradecode = 'H3', year = 2008)
-#' is.available_Comtrade(is.contained = c('Austria', 'Germany'),
-#' frequency = 'annual', tradecode = 'H2', year = 2012)
-#' is.available_Comtrade(is.contained = c('Austria', 'Germany'),
-#' frequency = 'monthly', month = '01', tradecode = 'H3', year = 2020)
+#' is.available_Comtrade(frequency = "annual", tradecode = "H3", year = 2008)
+#' is.available_Comtrade(
+#'   is.contained = c("Austria", "Germany"),
+#'   frequency = "annual", tradecode = "H2", year = 2012
+#' )
+#' is.available_Comtrade(
+#'   is.contained = c("Austria", "Germany"),
+#'   frequency = "monthly", month = "01", tradecode = "H3", year = 2020
+#' )
 #' }
-
-
-is.available_Comtrade <- function(
-  is.contained = NULL,
-  type = "commodities",
-  frequency = "annual",
-  month = NULL,
-  tradecode = "H3",
-  year = 2008,
-  directory = "data/Comtrade_DataAvailability",
-  file   = paste0("Comtrade_DataAvailability-", Sys.Date())) {
-
-
-
+is.available_Comtrade <- function(is.contained = NULL,
+                                  type = "commodities",
+                                  frequency = "annual",
+                                  month = NULL,
+                                  tradecode = "H3",
+                                  year = 2008,
+                                  directory = "data/Comtrade_DataAvailability",
+                                  file = paste0("Comtrade_DataAvailability-", Sys.Date())) {
 
   ## Download data availability file once per extract and day   ------------
   update_ComtradeDA(directory, file)
