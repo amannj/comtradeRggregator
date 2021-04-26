@@ -30,7 +30,7 @@ rm_temporaryFiles <- function(location.temporaryFiles = NULL) {
   tmp.Files <- list.files(file.dir)
 
   if (!identical(tmp.Files, character(0))) {
-    unlink(paste0(file.dir, "*"), recursive = TRUE, force = TRUE)
+    unlink(paste0(file.dir, "/*"), recursive = TRUE, force = TRUE)
     message("Temporary files delete.")
   } else {
     message("Temporary file directory already empty. Nothing to delete.")
