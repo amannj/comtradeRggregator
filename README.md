@@ -991,7 +991,7 @@ library(devtools)
 
 devtools::install_github("amannj/comtradeRggregator",
   ref = "master",
-  auth_token = "..."
+  auth_token = ""
 )
 ```
 
@@ -1035,9 +1035,14 @@ AT_World <- download_Comtrade(
 #> 
 #>  No Comtrade token specified; download restricted to 100 queries per hour.
 #> 
-#> New folder created in: 'data/tmp/2021-04-25_12.36PM'. Temporary files will be stored there.
+#> New folder created in: 'data/tmp/2021-04-26_05.15PM'. Temporary files will be stored there.
 #> 
-#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-25'
+#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-26'
+#>    in folder 'data/Comtrade_DataAvailability'
+#>    already exists and will be used for look-up.
+#> 
+#> 
+#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-26'
 #>    in folder 'data/Comtrade_DataAvailability'
 #>    already exists and will be used for look-up.
 #> 
@@ -1087,9 +1092,14 @@ download_Comtrade(
 #> 
 #>  No Comtrade token specified; download restricted to 99 queries per hour.
 #> 
-#> New folder created in: 'data/tmp/2021-04-25_12.38PM'. Temporary files will be stored there.
+#> New folder created in: 'data/tmp/2021-04-26_05.17PM'. Temporary files will be stored there.
 #> 
-#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-25'
+#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-26'
+#>    in folder 'data/Comtrade_DataAvailability'
+#>    already exists and will be used for look-up.
+#> 
+#> 
+#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-26'
 #>    in folder 'data/Comtrade_DataAvailability'
 #>    already exists and will be used for look-up.
 #> 
@@ -1148,7 +1158,7 @@ IM_DE_AT %>%
 #> [1] 1
 ```
 
-#### Arguments (use `?download_Comtrade` for full documentation)
+#### Arguments
 
 -   `year` - Year for which to extract data.
 
@@ -1229,6 +1239,8 @@ IM_DE_AT %>%
 -   `sleep` - Number of seconds to wait before the next Comtrade API
     query is started; default is 20.
 
+See `?download_Comtrade` for full documentation.
+
 ------------------------------------------------------------------------
 
 ### `is.available_Comtrade()`
@@ -1251,70 +1263,14 @@ da1 <- is.available_Comtrade(
   year = 2008
 )
 #> 
-#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-25'
+#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-26'
 #>    in folder 'data/Comtrade_DataAvailability'
 #>    already exists and will be used for look-up.
 #> 
 
-da1
-#>   [1] "China, Hong Kong SAR"             "Hungary"                         
-#>   [3] "Iceland"                          "Ireland"                         
-#>   [5] "Israel"                           "Italy"                           
-#>   [7] "Côte d'Ivoire"                    "Jamaica"                         
-#>   [9] "Japan"                            "Jordan"                          
-#>  [11] "Kenya"                            "Rep. of Korea"                   
-#>  [13] "Kyrgyzstan"                       "Lebanon"                         
-#>  [15] "Latvia"                           "Lithuania"                       
-#>  [17] "Luxembourg"                       "China, Macao SAR"                
-#>  [19] "Madagascar"                       "Malawi"                          
-#>  [21] "Maldives"                         "Mali"                            
-#>  [23] "Chile"                            "China"                           
-#>  [25] "Colombia"                         "Mayotte"                         
-#>  [27] "Cook Isds"                        "Costa Rica"                      
-#>  [29] "Croatia"                          "Cyprus"                          
-#>  [31] "Czechia"                          "Denmark"                         
-#>  [33] "Dominican Rep."                   "Ecuador"                         
-#>  [35] "El Salvador"                      "Ethiopia"                        
-#>  [37] "Estonia"                          "Faeroe Isds"                     
-#>  [39] "Fiji"                             "Finland"                         
-#>  [41] "France"                           "State of Palestine"              
-#>  [43] "Germany"                          "Greece"                          
-#>  [45] "Greenland"                        "Guatemala"                       
-#>  [47] "Guyana"                           "Malta"                           
-#>  [49] "Mauritius"                        "Mexico"                          
-#>  [51] "Montenegro"                       "Namibia"                         
-#>  [53] "Netherlands"                      "New Caledonia"                   
-#>  [55] "New Zealand"                      "Nicaragua"                       
-#>  [57] "Norway"                           "Pakistan"                        
-#>  [59] "Panama"                           "Paraguay"                        
-#>  [61] "Peru"                             "Poland"                          
-#>  [63] "Portugal"                         "Romania"                         
-#>  [65] "Russian Federation"               "United Arab Emirates"            
-#>  [67] "Tunisia"                          "Turkey"                          
-#>  [69] "Uganda"                           "North Macedonia"                 
-#>  [71] "Egypt"                            "United Kingdom"                  
-#>  [73] "United Rep. of Tanzania"          "USA"                             
-#>  [75] "Uruguay"                          "Zambia"                          
-#>  [77] "Saudi Arabia"                     "Senegal"                         
-#>  [79] "Serbia"                           "Singapore"                       
-#>  [81] "Slovakia"                         "Viet Nam"                        
-#>  [83] "Slovenia"                         "South Africa"                    
-#>  [85] "Zimbabwe"                         "Spain"                           
-#>  [87] "Fmr Sudan"                        "Eswatini"                        
-#>  [89] "Sweden"                           "Switzerland"                     
-#>  [91] "Syria"                            "Thailand"                        
-#>  [93] "Togo"                             "Tonga"                           
-#>  [95] "Trinidad and Tobago"              "Algeria"                         
-#>  [97] "Andorra"                          "Azerbaijan"                      
-#>  [99] "Argentina"                        "Australia"                       
-#> [101] "Austria"                          "Bangladesh"                      
-#> [103] "Armenia"                          "Belgium"                         
-#> [105] "Bhutan"                           "Bolivia (Plurinational State of)"
-#> [107] "Bosnia Herzegovina"               "Brazil"                          
-#> [109] "EU-28"                            "Bulgaria"                        
-#> [111] "Belarus"                          "Cambodia"                        
-#> [113] "Canada"                           "Cabo Verde"                      
-#> [115] "Sri Lanka"
+head(da1)
+#> [1] "China, Hong Kong SAR" "Hungary"              "Iceland"             
+#> [4] "Ireland"              "Israel"               "Italy"
 ```
 
 Similarly, you might want to know if a particular (set of)
@@ -1330,7 +1286,7 @@ da2 <- is.available_Comtrade(
   year = 2012
 )
 #> 
-#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-25'
+#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-26'
 #>    in folder 'data/Comtrade_DataAvailability'
 #>    already exists and will be used for look-up.
 #> 
@@ -1352,7 +1308,7 @@ da3 <- is.available_Comtrade(
   year = 2020
 )
 #> 
-#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-25'
+#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-26'
 #>    in folder 'data/Comtrade_DataAvailability'
 #>    already exists and will be used for look-up.
 #> 
@@ -1361,7 +1317,7 @@ da3
 #> [1] FALSE  TRUE
 ```
 
-#### Arguments (use `?is.available_Comtrade` for full documentation)
+#### Arguments
 
 -   `is.contained` - Check if a particular (set of) country/countries is
     available for a particular data set; default is `NULL` which returns
@@ -1392,11 +1348,14 @@ da3
 -   `directory` - Location of Comtrade Data Availability file; default
     is `Comtrade_DataAvailability-<time and date stamp>.csv.gz`.
 
+See `?is.available_Comtrade` for full documentation.
+
 ------------------------------------------------------------------------
 
 ### `convert_Comtrade()`
 
-> **Work in progress.**
+> **Work in progress: Currently only `H3` to `I3` concordance
+> implemented.**
 
 Sometimes you might wish to reclassify trade data from one
 classification to a different one. Function `convert_Comtrade()` offers
@@ -1410,7 +1369,7 @@ the [World Integrated Trade Solution
 
 Using the abbreviations and information from the concordance table
 above, if you want to convert your Comtrade data set from `H3` to `I3`
-(ISIC Rev. 3), run:
+(see `?H3_I3` for more information on concordance table), run:
 
 ``` r
 AT_World %>%
@@ -1436,7 +1395,7 @@ AT_World %>%
 #> # ... with 9,602 more rows
 ```
 
-#### Arguments (use `?is.available_Comtrade` for full documentation)
+#### Arguments
 
 -   `classification` - Name of variable containing the trade
     classification (e.g. `H3`); default is ‘classification’.
@@ -1446,6 +1405,8 @@ AT_World %>%
 
 -   `convert.to` - Abbreviation of target classification based on
     *Concordance table* provided above.
+
+See `?is.available_Comtrade` for full documentation.
 
 ------------------------------------------------------------------------
 
@@ -1466,11 +1427,13 @@ df %>% add_lzs(variable = "var", variable.length = 3)
 #> 3 111
 ```
 
-#### Arguments (use `?add_lzs` for full documentation)
+#### Arguments
 
 -   `variable` - A variable name.
 -   `length.variable` - The desired length of variable `variable`;
     i.e. `nchar(length.variable)`.
+
+See `?add_lzs` for full documentation.
 
 ------------------------------------------------------------------------
 
@@ -1493,13 +1456,15 @@ rm_temporaryFiles(location.temporaryFiles = NULL)
 #> Temporary file directory already empty. Nothing to delete.
 ```
 
-#### Arguments Arguments (use `?rm_temporaryFiles` for full documentation)
+#### Arguments Arguments
 
 -   `location.temporaryFiles` - Location of temporary file downloads;
     default is
     `<your package directory>\data\tmp\<date-and-time-stamp>`;
     alternatively specify the temporary download directory you wish to
     remove.
+
+See `?rm_temporaryFiles` for full documentation.
 
 ------------------------------------------------------------------------
 

@@ -296,7 +296,7 @@ IM_DE_AT %>%
 
 
 
-#### Arguments (use `?download_Comtrade` for full documentation)
+#### Arguments 
 
 -   `year` - Year for which to extract data.
 
@@ -335,7 +335,7 @@ IM_DE_AT %>%
 - `sleep` - Number of seconds to wait before the next Comtrade API query is started; default is 20.
 
 
-
+See `?download_Comtrade` for full documentation.
 
 
 
@@ -358,7 +358,7 @@ da1 <- is.available_Comtrade(
   year = 2008
 )
 
-da1
+head(da1)
 ```
 
 Similarly, you might want to know if a particular (set of) country/countries is available in a particular trade data set. To check if either `Austria` or `Germany` have `annual` trade data reported in `HS2007` for the year `2012`, run:
@@ -390,7 +390,7 @@ da3
 ```
 
 
-#### Arguments (use `?is.available_Comtrade` for full documentation)
+#### Arguments
 
 -   `is.contained` - Check if a particular (set of) country/countries is available for a particular data set; default is `NULL` which returns list of all countries available for a given data set.
 
@@ -409,6 +409,8 @@ da3
 - `directory` -  Location of Comtrade Data Availability file; default is `Comtrade_DataAvailability-<time and date stamp>.csv.gz`.
 
 
+See `?is.available_Comtrade` for full documentation.
+
 ------------------------------------------------------------------------
 
 ### `convert_Comtrade()`
@@ -422,7 +424,7 @@ providing official concordance tables from the [UN Statistics Division (UNSD)](h
 #### Examples
 
 
-Using the abbreviations and information from the concordance table above, if you want to convert your Comtrade data set from `H3` to `I3` (ISIC Rev. 3), run:
+Using the abbreviations and information from the concordance table above, if you want to convert your Comtrade data set from `H3` to `I3` (see `?H3_I3` for more information on concordance table), run:
 
 ```{r}
 AT_World %>%
@@ -434,9 +436,9 @@ AT_World %>%
   select(classification, commodity_code, `ISIC Revision 3 Product Code`)
 ```
 
-To learn more about this particular concordance table, type `?H3_I3`.
 
-#### Arguments (use `?is.available_Comtrade` for full documentation)
+
+#### Arguments 
 
 -   `classification` - Name of variable containing the trade classification (e.g. `H3`); default is 'classification'.
 
@@ -444,6 +446,7 @@ To learn more about this particular concordance table, type `?H3_I3`.
 
 - `convert.to` - Abbreviation of target classification based on *Concordance table* provided above.
 
+See `?is.available_Comtrade` for full documentation.
 
 ------------------------------------------------------------------------
 
@@ -459,10 +462,12 @@ df <- tibble(var = c("1", "11", "111"))
 df %>% add_lzs(variable = "var", variable.length = 3)
 ```
 
-#### Arguments (use `?add_lzs` for full documentation)
+#### Arguments 
 
 - `variable` - A variable name.
 - `length.variable` - The desired length of variable `variable`; i.e. `nchar(length.variable)`.
+
+See `?add_lzs` for full documentation.
 
 
 ------------------------------------------------------------------------
@@ -486,11 +491,11 @@ rm_temporaryFiles(location.temporaryFiles = NULL)
 
 ```
 
-#### Arguments Arguments (use `?rm_temporaryFiles` for full documentation)
+#### Arguments Arguments 
 
 -   `location.temporaryFiles` - Location of temporary file downloads; default is `<your package directory>\data\tmp\<date-and-time-stamp>`; alternatively specify the temporary download directory you wish to remove.
 
-
+See `?rm_temporaryFiles` for full documentation.
 
 ------------------------------------------------------------------------
 
