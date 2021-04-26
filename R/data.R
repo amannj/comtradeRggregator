@@ -1,7 +1,6 @@
 #' HS3 to ISIC Rev. 3 Concordance Table
 #'
 #' Concordance table between `HS3` and `ISIC Rev. 3`
-#' diamonds.
 #'
 #' @format A data frame with 5,052 rows and 4 variables:
 #' \describe{
