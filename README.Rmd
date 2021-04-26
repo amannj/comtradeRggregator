@@ -434,6 +434,7 @@ AT_World %>%
   select(classification, commodity_code, `ISIC Revision 3 Product Code`)
 ```
 
+To learn more about this particular concordance table, type `?H3_I3`.
 
 #### Arguments (use `?is.available_Comtrade` for full documentation)
 
