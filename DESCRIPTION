@@ -20,6 +20,7 @@ Depends:
     tibble,
     dplyr (> 1.0.4),
     readr,
-    rlang
+    rlang,
+    R (>= 2.10)
 Imports: 
     stringr
