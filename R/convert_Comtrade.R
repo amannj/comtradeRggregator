@@ -61,14 +61,9 @@ convert_Comtrade <- function(data,
 
   ### from H3 to I3 ---------------
   if (convert.from == "H3" & convert.to == "I3") {
-    df_cc <- readr::read_csv("data/Concordance_Tables/raw/JobID-48_Concordance_H3_to_I3.CSV",
-      col_types = readr::cols(.default = "c")
-    ) %>%
+    H3_I3 %>%
       ## Harmonise key var.
-      rename(!!.cc := `HS 2007 Product Code`) %>%
-      ## Add leading zeros to codes
-      add_lzs(variable = commodity.code, variable.length = 6) %>%
-      add_lzs(variable = "ISIC Revision 3 Product Code", variable.length = 4)
+      rename(!!.cc := `HS 2007 Product Code`)
 
     ### No concordance available ---------------
   } else {
