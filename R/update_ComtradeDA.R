@@ -13,7 +13,7 @@
 #' @keywords Comtrade data availability
 #' @export
 #' @import dplyr comtradr tibble readr rlang
-update_ComtradeDA <- function(directory = "data/Comtrade_DataAvailability",
+update_ComtradeDA <- function(directory = "data",
                               file = paste0("Comtrade_DataAvailability-", Sys.Date())) {
   file_exists <- list.files(directory, pattern = file)
 
@@ -23,12 +23,12 @@ update_ComtradeDA <- function(directory = "data/Comtrade_DataAvailability",
 
     url <- "https://comtrade.un.org/api/refs/da/view?fmt=csv"
     Comtrade_DA <- readr::read_csv(url, col_types = cols())
-    save(Comtrade_DA, file = paste0(directory, "/", file, ".RData"))
+    save(Comtrade_DA, file = paste0(directory, "/", file, ".rda"))
 
     message(paste0("\nComtrade Data Availability file updated and stored in file '", file, "' in folder '", directory, "'; will be used for look-up. Old files removed.\n"))
     message("")
   } else if (!identical(file_exists, character(0))) {
-    load(file = paste0(directory, "/", file, ".RData"))
+    load(file = paste0(directory, "/", file, ".rda"))
     message(paste0("\nComtrade Data Availability file '", file, "'\n   in folder '", directory, "'\n   already exists and will be used for look-up.\n"))
     message("")
   }

@@ -5,7 +5,7 @@
 \title{Update Comtrade Data Availability File}
 \usage{
 update_ComtradeDA(
-  directory = "data/Comtrade_DataAvailability",
+  directory = "data",
   file = paste0("Comtrade_DataAvailability-", Sys.Date())
 )
 }

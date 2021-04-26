@@ -11,7 +11,7 @@ is.available_Comtrade(
   month = NULL,
   tradecode = "H3",
   year = 2008,
-  directory = "data/Comtrade_DataAvailability",
+  directory = "data",
   file = paste0("Comtrade_DataAvailability-", Sys.Date())
 )
 }
