@@ -5,7 +5,7 @@
 #' `comtradeRggregator` uses trade information corresponding to
 #' [official Comtrade data availability](https://comtrade.un.org/data/da) which it updates once a day and stores locally on your machine:
 #'
-#'   `<your local package location>/data/Comtrade_DataAvailability/Comtrade_DataAvailability-<date stamp>.csv.gz`.
+#'   `<your local package location>/data/Comtrade_DataAvailability-<date stamp>.csv.gz`.
 #'
 #'   The locally stored Comtrade Data Availability file is used in every `download_Comtrade()` data query.
 #'   In other words, if new data becomes available and is documented in the
@@ -17,7 +17,7 @@
 #' @param month   Optional parameter for `monthly` extract; ignored for `annual` extracts; only takes one entry as monthly trade data availability varies by month.
 #' @param tradecode  Select trade database and classification to be extracted; default is `HS2007`; monthly trade data only available following `HS` classification; the full list of possible trade classifications and their corresponding input arguments used in the `comtradeRggregator` package are provided in *Table Supported Trade Classification*.
 #' @param year Year for which to extract data.
-#' @param directory Location of directory; default is `"data/Comtrade_DataAvailability"`.
+#' @param directory Location of directory; default is `"data"`.
 #' @param file Location of Comtrade Data Availability file; default is `Comtrade_DataAvailability-<time and date stamp>.csv.gz`
 #' @keywords Data Availability
 #' @export

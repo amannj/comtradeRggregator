@@ -4,11 +4,11 @@
 #' Data availability varies by country and classification, and new trade data is released/revised very frequently on [Comtrade](https://comtrade.un.org/).
 #' `comtradeRggregator` uses trade information corresponding to
 #' [official Comtrade data availability](https://comtrade.un.org/data/da) which it updates once a day and stores locally on your machine:
-#'   `<your local package location>/data/Comtrade_DataAvailability/Comtrade_DataAvailability-<date stamp>.csv.gz`
+#'   `<your local package location>/data/Comtrade_DataAvailability-<date stamp>.csv.gz`
 #'   The locally stored Comtrade Data Availability file is used in every `download_Comtrade()` data query.
 #'   In other words, if new data becomes available and is documented in the [official Comtrade data availability file](https://comtrade.un.org/data/da),
 #'   `comtradeRggregator` will use this information no later than 24 hours after its publication.
-#' @param directory Location of Comtrade Data Availability file; default is `data/Comtrade_DataAvailability/`
+#' @param directory Location of Comtrade Data Availability file; default is `data/`
 #' @param file Name of file containing information on Comtrade's data availability; default is `Comtrade_DataAvailability-<date stamp>`.
 #' @param type Type of trade data to be extracted (either `services` or `commodities`); currently only `type = commodities` implemented.
 #' @param frequency Frequency of data extract; either `annual` or `monthly`; default is `annual`.

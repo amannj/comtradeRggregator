@@ -28,7 +28,7 @@ is.available_Comtrade(
 
 \item{year}{Year for which to extract data.}
 
-\item{directory}{Location of directory; default is \code{"data/Comtrade_DataAvailability"}.}
+\item{directory}{Location of directory; default is \code{"data"}.}
 
 \item{file}{Location of Comtrade Data Availability file; default is \verb{Comtrade_DataAvailability-<time and date stamp>.csv.gz}}
 }
@@ -38,7 +38,7 @@ Data availability varies by country and classification, and new trade data is re
 \code{comtradeRggregator} uses trade information corresponding to
 \href{https://comtrade.un.org/data/da}{official Comtrade data availability} which it updates once a day and stores locally on your machine:
 
-\verb{<your local package location>/data/Comtrade_DataAvailability/Comtrade_DataAvailability-<date stamp>.csv.gz}.
+\verb{<your local package location>/data/Comtrade_DataAvailability-<date stamp>.csv.gz}.
 
 The locally stored Comtrade Data Availability file is used in every \code{download_Comtrade()} data query.
 In other words, if new data becomes available and is documented in the
