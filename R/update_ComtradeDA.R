@@ -13,12 +13,12 @@
 #' @keywords Comtrade data availability
 #' @export
 #' @import dplyr comtradr tibble readr rlang
-update_ComtradeDA <- function(directory = system.file('data', package = 'comtradeRggregator'),
+update_ComtradeDA <- function(directory = system.file("data", package = "comtradeRggregator"),
                               file = paste0("Comtrade_DataAvailability-", Sys.Date())) {
   file_exists <- list.files(directory, pattern = file)
 
   if (identical(file_exists, character(0))) {
-    file_old <- list.files(directory, pattern = 'Comtrade_DataAvailability-')
+    file_old <- list.files(directory, pattern = "Comtrade_DataAvailability-")
 
     if (!identical(file_exists, character(0))) {
       file.remove(paste0(directory, "/", file_old))

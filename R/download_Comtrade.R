@@ -38,8 +38,7 @@ download_Comtrade <- function(year = "2018", #  Years for which to extract
                               is.mirrorData = FALSE, # Extract mirrored trade data; only one country supported at the moment
                               rm.temporaryFiles = TRUE, # Remove temporary files from data download; default is false
                               location.temporaryFiles = NULL, # location of temporary file downloads; default is `<package-directory>\data\tmp\<date-and-time-stamp>
-                              sleep = 20
-) {
+                              sleep = 20) {
 
 
   # Check input arguments of `download_Comtrade()` ------------
@@ -117,13 +116,15 @@ download_Comtrade <- function(year = "2018", #  Years for which to extract
 
   ## Check `ag` ------
   ag <- toupper(ag)
-  ag.ok <- c('TOTAL', paste0("AG", c("1":"6")))
+  ag.ok <- c("TOTAL", paste0("AG", c("1":"6")))
   check_args(ag, ag.ok, "ag")
 
   ### Check if selected trade aggregation is reported in the respective database and return error if not.
-  .px <- eval_ag(ag = ag,
-                 tradecode = tradecode,
-                 frequency = frequency)
+  .px <- eval_ag(
+    ag = ag,
+    tradecode = tradecode,
+    frequency = frequency
+  )
 
 
   ## Check `type` ------
@@ -151,11 +152,11 @@ download_Comtrade <- function(year = "2018", #  Years for which to extract
   ### Adjust trade direction for mirror data queries.
   if (is.mirrorData) {
     direction <- ifelse(direction == "imports", "exports",
-                        ifelse(direction == "exports", "imports",
-                               ifelse(direction == "re_imports", "re_exports",
-                                      ifelse(direction == "re_exports", "re_imports", "all")
-                               )
-                        )
+      ifelse(direction == "exports", "imports",
+        ifelse(direction == "re_imports", "re_exports",
+          ifelse(direction == "re_exports", "re_imports", "all")
+        )
+      )
     )
   }
 
@@ -203,7 +204,7 @@ download_Comtrade <- function(year = "2018", #  Years for which to extract
 
 
   ## Define internal download directory -----------
-  int_ddir <- system.file('data', package = 'comtradeRggregator')
+  int_ddir <- system.file("data", package = "comtradeRggregator")
 
   # Generate folder structure for temporary downloads  ------------
   time_stamp <- format(Sys.time(), "%Y-%m-%d_%I.%M%p")
@@ -211,8 +212,8 @@ download_Comtrade <- function(year = "2018", #  Years for which to extract
   if (is.null(location.temporaryFiles)) {
 
     ## Check if `tmp` folder exists and create otherwise
-    if(identical(list.files(int_ddir, pattern = "tmp"), character(0))){
-      dir.create(paste0(int_ddir, '/tmp'))
+    if (identical(list.files(int_ddir, pattern = "tmp"), character(0))) {
+      dir.create(paste0(int_ddir, "/tmp"))
     }
 
     loc_folder <- paste0(int_ddir, "/tmp/", time_stamp)
@@ -238,8 +239,10 @@ download_Comtrade <- function(year = "2018", #  Years for which to extract
 
 
   # Download data availability file once per extract and day   ------------
-  Comtrade_DA <- update_ComtradeDA(directory = int_ddir,
-                                   file   = paste0("Comtrade_DataAvailability-", Sys.Date()))
+  Comtrade_DA <- update_ComtradeDA(
+    directory = int_ddir,
+    file = paste0("Comtrade_DataAvailability-", Sys.Date())
+  )
 
 
   # Extract COMTRADE data ------------
@@ -400,7 +403,7 @@ download_Comtrade <- function(year = "2018", #  Years for which to extract
           }
           ### Update message
           message(j, "/", J, " for ", ag, " and year ", t, " completed.")
-          message('')
+          message("")
         }
         ## Update index
         idx <- idx + .ext_cnt

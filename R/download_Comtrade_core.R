@@ -87,7 +87,7 @@ download_Comtrade_wrapper <- function(rep = "Austria",
 
   ## If error in data extract....
   while (!is.na(suppressWarnings(stringr::str_match(df_download[1], "hourly"))) |
-         !is.na(suppressWarnings(stringr::str_match(df_download[1], "409")))) {
+    !is.na(suppressWarnings(stringr::str_match(df_download[1], "409")))) {
     # ... wait for an hour ...
     message("...wait for 60 min.")
     rm(df_download)
