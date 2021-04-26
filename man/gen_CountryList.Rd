@@ -5,7 +5,7 @@
 \title{Check Available Countries for Comtrade Query}
 \usage{
 gen_CountryList(
-  directory = "data",
+  directory = system.file("data", package = "comtradeRggregator"),
   file = paste0("Comtrade_DataAvailability-", Sys.Date()),
   type = type,
   frequency = frequency,

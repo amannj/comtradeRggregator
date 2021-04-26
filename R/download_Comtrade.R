@@ -41,6 +41,7 @@ download_Comtrade <- function(year = "2018", #  Years for which to extract
                               sleep = 20
 ) {
 
+
   # Check input arguments of `download_Comtrade()` ------------
   ## Check `year` ------
   year.is <- as.numeric(year)
@@ -201,13 +202,21 @@ download_Comtrade <- function(year = "2018", #  Years for which to extract
   check_args(sleep, sleep.ok, "sleep")
 
 
+  ## Define internal download directory -----------
+  int_ddir <- system.file('data', package = 'comtradeRggregator')
 
   # Generate folder structure for temporary downloads  ------------
   time_stamp <- format(Sys.time(), "%Y-%m-%d_%I.%M%p")
 
   if (is.null(location.temporaryFiles)) {
-    loc_folder <- paste0("data/tmp/", time_stamp)
-    cur_folder_exists <- list.files(paste0("data/tmp/"), pattern = paste0(time_stamp))
+
+    ## Check if `tmp` folder exists and create otherwise
+    if(identical(list.files(int_ddir, pattern = "tmp"), character(0))){
+      dir.create(paste0(int_ddir, '/tmp'))
+    }
+
+    loc_folder <- paste0(int_ddir, "/tmp/", time_stamp)
+    cur_folder_exists <- list.files(paste0(int_ddir, "/tmp/"), pattern = paste0(time_stamp))
   } else if (is.strsclr(location.temporaryFiles)) {
     loc_folder <- paste0(location.temporaryFiles, "/", time_stamp)
     cur_folder_exists <- list.files(paste0(location.temporaryFiles, "/"), pattern = paste0(time_stamp))
@@ -224,8 +233,12 @@ download_Comtrade <- function(year = "2018", #  Years for which to extract
 
 
 
+
+
+
+
   # Download data availability file once per extract and day   ------------
-  Comtrade_DA <- update_ComtradeDA(directory = "data",
+  Comtrade_DA <- update_ComtradeDA(directory = int_ddir,
                                    file   = paste0("Comtrade_DataAvailability-", Sys.Date()))
 
 

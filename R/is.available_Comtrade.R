@@ -40,7 +40,7 @@ is.available_Comtrade <- function(is.contained = NULL,
                                   month = NULL,
                                   tradecode = "H3",
                                   year = 2008,
-                                  directory = "data",
+                                  directory = system.file('data', package = 'comtradeRggregator'),
                                   file = paste0("Comtrade_DataAvailability-", Sys.Date())) {
 
   ## Download data availability file once per extract and day   ------------

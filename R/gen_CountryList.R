@@ -20,7 +20,7 @@
 #' @import dplyr comtradr tibble readr rlang
 
 
-gen_CountryList <- function(directory = "data",
+gen_CountryList <- function(directory = system.file('data', package = 'comtradeRggregator'),
                             file = paste0("Comtrade_DataAvailability-", Sys.Date()),
                             type = type,
                             frequency = frequency,

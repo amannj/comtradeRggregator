@@ -19,7 +19,8 @@ rm_temporaryFiles <- function(location.temporaryFiles = NULL) {
 
   ## Obtain location of temporary directory
   if (is.null(location.temporaryFiles)) {
-    file.dir <- paste0("data/tmp/")
+    int_ddir <- system.file('data', package = 'comtradeRggregator')
+    file.dir <- paste0(int_ddir, "/tmp/")
   } else if (is.strsclr(location.temporaryFiles)) {
     file.dir <- location.temporaryFiles
   } else {
