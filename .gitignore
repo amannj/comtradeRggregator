@@ -4,3 +4,4 @@
 .httr-oauth
 .DS_Store
 data/tmp/*
+data/Comtrade_DataAvailability/*
