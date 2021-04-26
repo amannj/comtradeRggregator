@@ -21,6 +21,6 @@ Depends:
     dplyr (> 1.0.4),
     readr,
     rlang,
-    R (>= 2.10)
+    R (>= 3.5)
 Imports: 
     stringr
