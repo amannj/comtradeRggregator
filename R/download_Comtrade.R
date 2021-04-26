@@ -117,7 +117,7 @@ download_Comtrade <- function(year = "2018", #  Years for which to extract
 
   ## Check `ag` ------
   ag <- toupper(ag)
-  ag.ok <- paste0("AG", c("1":"6"))
+  ag.ok <- c('TOTAL', paste0("AG", c("1":"6")))
   check_args(ag, ag.ok, "ag")
 
   ### Check if selected trade aggregation is reported in the respective database and return error if not.

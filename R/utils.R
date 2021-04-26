@@ -41,43 +41,43 @@ eval_ag <- function(ag = ag,
   ## Match classifications
   if (tradecode == "HS" | tolower(frequency) == "monthly") {
     .px <- "HS"
-    is_ag <- c("AG2", "AG4", "AG6")
+    is_ag <- c("TOTAL", "AG2", "AG4", "AG6")
   } else if (tradecode == "HS1992") {
     .px <- "H0"
-    is_ag <- c("AG2", "AG4", "AG6")
+    is_ag <- c("TOTAL", "AG2", "AG4", "AG6")
   } else if (tradecode == "HS1996") {
     .px <- "H1"
-    is_ag <- c("AG2", "AG4", "AG6")
+    is_ag <- c("TOTAL", "AG2", "AG4", "AG6")
   } else if (tradecode == "HS2002") {
     .px <- "H2"
-    is_ag <- c("AG2", "AG4", "AG6")
+    is_ag <- c("TOTAL", "AG2", "AG4", "AG6")
   } else if (tradecode == "HS2007") {
     .px <- "H3"
-    is_ag <- c("AG2", "AG4", "AG6")
+    is_ag <- c("TOTAL", "AG2", "AG4", "AG6")
   } else if (tradecode == "HS2012") {
     .px <- "H4"
-    is_ag <- c("AG2", "AG4", "AG6")
+    is_ag <- c("TOTAL", "AG2", "AG4", "AG6")
   } else if (tradecode == "HS2017") {
     .px <- "H5"
-    is_ag <- c("AG2", "AG4", "AG6")
+    is_ag <- c("TOTAL", "AG2", "AG4", "AG6")
   } else if (tradecode == "SITC") {
     .px <- "ST"
-    is_ag <- c("AG1", "AG2", "AG3", "AG4", "AG5")
+    is_ag <- c("TOTAL", "AG1", "AG2", "AG3", "AG4", "AG5")
   } else if (tradecode == "SITCrev1") {
     .px <- "S1"
-    is_ag <- c("AG1", "AG2", "AG3", "AG4", "AG5")
+    is_ag <- c("TOTAL", "AG1", "AG2", "AG3", "AG4", "AG5")
   } else if (tradecode == "SITCrev2") {
     .px <- "S2"
-    is_ag <- c("AG1", "AG2", "AG3", "AG4", "AG5")
+    is_ag <- c("TOTAL", "AG1", "AG2", "AG3", "AG4", "AG5")
   } else if (tradecode == "SITCrev3") {
     .px <- "S3"
-    is_ag <- c("AG1", "AG2", "AG3", "AG4", "AG5")
+    is_ag <- c("TOTAL", "AG1", "AG2", "AG3", "AG4", "AG5")
   } else if (tradecode == "SITCrev4") {
     .px <- "S4"
-    is_ag <- c("AG1", "AG2", "AG3", "AG4", "AG5")
+    is_ag <- c("TOTAL", "AG1", "AG2", "AG3", "AG4", "AG5")
   } else if (tradecode == "BEC") {
     .px <- "BEC"
-    is_ag <- c("AG1", "AG2", "AG3")
+    is_ag <- c("TOTAL", "AG1", "AG2", "AG3")
   } else {
     stop("\nVariable 'tradecode' incorrectly specified.\n")
   }
