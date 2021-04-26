@@ -263,7 +263,7 @@ download_Comtrade <- function(year = "2018", #  Years for which to extract
     for (t in 1:length(time)) {
       ## Extract list of exporters for which in a given period (year or year-month) and trade classification data is available
       ls_cnt <- gen_CountryList(
-        directory = "data",
+        directory = int_ddir,
         file = paste0("Comtrade_DataAvailability-", Sys.Date()),
         type = type,
         frequency = frequency,
