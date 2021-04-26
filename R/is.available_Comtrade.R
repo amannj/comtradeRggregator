@@ -47,7 +47,7 @@ is.available_Comtrade <- function(is.contained = NULL,
   update_ComtradeDA(directory, file)
 
   if (tolower(frequency) == "annual") {
-    readr::read_csv(paste0(directory, "/", file, ".csv.gz"), col_types = cols()) %>%
+    Comtrade_DA %>%
       filter(
         type == toupper(type),
         freq == toupper(frequency),
