@@ -22,8 +22,8 @@ update_ComtradeDA <- function(directory = "data/Comtrade_DataAvailability",
     file.remove(paste0(directory, "/", file_old))
 
     url <- "https://comtrade.un.org/api/refs/da/view?fmt=csv"
-    df <- readr::read_csv(url, col_types = cols())
-    save(df, file = paste0(directory, "/", file, ".RData"))
+    Comtrade_DA <- readr::read_csv(url, col_types = cols())
+    save(Comtrade_DA, file = paste0(directory, "/", file, ".RData"))
 
     message(paste0("\nComtrade Data Availability file updated and stored in file '", file, "' in folder '", directory, "'; will be used for look-up. Old files removed.\n"))
     message("")

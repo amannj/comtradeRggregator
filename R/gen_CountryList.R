@@ -29,7 +29,7 @@ gen_CountryList <- function(directory = "data/Comtrade_DataAvailability",
                             t = t) {
 
   ## Extract Comtrade Data Availability file
-  readr::read_csv(paste0(directory, "/", file, ".RData"), col_types = cols()) %>%
+  Comtrade_DA %>%
     select(type, freq, px, rDesc, ps, px) %>%
     filter(type == toupper(type) & freq == toupper(frequency)) -> ls_cnt
 
