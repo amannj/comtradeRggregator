@@ -225,8 +225,8 @@ download_Comtrade <- function(year = "2018", #  Years for which to extract
 
 
   # Download data availability file once per extract and day   ------------
-  update_ComtradeDA(directory = "data/Comtrade_DataAvailability",
-                    file   = paste0("Comtrade_DataAvailability-", Sys.Date()))
+  Comtrade_DA <- update_ComtradeDA(directory = "data/Comtrade_DataAvailability",
+                                   file   = paste0("Comtrade_DataAvailability-", Sys.Date()))
 
 
   # Extract COMTRADE data ------------

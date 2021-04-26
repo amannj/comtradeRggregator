@@ -28,7 +28,9 @@ update_ComtradeDA <- function(directory = "data/Comtrade_DataAvailability",
     message(paste0("\nComtrade Data Availability file updated and stored in file '", file, "' in folder '", directory, "'; will be used for look-up. Old files removed.\n"))
     message("")
   } else if (!identical(file_exists, character(0))) {
+    load(file = paste0(directory, "/", file, ".RData"))
     message(paste0("\nComtrade Data Availability file '", file, "'\n   in folder '", directory, "'\n   already exists and will be used for look-up.\n"))
     message("")
   }
+  return(Comtrade_DA)
 }

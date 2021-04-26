@@ -28,6 +28,8 @@ gen_CountryList <- function(directory = "data/Comtrade_DataAvailability",
                             px = .px,
                             t = t) {
 
+  ## Check if update necessary first
+  Comtrade_DA <- update_ComtradeDA(directory, file)
   ## Extract Comtrade Data Availability file
   Comtrade_DA %>%
     select(type, freq, px, rDesc, ps, px) %>%

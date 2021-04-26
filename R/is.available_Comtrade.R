@@ -44,13 +44,14 @@ is.available_Comtrade <- function(is.contained = NULL,
                                   file = paste0("Comtrade_DataAvailability-", Sys.Date())) {
 
   ## Download data availability file once per extract and day   ------------
-  update_ComtradeDA(directory, file)
+  Comtrade_DA <- update_ComtradeDA(directory, file) %>%
+    filter(
+      type == toupper(type),
+      freq == toupper(frequency))
 
   if (tolower(frequency) == "annual") {
     Comtrade_DA %>%
       filter(
-        type == toupper(type),
-        freq == toupper(frequency),
         px == tradecode,
         ps == year
       ) %>%
@@ -64,10 +65,8 @@ is.available_Comtrade <- function(is.contained = NULL,
     if (length(month) > 1) {
       stop("Monthly data coverage varies by month; please only provide one month.")
     }
-    readr::read_csv(paste0(directory, "/", file, ".csv.gz"), col_types = cols()) %>%
+    Comtrade_DA %>%
       filter(
-        type == toupper(type),
-        freq == toupper(frequency),
         ps == paste0(year, month)
       ) %>%
       pull(rDesc) -> ls_cnt
