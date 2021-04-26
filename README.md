@@ -68,19 +68,19 @@ absent from either the [Comtrade](https://comtrade.un.org) or
 
 | Description (common abbreviation)                                    | Trade code (input argument `tradecode`) | Level of (dis-)aggregation for input argument `ag` |
 |----------------------------------------------------------------------|-----------------------------------------|----------------------------------------------------|
-| HS combined,as reported (HS)                                         | `HS`                                    | `AG2`, `AG4`, `AG6`                                |
-| HS 1988/1992 (H0)                                                    | `HS1992`                                | `AG2`, `AG4`, `AG6`                                |
-| HS 1996 (H1)                                                         | `HS1996`                                | `AG2`, `AG4`, `AG6`                                |
-| HS 2002 (H2)                                                         | `HS2002`                                | `AG2`, `AG4`, `AG6`                                |
-| HS 2007 (H3)                                                         | `HS2007`                                | `AG2`, `AG4`, `AG6`                                |
-| HS 2012 (H4)                                                         | `HS2012`                                | `AG2`, `AG4`, `AG6`                                |
-| HS 2017 (H5)                                                         | `HS2017`                                | `AG2`, `AG4`, `AG6`                                |
-| Standard International Trade Classification (SITC), as reported (ST) | `SITC`                                  | `AG1`, `AG3`, `AG3`, `AG4`, `AG5`                  |
-| SITC Revision 1 (S1)                                                 | `SITCrev1`                              | `AG1`, `AG3`, `AG3`, `AG4`, `AG5`                  |
-| SITC Revision 2 (S2)                                                 | `SITCrev2`                              | `AG1`, `AG3`, `AG3`, `AG4`, `AG5`                  |
-| SITC Revision 3 (S3)                                                 | `SITCrev3`                              | `AG1`, `AG3`, `AG3`, `AG4`, `AG5`                  |
-| SITC Revision 4 (S4)                                                 | `SITCrev4`                              | `AG1`, `AG3`, `AG3`, `AG4`, `AG5`                  |
-| Broad Economic Categories (BEC)                                      | `BEC`                                   | `AG1`, `AG3`, `AG3`                                |
+| HS combined,as reported (HS)                                         | `HS`                                    | `TOTAL`,`AG2`, `AG4`, `AG6`                        |
+| HS 1988/1992 (H0)                                                    | `HS1992`                                | `TOTAL`,`AG2`, `AG4`, `AG6`                        |
+| HS 1996 (H1)                                                         | `HS1996`                                | `TOTAL`,`AG2`, `AG4`, `AG6`                        |
+| HS 2002 (H2)                                                         | `HS2002`                                | `TOTAL`,`AG2`, `AG4`, `AG6`                        |
+| HS 2007 (H3)                                                         | `HS2007`                                | `TOTAL`,`AG2`, `AG4`, `AG6`                        |
+| HS 2012 (H4)                                                         | `HS2012`                                | `TOTAL`,`AG2`, `AG4`, `AG6`                        |
+| HS 2017 (H5)                                                         | `HS2017`                                | `TOTAL`,`AG2`, `AG4`, `AG6`                        |
+| Standard International Trade Classification (SITC), as reported (ST) | `SITC`                                  | `TOTAL`,`AG1`, `AG3`, `AG3`, `AG4`, `AG5`          |
+| SITC Revision 1 (S1)                                                 | `SITCrev1`                              | `TOTAL`,`AG1`, `AG3`, `AG3`, `AG4`, `AG5`          |
+| SITC Revision 2 (S2)                                                 | `SITCrev2`                              | `TOTAL`,`AG1`, `AG3`, `AG3`, `AG4`, `AG5`          |
+| SITC Revision 3 (S3)                                                 | `SITCrev3`                              | `TOTAL`,`AG1`, `AG3`, `AG3`, `AG4`, `AG5`          |
+| SITC Revision 4 (S4)                                                 | `SITCrev4`                              | `TOTAL`,`AG1`, `AG3`, `AG3`, `AG4`, `AG5`          |
+| Broad Economic Categories (BEC)                                      | `BEC`                                   | `TOTAL`,`AG1`, `AG3`, `AG3`                        |
 | ~~Extended Balance of Payments Services Classification (EB02)~~      | ~~`EB02`~~                              |                                                    |
 
 -   Supports extraction of `annual` as well as `monthly`
@@ -958,7 +958,7 @@ information corresponding to [official Comtrade data
 availability](https://comtrade.un.org/data/da) which it updates once a
 day and stores locally on your machine:
 
-`<your local package location>/data/Comtrade_DataAvailability/Comtrade_DataAvailability-<date stamp>.csv.gz`
+`<your local package location>/data/Comtrade_DataAvailability-<date stamp>.csv.gz`
 
 The locally stored Comtrade Data Availability file is used in every
 `download_Comtrade()` data query. In other words, if new data becomes
@@ -989,9 +989,17 @@ use:
 ``` r
 library(devtools)
 
+## Download/reinstall `comtradr` to use some minor bug fixes
+devtools::install_github("amannj/comtradr",
+  ref = "sitc-bug",
+  force = TRUE
+)
+
+## Download `comtradeRggregator`; privat repository, therefore requires `auth_token`.
 devtools::install_github("amannj/comtradeRggregator",
   ref = "master",
-  auth_token = ""
+  auth_token = "...",
+  force = TRUE
 )
 ```
 
@@ -1032,18 +1040,18 @@ AT_World <- download_Comtrade(
   select.stats = "trade_value_usd",
   direction = "all"
 )
+#> Warning: JSON string contains (illegal) UTF8 byte-order-mark!
+#> Updates found. The following datasets have been downloaded: commodities DB, countries DB
 #> 
 #>  No Comtrade token specified; download restricted to 100 queries per hour.
 #> 
-#> New folder created in: 'data/tmp/2021-04-26_05.15PM'. Temporary files will be stored there.
+#> New folder created in: 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data/tmp/2021-04-26_11.38PM'. Temporary files will be stored there.
 #> 
-#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-26'
-#>    in folder 'data/Comtrade_DataAvailability'
-#>    already exists and will be used for look-up.
+#> Comtrade Data Availability file updated and stored in file 'Comtrade_DataAvailability-2021-04-26' in folder 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data'; will be used for look-up. Old files removed.
 #> 
 #> 
 #> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-26'
-#>    in folder 'data/Comtrade_DataAvailability'
+#>    in folder 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data'
 #>    already exists and will be used for look-up.
 #> 
 #> 
@@ -1092,15 +1100,15 @@ download_Comtrade(
 #> 
 #>  No Comtrade token specified; download restricted to 99 queries per hour.
 #> 
-#> New folder created in: 'data/tmp/2021-04-26_05.17PM'. Temporary files will be stored there.
+#> New folder created in: 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data/tmp/2021-04-26_11.39PM'. Temporary files will be stored there.
 #> 
 #> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-26'
-#>    in folder 'data/Comtrade_DataAvailability'
+#>    in folder 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data'
 #>    already exists and will be used for look-up.
 #> 
 #> 
 #> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-26'
-#>    in folder 'data/Comtrade_DataAvailability'
+#>    in folder 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data'
 #>    already exists and will be used for look-up.
 #> 
 #> 
@@ -1264,7 +1272,7 @@ da1 <- is.available_Comtrade(
 )
 #> 
 #> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-26'
-#>    in folder 'data/Comtrade_DataAvailability'
+#>    in folder 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data'
 #>    already exists and will be used for look-up.
 #> 
 
@@ -1287,7 +1295,7 @@ da2 <- is.available_Comtrade(
 )
 #> 
 #> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-26'
-#>    in folder 'data/Comtrade_DataAvailability'
+#>    in folder 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data'
 #>    already exists and will be used for look-up.
 #> 
 
@@ -1309,7 +1317,7 @@ da3 <- is.available_Comtrade(
 )
 #> 
 #> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-26'
-#>    in folder 'data/Comtrade_DataAvailability'
+#>    in folder 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data'
 #>    already exists and will be used for look-up.
 #> 
 
@@ -1342,8 +1350,7 @@ da3
 
 -   `year` - Year for which to extract data.
 
--   `folder` - Location of directory; default is
-    `"data/Comtrade_DataAvailability"`.
+-   `folder` - Location of directory; default is `"data"`.
 
 -   `directory` - Location of Comtrade Data Availability file; default
     is `Comtrade_DataAvailability-<time and date stamp>.csv.gz`.
