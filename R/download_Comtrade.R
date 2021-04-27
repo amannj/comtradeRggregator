@@ -322,7 +322,7 @@ download_Comtrade <- function(year = "2018", #  Years for which to extract
 
           ### All imports and exports for a list of up to five countries (non-mirrored countries)
           if (is.mirrorData == FALSE) {
-            if (partners == "World") {
+            if ("World" %in% partners & is.strsclr(partners)) {
               df_download_all <- download_Comtrade_wrapper(
                 rep = i,
                 partners = partners,
