@@ -20,7 +20,7 @@ update_ComtradeDA <- function(directory = system.file("data", package = "comtrad
   if (identical(file_exists, character(0))) {
     file_old <- list.files(directory, pattern = "Comtrade_DataAvailability-")
 
-    if (!identical(file_exists, character(0))) {
+    if (!identical(file_old, character(0))) {
       file.remove(paste0(directory, "/", file_old))
     }
 
