@@ -1045,12 +1045,12 @@ AT_World <- download_Comtrade(
 #> 
 #>  No Comtrade token specified; download restricted to 100 queries per hour.
 #> 
-#> New folder created in: 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data/tmp/2021-04-26_11.38PM'. Temporary files will be stored there.
+#> New folder created in: 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data/tmp/2021-04-27_09.38AM'. Temporary files will be stored there.
 #> 
-#> Comtrade Data Availability file updated and stored in file 'Comtrade_DataAvailability-2021-04-26' in folder 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data'; will be used for look-up. Old files removed.
+#> Comtrade Data Availability file updated and stored in file 'Comtrade_DataAvailability-2021-04-27' in folder 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data'; will be used for look-up. Old files removed.
 #> 
 #> 
-#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-26'
+#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-27'
 #>    in folder 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data'
 #>    already exists and will be used for look-up.
 #> 
@@ -1100,14 +1100,14 @@ download_Comtrade(
 #> 
 #>  No Comtrade token specified; download restricted to 99 queries per hour.
 #> 
-#> New folder created in: 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data/tmp/2021-04-26_11.39PM'. Temporary files will be stored there.
+#> New folder created in: 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data/tmp/2021-04-27_09.40AM'. Temporary files will be stored there.
 #> 
-#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-26'
+#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-27'
 #>    in folder 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data'
 #>    already exists and will be used for look-up.
 #> 
 #> 
-#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-26'
+#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-27'
 #>    in folder 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data'
 #>    already exists and will be used for look-up.
 #> 
@@ -1271,7 +1271,7 @@ da1 <- is.available_Comtrade(
   year = 2008
 )
 #> 
-#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-26'
+#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-27'
 #>    in folder 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data'
 #>    already exists and will be used for look-up.
 #> 
@@ -1294,7 +1294,7 @@ da2 <- is.available_Comtrade(
   year = 2012
 )
 #> 
-#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-26'
+#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-27'
 #>    in folder 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data'
 #>    already exists and will be used for look-up.
 #> 
@@ -1316,7 +1316,7 @@ da3 <- is.available_Comtrade(
   year = 2020
 )
 #> 
-#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-26'
+#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-27'
 #>    in folder 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data'
 #>    already exists and will be used for look-up.
 #> 
