@@ -67,22 +67,22 @@ The goal of the `comtradeRggregator` package is to provide a simple tool to down
 
 *Table Supported Trade Classification*
 
-| Description  (common abbreviation)                                    | Trade code (input argument `tradecode`)                   | Level of (dis-)aggregation for input argument `ag` |
-|-----------------------------------------------------------------------|-----------------------------------------------------------|----------------------------------------------------|
-| HS combined,as reported (HS)                                          | `HS`                                                      | `TOTAL`,`AG2`, `AG4`, `AG6`                        |
-| HS 1988/1992 (H0)                                                     | `HS1992`                                                  | `TOTAL`,`AG2`, `AG4`, `AG6`                        |
-| HS 1996 (H1)                                                          | `HS1996`                                                  | `TOTAL`,`AG2`, `AG4`, `AG6`                        |
-| HS 2002 (H2)                                                          | `HS2002`                                                  | `TOTAL`,`AG2`, `AG4`, `AG6`                        |
-| HS 2007 (H3)                                                          | `HS2007`                                                  | `TOTAL`,`AG2`, `AG4`, `AG6`                        |
-| HS 2012 (H4)                                                          | `HS2012`                                                  | `TOTAL`,`AG2`, `AG4`, `AG6`                        |
-| HS 2017 (H5)                                                          | `HS2017`                                                  | `TOTAL`,`AG2`, `AG4`, `AG6`                        |
-| Standard International Trade Classification (SITC), as reported (ST)  | `SITC`                                                    | `TOTAL`,`AG1`, `AG3`, `AG3`, `AG4`, `AG5`          |
-| SITC Revision 1 (S1)                                                  | `SITCrev1`                                                | `TOTAL`,`AG1`, `AG3`, `AG3`, `AG4`, `AG5`          |
-| SITC Revision 2 (S2)                                                  | `SITCrev2`                                                | `TOTAL`,`AG1`, `AG3`, `AG3`, `AG4`, `AG5`          |
-| SITC Revision 3 (S3)                                                  | `SITCrev3`                                                | `TOTAL`,`AG1`, `AG3`, `AG3`, `AG4`, `AG5`          |
-| SITC Revision 4 (S4)                                                  | `SITCrev4`                                                | `TOTAL`,`AG1`, `AG3`, `AG3`, `AG4`, `AG5`          |
-| Broad Economic Categories (BEC)                                       | `BEC`                                                     | `TOTAL`,`AG1`, `AG3`, `AG3`                        |
-| ~~Extended Balance of Payments Services Classification (EB02)~~       | ~~`EB02`~~                                                |                                                    |
+| Description                                                           | Trade code; use either version as input argument for `tradecode`   | Level of (dis-)aggregation for input argument `ag` |
+|-----------------------------------------------------------------------|--------------------------------------------------------------------|----------------------------------------------------|
+| HS combined,as reported                                               | `HS`                                                               | `TOTAL`,`AG2`, `AG4`, `AG6`                        |
+| HS 1988/1992                                                          | `HS1992`, `H0`                                                     | `TOTAL`,`AG2`, `AG4`, `AG6`                        |
+| HS 1996                                                               | `HS1996`, `H1`                                                     | `TOTAL`,`AG2`, `AG4`, `AG6`                        |
+| HS 2002                                                               | `HS2002`, `H2`                                                     | `TOTAL`,`AG2`, `AG4`, `AG6`                        |
+| HS 2007                                                               | `HS2007`, `H3`                                                     | `TOTAL`,`AG2`, `AG4`, `AG6`                        |
+| HS 2012                                                               | `HS2012`, `H4`                                                     | `TOTAL`,`AG2`, `AG4`, `AG6`                        |
+| HS 2017                                                               | `HS2017`, `H5`                                                     | `TOTAL`,`AG2`, `AG4`, `AG6`                        |
+| SITC Standard International Trade Classification, as reported         | `SITC`, `ST`                                                       | `TOTAL`,`AG1`, `AG3`, `AG3`, `AG4`, `AG5`          |
+| SITC Revision 1                                                       | `SITCrev1`, `S1`                                                   | `TOTAL`,`AG1`, `AG3`, `AG3`, `AG4`, `AG5`          |
+| SITC Revision 2                                                       | `SITCrev2`, `S2`                                                   | `TOTAL`,`AG1`, `AG3`, `AG3`, `AG4`, `AG5`          |
+| SITC Revision 3                                                       | `SITCrev3`, `S3`                                                   | `TOTAL`,`AG1`, `AG3`, `AG3`, `AG4`, `AG5`          |
+| SITC Revision 4                                                       | `SITCrev4`, `S4`                                                   | `TOTAL`,`AG1`, `AG3`, `AG3`, `AG4`, `AG5`          |
+| Broad Economic Categories                                             | `BEC`                                                              | `TOTAL`,`AG1`, `AG3`, `AG3`                        |
+| ~~Extended Balance of Payments Services Classification~~              | ~~`EB02`~~                                                         |                                                    |
 
 
 -   Supports extraction of `annual` as well as `monthly` [Comtrade](https://comtrade.un.org) trade data.
@@ -264,7 +264,7 @@ download_Comtrade(
 )
 ```
 
-Sometimes trade data between countries does not add up. For example, say, in 2020 country A reported USD $X$ millions exports to country B while B was reporting USD $Y$ millions, where $X \neq Y$. In such cases it makes sense to use [mirrored Comtrade trade data](https://wits.worldbank.org/wits/wits/witshelp/Content/Data_Retrieval/T/Intro/B2.Imports_Exports_and_Mirror.htm). The function `download_Comtrade()` offers an easy option to accomplish this. The relation of the queries used for the extraction of trade data and mirrored trade data is illustrated in the example below.: Reported imports by Germany from Austria and reported mirrored exports by Austria to Germany are identical by definition:
+Sometimes trade data between countries does not add up. For example, say, in 2020 country A reported USD $X$ millions exports to country B while B was reporting USD $Y$ millions, where $X \neq Y$. In such cases it makes sense to use [mirrored Comtrade trade data](https://wits.worldbank.org/wits/wits/witshelp/Content/Data_Retrieval/T/Intro/B2.Imports_Exports_and_Mirror.htm). The function `download_Comtrade()` offers an easy option to accomplish this. The relation of the queries used for the extraction of trade data and mirrored trade data is illustrated in the example below: Reported imports by Germany from Austria and reported mirrored exports by Austria to Germany are identical by definition:
 
 
 ```{r message=FALSE, warning=FALSE}
@@ -291,7 +291,8 @@ mirrX_AT_DE <- download_Comtrade(
   select.stats = "trade_value_usd",
   direction = "exports",
   type = "commodities",
-  is.mirrorData = TRUE
+  is.mirrorData = TRUE,
+  rm.temporaryFiles = FALSE
 )
 
 IM_DE_AT %>%
