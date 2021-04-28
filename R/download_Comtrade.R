@@ -411,11 +411,16 @@ download_Comtrade <- function(year = "2018", #  Years for which to extract
     }
   }
 
-  # Aggregate data, remove tmp files and save   ------------
-  build_Comtrade(
+  # Aggregate data, remove tmp files and return object ------------
+  df_out <- build_Comtrade(
     directory = loc_folder,
     rm.temporaryFiles = rm.temporaryFiles,
     is.mirrorData = is.mirrorData,
     partner = partners
   )
+
+  if (nrow(df_out) == 0) {
+    warning('Data query did not produce any results. Empty data frame is returned.')
+  }
+  return(df_out)
 }
