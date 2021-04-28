@@ -478,7 +478,7 @@ download_Comtrade(
 
 
 # Test 7: Check all concordance tables for HS to ... -------------------------------
-codes <- c('BE', 'CC', 'CP', 'GP', 'H0', 'H1', 'H2', 'I2', 'I3', 'IU', 'MT', 'S1', 'S2', 'S3')
+codes <- c('BE', 'CC', 'CP', 'GP', 'H0', 'H1', 'H2', 'I2', 'I3', 'IU', 'MT', 'S1', 'S2', 'S3', 'S4')
 
 for(c in codes) {
 AT_World %>%

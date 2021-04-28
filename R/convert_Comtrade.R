@@ -129,6 +129,11 @@ convert_Comtrade <- function(data,
     df_cc <- H3_S3 %>%
       ## Harmonise key var.
       rename(!!.cc := `HS 2007 Product Code`)
+  } else if (convert.from == "H3" & convert.to == "S4") {
+    ### from H3 to S3 ---------------
+    df_cc <- H3_S4 %>%
+      ## Harmonise key var.
+      rename(!!.cc := `HS 2007 Product Code`)
   } else {
     ### No concordance available ---------------
     stop("No concordance table available.")
