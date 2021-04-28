@@ -59,13 +59,78 @@ convert_Comtrade <- function(data,
 
   # Look through concordance tables
 
-  ### from H3 to I3 ---------------
-  if (convert.from == "H3" & convert.to == "I3") {
+  if (convert.from == "H3" & convert.to == "BE") {
+    ### from H3 to BE ---------------
+    df_cc <- H3_BE %>%
+      ## Harmonise key var.
+      rename(!!.cc := `HS 2007 Product Code`)
+  } else if (convert.from == "H3" & convert.to == "CC") {
+    ### from H3 to CC ---------------
+    df_cc <- H3_CC %>%
+      ## Harmonise key var.
+      rename(!!.cc := `HS 2007 Product Code`)
+  } else if (convert.from == "H3" & convert.to == "CP") {
+    ### from H3 to CP ---------------
+    df_cc <- H3_CP %>%
+      ## Harmonise key var.
+      rename(!!.cc := `HS 2007 Product Code`)
+  } else if (convert.from == "H3" & convert.to == "GP") {
+    ### from H3 to GP ---------------
+    df_cc <- H3_GP %>%
+      ## Harmonise key var.
+      rename(!!.cc := `HS 2007 Product Code`)
+  } else if (convert.from == "H3" & convert.to == "H0") {
+    ### from H3 to H0 ---------------
+    df_cc <- H3_H0 %>%
+      ## Harmonise key var.
+      rename(!!.cc := `HS 2007 Product Code`)
+  } else if (convert.from == "H3" & convert.to == "H1") {
+    ### from H3 to H1 ---------------
+    df_cc <- H3_H1 %>%
+      ## Harmonise key var.
+      rename(!!.cc := `HS 2007 Product Code`)
+  } else if (convert.from == "H3" & convert.to == "H2") {
+    ### from H3 to H2 ---------------
+    df_cc <- H3_H2 %>%
+      ## Harmonise key var.
+      rename(!!.cc := `HS 2007 Product Code`)
+  } else if (convert.from == "H3" & convert.to == "I2") {
+    ### from H3 to I2 ---------------
+    df_cc <- H3_I2 %>%
+      ## Harmonise key var.
+      rename(!!.cc := `HS 2007 Product Code`)
+  } else if (convert.from == "H3" & convert.to == "I3") {
+    ### from H3 to I3 ---------------
     df_cc <- H3_I3 %>%
       ## Harmonise key var.
       rename(!!.cc := `HS 2007 Product Code`)
-    ### No concordance available ---------------
+  } else if (convert.from == "H3" & convert.to == "IU") {
+    ### from H3 to IU ---------------
+    df_cc <- H3_IU %>%
+      ## Harmonise key var.
+      rename(!!.cc := `HS 2007 Product Code`)
+  } else if (convert.from == "H3" & convert.to == "MT") {
+    ### from H3 to MT ---------------
+    df_cc <- H3_MT %>%
+      ## Harmonise key var.
+      rename(!!.cc := `HS 2007 Product Code`)
+  } else if (convert.from == "H3" & convert.to == "S1") {
+    ### from H3 to S1 ---------------
+    df_cc <- H3_S1 %>%
+      ## Harmonise key var.
+      rename(!!.cc := `HS 2007 Product Code`)
+  } else if (convert.from == "H3" & convert.to == "S2") {
+    ### from H3 to S2 ---------------
+    df_cc <- H3_S2 %>%
+      ## Harmonise key var.
+      rename(!!.cc := `HS 2007 Product Code`)
+  } else if (convert.from == "H3" & convert.to == "S3") {
+    ### from H3 to S3 ---------------
+    df_cc <- H3_S3 %>%
+      ## Harmonise key var.
+      rename(!!.cc := `HS 2007 Product Code`)
   } else {
+    ### No concordance available ---------------
     stop("No concordance table available.")
   }
 
