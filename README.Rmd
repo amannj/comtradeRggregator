@@ -67,9 +67,9 @@ The goal of the `comtradeRggregator` package is to provide a simple tool to down
 
 *Table Supported Trade Classification*
 
-| Description                                                           | Trade code; use either version as input argument for `tradecode`   | Level of (dis-)aggregation for input argument `ag` |
+| Description                                                           | Trade code; use either version as input for argument `tradecode`   | Level of (dis-)aggregation for input argument `ag` |
 |-----------------------------------------------------------------------|--------------------------------------------------------------------|----------------------------------------------------|
-| HS combined,as reported                                               | `HS`                                                               | `TOTAL`,`AG2`, `AG4`, `AG6`                        |
+| HS combined, as reported                                              | `HS`                                                               | `TOTAL`,`AG2`, `AG4`, `AG6`                        |
 | HS 1988/1992                                                          | `HS1992`, `H0`                                                     | `TOTAL`,`AG2`, `AG4`, `AG6`                        |
 | HS 1996                                                               | `HS1996`, `H1`                                                     | `TOTAL`,`AG2`, `AG4`, `AG6`                        |
 | HS 2002                                                               | `HS2002`, `H2`                                                     | `TOTAL`,`AG2`, `AG4`, `AG6`                        |
@@ -82,7 +82,7 @@ The goal of the `comtradeRggregator` package is to provide a simple tool to down
 | SITC Revision 3                                                       | `SITCrev3`, `S3`                                                   | `TOTAL`,`AG1`, `AG3`, `AG3`, `AG4`, `AG5`          |
 | SITC Revision 4                                                       | `SITCrev4`, `S4`                                                   | `TOTAL`,`AG1`, `AG3`, `AG3`, `AG4`, `AG5`          |
 | Broad Economic Categories                                             | `BEC`                                                              | `TOTAL`,`AG1`, `AG3`, `AG3`                        |
-| ~~Extended Balance of Payments Services Classification~~              | ~~`EB02`~~                                                         |                                                    |
+| ~~Extended Balance of Payments Services Classification~~              | ~~`EB02`~~                                                         |  .                                                 |
 
 
 -   Supports extraction of `annual` as well as `monthly` [Comtrade](https://comtrade.un.org) trade data.
@@ -170,7 +170,7 @@ Data availability varies by country and classification, and new trade data is re
 
 `<your local package location>/data/Comtrade_DataAvailability-<date stamp>.csv.gz`
 
-The locally stored Comtrade Data Availability file is used in every `download_Comtrade()` data query. In other words, if new data becomes available and is documented in the [official Comtrade data availability file](https://comtrade.un.org/data/da), `comtradeRggregator` will use this information no later than 24 hours after its publication. The Comtrade Data Availability file can be accessed locally (file name `Comtrade_DA`); more information on the file can be obtained typing `?Comtrade_DA`.
+The locally stored Comtrade Data Availability file is used in every `download_Comtrade()` data query. In other words, if new data becomes available and is documented in the [official Comtrade data availability file](https://comtrade.un.org/data/da), `comtradeRggregator` will use this information no later than 24 hours after its publication. The Comtrade Data Availability file can be accessed locally (file name `Comtrade_DA`), and more information on the file can be obtained by accessing the help menu (type `?Comtrade_DA`).
 
 
 #### Extraction of monthly trade data
@@ -194,7 +194,7 @@ devtools::install_github("amannj/comtradr",
   force = TRUE
 )
 
-## Download `comtradeRggregator`; privat repository, therefore requires `auth_token`.
+## Download `comtradeRggregator`; private repository, therefore requires `auth_token`.
 devtools::install_github("amannj/comtradeRggregator",
   ref = "master",
   auth_token = "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",
@@ -264,7 +264,7 @@ download_Comtrade(
 )
 ```
 
-Sometimes trade data between countries does not add up. For example, say, in 2020 country A reported USD $X$ millions exports to country B while B was reporting USD $Y$ millions, where $X \neq Y$. In such cases it makes sense to use [mirrored Comtrade trade data](https://wits.worldbank.org/wits/wits/witshelp/Content/Data_Retrieval/T/Intro/B2.Imports_Exports_and_Mirror.htm). The function `download_Comtrade()` offers an easy option to accomplish this. The relation of the queries used for the extraction of trade data and mirrored trade data is illustrated in the example below: Reported imports by Germany from Austria and reported mirrored exports by Austria to Germany are identical by definition:
+Sometimes trade data between countries does not add up. For example, say, in 2020 country A reported USD $X$ millions exports to country B while B was reporting USD $Y$ millions, where $X \neq Y$. In such cases it makes sense to use [mirrored Comtrade trade data](https://wits.worldbank.org/wits/wits/witshelp/Content/Data_Retrieval/T/Intro/B2.Imports_Exports_and_Mirror.htm). The function `download_Comtrade()` offers an easy option to accomplish this. The relation of the queries used for the extraction of trade data and mirrored trade data is illustrated in the example below: Reported imports by Germany from Austria and reported mirrored exports by Austria to Germany are identical by definition:<sup>[1](#fn1)</sup>
 
 
 ```{r message=FALSE, warning=FALSE}
@@ -425,7 +425,7 @@ See `?is.available_Comtrade` for full documentation.
 
 ### `convert_Comtrade()`
 
-> **Work in progress: Currently only `H3`  concordance tables implemented.**
+> **Work in progress: Currently only `H0`,`H3`  concordance tables implemented.**
 
 Sometimes you might wish to reclassify trade data from one classification to a different one. Function `convert_Comtrade()` offers a simple way for such conversions by 
 providing official concordance tables from the [UN Statistics Division (UNSD)](https://unstats.un.org/unsd/classifications/Econ#corresp-hs) and the [World Integrated Trade Solution (WITS)](https://wits.worldbank.org/product_concordance.html). 
@@ -515,17 +515,17 @@ See `?rm_temporaryFiles` for full documentation.
 ------------------------------------------------------------------------
 
 
-## Related projects
+## Related projects and Credits
 
 - R package [concordance](https://github.com/insongkim/concordance) provides a set of utilities for matching products in different classification codes used in international trade research. 
+-  The hex sticker is generated by myself using the [hexSticker](https://github.com/GuangchuangYu/hexSticker) package.
+- R package [comtradr](https://github.com/ropensci/comtradr).
+- [WITS concordance tables](https://wits.worldbank.org/product_concordance.html).
+- [Comtrade](https://comtrade.un.org) and its [API](https://comtrade.un.org/data/doc/api/).
 
 
-------------------------------------------------------------------------
+-----------------
 
+### Footnotes
 
-## Credits
-
--   The hex sticker is generated by myself using the [hexSticker](https://github.com/GuangchuangYu/hexSticker) package.
--   R package [comtradr](https://github.com/ropensci/comtradr).
--   [WITS concordance tables](https://wits.worldbank.org/product_concordance.html).
--   [Comtrade](https://comtrade.un.org) and its [API](https://comtrade.un.org/data/doc/api/).
+<a name="fn1">1</a>: We set `rm.temporaryFiles = FALSE` in the second data query to demonstrate the different return messages for `rm_temporaryFiles()`.

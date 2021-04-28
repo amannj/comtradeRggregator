@@ -66,22 +66,22 @@ absent from either the [Comtrade](https://comtrade.un.org) or
 
 *Table Supported Trade Classification*
 
-| Description (common abbreviation)                                    | Trade code (input argument `tradecode`) | Level of (dis-)aggregation for input argument `ag` |
-|----------------------------------------------------------------------|-----------------------------------------|----------------------------------------------------|
-| HS combined,as reported (HS)                                         | `HS`                                    | `TOTAL`,`AG2`, `AG4`, `AG6`                        |
-| HS 1988/1992 (H0)                                                    | `HS1992`                                | `TOTAL`,`AG2`, `AG4`, `AG6`                        |
-| HS 1996 (H1)                                                         | `HS1996`                                | `TOTAL`,`AG2`, `AG4`, `AG6`                        |
-| HS 2002 (H2)                                                         | `HS2002`                                | `TOTAL`,`AG2`, `AG4`, `AG6`                        |
-| HS 2007 (H3)                                                         | `HS2007`                                | `TOTAL`,`AG2`, `AG4`, `AG6`                        |
-| HS 2012 (H4)                                                         | `HS2012`                                | `TOTAL`,`AG2`, `AG4`, `AG6`                        |
-| HS 2017 (H5)                                                         | `HS2017`                                | `TOTAL`,`AG2`, `AG4`, `AG6`                        |
-| Standard International Trade Classification (SITC), as reported (ST) | `SITC`                                  | `TOTAL`,`AG1`, `AG3`, `AG3`, `AG4`, `AG5`          |
-| SITC Revision 1 (S1)                                                 | `SITCrev1`                              | `TOTAL`,`AG1`, `AG3`, `AG3`, `AG4`, `AG5`          |
-| SITC Revision 2 (S2)                                                 | `SITCrev2`                              | `TOTAL`,`AG1`, `AG3`, `AG3`, `AG4`, `AG5`          |
-| SITC Revision 3 (S3)                                                 | `SITCrev3`                              | `TOTAL`,`AG1`, `AG3`, `AG3`, `AG4`, `AG5`          |
-| SITC Revision 4 (S4)                                                 | `SITCrev4`                              | `TOTAL`,`AG1`, `AG3`, `AG3`, `AG4`, `AG5`          |
-| Broad Economic Categories (BEC)                                      | `BEC`                                   | `TOTAL`,`AG1`, `AG3`, `AG3`                        |
-| ~~Extended Balance of Payments Services Classification (EB02)~~      | ~~`EB02`~~                              |                                                    |
+| Description                                                   | Trade code; use either version as input argument for `tradecode` | Level of (dis-)aggregation for input argument `ag` |
+|---------------------------------------------------------------|------------------------------------------------------------------|----------------------------------------------------|
+| HS combined,as reported                                       | `HS`                                                             | `TOTAL`,`AG2`, `AG4`, `AG6`                        |
+| HS 1988/1992                                                  | `HS1992`, `H0`                                                   | `TOTAL`,`AG2`, `AG4`, `AG6`                        |
+| HS 1996                                                       | `HS1996`, `H1`                                                   | `TOTAL`,`AG2`, `AG4`, `AG6`                        |
+| HS 2002                                                       | `HS2002`, `H2`                                                   | `TOTAL`,`AG2`, `AG4`, `AG6`                        |
+| HS 2007                                                       | `HS2007`, `H3`                                                   | `TOTAL`,`AG2`, `AG4`, `AG6`                        |
+| HS 2012                                                       | `HS2012`, `H4`                                                   | `TOTAL`,`AG2`, `AG4`, `AG6`                        |
+| HS 2017                                                       | `HS2017`, `H5`                                                   | `TOTAL`,`AG2`, `AG4`, `AG6`                        |
+| SITC Standard International Trade Classification, as reported | `SITC`, `ST`                                                     | `TOTAL`,`AG1`, `AG3`, `AG3`, `AG4`, `AG5`          |
+| SITC Revision 1                                               | `SITCrev1`, `S1`                                                 | `TOTAL`,`AG1`, `AG3`, `AG3`, `AG4`, `AG5`          |
+| SITC Revision 2                                               | `SITCrev2`, `S2`                                                 | `TOTAL`,`AG1`, `AG3`, `AG3`, `AG4`, `AG5`          |
+| SITC Revision 3                                               | `SITCrev3`, `S3`                                                 | `TOTAL`,`AG1`, `AG3`, `AG3`, `AG4`, `AG5`          |
+| SITC Revision 4                                               | `SITCrev4`, `S4`                                                 | `TOTAL`,`AG1`, `AG3`, `AG3`, `AG4`, `AG5`          |
+| Broad Economic Categories                                     | `BEC`                                                            | `TOTAL`,`AG1`, `AG3`, `AG3`                        |
+| ~~Extended Balance of Payments Services Classification~~      | ~~`EB02`~~                                                       |                                                    |
 
 -   Supports extraction of `annual` as well as `monthly`
     [Comtrade](https://comtrade.un.org) trade data.
@@ -1041,12 +1041,9 @@ AT_World <- download_Comtrade(
   select.stats = "trade_value_usd",
   direction = "all"
 )
-#> Warning: JSON string contains (illegal) UTF8 byte-order-mark!
-#> Updates found. The following datasets have been downloaded: commodities DB, countries DB
-#> 
 #>  No Comtrade token specified; download restricted to 100 queries per hour.
 #> 
-#> New folder created in: 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data/tmp/2021-04-28_06.40PM'. Temporary files will be stored there.
+#> New folder created in: 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data/tmp/2021-04-28_10.17PM'. Temporary files will be stored there.
 #> 
 #> Comtrade Data Availability file updated and stored in file 'Comtrade_DataAvailability-2021-04-28' in folder 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data'; will be used for look-up. Old files removed.
 #> 
@@ -1065,16 +1062,16 @@ AT_World
 #> # A tibble: 9,432 x 8
 #>    classification period trade_flow reporter partner commodity_code commodity   
 #>    <chr>           <int> <chr>      <chr>    <chr>   <chr>          <chr>       
-#>  1 H3               2018 Export     Austria  World   010110         Live horses~
-#>  2 H3               2018 Import     Austria  World   010190         Live horses~
-#>  3 H3               2018 Export     Austria  World   010190         Live horses~
-#>  4 H3               2018 Import     Austria  World   010210         Live bovine~
-#>  5 H3               2018 Export     Austria  World   010210         Live bovine~
-#>  6 H3               2018 Import     Austria  World   010290         Live bovine~
-#>  7 H3               2018 Export     Austria  World   010290         Live bovine~
-#>  8 H3               2018 Import     Austria  World   010310         Live swine:~
-#>  9 H3               2018 Export     Austria  World   010310         Live swine:~
-#> 10 H3               2018 Import     Austria  World   010391         Live swine ~
+#>  1 H3               2018 Import     Austria  World   010519         Live ducks/~
+#>  2 H3               2018 Import     Austria  World   010594         Live fowls ~
+#>  3 H3               2018 Export     Austria  World   010594         Live fowls ~
+#>  4 H3               2018 Import     Austria  World   010599         Live ducks/~
+#>  5 H3               2018 Export     Austria  World   010599         Live ducks/~
+#>  6 H3               2018 Import     Austria  World   010611         Live primat~
+#>  7 H3               2018 Import     Austria  World   010619         Live mammal~
+#>  8 H3               2018 Export     Austria  World   010619         Live mammal~
+#>  9 H3               2018 Import     Austria  World   010620         Live reptil~
+#> 10 H3               2018 Export     Austria  World   010620         Live reptil~
 #> # ... with 9,422 more rows, and 1 more variable: trade_value_usd <dbl>
 ```
 
@@ -1101,7 +1098,7 @@ download_Comtrade(
 #> 
 #>  No Comtrade token specified; download restricted to 99 queries per hour.
 #> 
-#> New folder created in: 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data/tmp/2021-04-28_06.41PM'. Temporary files will be stored there.
+#> New folder created in: 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data/tmp/2021-04-28_10.20PM'. Temporary files will be stored there.
 #> 
 #> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-28'
 #>    in folder 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data'
@@ -1118,6 +1115,9 @@ download_Comtrade(
 #>     Going to sleep for 20 sec.
 #> 1/1 for AG6 and year 1 completed.
 #> 
+#> Warning in download_Comtrade(year = "2018", frequency = "annual", countries
+#> = "Austria", : Data query did not produce any results. Empty data frame is
+#> returned.
 #> # A tibble: 0 x 0
 ```
 
@@ -1128,9 +1128,9 @@ it makes sense to use [mirrored Comtrade trade
 data](https://wits.worldbank.org/wits/wits/witshelp/Content/Data_Retrieval/T/Intro/B2.Imports_Exports_and_Mirror.htm).
 The function `download_Comtrade()` offers an easy option to accomplish
 this. The relation of the queries used for the extraction of trade data
-and mirrored trade data is illustrated in the example below.: Reported
+and mirrored trade data is illustrated in the example below: Reported
 imports by Germany from Austria and reported mirrored exports by Austria
-to Germany are identical by definition:
+to Germany are identical by definition:<sup>[1](#fn1)</sup>
 
 ``` r
 IM_DE_AT <- download_Comtrade(
@@ -1156,7 +1156,8 @@ mirrX_AT_DE <- download_Comtrade(
   select.stats = "trade_value_usd",
   direction = "exports",
   type = "commodities",
-  is.mirrorData = TRUE
+  is.mirrorData = TRUE,
+  rm.temporaryFiles = FALSE
 )
 
 IM_DE_AT %>%
@@ -1362,7 +1363,7 @@ See `?is.available_Comtrade` for full documentation.
 
 ### `convert_Comtrade()`
 
-> **Work in progress: Currently only `H3` concordance tables
+> **Work in progress: Currently only `H0`,`H3` concordance tables
 > implemented.**
 
 Sometimes you might wish to reclassify trade data from one
@@ -1390,16 +1391,16 @@ AT_World %>%
 #> # A tibble: 9,612 x 3
 #>    classification commodity_code `ISIC Revision 3 Product Code`
 #>    <chr>          <chr>          <chr>                         
-#>  1 H3             010110         0121                          
-#>  2 H3             010190         0121                          
-#>  3 H3             010190         0121                          
-#>  4 H3             010210         0121                          
-#>  5 H3             010210         0121                          
-#>  6 H3             010290         0121                          
-#>  7 H3             010290         0121                          
-#>  8 H3             010310         0122                          
-#>  9 H3             010310         0122                          
-#> 10 H3             010391         0122                          
+#>  1 H3             010519         0122                          
+#>  2 H3             010594         0122                          
+#>  3 H3             010594         0122                          
+#>  4 H3             010599         0122                          
+#>  5 H3             010599         0122                          
+#>  6 H3             010611         0122                          
+#>  7 H3             010619         0122                          
+#>  8 H3             010619         0122                          
+#>  9 H3             010620         0122                          
+#> 10 H3             010620         0122                          
 #> # ... with 9,602 more rows
 ```
 
@@ -1454,7 +1455,7 @@ Remove all temporary files and folders:
 
 ``` r
 rm_temporaryFiles(location.temporaryFiles = NULL)
-#> Temporary file directory already empty. Nothing to delete.
+#> Temporary files delete.
 ```
 
 -   Otherwise:
@@ -1476,16 +1477,11 @@ See `?rm_temporaryFiles` for full documentation.
 
 ------------------------------------------------------------------------
 
-## Related projects
+## Related projects and Credits
 
 -   R package [concordance](https://github.com/insongkim/concordance)
     provides a set of utilities for matching products in different
     classification codes used in international trade research.
-
-------------------------------------------------------------------------
-
-## Credits
-
 -   The hex sticker is generated by myself using the
     [hexSticker](https://github.com/GuangchuangYu/hexSticker) package.
 -   R package [comtradr](https://github.com/ropensci/comtradr).
@@ -1493,3 +1489,11 @@ See `?rm_temporaryFiles` for full documentation.
     tables](https://wits.worldbank.org/product_concordance.html).
 -   [Comtrade](https://comtrade.un.org) and its
     [API](https://comtrade.un.org/data/doc/api/).
+
+------------------------------------------------------------------------
+
+### Footnotes
+
+<a name="fn1">1</a>: We set `rm.temporaryFiles = FALSE` in the second
+data query to demonstrate the different return messages for
+`rm_temporaryFiles()`.
