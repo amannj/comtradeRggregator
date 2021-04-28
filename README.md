@@ -10,14 +10,14 @@
 <!-- badges: end -->
 
 The goal of the `comtradeRggregator` package is to provide a simple tool
-to download and reclassify large chunks of trade data. It offers
-functionality to download and aggregate
-[Comtrade](https://comtrade.un.org) trade data using [Comtrade’s
-API](https://comtrade.un.org/data/doc/api/) by building on the
-[comtradr](https://github.com/ropensci/comtradr) package. Furthermore,
-it provides a function for easy reclassification of trade data using
-official concordance tables from the [United Nations Statistical
-Division
+to download and reclassify large chunks of [Comtrade trade
+data](https://comtrade.un.org). It offers functionality to download and
+aggregate [Comtrade trade data](https://comtrade.un.org) using
+[Comtrade’s API](https://comtrade.un.org/data/doc/api/) by building on
+the [comtradr](https://github.com/ropensci/comtradr) package.
+Furthermore, it provides a function for easy reclassification of trade
+data using official concordance tables from the [United Nations
+Statistical Division
 (UNSD)](https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp)
 and the [World Integrated Trade Solution
 (WITS)](https://wits.worldbank.org/product_concordance.html).
@@ -91,7 +91,7 @@ absent from either the [Comtrade](https://comtrade.un.org) or
     Division
     (UNSD)](https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp)
     and the [World Integrated Trade Solution
-    (WITS)](https://wits.worldbank.org/product_concordance.html).; see
+    (WITS)](https://wits.worldbank.org/product_concordance.html); see
     *Table Concordance*:
 
 *Table Concordance*
@@ -964,7 +964,10 @@ The locally stored Comtrade Data Availability file is used in every
 `download_Comtrade()` data query. In other words, if new data becomes
 available and is documented in the [official Comtrade data availability
 file](https://comtrade.un.org/data/da), `comtradeRggregator` will use
-this information no later than 24 hours after its publication.
+this information no later than 24 hours after its publication. The
+Comtrade Data Availability file can be accessed locally (file name
+`Comtrade_DA`); more information on the file can be obtained typing
+`?Comtrade_DA`.
 
 #### Extraction of monthly trade data
 
@@ -1020,8 +1023,6 @@ First, load the package.
 
 ``` r
 library(comtradeRggregator)
-
-## create folders...?
 ```
 
 To download global (`World`) `HS2007` `commodity` trade data in `USD`
@@ -1045,12 +1046,12 @@ AT_World <- download_Comtrade(
 #> 
 #>  No Comtrade token specified; download restricted to 100 queries per hour.
 #> 
-#> New folder created in: 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data/tmp/2021-04-27_09.38AM'. Temporary files will be stored there.
+#> New folder created in: 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data/tmp/2021-04-28_06.40PM'. Temporary files will be stored there.
 #> 
-#> Comtrade Data Availability file updated and stored in file 'Comtrade_DataAvailability-2021-04-27' in folder 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data'; will be used for look-up. Old files removed.
+#> Comtrade Data Availability file updated and stored in file 'Comtrade_DataAvailability-2021-04-28' in folder 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data'; will be used for look-up. Old files removed.
 #> 
 #> 
-#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-27'
+#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-28'
 #>    in folder 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data'
 #>    already exists and will be used for look-up.
 #> 
@@ -1100,14 +1101,14 @@ download_Comtrade(
 #> 
 #>  No Comtrade token specified; download restricted to 99 queries per hour.
 #> 
-#> New folder created in: 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data/tmp/2021-04-27_09.40AM'. Temporary files will be stored there.
+#> New folder created in: 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data/tmp/2021-04-28_06.41PM'. Temporary files will be stored there.
 #> 
-#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-27'
+#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-28'
 #>    in folder 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data'
 #>    already exists and will be used for look-up.
 #> 
 #> 
-#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-27'
+#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-28'
 #>    in folder 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data'
 #>    already exists and will be used for look-up.
 #> 
@@ -1271,7 +1272,7 @@ da1 <- is.available_Comtrade(
   year = 2008
 )
 #> 
-#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-27'
+#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-28'
 #>    in folder 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data'
 #>    already exists and will be used for look-up.
 #> 
@@ -1294,7 +1295,7 @@ da2 <- is.available_Comtrade(
   year = 2012
 )
 #> 
-#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-27'
+#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-28'
 #>    in folder 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data'
 #>    already exists and will be used for look-up.
 #> 
@@ -1316,7 +1317,7 @@ da3 <- is.available_Comtrade(
   year = 2020
 )
 #> 
-#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-27'
+#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-28'
 #>    in folder 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data'
 #>    already exists and will be used for look-up.
 #> 
@@ -1361,7 +1362,7 @@ See `?is.available_Comtrade` for full documentation.
 
 ### `convert_Comtrade()`
 
-> **Work in progress: Currently only `H3` to `I3` concordance
+> **Work in progress: Currently only `H3` concordance tables
 > implemented.**
 
 Sometimes you might wish to reclassify trade data from one
