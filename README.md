@@ -997,31 +997,13 @@ devtools::install_github("amannj/comtradr",
   ref = "sitc-bug",
   force = TRUE
 )
-#> 
-#>          checking for file 'C:\Users\juerg\AppData\Local\Temp\RtmpmmiJTz\remotes3eec23616533\amannj-comtradr-d89167f/DESCRIPTION' ...  v  checking for file 'C:\Users\juerg\AppData\Local\Temp\RtmpmmiJTz\remotes3eec23616533\amannj-comtradr-d89167f/DESCRIPTION'
-#>       -  preparing 'comtradr': (345ms)
-#>    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   v  checking DESCRIPTION meta-information
-#>       -  checking for LF line-endings in source and make files and shell scripts
-#>       -  checking for empty or unneeded directories
-#>       -  building 'comtradr_0.2.2.09000.tar.gz'
-#>      
-#> 
 
 ## Download `comtradeRggregator`; privat repository, therefore requires `auth_token`.
 devtools::install_github("amannj/comtradeRggregator",
   ref = "master",
-  auth_token = "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",
+  auth_token = "...",
   force = TRUE
 )
-#> 
-#>          checking for file 'C:\Users\juerg\AppData\Local\Temp\RtmpmmiJTz\remotes3eec5ff32ac9\amannj-comtradeRggregator-4448835ccecbb64ec411a45bada5d602c6e29a47/DESCRIPTION' ...  v  checking for file 'C:\Users\juerg\AppData\Local\Temp\RtmpmmiJTz\remotes3eec5ff32ac9\amannj-comtradeRggregator-4448835ccecbb64ec411a45bada5d602c6e29a47/DESCRIPTION'
-#>       -  preparing 'comtradeRggregator': (1.2s)
-#>    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   v  checking DESCRIPTION meta-information
-#>       -  checking for LF line-endings in source and make files and shell scripts
-#>       -  checking for empty or unneeded directories
-#>       -  building 'comtradeRggregator_0.0.0.9000.tar.gz'
-#>      
-#> 
 ```
 
 ------------------------------------------------------------------------
