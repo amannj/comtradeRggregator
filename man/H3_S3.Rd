@@ -3,7 +3,7 @@
 \docType{data}
 \name{H3_S3}
 \alias{H3_S3}
-\title{H3 to SITC Rev. 2 Categories Concordance Table}
+\title{H3 to SITC Rev. 3 Categories Concordance Table}
 \format{
 A data frame with 5,050 rows and 4 variables:
 \describe{
