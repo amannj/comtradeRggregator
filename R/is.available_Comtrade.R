@@ -76,5 +76,5 @@ is.available_Comtrade <- function(is.contained = NULL,
   if (!is.null(is.contained)) {
     ls_cnt <- is.contained %in% ls_cnt
   }
-  return(ls_cnt)
+  return(sort(ls_cnt))
 }
