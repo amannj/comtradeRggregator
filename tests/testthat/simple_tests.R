@@ -506,6 +506,21 @@ for(c in codes) {
   print(out)
 }
 
+# Test 7.h2: Check all concordance tables for HS 1 -------------------------------
+codes <- c('BE', 'CC', 'CP', 'GP', 'H0','H2', 'I2', 'I3', 'IU', 'MT', 'S1', 'S2', 'S3', 'S4')
+
+for(c in codes) {
+  AT_World %>%
+    convert_Comtrade(
+      classification = "classification",
+      commodity.code = "commodity_code",
+      convert.to = c
+    ) %>%
+    select(!c(period, reporter, partner, trade_value_usd, netweight_kg, gross_weight_kg, qty_unit, qty, qty_unit_code, alt_qty_unit_code, alt_qty_unit, alt_qty)) -> out
+  message('\n-------------------\n HS2 to ',c,'\n-------------------\n')
+  print(out)
+}
+
 # Test 7.h3: Check all concordance tables for HS 3 -------------------------------
 codes <- c('BE', 'CC', 'CP', 'GP', 'H0', 'H1', 'H2', 'I2', 'I3', 'IU', 'MT', 'S1', 'S2', 'S3', 'S4')
 

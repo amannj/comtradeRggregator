@@ -212,6 +212,216 @@
 "H0_S4"
 
 
+
+
+#' H2 to BEC Concordance Table
+#'
+#' Concordance table between `HS 2002` (`H2`) and `BEC`
+#'
+#' @format A data frame with 5,111 rows and 4 variables:
+#' \describe{
+#'   \item{HS 2002 Product Code}{...}
+#'   \item{HS 2002 Product Description}{...}
+#'   \item{BEC Product Code}{...}
+#'   \item{BEC Product Description}{...}
+#' }
+#' @source \url{https://wits.worldbank.org/product_concordance.html}
+"H2_BE"
+
+
+#' H2 to CCCN Concordance Table
+#'
+#' Concordance table between `HS 2002` (`H2`) and `CCCN`
+#'
+#' @format A data frame with 5,111 rows and 4 variables:
+#' \describe{
+#'   \item{HS 2002 Product Code}{...}
+#'   \item{HS 2002 Product Description}{...}
+#'   \item{CCCN Product Code}{...}
+#'   \item{CCCN Product Description}{...}
+#' }
+#' @source \url{https://wits.worldbank.org/product_concordance.html}
+"H2_CC"
+
+
+#' H2 to CPC Concordance Table
+#'
+#' Concordance table between `HS 2002` (`H2`) and `CPC`
+#'
+#' @format A data frame with 5,113 rows and 4 variables:
+#' \describe{
+#'   \item{HS 2002 Product Code}{...}
+#'   \item{HS 2002 Product Description}{...}
+#'   \item{CPC Product Code}{...}
+#'   \item{CPC Product Description}{...}
+#' }
+#' @source \url{https://wits.worldbank.org/product_concordance.html}
+"H2_CP"
+
+
+#' H2 to GTAP Concordance Table
+#'
+#' Concordance table between `HS 2002` (`H2`) and `GTAP`
+#'
+#' @format A data frame with 5,113 rows and 4 variables:
+#' \describe{
+#'   \item{HS 2002 Product Code}{...}
+#'   \item{HS 2002 Product Description}{...}
+#'   \item{GTAP Product Code}{...}
+#'   \item{GTAP Product Description}{...}
+#' }
+#' @source \url{https://wits.worldbank.org/product_concordance.html}
+"H2_GP"
+
+#' H2 to H0 Concordance Table
+#'
+#' Concordance table between `HS 2002` (`H2`) and `HS 1988/92` (`H0`)
+#'
+#' @format A data frame with 5,113 rows and 4 variables:
+#' \describe{
+#'   \item{HS 2002 Product Code}{...}
+#'   \item{HS 2002 Product Description}{...}
+#'   \item{HS 1988/92 Product Code}{...}
+#'   \item{HS 1988/92 Product Description}{...}
+#' }
+#' @source \url{https://wits.worldbank.org/product_concordance.html}
+"H2_H0"
+
+#' H2 to H1 Concordance Table
+#'
+#' Concordance table between `HS 2002` (`H2`) and `HS 1996` (`H1`)
+#'
+#' @format A data frame with 5,113 rows and 4 variables:
+#' \describe{
+#'   \item{HS 2002 Product Code}{...}
+#'   \item{HS 2002 Product Description}{...}
+#'   \item{HS 1996 Product Code}{...}
+#'   \item{HS 1996 Product Description}{...}
+#' }
+#' @source \url{https://wits.worldbank.org/product_concordance.html}
+"H2_H1"
+
+#' H2 to ISIC Rev. 2 Concordance Table
+#'
+#' Concordance table between `HS 2002` (`H2`) and `ISIC Rev. 2`
+#'
+#' @format A data frame with 5,113 rows and 4 variables:
+#' \describe{
+#'   \item{HS 2002 Product Code}{...}
+#'   \item{HS 2002 Product Description}{...}
+#'   \item{ISIC Revision 2 Product Code}{...}
+#'   \item{ISIC Revision 2 Product Description}{...}
+#' }
+#' @source \url{https://wits.worldbank.org/product_concordance.html}
+"H2_I2"
+
+
+#' H2 to ISIC Rev. 3 Concordance Table
+#'
+#' Concordance table between `HS 2002` (`H2`) and `ISIC Rev. 3`
+#'
+#' @format A data frame with 5,113 rows and 4 variables:
+#' \describe{
+#'   \item{HS 2002 Product Code}{...}
+#'   \item{HS 2002 Product Description}{...}
+#'   \item{ISIC Revision 3 Product Code}{...}
+#'   \item{ISIC Revision 3 Product Description}{...}
+#' }
+#' @source \url{https://wits.worldbank.org/product_concordance.html}
+"H2_I3"
+
+
+#' H2 to SIC Concordance Table
+#'
+#' Concordance table between `HS 2002` (`H2`) and `SIC`
+#'
+#' @format A data frame with 5,108 rows and 4 variables:
+#' \describe{
+#'   \item{HS 2002 Product Code}{...}
+#'   \item{HS 2002 Product Description}{...}
+#'   \item{SIC Product Code}{...}
+#'   \item{SIC Product Description}{...}
+#' }
+#' @source \url{https://wits.worldbank.org/product_concordance.html}
+"H2_IU"
+
+
+#' H2 to MTN Categories Concordance Table
+#'
+#' Concordance table between `HS 2002` (`H2`) and `MTN Categories`
+#'
+#' @format A data frame with 3,771 rows and 4 variables:
+#' \describe{
+#'   \item{HS 2002 Product Code}{...}
+#'   \item{HS 2002 Product Description}{...}
+#'   \item{MTN Categories Product Code}{...}
+#'   \item{MTN Categories Product Description}{...}
+#' }
+#' @source \url{https://wits.worldbank.org/product_concordance.html}
+"H2_MT"
+
+
+#' H2 to SITC Rev. 1 Categories Concordance Table
+#'
+#' Concordance table between `HS 2002` (`H2`) and `SITC Rev. 1`
+#'
+#' @format A data frame with 5,106 rows and 4 variables:
+#' \describe{
+#'   \item{HS 2002 Product Code}{...}
+#'   \item{HS 2002 Product Description}{...}
+#'   \item{SITC Revision 1 Product Code}{...}
+#'   \item{SITC Revision 1 Product Description}{...}
+#' }
+#' @source \url{https://wits.worldbank.org/product_concordance.html}
+"H2_S1"
+
+
+#' H2 to SITC Rev. 2 Categories Concordance Table
+#'
+#' Concordance table between `HS 2002` (`H2`) and `SITC Rev. 2`
+#'
+#' @format A data frame with 5,111 rows and 4 variables:
+#' \describe{
+#'   \item{HS 2002 Product Code}{...}
+#'   \item{HS 2002 Product Description}{...}
+#'   \item{SITC Revision 2 Product Code}{...}
+#'   \item{SITC Revision 2 Product Description}{...}
+#' }
+#' @source \url{https://wits.worldbank.org/product_concordance.html}
+"H2_S2"
+
+
+#' H2 to SITC Rev. 3 Categories Concordance Table
+#'
+#' Concordance table between `HS 2002` (`H2`) and `SITC Rev. 3`
+#'
+#' @format A data frame with 5,111 rows and 4 variables:
+#' \describe{
+#'   \item{HS 2002 Product Code}{...}
+#'   \item{HS 2002 Product Description}{...}
+#'   \item{SITC Revision 3 Product Code}{...}
+#'   \item{SITC Revision 3 Product Description}{...}
+#' }
+#' @source \url{https://wits.worldbank.org/product_concordance.html}
+"H2_S3"
+
+
+#' H2 to SITC Rev. 4 Categories Concordance Table
+#'
+#' Concordance table between `HS 2002` (`H2`) and `SITC Rev. 4`
+#'
+#' @format A data frame with 5,111 rows and 4 variables:
+#' \describe{
+#'   \item{HS 2002 Product Code}{...}
+#'   \item{HS 2002 Product Description}{...}
+#'   \item{SITC Revision 4 Product Code}{...}
+#'   \item{SITC Revision 4 Product Description}{...}
+#' }
+#' @source \url{https://wits.worldbank.org/product_concordance.html}
+"H2_S4"
+
+
+
 #' H1 to BEC Concordance Table
 #'
 #' Concordance table between `HS 1996` (`H1`) and `BEC`
@@ -410,6 +620,212 @@
 
 
 
+
+#' H2 to BEC Concordance Table
+#'
+#' Concordance table between `HS 2002` (`H2`) and `BEC`
+#'
+#' @format A data frame with 5,222 rows and 4 variables:
+#' \describe{
+#'   \item{HS 2002 Product Code}{...}
+#'   \item{HS 2002 Product Description}{...}
+#'   \item{BEC Product Code}{...}
+#'   \item{BEC Product Description}{...}
+#' }
+#' @source \url{https://wits.worldbank.org/product_concordance.html}
+"H2_BE"
+
+
+#' H2 to CCCN Concordance Table
+#'
+#' Concordance table between `HS 2002` (`H2`) and `CCCN`
+#'
+#' @format A data frame with 5,222 rows and 4 variables:
+#' \describe{
+#'   \item{HS 2002 Product Code}{...}
+#'   \item{HS 2002 Product Description}{...}
+#'   \item{CCCN Product Code}{...}
+#'   \item{CCCN Product Description}{...}
+#' }
+#' @source \url{https://wits.worldbank.org/product_concordance.html}
+"H2_CC"
+
+
+#' H2 to CPC Concordance Table
+#'
+#' Concordance table between `HS 2002` (`H2`) and `CPC`
+#'
+#' @format A data frame with 5,224 rows and 4 variables:
+#' \describe{
+#'   \item{HS 2002 Product Code}{...}
+#'   \item{HS 2002 Product Description}{...}
+#'   \item{CPC Product Code}{...}
+#'   \item{CPC Product Description}{...}
+#' }
+#' @source \url{https://wits.worldbank.org/product_concordance.html}
+"H2_CP"
+
+
+#' H2 to GTAP Concordance Table
+#'
+#' Concordance table between `HS 2002` (`H2`) and `GTAP`
+#'
+#' @format A data frame with 5,224 rows and 4 variables:
+#' \describe{
+#'   \item{HS 2002 Product Code}{...}
+#'   \item{HS 2002 Product Description}{...}
+#'   \item{GTAP Product Code}{...}
+#'   \item{GTAP Product Description}{...}
+#' }
+#' @source \url{https://wits.worldbank.org/product_concordance.html}
+"H2_GP"
+
+#' H2 to H0 Concordance Table
+#'
+#' Concordance table between `HS 2002` (`H2`) and `HS 1988/92` (`H0`)
+#'
+#' @format A data frame with 5,224 rows and 4 variables:
+#' \describe{
+#'   \item{HS 2002 Product Code}{...}
+#'   \item{HS 2002 Product Description}{...}
+#'   \item{HS 1988/92 Product Code}{...}
+#'   \item{HS 1988/92 Product Description}{...}
+#' }
+#' @source \url{https://wits.worldbank.org/product_concordance.html}
+"H2_H0"
+
+#' H2 to H1 Concordance Table
+#'
+#' Concordance table between `HS 2002` (`H2`) and `HS 1996` (`H1`)
+#'
+#' @format A data frame with 5,224 rows and 4 variables:
+#' \describe{
+#'   \item{HS 2002 Product Code}{...}
+#'   \item{HS 2002 Product Description}{...}
+#'   \item{HS 1996 Product Code}{...}
+#'   \item{HS 1996 Product Description}{...}
+#' }
+#' @source \url{https://wits.worldbank.org/product_concordance.html}
+"H2_H1"
+
+#' H2 to ISIC Rev. 2 Concordance Table
+#'
+#' Concordance table between `HS 2002` (`H2`) and `ISIC Rev. 2`
+#'
+#' @format A data frame with 5,224 rows and 4 variables:
+#' \describe{
+#'   \item{HS 2002 Product Code}{...}
+#'   \item{HS 2002 Product Description}{...}
+#'   \item{ISIC Revision 2 Product Code}{...}
+#'   \item{ISIC Revision 2 Product Description}{...}
+#' }
+#' @source \url{https://wits.worldbank.org/product_concordance.html}
+"H2_I2"
+
+
+#' H2 to ISIC Rev. 3 Concordance Table
+#'
+#' Concordance table between `HS 2002` (`H2`) and `ISIC Rev. 3`
+#'
+#' @format A data frame with 5,224 rows and 4 variables:
+#' \describe{
+#'   \item{HS 2002 Product Code}{...}
+#'   \item{HS 2002 Product Description}{...}
+#'   \item{ISIC Revision 3 Product Code}{...}
+#'   \item{ISIC Revision 3 Product Description}{...}
+#' }
+#' @source \url{https://wits.worldbank.org/product_concordance.html}
+"H2_I3"
+
+
+#' H2 to SIC Concordance Table
+#'
+#' Concordance table between `HS 2002` (`H2`) and `SIC`
+#'
+#' @format A data frame with 5,219 rows and 4 variables:
+#' \describe{
+#'   \item{HS 2002 Product Code}{...}
+#'   \item{HS 2002 Product Description}{...}
+#'   \item{SIC Product Code}{...}
+#'   \item{SIC Product Description}{...}
+#' }
+#' @source \url{https://wits.worldbank.org/product_concordance.html}
+"H2_IU"
+
+
+#' H2 to MTN Categories Concordance Table
+#'
+#' Concordance table between `HS 2002` (`H2`) and `MTN Categories`
+#'
+#' @format A data frame with 5,223 rows and 4 variables:
+#' \describe{
+#'   \item{HS 2002 Product Code}{...}
+#'   \item{HS 2002 Product Description}{...}
+#'   \item{MTN Categories Product Code}{...}
+#'   \item{MTN Categories Product Description}{...}
+#' }
+#' @source \url{https://wits.worldbank.org/product_concordance.html}
+"H2_MT"
+
+
+#' H2 to SITC Rev. 1 Categories Concordance Table
+#'
+#' Concordance table between `HS 2002` (`H2`) and `SITC Rev. 1`
+#'
+#' @format A data frame with 5,217 rows and 4 variables:
+#' \describe{
+#'   \item{HS 2002 Product Code}{...}
+#'   \item{HS 2002 Product Description}{...}
+#'   \item{SITC Revision 1 Product Code}{...}
+#'   \item{SITC Revision 1 Product Description}{...}
+#' }
+#' @source \url{https://wits.worldbank.org/product_concordance.html}
+"H2_S1"
+
+
+#' H2 to SITC Rev. 2 Categories Concordance Table
+#'
+#' Concordance table between `HS 2002` (`H2`) and `SITC Rev. 2`
+#'
+#' @format A data frame with 5,222 rows and 4 variables:
+#' \describe{
+#'   \item{HS 2002 Product Code}{...}
+#'   \item{HS 2002 Product Description}{...}
+#'   \item{SITC Revision 2 Product Code}{...}
+#'   \item{SITC Revision 2 Product Description}{...}
+#' }
+#' @source \url{https://wits.worldbank.org/product_concordance.html}
+"H2_S2"
+
+
+#' H2 to SITC Rev. 3 Categories Concordance Table
+#'
+#' Concordance table between `HS 2002` (`H2`) and `SITC Rev. 3`
+#'
+#' @format A data frame with 5,222 rows and 4 variables:
+#' \describe{
+#'   \item{HS 2002 Product Code}{...}
+#'   \item{HS 2002 Product Description}{...}
+#'   \item{SITC Revision 3 Product Code}{...}
+#'   \item{SITC Revision 3 Product Description}{...}
+#' }
+#' @source \url{https://wits.worldbank.org/product_concordance.html}
+"H2_S3"
+
+
+#' H2 to SITC Rev. 4 Categories Concordance Table
+#'
+#' Concordance table between `HS 2002` (`H2`) and `SITC Rev. 4`
+#'
+#' @format A data frame with 5,220 rows and 4 variables:
+#' \describe{
+#'   \item{HS 2002 Product Code}{...}
+#'   \item{HS 2002 Product Description}{...}
+#'   \item{SITC Revision 4 Product Code}{...}
+#'   \item{SITC Revision 4 Product Description}{...}
+#' }
+#' @source \url{https://wits.worldbank.org/product_concordance.html}
+"H2_S4"
 
 
 
