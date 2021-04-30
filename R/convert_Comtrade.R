@@ -62,203 +62,218 @@ convert_Comtrade <- function(data,
   if (convert.from == "H0" & convert.to == "BE") {
     ### from H0 to BE ---------------
     df_cc <- H0_BE %>%
-      ## Harmonise key var.
       rename(!!.cc := `HS 1988/92 Product Code`)
   } else if (convert.from == "H0" & convert.to == "CC") {
     ### from H0 to CC ---------------
     df_cc <- H0_CC %>%
-      ## Harmonise key var.
       rename(!!.cc := `HS 1988/92 Product Code`)
   } else if (convert.from == "H0" & convert.to == "CP") {
     ### from H0 to CP ---------------
     df_cc <- H0_CP %>%
-      ## Harmonise key var.
       rename(!!.cc := `HS 1988/92 Product Code`)
   } else if (convert.from == "H0" & convert.to == "GP") {
     ### from H0 to GP ---------------
     df_cc <- H0_GP %>%
-      ## Harmonise key var.
       rename(!!.cc := `HS 1988/92 Product Code`)
   } else if (convert.from == "H0" & convert.to == "I2") {
     ### from H0 to I2 ---------------
     df_cc <- H0_I2 %>%
-      ## Harmonise key var.
       rename(!!.cc := `HS 1988/92 Product Code`)
   } else if (convert.from == "H0" & convert.to == "I3") {
     ### from H0 to I3 ---------------
     df_cc <- H0_I3 %>%
-      ## Harmonise key var.
       rename(!!.cc := `HS 1988/92 Product Code`)
   } else if (convert.from == "H0" & convert.to == "IU") {
     ### from H0 to IU ---------------
     df_cc <- H0_IU %>%
-      ## Harmonise key var.
       rename(!!.cc := `HS 1988/92 Product Code`)
   } else if (convert.from == "H0" & convert.to == "MT") {
     ### from H0 to MT ---------------
     df_cc <- H0_MT %>%
-      ## Harmonise key var.
       rename(!!.cc := `HS 1988/92 Product Code`)
   } else if (convert.from == "H0" & convert.to == "S1") {
     ### from H0 to S1 ---------------
     df_cc <- H0_S1 %>%
-      ## Harmonise key var.
       rename(!!.cc := `HS 1988/92 Product Code`)
   } else if (convert.from == "H0" & convert.to == "S2") {
     ### from H0 to S2 ---------------
     df_cc <- H0_S2 %>%
-      ## Harmonise key var.
       rename(!!.cc := `HS 1988/92 Product Code`)
   } else if (convert.from == "H0" & convert.to == "S3") {
     ### from H0 to S3 ---------------
     df_cc <- H0_S3 %>%
-      ## Harmonise key var.
       rename(!!.cc := `HS 1988/92 Product Code`)
   } else if (convert.from == "H0" & convert.to == "S4") {
     ### from H0 to S4 ---------------
     df_cc <- H0_S4 %>%
-      ## Harmonise key var.
       rename(!!.cc := `HS 1988/92 Product Code`)
-  } else
-  if (convert.from == "H1" & convert.to == "BE") {
+  } else if (convert.from == "H1" & convert.to == "BE") {
     ### from H1 to BE ---------------
     df_cc <- H1_BE %>%
-      ## Harmonise key var.
       rename(!!.cc := `HS 1996 Product Code`)
   } else if (convert.from == "H1" & convert.to == "CC") {
     ### from H1 to CC ---------------
     df_cc <- H1_CC %>%
-      ## Harmonise key var.
       rename(!!.cc := `HS 1996 Product Code`)
   } else if (convert.from == "H1" & convert.to == "CP") {
     ### from H1 to CP ---------------
     df_cc <- H1_CP %>%
-      ## Harmonise key var.
       rename(!!.cc := `HS 1996 Product Code`)
   } else if (convert.from == "H1" & convert.to == "GP") {
     ### from H1 to GP ---------------
     df_cc <- H1_GP %>%
-      ## Harmonise key var.
       rename(!!.cc := `HS 1996 Product Code`)
   } else if (convert.from == "H1" & convert.to == "H0") {
     ### from H1 to H0 ---------------
     df_cc <- H1_H0 %>%
-      ## Harmonise key var.
       rename(!!.cc := `HS 1996 Product Code`)
   } else if (convert.from == "H1" & convert.to == "H0") {
     ### from H1 to I2 ---------------
     df_cc <- H1_I2 %>%
-      ## Harmonise key var.
       rename(!!.cc := `HS 1996 Product Code`)
   } else if (convert.from == "H1" & convert.to == "I3") {
     ### from H1 to I3 ---------------
     df_cc <- H1_I3 %>%
-      ## Harmonise key var.
       rename(!!.cc := `HS 1996 Product Code`)
   } else if (convert.from == "H1" & convert.to == "IU") {
     ### from H1 to IU ---------------
     df_cc <- H1_IU %>%
-      ## Harmonise key var.
       rename(!!.cc := `HS 1996 Product Code`)
   } else if (convert.from == "H1" & convert.to == "MT") {
     ### from H1 to MT ---------------
     df_cc <- H1_MT %>%
-      ## Harmonise key var.
       rename(!!.cc := `HS 1996 Product Code`)
   } else if (convert.from == "H1" & convert.to == "S1") {
     ### from H1 to S1 ---------------
     df_cc <- H1_S1 %>%
-      ## Harmonise key var.
       rename(!!.cc := `HS 1996 Product Code`)
   } else if (convert.from == "H1" & convert.to == "S2") {
     ### from H1 to S2 ---------------
     df_cc <- H1_S2 %>%
-      ## Harmonise key var.
       rename(!!.cc := `HS 1996 Product Code`)
   } else if (convert.from == "H1" & convert.to == "S3") {
     ### from H1 to S3 ---------------
     df_cc <- H1_S3 %>%
-      ## Harmonise key var.
       rename(!!.cc := `HS 1996 Product Code`)
   } else if (convert.from == "H1" & convert.to == "S4") {
     ### from H1 to S4 ---------------
     df_cc <- H1_S4 %>%
-      ## Harmonise key var.
       rename(!!.cc := `HS 1996 Product Code`)
+  } else if (convert.from == "H2" & convert.to == "BE") {
+    ### from H2 to BE ---------------
+    df_cc <- H2_BE %>%
+      rename(!!.cc := `HS 2002 Product Code`)
+  } else if (convert.from == "H2" & convert.to == "CC") {
+    ### from H2 to CC ---------------
+    df_cc <- H2_CC %>%
+      rename(!!.cc := `HS 2002 Product Code`)
+  } else if (convert.from == "H2" & convert.to == "CP") {
+    ### from H2 to CP ---------------
+    df_cc <- H2_CP %>%
+      rename(!!.cc := `HS 2002 Product Code`)
+  } else if (convert.from == "H2" & convert.to == "GP") {
+    ### from H2 to GP ---------------
+    df_cc <- H2_GP %>%
+      rename(!!.cc := `HS 2002 Product Code`)
+  } else if (convert.from == "H2" & convert.to == "H0") {
+    ### from H2 to H0 ---------------
+    df_cc <- H2_H0 %>%
+      rename(!!.cc := `HS 2002 Product Code`)
+  } else if (convert.from == "H2" & convert.to == "H0") {
+    ### from H2 to I2 ---------------
+    df_cc <- H2_I2 %>%
+      rename(!!.cc := `HS 2002 Product Code`)
+  } else if (convert.from == "H2" & convert.to == "H1") {
+    ### from H2 to H1 ---------------
+    df_cc <- H2_H1 %>%
+      rename(!!.cc := `HS 2002 Product Code`)
+  } else if (convert.from == "H2" & convert.to == "I3") {
+    ### from H2 to I3 ---------------
+    df_cc <- H2_I3 %>%
+      rename(!!.cc := `HS 2002 Product Code`)
+  } else if (convert.from == "H2" & convert.to == "IU") {
+    ### from H2 to IU ---------------
+    df_cc <- H2_IU %>%
+      rename(!!.cc := `HS 2002 Product Code`)
+  } else if (convert.from == "H2" & convert.to == "MT") {
+    ### from H2 to MT ---------------
+    df_cc <- H2_MT %>%
+      rename(!!.cc := `HS 2002 Product Code`)
+  } else if (convert.from == "H2" & convert.to == "S1") {
+    ### from H2 to S1 ---------------
+    df_cc <- H2_S1 %>%
+      rename(!!.cc := `HS 2002 Product Code`)
+  } else if (convert.from == "H2" & convert.to == "S2") {
+    ### from H2 to S2 ---------------
+    df_cc <- H2_S2 %>%
+      rename(!!.cc := `HS 2002 Product Code`)
+  } else if (convert.from == "H2" & convert.to == "S3") {
+    ### from H2 to S3 ---------------
+    df_cc <- H2_S3 %>%
+      rename(!!.cc := `HS 2002 Product Code`)
+  } else if (convert.from == "H2" & convert.to == "S4") {
+    ### from H2 to S4 ---------------
+    df_cc <- H2_S4 %>%
+      rename(!!.cc := `HS 2002 Product Code`)
   } else if (convert.from == "H3" & convert.to == "BE") {
     ### from H3 to BE ---------------
     df_cc <- H3_BE %>%
-      ## Harmonise key var.
       rename(!!.cc := `HS 2007 Product Code`)
   } else if (convert.from == "H3" & convert.to == "CC") {
     ### from H3 to CC ---------------
     df_cc <- H3_CC %>%
-      ## Harmonise key var.
       rename(!!.cc := `HS 2007 Product Code`)
   } else if (convert.from == "H3" & convert.to == "CP") {
     ### from H3 to CP ---------------
     df_cc <- H3_CP %>%
-      ## Harmonise key var.
       rename(!!.cc := `HS 2007 Product Code`)
   } else if (convert.from == "H3" & convert.to == "GP") {
     ### from H3 to GP ---------------
     df_cc <- H3_GP %>%
-      ## Harmonise key var.
       rename(!!.cc := `HS 2007 Product Code`)
   } else if (convert.from == "H3" & convert.to == "H0") {
     ### from H3 to H0 ---------------
     df_cc <- H3_H0 %>%
-      ## Harmonise key var.
       rename(!!.cc := `HS 2007 Product Code`)
   } else if (convert.from == "H3" & convert.to == "H1") {
     ### from H3 to H1 ---------------
     df_cc <- H3_H1 %>%
-      ## Harmonise key var.
       rename(!!.cc := `HS 2007 Product Code`)
   } else if (convert.from == "H3" & convert.to == "H2") {
     ### from H3 to H2 ---------------
     df_cc <- H3_H2 %>%
-      ## Harmonise key var.
       rename(!!.cc := `HS 2007 Product Code`)
   } else if (convert.from == "H3" & convert.to == "I2") {
     ### from H3 to I2 ---------------
     df_cc <- H3_I2 %>%
-      ## Harmonise key var.
       rename(!!.cc := `HS 2007 Product Code`)
   } else if (convert.from == "H3" & convert.to == "I3") {
     ### from H3 to I3 ---------------
     df_cc <- H3_I3 %>%
-      ## Harmonise key var.
       rename(!!.cc := `HS 2007 Product Code`)
   } else if (convert.from == "H3" & convert.to == "IU") {
     ### from H3 to IU ---------------
     df_cc <- H3_IU %>%
-      ## Harmonise key var.
       rename(!!.cc := `HS 2007 Product Code`)
   } else if (convert.from == "H3" & convert.to == "MT") {
     ### from H3 to MT ---------------
     df_cc <- H3_MT %>%
-      ## Harmonise key var.
       rename(!!.cc := `HS 2007 Product Code`)
   } else if (convert.from == "H3" & convert.to == "S1") {
     ### from H3 to S1 ---------------
     df_cc <- H3_S1 %>%
-      ## Harmonise key var.
       rename(!!.cc := `HS 2007 Product Code`)
   } else if (convert.from == "H3" & convert.to == "S2") {
     ### from H3 to S2 ---------------
     df_cc <- H3_S2 %>%
-      ## Harmonise key var.
       rename(!!.cc := `HS 2007 Product Code`)
   } else if (convert.from == "H3" & convert.to == "S3") {
     ### from H3 to S3 ---------------
     df_cc <- H3_S3 %>%
-      ## Harmonise key var.
       rename(!!.cc := `HS 2007 Product Code`)
   } else if (convert.from == "H3" & convert.to == "S4") {
     ### from H3 to S4 ---------------
     df_cc <- H3_S4 %>%
-      ## Harmonise key var.
       rename(!!.cc := `HS 2007 Product Code`)
   } else {
     ### No concordance available ---------------
