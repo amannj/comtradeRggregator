@@ -425,7 +425,7 @@ See `?is.available_Comtrade` for full documentation.
 
 ### `convert_Comtrade()`
 
-> **Work in progress: Currently only `H0`,`H3`  concordance tables implemented.**
+> **Work in progress: Currently only `HS`,`H0`,`H1`, `H2`, `H3`  concordance tables implemented.**
 
 Sometimes you might wish to reclassify trade data from one classification to a different one. Function `convert_Comtrade()` offers a simple way for such conversions by 
 providing official concordance tables from the [UN Statistics Division (UNSD)](https://unstats.un.org/unsd/classifications/Econ#corresp-hs) and the [World Integrated Trade Solution (WITS)](https://wits.worldbank.org/product_concordance.html). 
