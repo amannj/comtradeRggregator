@@ -476,54 +476,123 @@ download_Comtrade(
   location.temporaryFiles = NULL # location of temporary file downloads; default is `<package-directory>\data\tmp\<date-and-time-stamp>
 )
 
-# Test 7.h0: Check all concordance tables for HS 0 -------------------------------
-codes <- c('BE', 'CC', 'CP', 'GP', 'I2', 'I3', 'IU', 'MT', 'S1', 'S2', 'S3', 'S4')
 
+# Test 7.hs: Check all concordance tables for HS  -------------------------------
+download_Comtrade(
+  year = "2018",
+  month = '01',
+  frequency = "monthly",
+  countries = "Australia",
+  partners = "World",
+  tradecode = "HS",
+  ag = "AG6",
+  type = "commodities",
+  select.stats = "trade_value_usd",
+  direction = "all",
+  sleep = 5
+) -> AU_World_HS
+codes <- c('BE', 'CC', 'CP', 'GP', 'H0', 'H1', 'H2','H3', 'H4', 'I2', 'I3', 'IU', 'MT', 'S1', 'S2', 'S3', 'S4')
 for(c in codes) {
-  AT_World %>%
+  AU_World_HS %>%
     convert_Comtrade(
       classification = "classification",
       commodity.code = "commodity_code",
       convert.to = c
-    ) %>%
-    select(!c(period, reporter, partner, trade_value_usd, netweight_kg, gross_weight_kg, qty_unit, qty, qty_unit_code, alt_qty_unit_code, alt_qty_unit, alt_qty)) -> out
+    )  -> out
+  message('\n-------------------\n HS combined to ',c,'\n-------------------\n')
+  print(out)
+}
+
+
+# Test 7.h0: Check all concordance tables for HS 0 -------------------------------
+download_Comtrade(
+  year = "2018",
+  frequency = "annual",
+  countries = "Austria",
+  partners = "World",
+  tradecode = "HS1992",
+  ag = "AG6",
+  type = "commodities",
+  select.stats = "trade_value_usd",
+  direction = "all",
+  sleep = 5
+) -> AT_World_H0
+codes <- c('BE', 'CC', 'CP', 'GP', 'I2', 'I3', 'IU', 'MT', 'S1', 'S2', 'S3', 'S4')
+for(c in codes) {
+  AT_World_H0 %>%
+    convert_Comtrade(
+      classification = "classification",
+      commodity.code = "commodity_code",
+      convert.to = c
+    ) -> out
   message('\n-------------------\n HS0 to ',c,'\n-------------------\n')
   print(out)
 }
 
 # Test 7.h1: Check all concordance tables for HS 1 -------------------------------
+download_Comtrade(
+  year = "2018",
+  frequency = "annual",
+  countries = "Austria",
+  partners = "World",
+  tradecode = "HS1996",
+  ag = "AG6",
+  type = "commodities",
+  select.stats = "trade_value_usd",
+  direction = "all",
+  sleep = 5
+) -> AT_World_H1
 codes <- c('BE', 'CC', 'CP', 'GP', 'H0', 'I2', 'I3', 'IU', 'MT', 'S1', 'S2', 'S3', 'S4')
-
 for(c in codes) {
-  AT_World %>%
+  AT_World_H1 %>%
     convert_Comtrade(
       classification = "classification",
       commodity.code = "commodity_code",
       convert.to = c
-    ) %>%
-    select(!c(period, reporter, partner, trade_value_usd, netweight_kg, gross_weight_kg, qty_unit, qty, qty_unit_code, alt_qty_unit_code, alt_qty_unit, alt_qty)) -> out
+    )  -> out
   message('\n-------------------\n HS1 to ',c,'\n-------------------\n')
   print(out)
 }
 
-# Test 7.h2: Check all concordance tables for HS 1 -------------------------------
-codes <- c('BE', 'CC', 'CP', 'GP', 'H0','H2', 'I2', 'I3', 'IU', 'MT', 'S1', 'S2', 'S3', 'S4')
-
+# Test 7.h2: Check all concordance tables for HS 2 -------------------------------
+download_Comtrade(
+  year = "2018",
+  frequency = "annual",
+  countries = "Austria",
+  partners = "World",
+  tradecode = "HS2002",
+  ag = "AG6",
+  type = "commodities",
+  select.stats = "trade_value_usd",
+  direction = "all",
+  sleep = 5
+) -> AT_World_H2
+codes <- c('BE', 'CC', 'CP', 'GP', 'H0','H1', 'I2', 'I3', 'IU', 'MT', 'S1', 'S2', 'S3', 'S4')
 for(c in codes) {
-  AT_World %>%
+  AT_World_H2 %>%
     convert_Comtrade(
       classification = "classification",
       commodity.code = "commodity_code",
       convert.to = c
-    ) %>%
-    select(!c(period, reporter, partner, trade_value_usd, netweight_kg, gross_weight_kg, qty_unit, qty, qty_unit_code, alt_qty_unit_code, alt_qty_unit, alt_qty)) -> out
+    ) -> out
   message('\n-------------------\n HS2 to ',c,'\n-------------------\n')
   print(out)
 }
 
 # Test 7.h3: Check all concordance tables for HS 3 -------------------------------
+download_Comtrade(
+  year = "2010",
+  frequency = "annual",
+  countries = "Austria",
+  partners = "World",
+  tradecode = "HS2007",
+  ag = "AG2",
+  type = "commodities",
+  select.stats = "trade_value_usd",
+  direction = "all",
+  sleep = 5
+) -> AT_World_H2
 codes <- c('BE', 'CC', 'CP', 'GP', 'H0', 'H1', 'H2', 'I2', 'I3', 'IU', 'MT', 'S1', 'S2', 'S3', 'S4')
-
 for(c in codes) {
 AT_World %>%
   convert_Comtrade(
