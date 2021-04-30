@@ -59,7 +59,75 @@ convert_Comtrade <- function(data,
 
   # Look through concordance tables
 
-  if (convert.from == "H0" & convert.to == "BE") {
+  if (convert.from == "HS" & convert.to == "BE") {
+    ### from HS to BE ---------------
+    df_cc <- HS_BE %>%
+      rename(!!.cc := `HS - Combined  Product Code`)
+  } else if (convert.from == "HS" & convert.to == "CC") {
+    ### from HS to CC ---------------
+    df_cc <- HS_CC %>%
+      rename(!!.cc := `HS - Combined  Product Code`)
+  } else if (convert.from == "HS" & convert.to == "CP") {
+    ### from HS to CP ---------------
+    df_cc <- HS_CP %>%
+      rename(!!.cc := `HS - Combined  Product Code`)
+  } else if (convert.from == "HS" & convert.to == "GP") {
+    ### from HS to GP ---------------
+    df_cc <- HS_GP %>%
+      rename(!!.cc := `HS - Combined  Product Code`)
+  } else if (convert.from == "HS" & convert.to == "H0") {
+    ### from HS to H0 ---------------
+    df_cc <- HS_H0 %>%
+      rename(!!.cc := `HS - Combined  Product Code`)
+  } else if (convert.from == "HS" & convert.to == "H1") {
+    ### from HS to H1 ---------------
+    df_cc <- HS_H1 %>%
+      rename(!!.cc := `HS - Combined  Product Code`)
+  } else if (convert.from == "HS" & convert.to == "H2") {
+    ### from HS to H2 ---------------
+    df_cc <- HS_H2 %>%
+      rename(!!.cc := `HS - Combined  Product Code`)
+  } else if (convert.from == "HS" & convert.to == "H3") {
+    ### from HS to H3 ---------------
+    df_cc <- HS_H3 %>%
+      rename(!!.cc := `HS - Combined  Product Code`)
+  } else if (convert.from == "HS" & convert.to == "H4") {
+    ### from HS to H4 ---------------
+    df_cc <- HS_H4 %>%
+      rename(!!.cc := `HS - Combined  Product Code`)
+  } else if (convert.from == "HS" & convert.to == "I2") {
+    ### from HS to I2 ---------------
+    df_cc <- HS_I2 %>%
+      rename(!!.cc := `HS - Combined  Product Code`)
+  } else if (convert.from == "HS" & convert.to == "I3") {
+    ### from HS to I3 ---------------
+    df_cc <- HS_I3 %>%
+      rename(!!.cc := `HS - Combined  Product Code`)
+  } else if (convert.from == "HS" & convert.to == "IU") {
+    ### from HS to IU ---------------
+    df_cc <- HS_IU %>%
+      rename(!!.cc := `HS - Combined  Product Code`)
+  } else if (convert.from == "HS" & convert.to == "MT") {
+    ### from HS to MT ---------------
+    df_cc <- HS_MT %>%
+      rename(!!.cc := `HS - Combined  Product Code`)
+  } else if (convert.from == "HS" & convert.to == "S1") {
+    ### from HS to S1 ---------------
+    df_cc <- HS_S1 %>%
+      rename(!!.cc := `HS - Combined  Product Code`)
+  } else if (convert.from == "HS" & convert.to == "S2") {
+    ### from HS to S2 ---------------
+    df_cc <- HS_S2 %>%
+      rename(!!.cc := `HS - Combined  Product Code`)
+  } else if (convert.from == "HS" & convert.to == "S3") {
+    ### from HS to S3 ---------------
+    df_cc <- HS_S3 %>%
+      rename(!!.cc := `HS - Combined  Product Code`)
+  } else if (convert.from == "HS" & convert.to == "S4") {
+    ### from HS to S4 ---------------
+    df_cc <- HS_S4 %>%
+      rename(!!.cc := `HS - Combined  Product Code`)
+  } else if (convert.from == "H0" & convert.to == "BE") {
     ### from H0 to BE ---------------
     df_cc <- H0_BE %>%
       rename(!!.cc := `HS 1988/92 Product Code`)
@@ -127,7 +195,7 @@ convert_Comtrade <- function(data,
     ### from H1 to H0 ---------------
     df_cc <- H1_H0 %>%
       rename(!!.cc := `HS 1996 Product Code`)
-  } else if (convert.from == "H1" & convert.to == "H0") {
+  } else if (convert.from == "H1" & convert.to == "I2") {
     ### from H1 to I2 ---------------
     df_cc <- H1_I2 %>%
       rename(!!.cc := `HS 1996 Product Code`)
@@ -135,7 +203,7 @@ convert_Comtrade <- function(data,
     ### from H1 to I3 ---------------
     df_cc <- H1_I3 %>%
       rename(!!.cc := `HS 1996 Product Code`)
-  } else if (convert.from == "H1" & convert.to == "IU") {
+  }else if (convert.from == "H1" & convert.to == "IU") {
     ### from H1 to IU ---------------
     df_cc <- H1_IU %>%
       rename(!!.cc := `HS 1996 Product Code`)
@@ -179,13 +247,13 @@ convert_Comtrade <- function(data,
     ### from H2 to H0 ---------------
     df_cc <- H2_H0 %>%
       rename(!!.cc := `HS 2002 Product Code`)
-  } else if (convert.from == "H2" & convert.to == "H0") {
-    ### from H2 to I2 ---------------
-    df_cc <- H2_I2 %>%
-      rename(!!.cc := `HS 2002 Product Code`)
   } else if (convert.from == "H2" & convert.to == "H1") {
     ### from H2 to H1 ---------------
     df_cc <- H2_H1 %>%
+      rename(!!.cc := `HS 2002 Product Code`)
+  } else if (convert.from == "H2" & convert.to == "I2") {
+    ### from H2 to I2 ---------------
+    df_cc <- H2_I2 %>%
       rename(!!.cc := `HS 2002 Product Code`)
   } else if (convert.from == "H2" & convert.to == "I3") {
     ### from H2 to I3 ---------------
