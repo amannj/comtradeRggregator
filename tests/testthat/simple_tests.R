@@ -591,7 +591,7 @@ download_Comtrade(
   select.stats = "trade_value_usd",
   direction = "all",
   sleep = 5
-) -> AT_World_H2
+) -> AT_World_H3
 codes <- c('BE', 'CC', 'CP', 'GP', 'H0', 'H1', 'H2', 'I2', 'I3', 'IU', 'MT', 'S1', 'S2', 'S3', 'S4')
 for(c in codes) {
 AT_World %>%
