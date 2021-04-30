@@ -66,9 +66,9 @@ absent from either the [Comtrade](https://comtrade.un.org) or
 
 *Table Supported Trade Classification*
 
-| Description                                                   | Trade code; use either version as input argument for `tradecode` | Level of (dis-)aggregation for input argument `ag` |
+| Description                                                   | Trade code; use either version as input for argument `tradecode` | Level of (dis-)aggregation for input argument `ag` |
 |---------------------------------------------------------------|------------------------------------------------------------------|----------------------------------------------------|
-| HS combined,as reported                                       | `HS`                                                             | `TOTAL`,`AG2`, `AG4`, `AG6`                        |
+| HS combined, as reported                                      | `HS`                                                             | `TOTAL`,`AG2`, `AG4`, `AG6`                        |
 | HS 1988/1992                                                  | `HS1992`, `H0`                                                   | `TOTAL`,`AG2`, `AG4`, `AG6`                        |
 | HS 1996                                                       | `HS1996`, `H1`                                                   | `TOTAL`,`AG2`, `AG4`, `AG6`                        |
 | HS 2002                                                       | `HS2002`, `H2`                                                   | `TOTAL`,`AG2`, `AG4`, `AG6`                        |
@@ -81,7 +81,7 @@ absent from either the [Comtrade](https://comtrade.un.org) or
 | SITC Revision 3                                               | `SITCrev3`, `S3`                                                 | `TOTAL`,`AG1`, `AG3`, `AG3`, `AG4`, `AG5`          |
 | SITC Revision 4                                               | `SITCrev4`, `S4`                                                 | `TOTAL`,`AG1`, `AG3`, `AG3`, `AG4`, `AG5`          |
 | Broad Economic Categories                                     | `BEC`                                                            | `TOTAL`,`AG1`, `AG3`, `AG3`                        |
-| ~~Extended Balance of Payments Services Classification~~      | ~~`EB02`~~                                                       |                                                    |
+| ~~Extended Balance of Payments Services Classification~~      | ~~`EB02`~~                                                       | .                                                  |
 
 -   Supports extraction of `annual` as well as `monthly`
     [Comtrade](https://comtrade.un.org) trade data.
@@ -966,8 +966,8 @@ available and is documented in the [official Comtrade data availability
 file](https://comtrade.un.org/data/da), `comtradeRggregator` will use
 this information no later than 24 hours after its publication. The
 Comtrade Data Availability file can be accessed locally (file name
-`Comtrade_DA`); more information on the file can be obtained typing
-`?Comtrade_DA`.
+`Comtrade_DA`), and more information on the file can be obtained by
+accessing the help menu (type `?Comtrade_DA`).
 
 #### Extraction of monthly trade data
 
@@ -998,7 +998,7 @@ devtools::install_github("amannj/comtradr",
   force = TRUE
 )
 
-## Download `comtradeRggregator`; privat repository, therefore requires `auth_token`.
+## Download `comtradeRggregator`; private repository, therefore requires `auth_token`.
 devtools::install_github("amannj/comtradeRggregator",
   ref = "master",
   auth_token = "...",
@@ -1041,14 +1041,17 @@ AT_World <- download_Comtrade(
   select.stats = "trade_value_usd",
   direction = "all"
 )
+#> Warning: JSON string contains (illegal) UTF8 byte-order-mark!
+#> Updates found. The following datasets have been downloaded: commodities DB, countries DB
+#> 
 #>  No Comtrade token specified; download restricted to 100 queries per hour.
 #> 
-#> New folder created in: 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data/tmp/2021-04-28_10.17PM'. Temporary files will be stored there.
+#> New folder created in: 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data/tmp/2021-04-30_07.52PM'. Temporary files will be stored there.
 #> 
-#> Comtrade Data Availability file updated and stored in file 'Comtrade_DataAvailability-2021-04-28' in folder 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data'; will be used for look-up. Old files removed.
+#> Comtrade Data Availability file updated and stored in file 'Comtrade_DataAvailability-2021-04-30' in folder 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data'; will be used for look-up. Old files removed.
 #> 
 #> 
-#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-28'
+#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-30'
 #>    in folder 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data'
 #>    already exists and will be used for look-up.
 #> 
@@ -1062,16 +1065,16 @@ AT_World
 #> # A tibble: 9,432 x 8
 #>    classification period trade_flow reporter partner commodity_code commodity   
 #>    <chr>           <int> <chr>      <chr>    <chr>   <chr>          <chr>       
-#>  1 H3               2018 Import     Austria  World   010519         Live ducks/~
-#>  2 H3               2018 Import     Austria  World   010594         Live fowls ~
-#>  3 H3               2018 Export     Austria  World   010594         Live fowls ~
-#>  4 H3               2018 Import     Austria  World   010599         Live ducks/~
-#>  5 H3               2018 Export     Austria  World   010599         Live ducks/~
-#>  6 H3               2018 Import     Austria  World   010611         Live primat~
-#>  7 H3               2018 Import     Austria  World   010619         Live mammal~
-#>  8 H3               2018 Export     Austria  World   010619         Live mammal~
-#>  9 H3               2018 Import     Austria  World   010620         Live reptil~
-#> 10 H3               2018 Export     Austria  World   010620         Live reptil~
+#>  1 H3               2018 Export     Austria  World   010110         Live horses~
+#>  2 H3               2018 Import     Austria  World   010190         Live horses~
+#>  3 H3               2018 Export     Austria  World   010190         Live horses~
+#>  4 H3               2018 Import     Austria  World   010210         Live bovine~
+#>  5 H3               2018 Export     Austria  World   010210         Live bovine~
+#>  6 H3               2018 Import     Austria  World   010290         Live bovine~
+#>  7 H3               2018 Export     Austria  World   010290         Live bovine~
+#>  8 H3               2018 Import     Austria  World   010310         Live swine:~
+#>  9 H3               2018 Export     Austria  World   010310         Live swine:~
+#> 10 H3               2018 Import     Austria  World   010391         Live swine ~
 #> # ... with 9,422 more rows, and 1 more variable: trade_value_usd <dbl>
 ```
 
@@ -1098,14 +1101,14 @@ download_Comtrade(
 #> 
 #>  No Comtrade token specified; download restricted to 99 queries per hour.
 #> 
-#> New folder created in: 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data/tmp/2021-04-28_10.20PM'. Temporary files will be stored there.
+#> New folder created in: 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data/tmp/2021-04-30_07.53PM'. Temporary files will be stored there.
 #> 
-#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-28'
+#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-30'
 #>    in folder 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data'
 #>    already exists and will be used for look-up.
 #> 
 #> 
-#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-28'
+#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-30'
 #>    in folder 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data'
 #>    already exists and will be used for look-up.
 #> 
@@ -1273,14 +1276,13 @@ da1 <- is.available_Comtrade(
   year = 2008
 )
 #> 
-#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-28'
+#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-30'
 #>    in folder 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data'
 #>    already exists and will be used for look-up.
 #> 
 
 head(da1)
-#> [1] "China, Hong Kong SAR" "Hungary"              "Iceland"             
-#> [4] "Ireland"              "Israel"               "Italy"
+#> [1] "Algeria"   "Andorra"   "Argentina" "Armenia"   "Australia" "Austria"
 ```
 
 Similarly, you might want to know if a particular (set of)
@@ -1296,13 +1298,14 @@ da2 <- is.available_Comtrade(
   year = 2012
 )
 #> 
-#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-28'
+#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-30'
 #>    in folder 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data'
 #>    already exists and will be used for look-up.
 #> 
 
 da2
-#> [1] TRUE TRUE
+#> Austria Germany 
+#>    TRUE    TRUE
 ```
 
 The same can also be done for monthly data. As seen below, only
@@ -1318,13 +1321,14 @@ da3 <- is.available_Comtrade(
   year = 2020
 )
 #> 
-#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-28'
+#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-30'
 #>    in folder 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data'
 #>    already exists and will be used for look-up.
 #> 
 
 da3
-#> [1] FALSE  TRUE
+#> Austria Germany 
+#>   FALSE    TRUE
 ```
 
 #### Arguments
@@ -1363,8 +1367,8 @@ See `?is.available_Comtrade` for full documentation.
 
 ### `convert_Comtrade()`
 
-> **Work in progress: Currently only `H0`,`H3` concordance tables
-> implemented.**
+> **Work in progress: Currently only `HS`,`H0`,`H1`, `H2`, `H3`
+> concordance tables implemented.**
 
 Sometimes you might wish to reclassify trade data from one
 classification to a different one. Function `convert_Comtrade()` offers
@@ -1391,16 +1395,16 @@ AT_World %>%
 #> # A tibble: 9,612 x 3
 #>    classification commodity_code `ISIC Revision 3 Product Code`
 #>    <chr>          <chr>          <chr>                         
-#>  1 H3             010519         0122                          
-#>  2 H3             010594         0122                          
-#>  3 H3             010594         0122                          
-#>  4 H3             010599         0122                          
-#>  5 H3             010599         0122                          
-#>  6 H3             010611         0122                          
-#>  7 H3             010619         0122                          
-#>  8 H3             010619         0122                          
-#>  9 H3             010620         0122                          
-#> 10 H3             010620         0122                          
+#>  1 H3             010110         0121                          
+#>  2 H3             010190         0121                          
+#>  3 H3             010190         0121                          
+#>  4 H3             010210         0121                          
+#>  5 H3             010210         0121                          
+#>  6 H3             010290         0121                          
+#>  7 H3             010290         0121                          
+#>  8 H3             010310         0122                          
+#>  9 H3             010310         0122                          
+#> 10 H3             010391         0122                          
 #> # ... with 9,602 more rows
 ```
 
