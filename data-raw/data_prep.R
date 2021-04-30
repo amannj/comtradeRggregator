@@ -1,4 +1,6 @@
 library(comtradeRggregator)
+
+
 # H0 ------------
 
 ## H0 to BE -----------------
@@ -272,6 +274,291 @@ usethis::use_data(H0_S4, overwrite = TRUE)
 
 # H1 ------------
 
+
+## H1 to BE -----------------
+
+H1_BE <- readr::read_csv("data-raw/JobID-13_Concordance_H1_to_BE.CSV",
+                         col_types = readr::cols(.default = "c")
+)
+## Check var length
+colnames(H1_BE)
+H1_BE %>%
+  mutate(lgth = nchar(`BEC Product Code`)) %>%
+  distinct(lgth) %>%
+  arrange(desc(lgth)) %>%
+  slice(1) %>%
+  pull()
+
+H1_BE <- H1_BE %>%
+  ## Add leading zeros to codes
+  add_lzs(variable = "HS 1996 Product Code", variable.length = 6) %>%
+  add_lzs(variable = "BEC Product Code", variable.length = 3)
+
+usethis::use_data(H1_BE, overwrite = TRUE)
+
+
+## H1 to BE -----------------
+
+H1_CC <- readr::read_csv("data-raw/JobID-14_Concordance_H1_to_CC.CSV",
+                         col_types = readr::cols(.default = "c")
+)
+## Check var length
+colnames(H1_CC)
+H1_CC %>%
+  mutate(lgth = nchar(`CCCN Product Code`)) %>%
+  distinct(lgth) %>%
+  arrange(desc(lgth)) %>%
+  slice(1) %>%
+  pull()
+
+H1_CC <- H1_CC %>%
+  ## Add leading zeros to codes
+  add_lzs(variable = "HS 1996 Product Code", variable.length = 6) %>%
+  add_lzs(variable = "CCCN Product Code", variable.length = 6)
+
+usethis::use_data(H1_CC, overwrite = TRUE)
+
+
+## H1 to CP -----------------
+
+H1_CP <- readr::read_csv("data-raw/JobID-15_Concordance_H1_to_CP.CSV",
+                         col_types = readr::cols(.default = "c")
+)
+## Check var length
+colnames(H1_CP)
+H1_CP %>%
+  mutate(lgth = nchar(`CPC Product Code`)) %>%
+  distinct(lgth) %>%
+  arrange(desc(lgth)) %>%
+  slice(1) %>%
+  pull()
+
+H1_CP <- H1_CP %>%
+  ## Add leading zeros to codes
+  add_lzs(variable = "HS 1996 Product Code", variable.length = 6) %>%
+  add_lzs(variable = "CPC Product Code", variable.length = 5)
+
+usethis::use_data(H1_CP, overwrite = TRUE)
+
+
+## H1 to GP -----------------
+
+H1_GP <- readr::read_csv("data-raw/JobID-16_Concordance_H1_to_GP.CSV",
+                         col_types = readr::cols(.default = "c")
+)
+## Check var length
+colnames(H1_GP)
+H1_GP %>%
+  mutate(lgth = nchar(`GTAP Product Code`)) %>%
+  distinct(lgth) %>%
+  arrange(desc(lgth)) %>%
+  slice(1) %>%
+  pull()
+
+H1_GP <- H1_GP %>%
+  ## Add leading zeros to codes
+  add_lzs(variable = "HS 1996 Product Code", variable.length = 6) %>%
+  add_lzs(variable = "GTAP Product Code", variable.length = 2)
+
+usethis::use_data(H1_GP, overwrite = TRUE)
+
+
+## H1 to H0 -----------------
+
+H1_H0 <- readr::read_csv("data-raw/JobID-17_Concordance_H1_to_H0.CSV",
+                         col_types = readr::cols(.default = "c")
+)
+## Check var length
+colnames(H1_H0)
+H1_H0 %>%
+  mutate(lgth = nchar(`HS 1988/92 Product Code`)) %>%
+  distinct(lgth) %>%
+  arrange(desc(lgth)) %>%
+  slice(1) %>%
+  pull()
+
+H1_H0 <- H1_H0 %>%
+  ## Add leading zeros to codes
+  add_lzs(variable = "HS 1996 Product Code", variable.length = 6) %>%
+  add_lzs(variable = "HS 1988/92 Product Code", variable.length = 6)
+
+usethis::use_data(H1_H0, overwrite = TRUE)
+
+
+## H1 to I2 -----------------
+
+H1_I2 <- readr::read_csv("data-raw/JobID-18_Concordance_H1_to_I2.CSV",
+                         col_types = readr::cols(.default = "c")
+)
+## Check var length
+colnames(H1_I2)
+H1_I2 %>%
+  mutate(lgth = nchar(`ISIC Revision 2 Product Code`)) %>%
+  distinct(lgth) %>%
+  arrange(desc(lgth)) %>%
+  slice(1) %>%
+  pull()
+
+H1_I2 <- H1_I2 %>%
+  ## Add leading zeros to codes
+  add_lzs(variable = "HS 1996 Product Code", variable.length = 6) %>%
+  add_lzs(variable = "ISIC Revision 2 Product Code", variable.length = 4)
+
+usethis::use_data(H1_I2, overwrite = TRUE)
+
+
+## H1 to I3 -----------------
+
+H1_I3 <- readr::read_csv("data-raw/JobID-19_Concordance_H1_to_I3.CSV",
+                         col_types = readr::cols(.default = "c")
+)
+## Check var length
+colnames(H1_I3)
+H1_I3 %>%
+  mutate(lgth = nchar(`ISIC Revision 3 Product Code`)) %>%
+  distinct(lgth) %>%
+  arrange(desc(lgth)) %>%
+  slice(1) %>%
+  pull()
+
+H1_I3 <- H1_I3 %>%
+  ## Add leading zeros to codes
+  add_lzs(variable = "HS 1996 Product Code", variable.length = 6) %>%
+  add_lzs(variable = "ISIC Revision 3 Product Code", variable.length = 4)
+
+usethis::use_data(H1_I3, overwrite = TRUE)
+
+
+## H1 to IU -----------------
+
+H1_IU <- readr::read_csv("data-raw/JobID-20_Concordance_H1_to_IU.CSV",
+                         col_types = readr::cols(.default = "c")
+)
+## Check var length
+colnames(H1_IU)
+H1_IU %>%
+  mutate(lgth = nchar(`SIC Product Code`)) %>%
+  distinct(lgth) %>%
+  arrange(desc(lgth)) %>%
+  slice(1) %>%
+  pull()
+
+H1_IU <- H1_IU %>%
+  ## Add leading zeros to codes
+  add_lzs(variable = "HS 1996 Product Code", variable.length = 6) %>%
+  add_lzs(variable = "SIC Product Code", variable.length = 4)
+
+usethis::use_data(H1_IU, overwrite = TRUE)
+
+
+## H1 to MT -----------------
+
+H1_MT <- readr::read_csv("data-raw/JobID-21_Concordance_H1_to_MT.CSV",
+                         col_types = readr::cols(.default = "c")
+)
+## Check var length
+colnames(H1_MT)
+H1_MT %>%
+  mutate(lgth = nchar(`MTN Categories Product Code`)) %>%
+  distinct(lgth) %>%
+  arrange(desc(lgth)) %>%
+  slice(1) %>%
+  pull()
+
+H1_MT <- H1_MT %>%
+  ## Add leading zeros to codes
+  add_lzs(variable = "HS 1996 Product Code", variable.length = 6) %>%
+  add_lzs(variable = "MTN Categories Product Code", variable.length = 4)
+
+usethis::use_data(H1_MT, overwrite = TRUE)
+
+
+## H1 to S1 -----------------
+
+H1_S1 <- readr::read_csv("data-raw/JobID-22_Concordance_H1_to_S1.CSV",
+                         col_types = readr::cols(.default = "c")
+)
+## Check var length
+colnames(H1_S1)
+H1_S1 %>%
+  mutate(lgth = nchar(`SITC Revision 1 Product Code`)) %>%
+  distinct(lgth) %>%
+  arrange(desc(lgth)) %>%
+  slice(1) %>%
+  pull()
+
+H1_S1 <- H1_S1 %>%
+  ## Add leading zeros to codes
+  add_lzs(variable = "HS 1996 Product Code", variable.length = 6) %>%
+  add_lzs(variable = "SITC Revision 1 Product Code", variable.length = 5)
+
+usethis::use_data(H1_S1, overwrite = TRUE)
+
+
+## H1 to S2 -----------------
+
+H1_S2 <- readr::read_csv("data-raw/JobID-23_Concordance_H1_to_S2.CSV",
+                         col_types = readr::cols(.default = "c")
+)
+## Check var length
+colnames(H1_S2)
+H1_S2 %>%
+  mutate(lgth = nchar(`SITC Revision 2 Product Code`)) %>%
+  distinct(lgth) %>%
+  arrange(desc(lgth)) %>%
+  slice(1) %>%
+  pull()
+
+H1_S2 <- H1_S2 %>%
+  ## Add leading zeros to codes
+  add_lzs(variable = "HS 1996 Product Code", variable.length = 6) %>%
+  add_lzs(variable = "SITC Revision 2 Product Code", variable.length = 5)
+
+usethis::use_data(H1_S2, overwrite = TRUE)
+
+
+## H1 to S3 -----------------
+
+H1_S3 <- readr::read_csv("data-raw/JobID-24_Concordance_H1_to_S3.CSV",
+                         col_types = readr::cols(.default = "c")
+)
+## Check var length
+colnames(H1_S3)
+H1_S3 %>%
+  mutate(lgth = nchar(`SITC Revision 3 Product Code`)) %>%
+  distinct(lgth) %>%
+  arrange(desc(lgth)) %>%
+  slice(1) %>%
+  pull()
+
+H1_S3 <- H1_S3 %>%
+  ## Add leading zeros to codes
+  add_lzs(variable = "HS 1996 Product Code", variable.length = 6) %>%
+  add_lzs(variable = "SITC Revision 3 Product Code", variable.length = 5)
+
+usethis::use_data(H1_S3, overwrite = TRUE)
+
+
+## H1 to S4 -----------------
+
+H1_S4 <- readr::read_csv("data-raw/JobID-25_Concordance_H1_to_S4.CSV",
+                         col_types = readr::cols(.default = "c")
+)
+## Check var length
+colnames(H1_S4)
+H1_S4 %>%
+  mutate(lgth = nchar(`SITC Revision 4 Product Code`)) %>%
+  distinct(lgth) %>%
+  arrange(desc(lgth)) %>%
+  slice(1) %>%
+  pull()
+
+H1_S4 <- H1_S4 %>%
+  ## Add leading zeros to codes
+  add_lzs(variable = "HS 1996 Product Code", variable.length = 6) %>%
+  add_lzs(variable = "SITC Revision 4 Product Code", variable.length = 5)
+
+usethis::use_data(H1_S4, overwrite = TRUE)
 
 
 

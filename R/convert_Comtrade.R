@@ -115,10 +115,76 @@ convert_Comtrade <- function(data,
       ## Harmonise key var.
       rename(!!.cc := `HS 1988/92 Product Code`)
   } else if (convert.from == "H0" & convert.to == "S4") {
-    ### from H0 to S3 ---------------
+    ### from H0 to S4 ---------------
     df_cc <- H0_S4 %>%
       ## Harmonise key var.
       rename(!!.cc := `HS 1988/92 Product Code`)
+  } else
+  if (convert.from == "H1" & convert.to == "BE") {
+    ### from H1 to BE ---------------
+    df_cc <- H1_BE %>%
+      ## Harmonise key var.
+      rename(!!.cc := `HS 1996 Product Code`)
+  } else if (convert.from == "H1" & convert.to == "CC") {
+    ### from H1 to CC ---------------
+    df_cc <- H1_CC %>%
+      ## Harmonise key var.
+      rename(!!.cc := `HS 1996 Product Code`)
+  } else if (convert.from == "H1" & convert.to == "CP") {
+    ### from H1 to CP ---------------
+    df_cc <- H1_CP %>%
+      ## Harmonise key var.
+      rename(!!.cc := `HS 1996 Product Code`)
+  } else if (convert.from == "H1" & convert.to == "GP") {
+    ### from H1 to GP ---------------
+    df_cc <- H1_GP %>%
+      ## Harmonise key var.
+      rename(!!.cc := `HS 1996 Product Code`)
+  } else if (convert.from == "H1" & convert.to == "H0") {
+    ### from H1 to H0 ---------------
+    df_cc <- H1_H0 %>%
+      ## Harmonise key var.
+      rename(!!.cc := `HS 1996 Product Code`)
+  } else if (convert.from == "H1" & convert.to == "H0") {
+    ### from H1 to I2 ---------------
+    df_cc <- H1_I2 %>%
+      ## Harmonise key var.
+      rename(!!.cc := `HS 1996 Product Code`)
+  } else if (convert.from == "H1" & convert.to == "I3") {
+    ### from H1 to I3 ---------------
+    df_cc <- H1_I3 %>%
+      ## Harmonise key var.
+      rename(!!.cc := `HS 1996 Product Code`)
+  } else if (convert.from == "H1" & convert.to == "IU") {
+    ### from H1 to IU ---------------
+    df_cc <- H1_IU %>%
+      ## Harmonise key var.
+      rename(!!.cc := `HS 1996 Product Code`)
+  } else if (convert.from == "H1" & convert.to == "MT") {
+    ### from H1 to MT ---------------
+    df_cc <- H1_MT %>%
+      ## Harmonise key var.
+      rename(!!.cc := `HS 1996 Product Code`)
+  } else if (convert.from == "H1" & convert.to == "S1") {
+    ### from H1 to S1 ---------------
+    df_cc <- H1_S1 %>%
+      ## Harmonise key var.
+      rename(!!.cc := `HS 1996 Product Code`)
+  } else if (convert.from == "H1" & convert.to == "S2") {
+    ### from H1 to S2 ---------------
+    df_cc <- H1_S2 %>%
+      ## Harmonise key var.
+      rename(!!.cc := `HS 1996 Product Code`)
+  } else if (convert.from == "H1" & convert.to == "S3") {
+    ### from H1 to S3 ---------------
+    df_cc <- H1_S3 %>%
+      ## Harmonise key var.
+      rename(!!.cc := `HS 1996 Product Code`)
+  } else if (convert.from == "H1" & convert.to == "S4") {
+    ### from H1 to S4 ---------------
+    df_cc <- H1_S4 %>%
+      ## Harmonise key var.
+      rename(!!.cc := `HS 1996 Product Code`)
   } else if (convert.from == "H3" & convert.to == "BE") {
     ### from H3 to BE ---------------
     df_cc <- H3_BE %>%
@@ -190,7 +256,7 @@ convert_Comtrade <- function(data,
       ## Harmonise key var.
       rename(!!.cc := `HS 2007 Product Code`)
   } else if (convert.from == "H3" & convert.to == "S4") {
-    ### from H3 to S3 ---------------
+    ### from H3 to S4 ---------------
     df_cc <- H3_S4 %>%
       ## Harmonise key var.
       rename(!!.cc := `HS 2007 Product Code`)
