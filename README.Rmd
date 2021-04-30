@@ -101,8 +101,8 @@ h0 <- c("H0", "W", "W", "W", "W", NA, NA, NA, NA, NA, "W", "W", "W", "W", "W", "
 h1 <- c("H1", "W", "W", "W", "W", "W/U", NA, NA, NA, NA, "W", "W", "W", "W", "W/U", "W/U", "W/U", "W")
 h2 <- c("H2", "W", "W", "W", "W", "W/U", "W/U", NA, NA, NA, "W", "W", "W", "W", "W/U", "W/U", "W/U", "W")
 h3 <- c("H3", "W", "W", "W", "W", "W/U", "W/U", "W/U", NA, NA, "W", "W", "W", "W", "W/U", "W/U", "W/U", "W/U")
-h4 <- c("H4", "W", "W", "W", "W", "U", "U", "U", "U", NA, NA, paste0("x", footnote_marker_alphabet(1)), NA, NA, "U", "U", "U", "U")
-h5 <- c("H5", "W", "W", "W", "W", "U", "U", "U", "U", "U", NA, paste0("x", footnote_marker_alphabet(2)), NA, NA, "U", "U", "U", "U")
+h4 <- c("H4", "U",  NA, NA,  NA , "U", "U", "U", "U", NA, NA, paste0("x", footnote_marker_alphabet(1)), NA, NA, "U", "U", "U", "U")
+h5 <- c("H5", "U",  NA, NA,  NA , "U", "U", "U", "U", "U", NA, paste0("x", footnote_marker_alphabet(2)), NA, NA, "U", "U", "U", "U")
 
 s1 <- c("S1", "W", rep(NA, 16))
 s2 <- c("S2", "W/U", rep(NA, 8), "W", paste0("x", footnote_marker_alphabet(3)), NA, NA, "U", NA, NA, NA)
