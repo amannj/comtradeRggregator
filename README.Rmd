@@ -88,11 +88,11 @@ The goal of the `comtradeRggregator` package is to provide a simple tool to down
 -   Supports extraction of `annual` as well as `monthly` [Comtrade](https://comtrade.un.org) trade data.
 
 
--   Provides function for easy reclassification of trade data using official concordance tables from the [United Nations Statistical Division (UNSD)](https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp) and the [World Integrated Trade Solution (WITS)](https://wits.worldbank.org/product_concordance.html); see *Table Concordance*:
+-   Provides function for easy reclassification of trade data using official concordance tables from the [United Nations Statistical Division (UNSD)](https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp) and the [World Integrated Trade Solution (WITS)](https://wits.worldbank.org/product_concordance.html); see *Concordance Table* below. To access respective concordance tables in R, type `<code from_<code to>`. For example, the concordance table from `H3` to `H0` is stored as object `H3_H0`.
 
 
 
-*Table Concordance*
+*Concordance Table*
 
 ```{r concordanceTable, echo=FALSE}
 
@@ -140,7 +140,8 @@ kable(table,
   pack_rows("Standard International Trade Classification (SITC)", 8, 11) %>%
   pack_rows("International Standard Industrial Classification (ISIC)", 12, 13) %>%
   footnote(
-    general = "W: WITS, U: UN-Stats, x: reconstruction using mappings below.", general_title = "Abbreviations: ",
+    general = "W: WITS, U: UN-Stats, x: reconstruction using mappings below.", 
+    general_title = "Abbreviations: ",
     alphabet = c(
       "H4 >> H3 >> I3.",
       "H5 >> H3 >> I3.",

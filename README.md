@@ -92,9 +92,11 @@ absent from either the [Comtrade](https://comtrade.un.org) or
     (UNSD)](https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp)
     and the [World Integrated Trade Solution
     (WITS)](https://wits.worldbank.org/product_concordance.html); see
-    *Table Concordance*:
+    *Concordance Table* below. To access respective concordance tables
+    in R, type `<code from_<code to>`. For example, the concordance
+    table from `H3` to `H0` is stored as object `H3_H0`.
 
-*Table Concordance*
+*Concordance Table*
 
 <table class="table" style="font-size: 11.5px; margin-left: auto; margin-right: auto;border-bottom: 0;">
 <thead>
@@ -465,16 +467,16 @@ W/U
 H4
 </td>
 <td style="text-align:left;">
-W
+U
 </td>
 <td style="text-align:left;">
-W
+.
 </td>
 <td style="text-align:left;">
-W
+.
 </td>
 <td style="text-align:left;">
-W
+.
 </td>
 <td style="text-align:left;">
 U
@@ -521,16 +523,16 @@ U
 H5
 </td>
 <td style="text-align:left;">
-W
+U
 </td>
 <td style="text-align:left;">
-W
+.
 </td>
 <td style="text-align:left;">
-W
+.
 </td>
 <td style="text-align:left;">
-W
+.
 </td>
 <td style="text-align:left;">
 U
@@ -1001,9 +1003,10 @@ devtools::install_github("amannj/comtradr",
 ## Download `comtradeRggregator`; private repository, therefore requires `auth_token`.
 devtools::install_github("amannj/comtradeRggregator",
   ref = "master",
-  auth_token = "...",
+  auth_token = "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",
   force = TRUE
 )
+
 ```
 
 ------------------------------------------------------------------------
@@ -1041,20 +1044,6 @@ AT_World <- download_Comtrade(
   select.stats = "trade_value_usd",
   direction = "all"
 )
-#> Warning: JSON string contains (illegal) UTF8 byte-order-mark!
-#> Updates found. The following datasets have been downloaded: commodities DB, countries DB
-#> 
-#>  No Comtrade token specified; download restricted to 100 queries per hour.
-#> 
-#> New folder created in: 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data/tmp/2021-04-30_07.52PM'. Temporary files will be stored there.
-#> 
-#> Comtrade Data Availability file updated and stored in file 'Comtrade_DataAvailability-2021-04-30' in folder 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data'; will be used for look-up. Old files removed.
-#> 
-#> 
-#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-30'
-#>    in folder 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data'
-#>    already exists and will be used for look-up.
-#> 
 #> 
 #> Regular data download.
 #>    Austria; year 2018 direction 'all' done.
@@ -1098,20 +1087,6 @@ download_Comtrade(
   select.stats = "trade_value_usd",
   direction = "re_exports"
 )
-#> 
-#>  No Comtrade token specified; download restricted to 99 queries per hour.
-#> 
-#> New folder created in: 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data/tmp/2021-04-30_07.53PM'. Temporary files will be stored there.
-#> 
-#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-30'
-#>    in folder 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data'
-#>    already exists and will be used for look-up.
-#> 
-#> 
-#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-30'
-#>    in folder 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data'
-#>    already exists and will be used for look-up.
-#> 
 #> 
 #> Regular data download.
 #>    Austria; year 2018 direction 're_exports' done.
@@ -1275,11 +1250,6 @@ da1 <- is.available_Comtrade(
   tradecode = "H3",
   year = 2008
 )
-#> 
-#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-30'
-#>    in folder 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data'
-#>    already exists and will be used for look-up.
-#> 
 
 head(da1)
 #> [1] "Algeria"   "Andorra"   "Argentina" "Armenia"   "Australia" "Austria"
@@ -1297,11 +1267,6 @@ da2 <- is.available_Comtrade(
   tradecode = "H2",
   year = 2012
 )
-#> 
-#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-30'
-#>    in folder 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data'
-#>    already exists and will be used for look-up.
-#> 
 
 da2
 #> Austria Germany 
@@ -1320,11 +1285,6 @@ da3 <- is.available_Comtrade(
   tradecode = "H3",
   year = 2020
 )
-#> 
-#> Comtrade Data Availability file 'Comtrade_DataAvailability-2021-04-30'
-#>    in folder 'C:/Users/juerg/Documents/R/win-library/4.0/comtradeRggregator/data'
-#>    already exists and will be used for look-up.
-#> 
 
 da3
 #> Austria Germany 
