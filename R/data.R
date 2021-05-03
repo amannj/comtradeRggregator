@@ -1709,3 +1709,88 @@
 #' }
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "S3_S2"
+
+
+#' I2 to I3 Categories Concordance Table
+#'
+#' Concordance table between `ISIC Rev.2` (`I2`) and  `ISIC Rev.3` (`I3`).
+#'
+#'
+#' @format A data frame with 586  rows and 4 variables:
+#' \describe{
+#'   \item{ISIC Revision 2 Combined Product Code}{...}
+#'   \item{ISIC Revision 3 Combined Product Code}{...}
+#'   \item{ISIC Revision 3 Combined Product Description}{...}
+#' }
+#' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+"I2_I3"
+
+#' I2 to I31 Categories Concordance Table
+#'
+#' Concordance table between `ISIC Rev.2` (`I2`) and  `ISIC Rev.3.1` (`I3.1`).
+#'
+#'
+#' @format A data frame with 562   rows and 4 variables:
+#' \describe{
+#'   \item{ISIC Revision 2 Combined Product Code}{...}
+#'   \item{ISIC Revision 3.1 Combined Product Code}{...}
+#'   \item{ISIC Revision 3.1 Combined Product Description}{...}
+#' }
+#' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+"I2_I31"
+
+#' I3 to I2 Categories Concordance Table
+#'
+#' Concordance table between `ISIC Rev.3` (`I3`) and  `ISIC Rev.2` (`I2`).
+#'
+#'
+#' @format A data frame with 586  rows and 4 variables:
+#' \describe{
+#'   \item{ISIC Revision 3 Combined Product Code}{...}
+#'   \item{ISIC Revision 2 Combined Product Code}{...}
+#'   \item{ISIC Revision 2 Combined Product Description}{...}
+#' }
+#' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+"I3_I2"
+
+#' I3 to I31 Categories Concordance Table
+#'
+#' Concordance table between `ISIC Rev.3` (`I3`) and  `ISIC Rev.3.1` (`I3.1`).
+#'
+#'
+#' @format A data frame with 562   rows and 4 variables:
+#' \describe{
+#'   \item{ISIC Revision 3 Combined Product Code}{...}
+#'   \item{ISIC Revision 3.1 Combined Product Code}{...}
+#'   \item{ISIC Revision 3.1 Combined Product Description}{...}
+#' }
+#' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+"I3_I31"
+
+#' I3 to 42 Categories Concordance Table
+#'
+#' Concordance table between `ISIC Rev.3.1` (`I3.1`) and  `ISIC Rev.4` (`I4`).
+#'
+#'
+#' @format A data frame with 586  rows and 4 variables:
+#' \describe{
+#'   \item{ISIC Revision 3 Combined Product Code}{...}
+#'   \item{ISIC Revision 4 Combined Product Code}{...}
+#'   \item{ISIC Revision 4 Combined Product Description}{...}
+#' }
+#' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+"I31_I4"
+
+#' I31 to Categories Concordance Table
+#'
+#' Concordance table between  `ISIC Rev.3.1` (`I3.1`) and `ISIC Rev.3` (`I3`).
+#'
+#'
+#' @format A data frame with 562   rows and 4 variables:
+#' \describe{
+#'   \item{ISIC Revision 3.2 Combined Product Code}{...}
+#'   \item{ISIC Revision 3 Combined Product Code}{...}
+#'   \item{ISIC Revision 3 Combined Product Description}{...}
+#' }
+#' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+"I3_I31"
