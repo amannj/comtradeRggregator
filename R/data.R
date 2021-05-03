@@ -1616,3 +1616,96 @@
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
 "H5_S4"
 
+
+#' S1 to BE Categories Concordance Table
+#'
+#' Concordance table between `SITC Rev.1` (`S1`) and `BEC`.
+#'
+#' @format A data frame with 1,312 rows and 4 variables:
+#' \describe{
+#'   \item{SITC Revision 1 Combined Product Code}{...}
+#'   \item{SITC Revision 1 Combined Product Description}{...}
+#'   \item{BEC Product Code}{...}
+#'   \item{BEC Product Description}{...}
+#' }
+#' @source \url{https://wits.worldbank.org/product_concordance.html}
+"S1_BE"
+
+
+#' S2 to BE Categories Concordance Table
+#'
+#' Concordance table between `SITC Rev.2` (`S2`) and `BEC`.
+#'
+#' @format A data frame with 1,312 rows and 4 variables:
+#' \describe{
+#'   \item{SITC Revision 2 Combined Product Code}{...}
+#'   \item{SITC Revision 2 Combined Product Description}{...}
+#'   \item{BEC Product Code}{...}
+#'   \item{BEC Product Description}{...}
+#' }
+#' @source \url{https://wits.worldbank.org/product_concordance.html}
+"S2_BE"
+
+#' S2 to I2 Categories Concordance Table
+#'
+#' Concordance table between `SITC Rev.2` (`S2`) and `ISIC Rev. 2` (`I2`).
+#'
+#' @format A data frame with 1,312 rows and 4 variables:
+#' \describe{
+#'   \item{SITC Revision 2 Combined Product Code}{...}
+#'   \item{SITC Revision 2 Combined Product Description}{...}
+#'   \item{ISIC Revision 2 Product Code}{...}
+#'   \item{ISIC Revision 2 Product Description}{...}
+#' }
+#' @source \url{https://wits.worldbank.org/product_concordance.html}
+"S2_I2"
+
+
+#' S2 to S1 Categories Concordance Table
+#'
+#' Concordance table between `SITC Rev.2` (`S2`) and  `SITC Rev.1` (`S1`). Product descriptions taken
+#' from WITS' `HS combined` concordance tables (\url{https://wits.worldbank.org/product_concordance.html}).
+#'
+#'
+#' @format A data frame with 2,016 rows and 4 variables:
+#' \describe{
+#'   \item{SITC Revision 2 Combined Product Code}{...}
+#'   \item{SITC Revision 2 Combined Product Description}{...}
+#'   \item{SITC Revision 1 Combined Product Code}{...}
+#'   \item{SITC Revision 1 Combined Product Description}{...}
+#' }
+#' @source \url{https://wits.worldbank.org/product_concordance.html}
+"S2_S1"
+
+
+#' S3 to S1 Categories Concordance Table
+#'
+#' Concordance table between `SITC Rev.3` (`S3`) and  `SITC Rev.1` (`S1`). Product descriptions taken
+#' from WITS' `HS combined` concordance tables (\url{https://wits.worldbank.org/product_concordance.html}).
+#'
+#'
+#' @format A data frame with 2,016 rows and 4 variables:
+#' \describe{
+#'   \item{SITC Revision 3 Combined Product Code}{...}
+#'   \item{SITC Revision 3 Combined Product Description}{...}
+#'   \item{SITC Revision 1 Combined Product Code}{...}
+#'   \item{SITC Revision 1 Combined Product Description}{...}
+#' }
+#' @source \url{https://wits.worldbank.org/product_concordance.html}
+"S3_S1"
+
+#' S3 to S1 Categories Concordance Table
+#'
+#' Concordance table between `SITC Rev.3` (`S3`) and  `SITC Rev.2` (`S2`). Product descriptions taken
+#' from WITS' `HS combined` concordance tables (\url{https://wits.worldbank.org/product_concordance.html}).
+#'
+#'
+#' @format A data frame with 3,121 rows and 4 variables:
+#' \describe{
+#'   \item{SITC Revision 3 Combined Product Code}{...}
+#'   \item{SITC Revision 3 Combined Product Description}{...}
+#'   \item{SITC Revision 2 Combined Product Code}{...}
+#'   \item{SITC Revision 2 Combined Product Description}{...}
+#' }
+#' @source \url{https://wits.worldbank.org/product_concordance.html}
+"S3_S2"

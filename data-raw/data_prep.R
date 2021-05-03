@@ -1933,14 +1933,14 @@ H5_H0 <- H5_H0 %>%
     HS_H0 %>%
       distinct(`HS 1988/92 Product Code`, `HS 1988/92 Product Description`),
     by = "HS 1988/92 Product Code"
-  )  %>%
+  ) %>%
   select(starts_with("HS 20"), starts_with("HS 19"))
 
 usethis::use_data(H5_H0, overwrite = TRUE)
 
 ## H5 to H1 -----------------
 
-H5_H1 <- readxl:: read_excel("data-raw/HS2017toHS1996ConversionAndCorrelationTables.xlsx") %>%
+H5_H1 <- readxl::read_excel("data-raw/HS2017toHS1996ConversionAndCorrelationTables.xlsx") %>%
   select(
     `HS 2017 Product Code` = `From HS 2017`,
     `HS 1996 Product Code` = `To HS 1996`
@@ -1974,7 +1974,7 @@ usethis::use_data(H5_H1, overwrite = TRUE)
 
 ## H5 to H2 -----------------
 
-H5_H2 <-  readxl::read_excel("data-raw/HS2017toHS2002ConversionAndCorrelationTables.xlsx") %>%
+H5_H2 <- readxl::read_excel("data-raw/HS2017toHS2002ConversionAndCorrelationTables.xlsx") %>%
   select(
     `HS 2017 Product Code` = `From HS 2017`,
     `HS 2002 Product Code` = `To HS 2002`
@@ -2041,7 +2041,7 @@ usethis::use_data(H5_H3, overwrite = TRUE)
 
 ## H5 to H4 -----------------
 
-H5_H4 <- readxl:: read_excel("data-raw/HS2017toHS2012ConversionAndCorrelationTables.xlsx") %>%
+H5_H4 <- readxl::read_excel("data-raw/HS2017toHS2012ConversionAndCorrelationTables.xlsx") %>%
   select(
     `HS 2017 Product Code` = `From HS 2017`,
     `HS 2012 Product Code` = `To HS 2012`
@@ -2198,7 +2198,155 @@ H5_S4 <- H5_S4 %>%
     HS_S4 %>%
       distinct(`SITC Revision 4 Product Code`, `SITC Revision 4 Product Description`),
     by = "SITC Revision 4 Product Code"
-  )  %>%
+  ) %>%
   select(starts_with("HS 2017"), starts_with("SITC"))
 
 usethis::use_data(H5_S4, overwrite = TRUE)
+
+
+# S1 ------------
+
+## S1 to BE -----------------
+
+S1_BE <- readr::read_csv("data-raw/JobID-71_Concordance_S1_to_BE.CSV",
+  col_types = readr::cols(.default = "c")
+)
+## Check var length
+colnames(S1_BE)
+S1_BE %>%
+  mutate(lgth = nchar(`BEC Product Code`)) %>%
+  distinct(lgth) %>%
+  arrange(desc(lgth)) %>%
+  slice(1) %>%
+  pull()
+
+S1_BE <- S1_BE %>%
+  ## Add leading zeros to codes
+  add_lzs(variable = "BEC Product Code", variable.length = 3)
+
+usethis::use_data(S1_BE, overwrite = TRUE)
+
+
+# S2 ------------
+
+## S2 to BE -----------------
+
+S2_BE <- readr::read_csv("data-raw/JobID-72_Concordance_S2_to_BE.CSV",
+  col_types = readr::cols(.default = "c")
+)
+## Check var length
+colnames(S2_BE)
+S2_BE %>%
+  mutate(lgth = nchar(`BEC Product Code`)) %>%
+  distinct(lgth) %>%
+  arrange(desc(lgth)) %>%
+  slice(1) %>%
+  pull()
+
+S2_BE <- S2_BE %>%
+  ## Add leading zeros to codes
+  add_lzs(variable = "BEC Product Code", variable.length = 3)
+
+usethis::use_data(S2_BE, overwrite = TRUE)
+
+## S2 to I2 -----------------
+
+S2_I2 <- readr::read_csv("data-raw/JobID-73_Concordance_S2_to_I2.CSV",
+  col_types = readr::cols(.default = "c")
+)
+## Check var length
+colnames(S2_I2)
+S2_I2 %>%
+  mutate(lgth = nchar(`ISIC Revision 2 Product Code`)) %>%
+  distinct(lgth) %>%
+  arrange(desc(lgth)) %>%
+  slice(1) %>%
+  pull()
+
+S2_I2 <- S2_I2 %>%
+  ## Add leading zeros to codes
+  add_lzs(variable = "ISIC Revision 2 Product Code", variable.length = 4)
+
+usethis::use_data(S2_I2, overwrite = TRUE)
+
+## S2 to S1 -----------------
+
+S2_S1 <- readxl::read_excel("data-raw/SITC2 to SITC1 Conversion and Correlation Tables.xls",
+  sheet = "Correlation Table", skip = 4
+) %>%
+  select(
+    `SITC Revision 2 Product Code` = `SITC, Rev. 2`,
+    `SITC Revision 1 Product Code` = `SITC, Rev. 1`
+  ) %>%
+  slice(-1)
+
+S2_S1 <- S2_S1 %>%
+  left_join(
+    HS_S1 %>%
+      distinct(`SITC Revision 1 Product Code`, `SITC Revision 1 Product Description`),
+    by = "SITC Revision 1 Product Code"
+  ) %>%
+  left_join(
+    HS_S2 %>%
+      distinct(`SITC Revision 2 Product Code`, `SITC Revision 2 Product Description`),
+    by = "SITC Revision 2 Product Code"
+  ) %>%
+  select(starts_with("SITC Revision 2"), starts_with("SITC Revision 1"))
+
+usethis::use_data(S2_S1, overwrite = TRUE)
+
+
+# S3 ------------
+
+## S3 to S1 -----------------
+
+S3_S1 <- readxl::read_excel("data-raw/SITC3 to SITC1 Conversion and Correlation Tables.xls",
+  skip = 4
+) %>%
+  select(
+    `SITC Revision 3 Product Code` = `SITC, Rev. 3`,
+    `SITC Revision 1 Product Code` = `SITC, Rev. 1`
+  ) %>%
+  slice(-1)
+
+S3_S1 <- S3_S1 %>%
+  left_join(
+    HS_S1 %>%
+      distinct(`SITC Revision 1 Product Code`, `SITC Revision 1 Product Description`),
+    by = "SITC Revision 1 Product Code"
+  ) %>%
+  left_join(
+    HS_S3 %>%
+      distinct(`SITC Revision 3 Product Code`, `SITC Revision 3 Product Description`),
+    by = "SITC Revision 3 Product Code"
+  ) %>%
+  select(starts_with("SITC Revision 3"), starts_with("SITC Revision 1"))
+
+usethis::use_data(S3_S1, overwrite = TRUE)
+
+
+## S3 to S2 -----------------
+
+S3_S2 <- readxl::read_excel("data-raw/SITC3 to SITC2 Conversion and Correlation Tables.xls",
+  skip = 4
+) %>%
+  select(
+    `SITC Revision 3 Product Code` = `SITC, Rev. 3`,
+    `SITC Revision 2 Product Code` = `SITC, Rev. 2`
+  ) %>%
+  slice(-1)
+
+S3_S2 <- S3_S2 %>%
+  left_join(
+    HS_S2 %>%
+      distinct(`SITC Revision 2 Product Code`, `SITC Revision 2 Product Description`),
+    by = "SITC Revision 2 Product Code"
+  ) %>%
+  left_join(
+    HS_S3 %>%
+      distinct(`SITC Revision 3 Product Code`, `SITC Revision 3 Product Description`),
+    by = "SITC Revision 3 Product Code"
+  ) %>%
+  select(starts_with("SITC Revision 3"), starts_with("SITC Revision 2"))
+
+usethis::use_data(S3_S2, overwrite = TRUE)

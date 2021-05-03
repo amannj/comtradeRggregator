@@ -411,6 +411,30 @@ convert_Comtrade <- function(data,
     ### from H5 to S4 ---------------
     df_cc <- H5_S4 %>%
       rename(!!.cc := `HS 2017 Product Code`)
+  } else if (convert.from == "S1" & convert.to == "BE") {
+    ### from S1 to BE ---------------
+    df_cc <- S1_BE %>%
+      rename(!!.cc := `SITC Revision 1 Product Code`)
+  } else if (convert.from == "S2" & convert.to == "BE") {
+    ### from S2 to BE ---------------
+    df_cc <- S2_BE %>%
+      rename(!!.cc := `SITC Revision 2 Product Code`)
+  } else if (convert.from == "S2" & convert.to == "I2") {
+    ### from S2 to I2 ---------------
+    df_cc <- S2_I2 %>%
+      rename(!!.cc := `SITC Revision 2 Product Code`)
+  } else if (convert.from == "S2" & convert.to == "S1") {
+    ### from S2 to S1 ---------------
+    df_cc <- S2_S1 %>%
+      rename(!!.cc := `SITC Revision 2 Product Code`)
+  } else if (convert.from == "S3" & convert.to == "S1") {
+    ### from S3 to S1 ---------------
+    df_cc <- S3_S1 %>%
+      rename(!!.cc := `SITC Revision 3 Product Code`)
+  } else if (convert.from == "S3" & convert.to == "S2") {
+    ### from S3 to S2 ---------------
+    df_cc <- S3_S2 %>%
+      rename(!!.cc := `SITC Revision 3 Product Code`)
   } else {
     ### No concordance available ---------------
     stop("No concordance table available.")

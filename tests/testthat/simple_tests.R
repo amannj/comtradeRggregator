@@ -656,8 +656,83 @@ for (c in codes) {
   print(out)
 }
 
+# Test 7.s1: Check all concordance tables for S1 -------------------------------
+download_Comtrade(
+  year = "2017",
+  frequency = "annual",
+  countries = "Germany",
+  partners = "World",
+  tradecode = "SITCrev1",
+  ag = "AG5",
+  type = "commodities",
+  select.stats = "trade_value_usd",
+  direction = "all",
+  sleep = 5
+) -> DE_World_S1
 
+codes <- c("BE")
+for (c in codes) {
+  DE_World_S1 %>%
+    convert_Comtrade(
+      classification = "classification",
+      commodity.code = "commodity_code",
+      convert.to = c
+    ) -> out
+  message("\n-------------------\n SITC Rev.1 to ", c, "\n-------------------\n")
+  print(out)
+}
 
+# Test 7.s2: Check all concordance tables for S2 -------------------------------
+download_Comtrade(
+  year = "2017",
+  frequency = "annual",
+  countries = "Germany",
+  partners = "World",
+  tradecode = "SITCrev2",
+  ag = "AG5",
+  type = "commodities",
+  select.stats = "trade_value_usd",
+  direction = "all",
+  sleep = 5
+) -> DE_World_S2
+
+codes <- c("BE", "I2", "S1")
+for (c in codes) {
+  DE_World_S2 %>%
+    convert_Comtrade(
+      classification = "classification",
+      commodity.code = "commodity_code",
+      convert.to = c
+    ) -> out
+  message("\n-------------------\n SITC Rev.2 to ", c, "\n-------------------\n")
+  print(out)
+}
+
+# Test 7.s3: Check all concordance tables for S3 -------------------------------
+download_Comtrade(
+  year = "2017",
+  frequency = "annual",
+  countries = "Germany",
+  partners = "World",
+  tradecode = "SITCrev3",
+  ag = "AG5",
+  type = "commodities",
+  select.stats = "trade_value_usd",
+  direction = "all",
+  sleep = 5
+) -> DE_World_S3
+
+codes <- c("S1", "S2")
+for (c in codes) {
+  DE_World_S3 %>%
+    convert_Comtrade(
+      classification = "classification",
+      commodity.code = "commodity_code",
+      convert.to = c
+    ) -> out
+  message("\n-------------------\n SITC Rev.3 to ", c, "\n-------------------\n")
+  print(out)
+}
 
 # Test 8: Concordance   -------------------------------
 df <- tibble(var = c("1", "11", "111"))
