@@ -1491,3 +1491,128 @@
 #' }
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
 "H4_S4"
+
+
+
+
+#' H5 to H0 Categories Concordance Table
+#'
+#' Concordance table between `HS 2017` (`H5`) and `HS 1988/92` (`H0`).
+#'
+#' @format A data frame with 5,388 rows and 4 variables:
+#' \describe{
+#'   \item{HS 2017 Product Code}{...}
+#'   \item{HS 1988/92 Product Code}{...}
+#'   \item{HS 1988/92 Product Description}{...}
+#' }
+#' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+"H5_H0"
+
+
+#' H5 to H1 Categories Concordance Table
+#'
+#' Concordance table between `HS 2017` (`H5`) and `HS 1996` (`H1`).
+#'
+#' @format A data frame with 5,388 rows and 4 variables:
+#' \describe{
+#'   \item{HS 2017 Product Code}{...}
+#'   \item{HS 1996 Product Code}{...}
+#'   \item{HS 1996 Product Description}{...}
+#' }
+#' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+"H5_H1"
+
+
+#' H5 to H2 Categories Concordance Table
+#'
+#' Concordance table between `HS 2017` (`H5`) and `HS 2002` (`H2`).
+#'
+#' @format A data frame with 5,388  rows and 4 variables:
+#' \describe{
+#'   \item{HS 2017 Product Code}{...}
+#'   \item{HS 2002 Product Code}{...}
+#'   \item{HS 2002 Product Description}{...}
+#' }
+#' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+"H5_H2"
+
+
+#' H5 to H3 Categories Concordance Table
+#'
+#' Concordance table between `HS 2017` (`H5`) and `HS 2007` (`H3`).
+#'
+#' @format A data frame with 5,388 rows and 4 variables:
+#' \describe{
+#'   \item{HS 2017 Product Code}{...}
+#'   \item{HS 2007 Product Code}{...}
+#'   \item{HS 2007 Product Description}{...}
+#' }
+#' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+"H5_H3"
+
+#' H5 to H4 Categories Concordance Table
+#'
+#' Concordance table between `HS 2017` (`H5`) and `HS 2012` (`H4`).
+#'
+#' @format A data frame with 5,388 rows and 4 variables:
+#' \describe{
+#'   \item{HS 2017 Product Code}{...}
+#'   \item{HS 2012 Product Code}{...}
+#'   \item{HS 2012 Product Description}{...}
+#' }
+#' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+"H5_H4"
+
+
+#' H5 to S1 Categories Concordance Table
+#'
+#' Concordance table between `HS 2017` (`H5`) and `SITC Rev.1` (`S1`).
+#'
+#' @format A data frame with 5,380 rows and 4 variables:
+#' \describe{
+#'   \item{HS 2017 Product Code}{...}
+#'   \item{SITC Revision 1 Product Code}{...}
+#'   \item{SITC Revision 1 Product Description}{...}
+#' }
+#' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+"H5_S1"
+
+#' H5 to S2 Categories Concordance Table
+#'
+#' Concordance table between `HS 2017` (`H5`) and `SITC Rev.2` (`S2`).
+#' @format A data frame with 5,386 rows and 4 variables:
+#' \describe{
+#'   \item{HS 2017 Product Code}{...}
+#'   \item{SITC Revision 2 Product Description}{...}
+#'   \item{SITC Revision 2 Product Code}{...}
+#' }
+#' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+"H5_S2"
+
+#' H5 to S3 Categories Concordance Table
+#'
+#' Concordance table between `HS 2017` (`H5`) and `SITC Rev.3` (`S3`).
+#'
+#' @format A data frame with 5,386 rows and 4 variables:
+#' \describe{
+#'   \item{HS 2017 Product Code}{...}
+#'   \item{SITC Revision 3 Product Description}{...}
+#'   \item{SITC Revision 3 Product Code}{...}
+#' }
+#' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+"H5_S3"
+
+
+#' H5 to S4 Categories Concordance Table
+#'
+#' Concordance table between `HS 2017` (`H5`) and `SITC Rev.4` (`S4`).
+#'
+#' @format A data frame with 5,386 rows and 4 variables:
+#' \describe{
+#'   \item{HS 2017 Product Code}{...}
+#'   \item{SITC Revision 4 Product Description}{...}
+#'   \item{SITC Revision 4 Product Code}{...}
+#' }
+#' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+"H5_S4"
+
