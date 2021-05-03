@@ -305,8 +305,7 @@ HS_S1 %>%
 
 HS_S1 <- HS_S1 %>%
   ## Add leading zeros to codes
-  add_lzs(variable = "HS - Combined  Product Code", variable.length = 6) %>%
-  add_lzs(variable = "SITC Revision 1 Product Code", variable.length = 5)
+  add_lzs(variable = "HS - Combined  Product Code", variable.length = 6)
 
 usethis::use_data(HS_S1, overwrite = TRUE)
 
@@ -327,8 +326,7 @@ HS_S2 %>%
 
 HS_S2 <- HS_S2 %>%
   ## Add leading zeros to codes
-  add_lzs(variable = "HS - Combined  Product Code", variable.length = 6) %>%
-  add_lzs(variable = "SITC Revision 2 Product Code", variable.length = 5)
+  add_lzs(variable = "HS - Combined  Product Code", variable.length = 6)
 
 usethis::use_data(HS_S2, overwrite = TRUE)
 
@@ -349,8 +347,7 @@ HS_S3 %>%
 
 HS_S3 <- HS_S3 %>%
   ## Add leading zeros to codes
-  add_lzs(variable = "HS - Combined  Product Code", variable.length = 6) %>%
-  add_lzs(variable = "SITC Revision 3 Product Code", variable.length = 5)
+  add_lzs(variable = "HS - Combined  Product Code", variable.length = 6)
 
 usethis::use_data(HS_S3, overwrite = TRUE)
 
@@ -371,8 +368,7 @@ HS_S4 %>%
 
 HS_S4 <- HS_S4 %>%
   ## Add leading zeros to codes
-  add_lzs(variable = "HS - Combined  Product Code", variable.length = 6) %>%
-  add_lzs(variable = "SITC Revision 4 Product Code", variable.length = 5)
+  add_lzs(variable = "HS - Combined  Product Code", variable.length = 6)
 
 usethis::use_data(HS_S4, overwrite = TRUE)
 
@@ -584,8 +580,7 @@ H0_S1 %>%
 
 H0_S1 <- H0_S1 %>%
   ## Add leading zeros to codes
-  add_lzs(variable = "HS 1988/92 Product Code", variable.length = 6) %>%
-  add_lzs(variable = "SITC Revision 1 Product Code", variable.length = 5)
+  add_lzs(variable = "HS 1988/92 Product Code", variable.length = 6)
 
 usethis::use_data(H0_S1, overwrite = TRUE)
 
@@ -606,8 +601,7 @@ H0_S2 %>%
 
 H0_S2 <- H0_S2 %>%
   ## Add leading zeros to codes
-  add_lzs(variable = "HS 1988/92 Product Code", variable.length = 6) %>%
-  add_lzs(variable = "SITC Revision 2 Product Code", variable.length = 5)
+  add_lzs(variable = "HS 1988/92 Product Code", variable.length = 6)
 
 usethis::use_data(H0_S2, overwrite = TRUE)
 
@@ -628,8 +622,7 @@ H0_S3 %>%
 
 H0_S3 <- H0_S3 %>%
   ## Add leading zeros to codes
-  add_lzs(variable = "HS 1988/92 Product Code", variable.length = 6) %>%
-  add_lzs(variable = "SITC Revision 3 Product Code", variable.length = 5)
+  add_lzs(variable = "HS 1988/92 Product Code", variable.length = 6)
 
 usethis::use_data(H0_S3, overwrite = TRUE)
 
@@ -650,8 +643,7 @@ H0_S4 %>%
 
 H0_S4 <- H0_S4 %>%
   ## Add leading zeros to codes
-  add_lzs(variable = "HS 1988/92 Product Code", variable.length = 6) %>%
-  add_lzs(variable = "SITC Revision 4 Product Code", variable.length = 5)
+  add_lzs(variable = "HS 1988/92 Product Code", variable.length = 6)
 
 usethis::use_data(H0_S4, overwrite = TRUE)
 
@@ -876,8 +868,7 @@ H1_S1 %>%
 
 H1_S1 <- H1_S1 %>%
   ## Add leading zeros to codes
-  add_lzs(variable = "HS 1996 Product Code", variable.length = 6) %>%
-  add_lzs(variable = "SITC Revision 1 Product Code", variable.length = 5)
+  add_lzs(variable = "HS 1996 Product Code", variable.length = 6)
 
 usethis::use_data(H1_S1, overwrite = TRUE)
 
@@ -898,8 +889,7 @@ H1_S2 %>%
 
 H1_S2 <- H1_S2 %>%
   ## Add leading zeros to codes
-  add_lzs(variable = "HS 1996 Product Code", variable.length = 6) %>%
-  add_lzs(variable = "SITC Revision 2 Product Code", variable.length = 5)
+  add_lzs(variable = "HS 1996 Product Code", variable.length = 6)
 
 usethis::use_data(H1_S2, overwrite = TRUE)
 
@@ -920,8 +910,7 @@ H1_S3 %>%
 
 H1_S3 <- H1_S3 %>%
   ## Add leading zeros to codes
-  add_lzs(variable = "HS 1996 Product Code", variable.length = 6) %>%
-  add_lzs(variable = "SITC Revision 3 Product Code", variable.length = 5)
+  add_lzs(variable = "HS 1996 Product Code", variable.length = 6)
 
 usethis::use_data(H1_S3, overwrite = TRUE)
 
@@ -942,8 +931,7 @@ H1_S4 %>%
 
 H1_S4 <- H1_S4 %>%
   ## Add leading zeros to codes
-  add_lzs(variable = "HS 1996 Product Code", variable.length = 6) %>%
-  add_lzs(variable = "SITC Revision 4 Product Code", variable.length = 5)
+  add_lzs(variable = "HS 1996 Product Code", variable.length = 6)
 
 usethis::use_data(H1_S4, overwrite = TRUE)
 
@@ -1070,7 +1058,7 @@ H2_H1 <- readr::read_csv("data-raw/JobID-31_Concordance_H2_to_H1.CSV",
 ## Check var length
 colnames(H2_H1)
 H2_H1 %>%
-  mutate(lgth = nchar(`HS 1988/92 Product Code`)) %>%
+  mutate(lgth = nchar(`HS 1996 Product Code`)) %>%
   distinct(lgth) %>%
   arrange(desc(lgth)) %>%
   slice(1) %>%
@@ -1188,8 +1176,7 @@ H2_S1 %>%
 
 H2_S1 <- H2_S1 %>%
   ## Add leading zeros to codes
-  add_lzs(variable = "HS 2002 Product Code", variable.length = 6) %>%
-  add_lzs(variable = "SITC Revision 1 Product Code", variable.length = 5)
+  add_lzs(variable = "HS 2002 Product Code", variable.length = 6)
 
 usethis::use_data(H2_S1, overwrite = TRUE)
 
@@ -1210,8 +1197,7 @@ H2_S2 %>%
 
 H2_S2 <- H2_S2 %>%
   ## Add leading zeros to codes
-  add_lzs(variable = "HS 2002 Product Code", variable.length = 6) %>%
-  add_lzs(variable = "SITC Revision 2 Product Code", variable.length = 5)
+  add_lzs(variable = "HS 2002 Product Code", variable.length = 6)
 
 usethis::use_data(H2_S2, overwrite = TRUE)
 
@@ -1232,8 +1218,7 @@ H2_S3 %>%
 
 H2_S3 <- H2_S3 %>%
   ## Add leading zeros to codes
-  add_lzs(variable = "HS 2002 Product Code", variable.length = 6) %>%
-  add_lzs(variable = "SITC Revision 3 Product Code", variable.length = 5)
+  add_lzs(variable = "HS 2002 Product Code", variable.length = 6)
 
 usethis::use_data(H2_S3, overwrite = TRUE)
 
@@ -1254,8 +1239,7 @@ H2_S4 %>%
 
 H2_S4 <- H2_S4 %>%
   ## Add leading zeros to codes
-  add_lzs(variable = "HS 2002 Product Code", variable.length = 6) %>%
-  add_lzs(variable = "SITC Revision 4 Product Code", variable.length = 5)
+  add_lzs(variable = "HS 2002 Product Code", variable.length = 6)
 
 usethis::use_data(H2_S4, overwrite = TRUE)
 
@@ -1520,8 +1504,7 @@ H3_S1 %>%
 
 H3_S1 <- H3_S1 %>%
   ## Add leading zeros to codes
-  add_lzs(variable = "HS 2007 Product Code", variable.length = 6) %>%
-  add_lzs(variable = "SITC Revision 1 Product Code", variable.length = 5)
+  add_lzs(variable = "HS 2007 Product Code", variable.length = 6)
 
 usethis::use_data(H3_S1, overwrite = TRUE)
 
@@ -1542,8 +1525,7 @@ H3_S2 %>%
 
 H3_S2 <- H3_S2 %>%
   ## Add leading zeros to codes
-  add_lzs(variable = "HS 2007 Product Code", variable.length = 6) %>%
-  add_lzs(variable = "SITC Revision 2 Product Code", variable.length = 5)
+  add_lzs(variable = "HS 2007 Product Code", variable.length = 6)
 
 usethis::use_data(H3_S2, overwrite = TRUE)
 
@@ -1564,8 +1546,7 @@ H3_S3 %>%
 
 H3_S3 <- H3_S3 %>%
   ## Add leading zeros to codes
-  add_lzs(variable = "HS 2007 Product Code", variable.length = 6) %>%
-  add_lzs(variable = "SITC Revision 3 Product Code", variable.length = 5)
+  add_lzs(variable = "HS 2007 Product Code", variable.length = 6)
 
 usethis::use_data(H3_S3, overwrite = TRUE)
 
@@ -1586,7 +1567,335 @@ H3_S4 %>%
 
 H3_S4 <- H3_S4 %>%
   ## Add leading zeros to codes
-  add_lzs(variable = "HS 2007 Product Code", variable.length = 6) %>%
-  add_lzs(variable = "SITC Revision 4 Product Code", variable.length = 5)
+  add_lzs(variable = "HS 2007 Product Code", variable.length = 6)
 
 usethis::use_data(H3_S4, overwrite = TRUE)
+
+
+
+# H4 ------------
+
+## H4 to H0 -----------------
+
+H4_H0 <- readxl::read_excel("data-raw/HS 2012 to HS 1992 Correlation and conversion tables.xls",
+  skip = 5
+) %>%
+  select(
+    `HS 2012 Product Code` = `HS 2012`,
+    `HS 1988/92 Product Code` = `HS 1992`
+  )
+
+
+## Check var length
+colnames(H4_H0)
+H4_H0 %>%
+  mutate(lgth = nchar(`HS 1988/92 Product Code`)) %>%
+  distinct(lgth) %>%
+  arrange(desc(lgth)) %>%
+  slice(1) %>%
+  pull()
+
+H4_H0 <- H4_H0 %>%
+  ## Add leading zeros to codes
+  add_lzs(variable = "HS 2012 Product Code", variable.length = 6) %>%
+  add_lzs(variable = "HS 1988/92 Product Code", variable.length = 6)
+
+## Add Product Description
+H4_H0 <- H4_H0 %>%
+  left_join(
+    HS_H0 %>%
+      distinct(`HS 1988/92 Product Code`, `HS 1988/92 Product Description`),
+    by = "HS 1988/92 Product Code"
+  ) %>%
+  left_join(
+    HS_H4 %>%
+      distinct(`HS 2012 Product Code`, `HS 2012 Product Description`),
+    by = "HS 2012 Product Code"
+  ) %>%
+  select(starts_with("HS 20"), starts_with("HS 19"))
+
+usethis::use_data(H4_H0, overwrite = TRUE)
+
+## H4 to H1 -----------------
+
+H4_H1 <- readxl::read_excel("data-raw/HS 2012 to HS 1996 Correlation and conversion tables.xls",
+  skip = 5
+) %>%
+  select(
+    `HS 2012 Product Code` = `HS 2012`,
+    `HS 1996 Product Code` = `HS 1996`
+  )
+
+
+## Check var length
+colnames(H4_H1)
+H4_H1 %>%
+  mutate(lgth = nchar(`HS 1996 Product Code`)) %>%
+  distinct(lgth) %>%
+  arrange(desc(lgth)) %>%
+  slice(1) %>%
+  pull()
+
+H4_H1 <- H4_H1 %>%
+  ## Add leading zeros to codes
+  add_lzs(variable = "HS 2012 Product Code", variable.length = 6) %>%
+  add_lzs(variable = "HS 1996 Product Code", variable.length = 6)
+
+## Add Product Description
+H4_H1 <- H4_H1 %>%
+  left_join(
+    HS_H1 %>%
+      distinct(`HS 1996 Product Code`, `HS 1996 Product Description`),
+    by = "HS 1996 Product Code"
+  ) %>%
+  left_join(
+    HS_H4 %>%
+      distinct(`HS 2012 Product Code`, `HS 2012 Product Description`),
+    by = "HS 2012 Product Code"
+  ) %>%
+  select(starts_with("HS 20"), starts_with("HS 19"))
+
+usethis::use_data(H4_H1, overwrite = TRUE)
+
+## H4 to H2 -----------------
+
+H4_H2 <- readxl::read_excel("data-raw/HS 2012 to HS 2002 Correlation and conversion tables.xls",
+  skip = 5
+) %>%
+  select(
+    `HS 2012 Product Code` = `HS 2012`,
+    `HS 2002 Product Code` = `HS 2002`
+  )
+
+
+## Check var length
+colnames(H4_H2)
+H4_H2 %>%
+  mutate(lgth = nchar(`HS 2002 Product Code`)) %>%
+  distinct(lgth) %>%
+  arrange(desc(lgth)) %>%
+  slice(1) %>%
+  pull()
+
+H4_H2 <- H4_H2 %>%
+  ## Add leading zeros to codes
+  add_lzs(variable = "HS 2012 Product Code", variable.length = 6) %>%
+  add_lzs(variable = "HS 2002 Product Code", variable.length = 6)
+
+## Add Product Description
+H4_H2 <- H4_H2 %>%
+  left_join(
+    HS_H2 %>%
+      distinct(`HS 2002 Product Code`, `HS 2002 Product Description`),
+    by = "HS 2002 Product Code"
+  ) %>%
+  left_join(
+    HS_H4 %>%
+      distinct(`HS 2012 Product Code`, `HS 2012 Product Description`),
+    by = "HS 2012 Product Code"
+  ) %>%
+  select(starts_with("HS 2012"), starts_with("HS 2002"))
+
+usethis::use_data(H4_H2, overwrite = TRUE)
+
+## H4 to H3 -----------------
+
+H4_H3 <- readxl::read_excel("data-raw/HS 2012 to HS 2007 Correlation and conversion tables.xls",
+  sheet = "Conversion HS12-HS07", skip = 1
+) %>%
+  select(
+    `HS 2012 Product Code` = `HS 2012`,
+    `HS 2007 Product Code` = `HS 2007`
+  )
+
+## Check var length
+colnames(H4_H3)
+H4_H3 %>%
+  mutate(lgth = nchar(`HS 2007 Product Code`)) %>%
+  distinct(lgth) %>%
+  arrange(desc(lgth)) %>%
+  slice(1) %>%
+  pull()
+
+H4_H3 <- H4_H3 %>%
+  ## Add leading zeros to codes
+  add_lzs(variable = "HS 2012 Product Code", variable.length = 6) %>%
+  add_lzs(variable = "HS 2007 Product Code", variable.length = 6)
+
+## Add Product Description
+H4_H3 <- H4_H3 %>%
+  left_join(
+    HS_H3 %>%
+      distinct(`HS 2007 Product Code`, `HS 2007 Product Description`),
+    by = "HS 2007 Product Code"
+  ) %>%
+  left_join(
+    HS_H4 %>%
+      distinct(`HS 2012 Product Code`, `HS 2012 Product Description`),
+    by = "HS 2012 Product Code"
+  ) %>%
+  select(starts_with("HS 2012"), starts_with("HS 2007"))
+
+usethis::use_data(H4_H3, overwrite = TRUE)
+
+
+## H4 to S1 -----------------
+
+H4_S1 <- readxl::read_excel("data-raw/HS 2012 to SITC1 Correlation and conversion tables.xls",
+  skip = 5
+) %>%
+  select(
+    `HS 2012 Product Code` = `HS 2012`,
+    `SITC Revision 1 Product Code` = `SITC1`
+  )
+
+## Check var length
+colnames(H4_S1)
+# H4_S1 %>%
+#   mutate(lgth = nchar(`SITC Revision 1 Product Code`)) %>%
+#   distinct(lgth) %>%
+#   arrange(desc(lgth)) %>%
+#   slice(1) %>%
+#   pull()
+
+H4_S1 <- H4_S1 %>%
+  ## Add leading zeros to codes
+  add_lzs(variable = "HS 2012 Product Code", variable.length = 6)
+
+## Add Product Description
+H4_S1 <- H4_S1 %>%
+  left_join(
+    HS_S1 %>%
+      distinct(`SITC Revision 1 Product Code`, `SITC Revision 1 Product Description`),
+    by = "SITC Revision 1 Product Code"
+  ) %>%
+  left_join(
+    HS_H4 %>%
+      distinct(`HS 2012 Product Code`, `HS 2012 Product Description`),
+    by = "HS 2012 Product Code"
+  ) %>%
+  select(starts_with("HS 2012"), starts_with("SITC"))
+
+usethis::use_data(H4_S1, overwrite = TRUE)
+
+## H4 to S2 -----------------
+
+H4_S2 <- readxl::read_excel("data-raw/HS 2012 to SITC2 Correlation and conversion tables.xls",
+  skip = 5
+) %>%
+  select(
+    `HS 2012 Product Code` = `HS 2012`,
+    `SITC Revision 2 Product Code` = `SITC2`
+  )
+
+## Check var length
+colnames(H4_S2)
+# H4_S2 %>%
+#   mutate(lgth = nchar(`SITC Revision 2 Product Code`)) %>%
+#   distinct(lgth) %>%
+#   arrange(desc(lgth)) %>%
+#   slice(1) %>%
+#   pull()
+
+H4_S2 <- H4_S2 %>%
+  ## Add leading zeros to codes
+  add_lzs(variable = "HS 2012 Product Code", variable.length = 6)
+
+## Add Product Description
+H4_S2 <- H4_S2 %>%
+  left_join(
+    HS_S2 %>%
+      distinct(`SITC Revision 2 Product Code`, `SITC Revision 2 Product Description`),
+    by = "SITC Revision 2 Product Code"
+  ) %>%
+  left_join(
+    HS_H4 %>%
+      distinct(`HS 2012 Product Code`, `HS 2012 Product Description`),
+    by = "HS 2012 Product Code"
+  ) %>%
+  select(starts_with("HS 2012"), starts_with("SITC"))
+
+usethis::use_data(H4_S2, overwrite = TRUE)
+
+
+## H4 to S3 -----------------
+
+H4_S3 <- readxl::read_excel("data-raw/HS 2012 to SITC3 Correlation and conversion tables.xls",
+  skip = 5
+) %>%
+  select(
+    `HS 2012 Product Code` = `HS 2012`,
+    `SITC Revision 3 Product Code` = `SITC3`
+  )
+
+## Check var length
+colnames(H4_S3)
+# H4_S2 %>%
+#   mutate(lgth = nchar(`SITC Revision 2 Product Code`)) %>%
+#   distinct(lgth) %>%
+#   arrange(desc(lgth)) %>%
+#   slice(1) %>%
+#   pull()
+
+H4_S2 <- H4_S2 %>%
+  ## Add leading zeros to codes
+  add_lzs(variable = "HS 2012 Product Code", variable.length = 6)
+
+## Add Product Description
+H4_S3 <- H4_S3 %>%
+  left_join(
+    HS_S3 %>%
+      distinct(`SITC Revision 3 Product Code`, `SITC Revision 3 Product Description`),
+    by = "SITC Revision 3 Product Code"
+  ) %>%
+  left_join(
+    HS_H4 %>%
+      distinct(`HS 2012 Product Code`, `HS 2012 Product Description`),
+    by = "HS 2012 Product Code"
+  ) %>%
+  select(starts_with("HS 2012"), starts_with("SITC"))
+
+usethis::use_data(H4_S3, overwrite = TRUE)
+
+## H4 to S4 -----------------
+
+H4_S4 <- readxl::read_excel("data-raw/HS 2012 to SITC Rev.4 Correlation and conversion tables.xls",
+  skip = 1
+) %>%
+  select(
+    `HS 2012 Product Code` = `HS 2012`,
+    `SITC Revision 4 Product Code` = `SITC Rev. 4`
+  ) %>%
+  mutate(
+    `HS 2012 Product Code` = stringr::str_remove(`HS 2012 Product Code`, pattern = "\\."),
+    `SITC Revision 4 Product Code` = stringr::str_remove(`SITC Revision 4 Product Code`, pattern = "\\.")
+  )
+
+## Check var length
+colnames(H4_S4)
+# H4_S2 %>%
+#   mutate(lgth = nchar(`SITC Revision 2 Product Code`)) %>%
+#   distinct(lgth) %>%
+#   arrange(desc(lgth)) %>%
+#   slice(1) %>%
+#   pull()
+
+H4_S4 <- H4_S4 %>%
+  ## Add leading zeros to codes
+  add_lzs(variable = "HS 2012 Product Code", variable.length = 6)
+
+## Add Product Description
+H4_S4 <- H4_S4 %>%
+  left_join(
+    HS_S4 %>%
+      distinct(`SITC Revision 4 Product Code`, `SITC Revision 4 Product Description`),
+    by = "SITC Revision 4 Product Code"
+  ) %>%
+  left_join(
+    HS_H4 %>%
+      distinct(`HS 2012 Product Code`, `HS 2012 Product Description`),
+    by = "HS 2012 Product Code"
+  ) %>%
+  select(starts_with("HS 2012"), starts_with("SITC"))
+
+usethis::use_data(H4_S4, overwrite = TRUE)

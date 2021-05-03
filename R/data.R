@@ -1365,3 +1365,129 @@
 #' }
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H3_S4"
+
+
+#' H4 to H0 Categories Concordance Table
+#'
+#' Concordance table between `HS 2012` (`H4`) and `HS 1988/92` (`H0`). Product descriptions taken
+#' from WITS' `HS combined` concordance tables (\url{https://wits.worldbank.org/product_concordance.html}).
+#'
+#' @format A data frame with 6,739 rows and 4 variables:
+#' \describe{
+#'   \item{HS 2012 Product Code}{...}
+#'   \item{HS 2012 Product Description}{...}
+#'   \item{HS 1988/92 Product Code}{...}
+#'   \item{HS 1988/92 Product Description}{...}
+#' }
+#' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+"H4_H0"
+
+
+#' H4 to H1 Categories Concordance Table
+#'
+#' Concordance table between `HS 2012` (`H4`) and `HS 1996` (`H1`). Product descriptions taken
+#' from WITS' `HS combined` concordance tables (\url{https://wits.worldbank.org/product_concordance.html}).
+#'
+#' @format A data frame with 6,420 rows and 4 variables:
+#' \describe{
+#'   \item{HS 2012 Product Code}{...}
+#'   \item{HS 2012 Product Description}{...}
+#'   \item{HS 1996 Product Code}{...}
+#'   \item{HS 1996 Product Description}{...}
+#' }
+#' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+"H4_H1"
+
+
+#' H4 to H2 Categories Concordance Table
+#'
+#' Concordance table between `HS 2012` (`H4`) and `HS 2002` (`H2`). Product descriptions taken
+#' from WITS' `HS combined` concordance tables (\url{https://wits.worldbank.org/product_concordance.html}).
+#'
+#' @format A data frame with 6,025 rows and 4 variables:
+#' \describe{
+#'   \item{HS 2012 Product Code}{...}
+#'   \item{HS 2012 Product Description}{...}
+#'   \item{HS 2002 Product Code}{...}
+#'   \item{HS 2002 Product Description}{...}
+#' }
+#' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+"H4_H2"
+
+
+#' H4 to H3 Categories Concordance Table
+#'
+#' Concordance table between `HS 2012` (`H4`) and `HS 2007` (`H3`). Product descriptions taken
+#' from WITS' `HS combined` concordance tables (\url{https://wits.worldbank.org/product_concordance.html}).
+#'
+#' @format A data frame with 5,205 rows and 4 variables:
+#' \describe{
+#'   \item{HS 2012 Product Code}{...}
+#'   \item{HS 2012 Product Description}{...}
+#'   \item{HS 2007 Product Code}{...}
+#'   \item{HS 2007 Product Description}{...}
+#' }
+#' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+"H4_H3"
+
+
+#' H4 to S1 Categories Concordance Table
+#'
+#' Concordance table between `HS 2012` (`H4`) and `SITC Rev.1` (`S1`). Product descriptions taken
+#' from WITS' `HS combined` concordance tables (\url{https://wits.worldbank.org/product_concordance.html}).
+#'
+#' @format A data frame with 10,220 rows and 4 variables:
+#' \describe{
+#'   \item{HS 2012 Product Code}{...}
+#'   \item{HS 2012 Product Description}{...}
+#'   \item{SITC Revision 1 Product Code}{...}
+#'   \item{SITC Revision 1 Product Description}{...}
+#' }
+#' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+"H4_S1"
+
+#' H4 to S2 Categories Concordance Table
+#'
+#' Concordance table between `HS 2012` (`H4`) and `SITC Rev.2` (`S2`). Product descriptions taken
+#' from WITS' `HS combined` concordance tables (\url{https://wits.worldbank.org/product_concordance.html}).
+#'
+#' @format A data frame with 11,588 rows and 4 variables:
+#' \describe{
+#'   \item{HS 2012 Product Code}{...}
+#'   \item{HS 2012 Product Description}{...}
+#'   \item{SITC Revision 2 Product Description}{...}
+#'   \item{SITC Revision 2 Product Code}{...}
+#' }
+#' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+"H4_S2"
+
+#' H4 to S3 Categories Concordance Table
+#'
+#' Concordance table between `HS 2012` (`H4`) and `SITC Rev.3` (`S3`). Product descriptions taken
+#' from WITS' `HS combined` concordance tables (\url{https://wits.worldbank.org/product_concordance.html}).
+#'
+#' @format A data frame with 6,605 rows and 4 variables:
+#' \describe{
+#'   \item{HS 2012 Product Code}{...}
+#'   \item{HS 2012 Product Description}{...}
+#'   \item{SITC Revision 3 Product Description}{...}
+#'   \item{SITC Revision 3 Product Code}{...}
+#' }
+#' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+"H4_S3"
+
+
+#' H4 to S4 Categories Concordance Table
+#'
+#' Concordance table between `HS 2012` (`H4`) and `SITC Rev.4` (`S4`). Product descriptions taken
+#' from WITS' `HS combined` concordance tables (\url{https://wits.worldbank.org/product_concordance.html}).
+#'
+#' @format A data frame with 5,299 rows and 4 variables:
+#' \describe{
+#'   \item{HS 2012 Product Code}{...}
+#'   \item{HS 2012 Product Description}{...}
+#'   \item{SITC Revision 4 Product Description}{...}
+#'   \item{SITC Revision 4 Product Code}{...}
+#' }
+#' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+"H4_S4"

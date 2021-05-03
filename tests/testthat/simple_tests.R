@@ -480,7 +480,7 @@ download_Comtrade(
 # Test 7.hs: Check all concordance tables for HS  -------------------------------
 download_Comtrade(
   year = "2018",
-  month = '01',
+  month = "01",
   frequency = "monthly",
   countries = "Australia",
   partners = "World",
@@ -491,15 +491,15 @@ download_Comtrade(
   direction = "all",
   sleep = 5
 ) -> AU_World_HS
-codes <- c('BE', 'CC', 'CP', 'GP', 'H0', 'H1', 'H2','H3', 'H4', 'I2', 'I3', 'IU', 'MT', 'S1', 'S2', 'S3', 'S4')
-for(c in codes) {
+codes <- c("BE", "CC", "CP", "GP", "H0", "H1", "H2", "H3", "H4", "I2", "I3", "IU", "MT", "S1", "S2", "S3", "S4")
+for (c in codes) {
   AU_World_HS %>%
     convert_Comtrade(
       classification = "classification",
       commodity.code = "commodity_code",
       convert.to = c
-    )  -> out
-  message('\n-------------------\n HS combined to ',c,'\n-------------------\n')
+    ) -> out
+  message("\n-------------------\n HS combined to ", c, "\n-------------------\n")
   print(out)
 }
 
@@ -517,15 +517,15 @@ download_Comtrade(
   direction = "all",
   sleep = 5
 ) -> AT_World_H0
-codes <- c('BE', 'CC', 'CP', 'GP', 'I2', 'I3', 'IU', 'MT', 'S1', 'S2', 'S3', 'S4')
-for(c in codes) {
+codes <- c("BE", "CC", "CP", "GP", "I2", "I3", "IU", "MT", "S1", "S2", "S3", "S4")
+for (c in codes) {
   AT_World_H0 %>%
     convert_Comtrade(
       classification = "classification",
       commodity.code = "commodity_code",
       convert.to = c
     ) -> out
-  message('\n-------------------\n HS0 to ',c,'\n-------------------\n')
+  message("\n-------------------\n HS0 to ", c, "\n-------------------\n")
   print(out)
 }
 
@@ -542,15 +542,15 @@ download_Comtrade(
   direction = "all",
   sleep = 5
 ) -> AT_World_H1
-codes <- c('BE', 'CC', 'CP', 'GP', 'H0', 'I2', 'I3', 'IU', 'MT', 'S1', 'S2', 'S3', 'S4')
-for(c in codes) {
+codes <- c("BE", "CC", "CP", "GP", "H0", "I2", "I3", "IU", "MT", "S1", "S2", "S3", "S4")
+for (c in codes) {
   AT_World_H1 %>%
     convert_Comtrade(
       classification = "classification",
       commodity.code = "commodity_code",
       convert.to = c
-    )  -> out
-  message('\n-------------------\n HS1 to ',c,'\n-------------------\n')
+    ) -> out
+  message("\n-------------------\n HS1 to ", c, "\n-------------------\n")
   print(out)
 }
 
@@ -567,15 +567,15 @@ download_Comtrade(
   direction = "all",
   sleep = 5
 ) -> AT_World_H2
-codes <- c('BE', 'CC', 'CP', 'GP', 'H0','H1', 'I2', 'I3', 'IU', 'MT', 'S1', 'S2', 'S3', 'S4')
-for(c in codes) {
+codes <- c("BE", "CC", "CP", "GP", "H0", "H1", "I2", "I3", "IU", "MT", "S1", "S2", "S3", "S4")
+for (c in codes) {
   AT_World_H2 %>%
     convert_Comtrade(
       classification = "classification",
       commodity.code = "commodity_code",
       convert.to = c
     ) -> out
-  message('\n-------------------\n HS2 to ',c,'\n-------------------\n')
+  message("\n-------------------\n HS2 to ", c, "\n-------------------\n")
   print(out)
 }
 
@@ -592,18 +592,72 @@ download_Comtrade(
   direction = "all",
   sleep = 5
 ) -> AT_World_H3
-codes <- c('BE', 'CC', 'CP', 'GP', 'H0', 'H1', 'H2', 'I2', 'I3', 'IU', 'MT', 'S1', 'S2', 'S3', 'S4')
-for(c in codes) {
-AT_World %>%
-  convert_Comtrade(
-    classification = "classification",
-    commodity.code = "commodity_code",
-    convert.to = c
-  ) %>%
-      select(!c(period, reporter, partner, trade_value_usd, netweight_kg, gross_weight_kg, qty_unit, qty, qty_unit_code, alt_qty_unit_code, alt_qty_unit, alt_qty)) -> out
-  message('\n-------------------\n HS3 to ',c,'\n-------------------\n')
+codes <- c("BE", "CC", "CP", "GP", "H0", "H1", "H2", "I2", "I3", "IU", "MT", "S1", "S2", "S3", "S4")
+for (c in codes) {
+  AT_World_H3 %>%
+    convert_Comtrade(
+      classification = "classification",
+      commodity.code = "commodity_code",
+      convert.to = c
+    ) -> out
+  message("\n-------------------\n HS3 to ", c, "\n-------------------\n")
   print(out)
 }
+
+# Test 7.h4: Check all concordance tables for HS 4 -------------------------------
+download_Comtrade(
+  year = "2017",
+  frequency = "annual",
+  countries = "Germany",
+  partners = "World",
+  tradecode = "HS2012",
+  ag = "AG6",
+  type = "commodities",
+  select.stats = "trade_value_usd",
+  direction = "all",
+  sleep = 5
+) -> DE_World_H4
+
+codes <- c("H0", "H1", "H2", "H3", "S1", "S2", "S3", "S4")
+for (c in codes) {
+  DE_World_H4 %>%
+    convert_Comtrade(
+      classification = "classification",
+      commodity.code = "commodity_code",
+      convert.to = c
+    ) -> out
+  message("\n-------------------\n HS4 to ", c, "\n-------------------\n")
+  print(out)
+}
+
+# Test 7.h5: Check all concordance tables for HS 5 -------------------------------
+download_Comtrade(
+  year = "2017",
+  frequency = "annual",
+  countries = "Germany",
+  partners = "World",
+  tradecode = "HS2017",
+  ag = "AG6",
+  type = "commodities",
+  select.stats = "trade_value_usd",
+  direction = "all",
+  sleep = 5
+) -> DE_World_H5
+
+codes <- c("H0", "H1", "H2", "H3", "H4", "S1", "S2", "S3", "S4")
+for (c in codes) {
+  DE_World_H5 %>%
+    convert_Comtrade(
+      classification = "classification",
+      commodity.code = "commodity_code",
+      convert.to = c
+    ) -> out
+  message("\n-------------------\n HS5 to ", c, "\n-------------------\n")
+  print(out)
+}
+
+
+
 
 # Test 8: Concordance   -------------------------------
 df <- tibble(var = c("1", "11", "111"))

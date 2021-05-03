@@ -203,7 +203,7 @@ convert_Comtrade <- function(data,
     ### from H1 to I3 ---------------
     df_cc <- H1_I3 %>%
       rename(!!.cc := `HS 1996 Product Code`)
-  }else if (convert.from == "H1" & convert.to == "IU") {
+  } else if (convert.from == "H1" & convert.to == "IU") {
     ### from H1 to IU ---------------
     df_cc <- H1_IU %>%
       rename(!!.cc := `HS 1996 Product Code`)
@@ -343,6 +343,38 @@ convert_Comtrade <- function(data,
     ### from H3 to S4 ---------------
     df_cc <- H3_S4 %>%
       rename(!!.cc := `HS 2007 Product Code`)
+  } else if (convert.from == "H4" & convert.to == "H0") {
+    ### from H4 to H0 ---------------
+    df_cc <- H4_H0 %>%
+      rename(!!.cc := `HS 2012 Product Code`)
+  } else if (convert.from == "H4" & convert.to == "H1") {
+    ### from H4 to H1 ---------------
+    df_cc <- H4_H1 %>%
+      rename(!!.cc := `HS 2012 Product Code`)
+  } else if (convert.from == "H4" & convert.to == "H2") {
+    ### from H4 to H2 ---------------
+    df_cc <- H4_H2 %>%
+      rename(!!.cc := `HS 2012 Product Code`)
+  } else if (convert.from == "H4" & convert.to == "H3") {
+    ### from H4 to H3 ---------------
+    df_cc <- H4_H3 %>%
+      rename(!!.cc := `HS 2012 Product Code`)
+  } else if (convert.from == "H4" & convert.to == "S1") {
+    ### from H4 to S1 ---------------
+    df_cc <- H4_S1 %>%
+      rename(!!.cc := `HS 2012 Product Code`)
+  } else if (convert.from == "H4" & convert.to == "S2") {
+    ### from H4 to S2 ---------------
+    df_cc <- H4_S2 %>%
+      rename(!!.cc := `HS 2012 Product Code`)
+  } else if (convert.from == "H4" & convert.to == "S3") {
+    ### from H4 to S3 ---------------
+    df_cc <- H4_S3 %>%
+      rename(!!.cc := `HS 2012 Product Code`)
+  } else if (convert.from == "H4" & convert.to == "S4") {
+    ### from H4 to S4 ---------------
+    df_cc <- H4_S4 %>%
+      rename(!!.cc := `HS 2012 Product Code`)
   } else {
     ### No concordance available ---------------
     stop("No concordance table available.")
