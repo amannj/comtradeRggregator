@@ -1003,7 +1003,7 @@ devtools::install_github("amannj/comtradr",
 ## Download `comtradeRggregator`; private repository, therefore requires `auth_token`.
 devtools::install_github("amannj/comtradeRggregator",
   ref = "master",
-  auth_token = "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",
+  auth_token = "...",
   force = TRUE
 )
 
