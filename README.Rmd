@@ -96,23 +96,24 @@ The goal of the `comtradeRggregator` package is to provide a simple tool to down
 
 ```{r concordanceTable, echo=FALSE}
 
-hs <- c("HS", "W", "W", "W", "W", "W", "W", "W", "W", "W", "W", "W", "W", "W", "W", "W", "W", "W")
-h0 <- c("H0", "W", "W", "W", "W", NA, NA, NA, NA, NA, "W", "W", "W", "W", "W", "W", "W", "W")
-h1 <- c("H1", "W", "W", "W", "W", "W/U", NA, NA, NA, NA, "W", "W", "W", "W", "W/U", "W/U", "W/U", "W")
-h2 <- c("H2", "W", "W", "W", "W", "W/U", "W/U", NA, NA, NA, "W", "W", "W", "W", "W/U", "W/U", "W/U", "W")
-h3 <- c("H3", "W", "W", "W", "W", "W/U", "W/U", "W/U", NA, NA, "W", "W", "W", "W", "W/U", "W/U", "W/U", "W/U")
-h4 <- c("H4", "U",  NA, NA,  NA , "U", "U", "U", "U", NA, NA, paste0("x", footnote_marker_alphabet(1)), NA, NA, "U", "U", "U", "U")
-h5 <- c("H5", "U",  NA, NA,  NA , "U", "U", "U", "U", "U", NA, paste0("x", footnote_marker_alphabet(2)), NA, NA, "U", "U", "U", "U")
+hs <- c("HS", "W", "W", "W", "W", "W",   "W",   "W",   "W", "W", "W", "W",                                     NA, NA,"W", "W", "W",   "W",   "W",   "W")
+h0 <- c("H0", "W", "W", "W", "W", NA,    NA,    NA,    NA,  NA,  "W", "W",                                     NA, NA,"W", "W", "W",   "W",   "W",   "W")
+h1 <- c("H1", "W", "W", "W", "W", "W/U", NA,    NA,    NA,  NA,  "W", "W",                                     NA, NA,"W", "W", "W/U", "W/U", "W/U", "W")
+h2 <- c("H2", "W", "W", "W", "W", "W/U", "W/U", NA,    NA,  NA,  "W", "W",                                     NA, NA,"W", "W", "W/U", "W/U", "W/U", "W")
+h3 <- c("H3", "W", "W", "W", "W", "W/U", "W/U", "W/U", NA,  NA,  "W", "W",                                     NA, NA,"W", "W", "W/U", "W/U", "W/U", "W/U")
+h4 <- c("H4", "U",  NA, NA,  NA , "U",   "U",   "U",   "U", NA,  NA,  paste0("x", footnote_marker_alphabet(1)),NA, NA, NA, NA,  "U",   "U",   "U",   "U")
+h5 <- c("H5", "U",  NA, NA,  NA , "U",   "U",   "U",   "U", "U", NA,  paste0("x", footnote_marker_alphabet(2)),NA, NA, NA, NA,  "U",   "U",   "U",   "U")
 
-s1 <- c("S1", "W", rep(NA, 16))
-s2 <- c("S2", "W/U", rep(NA, 8), "W", paste0("x", footnote_marker_alphabet(3)), NA, NA, "U", NA, NA, NA)
-s3 <- c("S3", "U", rep(NA, 9), paste0("x", footnote_marker_alphabet(4)), NA, NA, "U", "U", NA, "U")
-s4 <- c("S4", rep(NA, 10), paste0("x", footnote_marker_alphabet(5)), NA, NA, NA, NA, "U", NA)
+s1 <- c("S1", "W",   rep(NA, 18))
+s2 <- c("S2", "W/U", rep(NA, 8), "W", paste0("x", footnote_marker_alphabet(3)), NA, NA, NA, NA, "U",  NA, NA, NA)
+s3 <- c("S3", rep(NA, 10),            paste0("x", footnote_marker_alphabet(4)), NA, NA, NA,                                       NA, "U", "U", NA, NA)
+s4 <- c("S4", rep(NA, 10),            paste0("x", footnote_marker_alphabet(5)), NA, NA, NA,                                       NA, NA,  NA,  NA, NA)
 
-i2 <- c("I2", rep(NA, 10), "U", rep(NA, 6))
-i3 <- c("I3", rep(NA, 9), "U", rep(NA, 7))
+i2 <- c("I2", rep(NA, 10), "U","U", rep(NA, 7))
+i3 <- c("I3", rep(NA, 9), "U", NA, 'U', rep(NA, 7))
+i31 <- c("I3.1", rep(NA, 10), "U", NA, 'U', rep(NA, 6))
 
-df <- rbind(hs, h0, h1, h2, h3, h4, h5, s1, s2, s3, s4, i2, i3)
+df <- rbind(hs, h0, h1, h2, h3, h4, h5, s1, s2, s3, s4, i2, i3, i31)
 
 table <- tibble(
   df
@@ -128,17 +129,18 @@ kable(table,
     "",
     "BEC", "CCCN", "CPC", "GTAP",
     "H0", "H1", "H2", "H3", "H4",
-    "I2", "I3",
-    "SIC", "MTN",
+    "I2", "I3", "I3.1", "I4",
+    "MTN","SIC", 
     "S1", "S2", "S3", "S4"
   ),
   escape = F
 ) %>%
   kable_styling(font_size = 11.5) %>%
-  add_header_above(c("From...", "...to" = 17)) %>%
+  add_header_above(c(" " = 5, "Harmonised System" = 5, 'ISIC' = 4, ' ' = 2, 'SITC' = 4)) %>%
+  add_header_above(c("From...", "...to" = 19)) %>%
   pack_rows("Harmonised System (HS)", 1, 7) %>%
   pack_rows("Standard International Trade Classification (SITC)", 8, 11) %>%
-  pack_rows("International Standard Industrial Classification (ISIC)", 12, 13) %>%
+  pack_rows("International Standard Industrial Classification (ISIC)", 12, 14) %>%
   footnote(
     general = "W: WITS, U: UN-Stats, x: reconstruction using mappings below.", 
     general_title = "Abbreviations: ",
@@ -227,7 +229,7 @@ To download global (`World`) `HS2007` `commodity`  trade data in `USD` for `all`
 
 
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 AT_World <- download_Comtrade(
   year = "2018",
   frequency = "annual",
@@ -251,7 +253,7 @@ Sys.sleep(60)
 ```
 
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 download_Comtrade(
   year = "2018",
   frequency = "annual",
@@ -360,7 +362,7 @@ To check if data of a particular trade data set, frequency or country available 
 To get a list of all countries for which `annual`, `HS2007` trade data is available for the year `2008`, run:
 
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 da1 <- is.available_Comtrade(
   frequency = "annual",
   tradecode = "H3",
@@ -373,7 +375,7 @@ head(da1)
 Similarly, you might want to know if a particular (set of) country/countries is available in a particular trade data set. To check if either `Austria` or `Germany` have `annual` trade data reported in `HS2007` for the year `2012`, run:
 
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 da2 <- is.available_Comtrade(
   is.contained = c("Austria", "Germany"),
   frequency = "annual",
@@ -386,7 +388,7 @@ da2
 
 The same can also be done for monthly data. As seen below, only `Germany` has `monthly` `HS2007` trade date for the first month of `2020` available in Comtrade.
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 da3 <- is.available_Comtrade(
   is.contained = c("Austria", "Germany"),
   frequency = "monthly",
@@ -426,8 +428,6 @@ See `?is.available_Comtrade` for full documentation.
 
 ### `convert_Comtrade()`
 
-> **Work in progress: Currently only `HS`,`H0`,`H1`, `H2`, `H3`  concordance tables implemented.**
-
 Sometimes you might wish to reclassify trade data from one classification to a different one. Function `convert_Comtrade()` offers a simple way for such conversions by 
 providing official concordance tables from the [UN Statistics Division (UNSD)](https://unstats.un.org/unsd/classifications/Econ#corresp-hs) and the [World Integrated Trade Solution (WITS)](https://wits.worldbank.org/product_concordance.html). 
 
@@ -437,17 +437,29 @@ providing official concordance tables from the [UN Statistics Division (UNSD)](h
 
 Using the abbreviations and information from the concordance table above, if you want to convert your Comtrade data set from `H3` to `I3` (see `?H3_I3` for more information on concordance table), run:
 
-```{r}
-AT_World %>%
+```{r message=FALSE, warning=FALSE}
+I3 <- AT_World %>%
   convert_Comtrade(
     classification = "classification",
     commodity.code = "commodity_code",
     convert.to = "I3"
-  ) %>%
+  ) 
+I3 %>%
   select(classification, commodity_code, `ISIC Revision 3 Product Code`)
 ```
 
+<!-- Using the *Concordance Table* trade data can also easily be re-classified into a format that is not originally supported by [Comtrade](https://comtrade.un.org). For example, to reclassify the previous query into [ISIC Revision 3.1](https://unstats.un.org/unsd/statcom/doc02/isic.pdf), run: -->
 
+<!-- ```{r} -->
+<!-- I3 %>% -->
+<!--   convert_Comtrade( -->
+<!--     classification = "classification", -->
+<!--     commodity.code = "ISIC Revision 3 Product Code", -->
+<!--     convert.to = "I3.1" -->
+<!--   ) -->
+<!-- I3 %>% -->
+<!--   select(classification, commodity_code, `ISIC Revision 3 Product Code`) -->
+<!-- ``` -->
 
 
 #### Arguments 
@@ -470,7 +482,7 @@ Adds leading zeros to variable `var` of data frame such that `nchar(var) = lengt
 
 
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 df <- tibble(var = c("1", "11", "111"))
 
 df %>% add_lzs(variable = "var", variable.length = 3)

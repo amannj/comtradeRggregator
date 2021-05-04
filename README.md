@@ -110,11 +110,44 @@ From…
 </div>
 
 </th>
-<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="17">
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="19">
 
 <div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
 
 …to
+
+</div>
+
+</th>
+</tr>
+<tr>
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="5">
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="5">
+
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+
+Harmonised System
+
+</div>
+
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="4">
+
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+
+ISIC
+
+</div>
+
+</th>
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="2">
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="4">
+
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+
+SITC
 
 </div>
 
@@ -157,10 +190,16 @@ I2
 I3
 </th>
 <th style="text-align:left;">
-SIC
+I3.1
+</th>
+<th style="text-align:left;">
+I4
 </th>
 <th style="text-align:left;">
 MTN
+</th>
+<th style="text-align:left;">
+SIC
 </th>
 <th style="text-align:left;">
 S1
@@ -178,7 +217,7 @@ S4
 </thead>
 <tbody>
 <tr grouplength="7">
-<td colspan="18" style="border-bottom: 1px solid;">
+<td colspan="20" style="border-bottom: 1px solid;">
 <strong>Harmonised System (HS)</strong>
 </td>
 </tr>
@@ -218,6 +257,12 @@ W
 </td>
 <td style="text-align:left;">
 W
+</td>
+<td style="text-align:left;">
+.
+</td>
+<td style="text-align:left;">
+.
 </td>
 <td style="text-align:left;">
 W
@@ -276,6 +321,12 @@ W
 W
 </td>
 <td style="text-align:left;">
+.
+</td>
+<td style="text-align:left;">
+.
+</td>
+<td style="text-align:left;">
 W
 </td>
 <td style="text-align:left;">
@@ -330,6 +381,12 @@ W
 </td>
 <td style="text-align:left;">
 W
+</td>
+<td style="text-align:left;">
+.
+</td>
+<td style="text-align:left;">
+.
 </td>
 <td style="text-align:left;">
 W
@@ -388,6 +445,12 @@ W
 W
 </td>
 <td style="text-align:left;">
+.
+</td>
+<td style="text-align:left;">
+.
+</td>
+<td style="text-align:left;">
 W
 </td>
 <td style="text-align:left;">
@@ -442,6 +505,12 @@ W
 </td>
 <td style="text-align:left;">
 W
+</td>
+<td style="text-align:left;">
+.
+</td>
+<td style="text-align:left;">
+.
 </td>
 <td style="text-align:left;">
 W
@@ -506,6 +575,12 @@ x<sup>a</sup>
 .
 </td>
 <td style="text-align:left;">
+.
+</td>
+<td style="text-align:left;">
+.
+</td>
+<td style="text-align:left;">
 U
 </td>
 <td style="text-align:left;">
@@ -562,6 +637,12 @@ x<sup>b</sup>
 .
 </td>
 <td style="text-align:left;">
+.
+</td>
+<td style="text-align:left;">
+.
+</td>
+<td style="text-align:left;">
 U
 </td>
 <td style="text-align:left;">
@@ -575,7 +656,7 @@ U
 </td>
 </tr>
 <tr grouplength="4">
-<td colspan="18" style="border-bottom: 1px solid;">
+<td colspan="20" style="border-bottom: 1px solid;">
 <strong>Standard International Trade Classification (SITC)</strong>
 </td>
 </tr>
@@ -585,6 +666,12 @@ S1
 </td>
 <td style="text-align:left;">
 W
+</td>
+<td style="text-align:left;">
+.
+</td>
+<td style="text-align:left;">
+.
 </td>
 <td style="text-align:left;">
 .
@@ -679,6 +766,12 @@ x<sup>c</sup>
 .
 </td>
 <td style="text-align:left;">
+.
+</td>
+<td style="text-align:left;">
+.
+</td>
+<td style="text-align:left;">
 U
 </td>
 <td style="text-align:left;">
@@ -696,7 +789,7 @@ U
 S3
 </td>
 <td style="text-align:left;">
-U
+.
 </td>
 <td style="text-align:left;">
 .
@@ -735,6 +828,12 @@ x<sup>d</sup>
 .
 </td>
 <td style="text-align:left;">
+.
+</td>
+<td style="text-align:left;">
+.
+</td>
+<td style="text-align:left;">
 U
 </td>
 <td style="text-align:left;">
@@ -744,7 +843,7 @@ U
 .
 </td>
 <td style="text-align:left;">
-U
+.
 </td>
 </tr>
 <tr>
@@ -797,14 +896,20 @@ x<sup>e</sup>
 .
 </td>
 <td style="text-align:left;">
-U
+.
+</td>
+<td style="text-align:left;">
+.
+</td>
+<td style="text-align:left;">
+.
 </td>
 <td style="text-align:left;">
 .
 </td>
 </tr>
-<tr grouplength="2">
-<td colspan="18" style="border-bottom: 1px solid;">
+<tr grouplength="3">
+<td colspan="20" style="border-bottom: 1px solid;">
 <strong>International Standard Industrial Classification (ISIC)</strong>
 </td>
 </tr>
@@ -844,6 +949,12 @@ I2
 </td>
 <td style="text-align:left;">
 U
+</td>
+<td style="text-align:left;">
+U
+</td>
+<td style="text-align:left;">
+.
 </td>
 <td style="text-align:left;">
 .
@@ -900,6 +1011,74 @@ U
 </td>
 <td style="text-align:left;">
 .
+</td>
+<td style="text-align:left;">
+U
+</td>
+<td style="text-align:left;">
+.
+</td>
+<td style="text-align:left;">
+.
+</td>
+<td style="text-align:left;">
+.
+</td>
+<td style="text-align:left;">
+.
+</td>
+<td style="text-align:left;">
+.
+</td>
+<td style="text-align:left;">
+.
+</td>
+<td style="text-align:left;">
+.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+I3.1
+</td>
+<td style="text-align:left;">
+.
+</td>
+<td style="text-align:left;">
+.
+</td>
+<td style="text-align:left;">
+.
+</td>
+<td style="text-align:left;">
+.
+</td>
+<td style="text-align:left;">
+.
+</td>
+<td style="text-align:left;">
+.
+</td>
+<td style="text-align:left;">
+.
+</td>
+<td style="text-align:left;">
+.
+</td>
+<td style="text-align:left;">
+.
+</td>
+<td style="text-align:left;">
+.
+</td>
+<td style="text-align:left;">
+U
+</td>
+<td style="text-align:left;">
+.
+</td>
+<td style="text-align:left;">
+U
 </td>
 <td style="text-align:left;">
 .
@@ -1000,13 +1179,13 @@ devtools::install_github("amannj/comtradr",
   force = TRUE
 )
 
+
 ## Download `comtradeRggregator`; private repository, therefore requires `auth_token`.
 devtools::install_github("amannj/comtradeRggregator",
   ref = "master",
-  auth_token = "...",
+  auth_token = "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",
   force = TRUE
 )
-
 ```
 
 ------------------------------------------------------------------------
@@ -1044,12 +1223,6 @@ AT_World <- download_Comtrade(
   select.stats = "trade_value_usd",
   direction = "all"
 )
-#> 
-#> Regular data download.
-#>    Austria; year 2018 direction 'all' done.
-#>     Going to sleep for 20 sec.
-#> 1/1 for AG6 and year 1 completed.
-#> 
 AT_World
 #> # A tibble: 9,432 x 8
 #>    classification period trade_flow reporter partner commodity_code commodity   
@@ -1087,15 +1260,6 @@ download_Comtrade(
   select.stats = "trade_value_usd",
   direction = "re_exports"
 )
-#> 
-#> Regular data download.
-#>    Austria; year 2018 direction 're_exports' done.
-#>     Going to sleep for 20 sec.
-#> 1/1 for AG6 and year 1 completed.
-#> 
-#> Warning in download_Comtrade(year = "2018", frequency = "annual", countries
-#> = "Austria", : Data query did not produce any results. Empty data frame is
-#> returned.
 #> # A tibble: 0 x 0
 ```
 
@@ -1327,9 +1491,6 @@ See `?is.available_Comtrade` for full documentation.
 
 ### `convert_Comtrade()`
 
-> **Work in progress: Currently only `HS`,`H0`,`H1`, `H2`, `H3`
-> concordance tables implemented.**
-
 Sometimes you might wish to reclassify trade data from one
 classification to a different one. Function `convert_Comtrade()` offers
 a simple way for such conversions by providing official concordance
@@ -1345,12 +1506,13 @@ above, if you want to convert your Comtrade data set from `H3` to `I3`
 (see `?H3_I3` for more information on concordance table), run:
 
 ``` r
-AT_World %>%
+I3 <- AT_World %>%
   convert_Comtrade(
     classification = "classification",
     commodity.code = "commodity_code",
     convert.to = "I3"
-  ) %>%
+  ) 
+I3 %>%
   select(classification, commodity_code, `ISIC Revision 3 Product Code`)
 #> # A tibble: 9,612 x 3
 #>    classification commodity_code `ISIC Revision 3 Product Code`
@@ -1367,6 +1529,18 @@ AT_World %>%
 #> 10 H3             010391         0122                          
 #> # ... with 9,602 more rows
 ```
+
+<!-- Using the *Concordance Table* trade data can also easily be re-classified into a format that is not originally supported by [Comtrade](https://comtrade.un.org). For example, to reclassify the previous query into [ISIC Revision 3.1](https://unstats.un.org/unsd/statcom/doc02/isic.pdf), run: -->
+<!-- ```{r} -->
+<!-- I3 %>% -->
+<!--   convert_Comtrade( -->
+<!--     classification = "classification", -->
+<!--     commodity.code = "ISIC Revision 3 Product Code", -->
+<!--     convert.to = "I3.1" -->
+<!--   ) -->
+<!-- I3 %>% -->
+<!--   select(classification, commodity_code, `ISIC Revision 3 Product Code`) -->
+<!-- ``` -->
 
 #### Arguments
 
