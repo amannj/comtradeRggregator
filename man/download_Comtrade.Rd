@@ -34,7 +34,7 @@ download_Comtrade(
 
 \item{partners}{Specify partner country/countries or \code{World} (as provided by Comtrade) for global, aggregated trade; default is \code{World}.}
 
-\item{tradecode}{Select trade database and classification to be extracted; default is \code{HS2007}; monthly trade data only available following \code{HS} classification; the full list of possible trade classifications and their corresponding input arguments used in the \code{comtradeRggregator} package are provided in \emph{Table Supported Trade Classification}.}
+\item{tradecode}{Select trade database and classification to be extracted; default is \code{HS2007}/\code{H3}; monthly trade data only available following \code{HS} classification; the full list of possible trade classifications and their corresponding input arguments used in the \code{comtradeRggregator} package are provided in \emph{Table Supported Trade Classification}; argument accepts long classification names (e.g. \code{HS2007}) or abbreviation (e.g. \code{HS3}) as inputs.}
 
 \item{ag}{Level of aggregation of trade data; varies by trade data set.}
 

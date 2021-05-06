@@ -147,3 +147,62 @@ gen_lzs <- function(x) {
     stop("Input argument must be of class numeric.")
   }
 }
+
+
+#' @title Convert Trade Codes
+#'
+#' @description  Allows user to input trade classifications and convert inputs for further processing
+#' @param tradecode Select trade database and classification to be extracted; default is `HS2007`; monthly trade data only available following `HS` classification; the full list of possible trade classifications and their corresponding input arguments used in the `comtradeRggregator` package are provided in *Table Supported Trade Classification*.
+#' @param return Return either `Name` or `Abbr` (abbreviation) of commodity code
+#' @param eval if `TRUE`, `tradecode` must be contained within `df_tradecode` which is used as input validation for `download_Comtrade()`; set `FALSE` for `convert_Comtrade()`.
+#' @keywords tradecode convert
+#' @export
+#' @import dplyr comtradr tibble readr rlang
+#' @examples
+convert_tradecodes <- function(tradecode = tradecode, return = "Name", eval = TRUE) {
+
+  # List of trade classifications available via Comtrade
+  df_tradecode <- tibble(
+    "Abbr" = c(
+      "HS",
+      "H0",
+      "H1",
+      "H2",
+      "H3",
+      "H4",
+      "H5",
+      "ST",
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "BEC"
+    ),
+    "Name" = c(
+      "HS",
+      "HS1992",
+      "HS1996",
+      "HS2002",
+      "HS2007",
+      "HS2012",
+      "HS2017",
+      "SITC",
+      "SITCrev1",
+      "SITCrev2",
+      "SITCrev3",
+      "SITCrev4",
+      "BEC"
+    )
+  )
+
+  # Extract relevant row
+  df_tradecode <- df_tradecode[which(df_tradecode == tradecode, arr.ind = TRUE)[1], ]
+
+  if (eval == TRUE) {
+    if (nrow(df_tradecode) == 0) {
+      stop("Tradecode '", tradecode, "' not available. Please check available trade classifications for download.'")
+    }
+  }
+
+  df_tradecode %>% pull(return)
+}

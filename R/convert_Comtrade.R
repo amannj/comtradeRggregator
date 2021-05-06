@@ -75,6 +75,10 @@ convert_Comtrade <- function(data,
   check_args(classification.from, tradecode.ok, "classification.from")
   check_args(classification.from, tradecode.ok, "classification.from")
 
+
+  ## Check `tradecode` and return arg  ------
+  classification.from <- convert_tradecodes(tradecode = classification.from, return = 'Abbr', eval = FALSE)
+
   # Check length of commodity codes----
   s_cclgth <- as.character(data %>%
     mutate(x = nchar(.data[[commodity.code]])) %>%

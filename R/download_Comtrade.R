@@ -6,7 +6,7 @@
 #' @param month  Optional parameter for `monthly` extract; ignored for `annual` extracts; default is all 12 month if `frequency = 'monthly'`.
 #' @param countries Select list of countries to be extracted; default is `all`.
 #' @param partners Specify partner country/countries or `World` (as provided by Comtrade) for global, aggregated trade; default is `World`.
-#' @param tradecode Select trade database and classification to be extracted; default is `HS2007`; monthly trade data only available following `HS` classification; the full list of possible trade classifications and their corresponding input arguments used in the `comtradeRggregator` package are provided in *Table Supported Trade Classification*.
+#' @param tradecode Select trade database and classification to be extracted; default is `HS2007`/`H3`; monthly trade data only available following `HS` classification; the full list of possible trade classifications and their corresponding input arguments used in the `comtradeRggregator` package are provided in *Table Supported Trade Classification*; argument accepts long classification names (e.g. `HS2007`) or abbreviation (e.g. `HS3`) as inputs.
 #' @param ag  Level of aggregation of trade data; varies by trade data set.
 #' @param type Type of trade data to be extracted (either `services` or `commodities`); currently only `type = commodities` implemented.
 #' @param select.stats  Trade statistics to be reported; either `trade_value_usd`, `qty_unit_code`, `qty_unit`, `alt_qty_unit_code`, `alt_qty_unit`, `qty, alt_qty`, `netweight_kg`, `gross_weight_kg` or `all`; default is `all`.
@@ -82,23 +82,8 @@ download_Comtrade <- function(year = "2018", #  Years for which to extract
   ### see data extraction
 
 
-  ## Check `tradecode` ------
-  tradecode.ok <- c(
-    "HS",
-    "HS1992",
-    "HS1996",
-    "HS2002",
-    "HS2007",
-    "HS2012",
-    "HS2017",
-    "SITC",
-    "SITCrev1",
-    "SITCrev2",
-    "SITCrev3",
-    "SITCrev4",
-    "BEC"
-  )
-  check_args(tradecode, tradecode.ok, "tradecode")
+  ## Check `tradecode` and return arg  ------
+  tradecode <- convert_tradecodes(tradecode = tradecode, return = 'Name')
 
   ### Check for updates to country/commodity databases:
   ### Checks if Comtrade has made an update to either database specified by arg. `tradecode` and
