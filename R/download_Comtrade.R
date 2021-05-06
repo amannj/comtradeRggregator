@@ -38,7 +38,7 @@ download_Comtrade <- function(year = "2018", #  Years for which to extract
                               is.mirrorData = FALSE, # Extract mirrored trade data; only one country supported at the moment
                               rm.temporaryFiles = TRUE, # Remove temporary files from data download; default is false
                               location.temporaryFiles = NULL, # location of temporary file downloads; default is `<package-directory>\data\tmp\<date-and-time-stamp>
-                              sleep = 20) {
+                              sleep = 5) {
 
 
   # Check input arguments of `download_Comtrade()` ------------
