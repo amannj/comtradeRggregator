@@ -787,14 +787,3 @@ rm_temporaryFiles(location.temporaryFiles = NULL)
 rm_temporaryFiles(location.temporaryFiles = NULL) # feedback if tmp folder already empty
 rm_temporaryFiles(location.temporaryFiles = mytempDirectory)
 rm_temporaryFiles(location.temporaryFiles = mytempDirectory) # same
-
-
-
-
-
-
-
-
-
-
-
