@@ -3,5 +3,6 @@
 .Rdata
 .httr-oauth
 .DS_Store
-data/tmp/*
 other_resources
+data/tmp/*
+data/Comtrade_DataAvailability*
