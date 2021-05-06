@@ -495,9 +495,22 @@ codes <- c("BE", "CC", "CP", "GP", "H0", "H1", "H2", "H3", "H4", "I2", "I3", "IU
 for (c in codes) {
   AU_World_HS %>%
     convert_Comtrade(
-      classification = "classification",
+      classification.from = "HS",
       commodity.code = "commodity_code",
-      convert.to = c
+      classification.to = c
+    ) -> out
+  message("\n-------------------\n HS combined to ", c, "\n-------------------\n")
+  print(out)
+}
+
+# test for long names
+codes <- c("BEC", "CCCN", "CPC", "GTAP", "H0", "H1", "HS2002", "HS2007", "HS2012", "ISICrev2", "ISICrev3", "SIC", "MTN", "SITCrev1", "SITCrev2", "SITCrev3", "SITCrev4")
+for (c in codes) {
+  AU_World_HS %>%
+    convert_Comtrade(
+      classification.from = "HS",
+      commodity.code = "commodity_code",
+      classification.to = c
     ) -> out
   message("\n-------------------\n HS combined to ", c, "\n-------------------\n")
   print(out)
@@ -521,9 +534,9 @@ codes <- c("BE", "CC", "CP", "GP", "I2", "I3", "IU", "MT", "S1", "S2", "S3", "S4
 for (c in codes) {
   AT_World_H0 %>%
     convert_Comtrade(
-      classification = "classification",
+      classification.from = "classification",
       commodity.code = "commodity_code",
-      convert.to = c
+      classification.to = c
     ) -> out
   message("\n-------------------\n HS0 to ", c, "\n-------------------\n")
   print(out)
@@ -552,9 +565,9 @@ codes <- c("BE", "CC", "CP", "GP", "H0", "I2", "I3", "IU", "MT", "S1", "S2", "S3
 for (c in codes) {
   AT_World_H1 %>%
     convert_Comtrade(
-      classification = "classification",
+      classification.from = "classification",
       commodity.code = "commodity_code",
-      convert.to = c
+      classification.to = c
     ) -> out
   message("\n-------------------\n HS1 to ", c, "\n-------------------\n")
   print(out)
@@ -583,9 +596,9 @@ codes <- c("BE", "CC", "CP", "GP", "H0", "H1", "I2", "I3", "IU", "MT", "S1", "S2
 for (c in codes) {
   AT_World_H2 %>%
     convert_Comtrade(
-      classification = "classification",
+      classification.from = "classification",
       commodity.code = "commodity_code",
-      convert.to = c
+      classification.to = c
     ) -> out
   message("\n-------------------\n HS2 to ", c, "\n-------------------\n")
   print(out)
@@ -621,9 +634,9 @@ codes <- c("BE", "CC", "CP", "GP", "H0", "H1", "H2", "I2", "I3", "IU", "MT", "S1
 for (c in codes) {
   AT_World_H3 %>%
     convert_Comtrade(
-      classification = "classification",
+      classification.from = "classification",
       commodity.code = "commodity_code",
-      convert.to = c
+      classification.to = c
     ) -> out
   message("\n-------------------\n HS3 to ", c, "\n-------------------\n")
   print(out)
@@ -662,7 +675,7 @@ for (c in codes) {
     convert_Comtrade(
       classification = "classification",
       commodity.code = "commodity_code",
-      convert.to = c
+      classification.to = c
     ) -> out
   message("\n-------------------\n HS4 to ", c, "\n-------------------\n")
   print(out)
@@ -693,7 +706,7 @@ for (c in codes) {
     convert_Comtrade(
       classification = "classification",
       commodity.code = "commodity_code",
-      convert.to = c
+      classification.to = c
     ) -> out
   message("\n-------------------\n HS5 to ", c, "\n-------------------\n")
   print(out)
@@ -719,7 +732,7 @@ for (c in codes) {
     convert_Comtrade(
       classification = "classification",
       commodity.code = "commodity_code",
-      convert.to = c
+      classification.to = c
     ) -> out
   message("\n-------------------\n SITC Rev.1 to ", c, "\n-------------------\n")
   print(out)
@@ -745,7 +758,7 @@ for (c in codes) {
     convert_Comtrade(
       classification = "classification",
       commodity.code = "commodity_code",
-      convert.to = c
+      classification.to = c
     ) -> out
   message("\n-------------------\n SITC Rev.2 to ", c, "\n-------------------\n")
   print(out)
@@ -771,7 +784,7 @@ for (c in codes) {
     convert_Comtrade(
       classification = "classification",
       commodity.code = "commodity_code",
-      convert.to = c
+      classification.to = c
     ) -> out
   message("\n-------------------\n SITC Rev.3 to ", c, "\n-------------------\n")
   print(out)

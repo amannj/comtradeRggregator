@@ -176,7 +176,16 @@ convert_tradecodes <- function(tradecode = tradecode, return = "Name", eval = TR
       "S2",
       "S3",
       "S4",
-      "BEC"
+      "BE",
+      "CC",
+      "CP",
+      "GP",
+      "IU",
+      "MT",
+      "I2",
+      "I3",
+      "I31",
+      "I4"
     ),
     "Name" = c(
       "HS",
@@ -191,7 +200,16 @@ convert_tradecodes <- function(tradecode = tradecode, return = "Name", eval = TR
       "SITCrev2",
       "SITCrev3",
       "SITCrev4",
-      "BEC"
+      "BEC",
+      "CCCN",
+      "CPC",
+      "GTAP",
+      "SIC",
+      "MTN",
+      "ISICrev2",
+      "ISICrev3",
+      "ISICrev31",
+      "ISICrev4"
     )
   )
 

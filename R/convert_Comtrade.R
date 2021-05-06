@@ -51,55 +51,61 @@ convert_Comtrade <- function(data,
                              commodity.code = "commodity_code",
                              classification.to = "I3") {
 
-  # Check input args ----------
-  tradecode.ok <- c(
-    "HS",
-    "HS1992", "H0",
-    "HS1996", "H1",
-    "HS2002", "H2",
-    "HS2007", "H3",
-    "HS2012", "H4",
-    "HS2017", "H5",
-    "SITCrev1", "S1",
-    "SITCrev2", "S2",
-    "SITCrev3", "S3",
-    "SITCrev4", "S4",
-    "I2", "I3", "I31", "I4",
-    "BEC",
-    "CCCN",
-    "CPC",
-    "CTAP",
-    "MTN",
-    "SIC"
-  )
-  check_args(classification.from, tradecode.ok, "classification.from")
-  check_args(classification.from, tradecode.ok, "classification.from")
+  # # Check input args ----------
+  # tradecode.ok <- c(
+  #   "HS",
+  #   "HS1992", "H0",
+  #   "HS1996", "H1",
+  #   "HS2002", "H2",
+  #   "HS2007", "H3",
+  #   "HS2012", "H4",
+  #   "HS2017", "H5",
+  #   "SITCrev1", "S1",
+  #   "SITCrev2", "S2",
+  #   "SITCrev3", "S3",
+  #   "SITCrev4", "S4",
+  #   'ISICrev2', "I2",
+  #   'ISICrev3', "I3",
+  #   'ISICrev31',"I31",
+  #   'ISICrev4', "I4",
+  #   "BEC", "BE",
+  #   "CCCN", "CC",
+  #   "CPC", "CP",
+  #   "GTAP", "GP",
+  #   "MTN", 'MT',
+  #   "SIC", 'IU'
+  # )
+  # check_args(classification.from, tradecode.ok, "classification.from")
+  # check_args(classification.to, tradecode.ok, "classification.from")
 
 
   ## Check `tradecode` and return arg  ------
-  if (classification.from %in% c(
-    "HS1992", "H0",
-    "HS1996", "H1",
-    "HS2002", "H2",
-    "HS2007", "H3",
-    "HS2012", "H4",
-    "HS2017", "H5",
-    "SITCrev1", "S1",
-    "SITCrev2", "S2",
-    "SITCrev3", "S3",
-    "SITCrev4", "S4"
-  )) {
-    classification.from <- convert_tradecodes(tradecode = classification.from, return = "Abbr", eval = FALSE)
-  }
+  cls.from <- convert_tradecodes(tradecode = classification.from, return = "Abbr", eval = TRUE)
+  cls.to <- convert_tradecodes(tradecode = classification.to, return = "Abbr", eval = TRUE)
+
+  # if (classification.from %in% c(
+  #   "HS1992", "H0",
+  #   "HS1996", "H1",
+  #   "HS2002", "H2",
+  #   "HS2007", "H3",
+  #   "HS2012", "H4",
+  #   "HS2017", "H5",
+  #   "SITCrev1", "S1",
+  #   "SITCrev2", "S2",
+  #   "SITCrev3", "S3",
+  #   "SITCrev4", "S4"
+  # )) {
+
+  #}
 
   # Check length of commodity codes----
   s_cclgth <- as.character(data %>%
     mutate(x = nchar(.data[[commodity.code]])) %>%
     group_by(x) %>% tally(x) %>% na.omit() %>% pull(x))
 
-  if (classification.from == "H3") {
+  if (cls.from == "H3") {
     check_args(s_cclgth, "6", paste0(commodity.code, " has wrong length for conversion (check Concordance Table for more information); "))
-  } else if (classification.from == "I3") {
+  } else if (cls.from == "I3") {
     check_args(s_cclgth, "4", paste0(commodity.code, " has wrong length for conversion (check Concordance Table for more information); "))
   } else {
     warning("No check of commodity code length implemented yet.")
@@ -108,7 +114,7 @@ convert_Comtrade <- function(data,
   # Get concordance table ----------
   try(
     {
-      df_conc <- get((paste0(classification.from, "_", classification.to)))
+      df_conc <- get((paste0(cls.from, "_", cls.to)))
     },
     silent = TRUE
   )
