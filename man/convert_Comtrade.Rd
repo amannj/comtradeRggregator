@@ -6,19 +6,19 @@
 \usage{
 convert_Comtrade(
   data,
-  classification = "classification",
+  classification.from = "H3",
   commodity.code = "commodity_code",
-  convert.to = "I3"
+  classification.to = "I3"
 )
 }
 \arguments{
 \item{data}{A data frame.}
 
-\item{classification}{Name of variable containing the trade classification, e.g. \code{HS2007}; default is \code{classification}.}
+\item{classification.from}{Abbreviation of origin classification based on the \emph{Concordance Table}.}
 
 \item{commodity.code}{Name of variable containing the commodity codes corresponding to trade classification; default is \code{commodity_code}.}
 
-\item{convert.to}{Abbreviation of target classification based on Concordance table provided above.}
+\item{classification.to}{Abbreviation of target classification based on the \emph{Concordance Table}.}
 }
 \description{
 This function offers conversion tables for Comtrade trade data following official tables from the
@@ -29,6 +29,12 @@ This function offers conversion tables for Comtrade trade data following officia
 }
 }
 \examples{
+df <- tibble("H3 commodity code" = c("010110", "071040"))
+convert_Comtrade(df,
+  classification.from = "H3",
+  commodity.code = "H3 commodity code",
+  classification.to = "I3"
+)
 \dontrun{
 # Extract Comtrade trade data first
 AT_World <- download_Comtrade(
@@ -46,10 +52,11 @@ AT_World <- download_Comtrade(
 # Convert HS2007 trade data to ISIC Rev. 3
 AT_World \%>\%
   convert_Comtrade(
-    classification = "classification",
+    classification.from = "H3",
     commodity.code = "commodity_code",
-    convert.to = "I3"
+    classification.to = "I3"
   )
 }
+
 }
 \keyword{concordance}

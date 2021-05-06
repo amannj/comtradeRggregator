@@ -65,7 +65,7 @@ The goal of the `comtradeRggregator` package is to provide a simple tool to down
 - Supports all key features of [comtradr](https://github.com/ropensci/comtradr) such as the option to download trade data following the different trade classifications offered by [Comtrade](https://comtrade.un.org/data); see [Comtrade API Data Availability Request](https://comtrade.un.org/data/doc/api/#DataAvailabilityRequests) for more information. The full list of possible trade classifications and their corresponding input arguments used in the `comtradeRggregator` package are provided in *Table Supported Trade Classification*:
 
 
-*Table Supported Trade Classification*
+#### Supported Trade Classification
 
 | Description                                                           | Trade code; use either version as input for argument `tradecode`   | Level of (dis-)aggregation for input argument `ag` |
 |-----------------------------------------------------------------------|--------------------------------------------------------------------|----------------------------------------------------|
@@ -92,26 +92,26 @@ The goal of the `comtradeRggregator` package is to provide a simple tool to down
 
 
 
-*Concordance Table*
+#### Concordance Table
 
 ```{r concordanceTable, echo=FALSE}
 
-hs <- c("HS", "W", "W", "W", "W", "W",   "W",   "W",   "W", "W", "W", "W",                                     NA, NA,"W", "W", "W",   "W",   "W",   "W")
-h0 <- c("H0", "W", "W", "W", "W", NA,    NA,    NA,    NA,  NA,  "W", "W",                                     NA, NA,"W", "W", "W",   "W",   "W",   "W")
-h1 <- c("H1", "W", "W", "W", "W", "W/U", NA,    NA,    NA,  NA,  "W", "W",                                     NA, NA,"W", "W", "W/U", "W/U", "W/U", "W")
-h2 <- c("H2", "W", "W", "W", "W", "W/U", "W/U", NA,    NA,  NA,  "W", "W",                                     NA, NA,"W", "W", "W/U", "W/U", "W/U", "W")
-h3 <- c("H3", "W", "W", "W", "W", "W/U", "W/U", "W/U", NA,  NA,  "W", "W",                                     NA, NA,"W", "W", "W/U", "W/U", "W/U", "W/U")
-h4 <- c("H4", "U",  NA, NA,  NA , "U",   "U",   "U",   "U", NA,  NA,  paste0("x", footnote_marker_alphabet(1)),NA, NA, NA, NA,  "U",   "U",   "U",   "U")
-h5 <- c("H5", "U",  NA, NA,  NA , "U",   "U",   "U",   "U", "U", NA,  paste0("x", footnote_marker_alphabet(2)),NA, NA, NA, NA,  "U",   "U",   "U",   "U")
+hs <- c("HS", "W", "W", "W", "W", "W", "W", "W", "W", "W", "W", "W", NA, NA, "W", "W", "W", "W", "W", "W")
+h0 <- c("H0", "W", "W", "W", "W", NA, NA, NA, NA, NA, "W", "W", NA, NA, "W", "W", "W", "W", "W", "W")
+h1 <- c("H1", "W", "W", "W", "W", "W/U", NA, NA, NA, NA, "W", "W", NA, NA, "W", "W", "W/U", "W/U", "W/U", "W")
+h2 <- c("H2", "W", "W", "W", "W", "W/U", "W/U", NA, NA, NA, "W", "W", NA, NA, "W", "W", "W/U", "W/U", "W/U", "W")
+h3 <- c("H3", "W", "W", "W", "W", "W/U", "W/U", "W/U", NA, NA, "W", "W", NA, NA, "W", "W", "W/U", "W/U", "W/U", "W/U")
+h4 <- c("H4", "U", NA, NA, NA, "U", "U", "U", "U", NA, NA, paste0("x", footnote_marker_alphabet(1)), NA, NA, NA, NA, "U", "U", "U", "U")
+h5 <- c("H5", "U", NA, NA, NA, "U", "U", "U", "U", "U", NA, paste0("x", footnote_marker_alphabet(2)), NA, NA, NA, NA, "U", "U", "U", "U")
 
-s1 <- c("S1", "W",   rep(NA, 18))
-s2 <- c("S2", "W/U", rep(NA, 8), "W", paste0("x", footnote_marker_alphabet(3)), NA, NA, NA, NA, "U",  NA, NA, NA)
-s3 <- c("S3", rep(NA, 10),            paste0("x", footnote_marker_alphabet(4)), NA, NA, NA,                                       NA, "U", "U", NA, NA)
-s4 <- c("S4", rep(NA, 10),            paste0("x", footnote_marker_alphabet(5)), NA, NA, NA,                                       NA, NA,  NA,  NA, NA)
+s1 <- c("S1", "W", rep(NA, 18))
+s2 <- c("S2", "W/U", rep(NA, 8), "W", paste0("x", footnote_marker_alphabet(3)), NA, NA, NA, NA, "U", NA, NA, NA)
+s3 <- c("S3", rep(NA, 10), paste0("x", footnote_marker_alphabet(4)), NA, NA, NA, NA, "U", "U", NA, NA)
+s4 <- c("S4", rep(NA, 10), paste0("x", footnote_marker_alphabet(5)), NA, NA, NA, NA, NA, NA, NA, NA)
 
-i2 <- c("I2", rep(NA, 10), "U","U", rep(NA, 7))
-i3 <- c("I3", rep(NA, 9), "U", NA, 'U', rep(NA, 7))
-i31 <- c("I3.1", rep(NA, 10), "U", NA, 'U', rep(NA, 6))
+i2 <- c("I2", rep(NA, 10), "U", "U", rep(NA, 7))
+i3 <- c("I3", rep(NA, 9), "U", NA, "U", rep(NA, 7))
+i31 <- c("I3.1", rep(NA, 10), "U", NA, "U", rep(NA, 6))
 
 df <- rbind(hs, h0, h1, h2, h3, h4, h5, s1, s2, s3, s4, i2, i3, i31)
 
@@ -130,19 +130,19 @@ kable(table,
     "BEC", "CCCN", "CPC", "GTAP",
     "H0", "H1", "H2", "H3", "H4",
     "I2", "I3", "I3.1", "I4",
-    "MTN","SIC", 
+    "MTN", "SIC",
     "S1", "S2", "S3", "S4"
   ),
   escape = F
 ) %>%
   kable_styling(font_size = 11.5) %>%
-  add_header_above(c(" " = 5, "Harmonised System" = 5, 'ISIC' = 4, ' ' = 2, 'SITC' = 4)) %>%
+  add_header_above(c(" " = 5, "Harmonised System" = 5, "ISIC" = 4, " " = 2, "SITC" = 4)) %>%
   add_header_above(c("From...", "...to" = 19)) %>%
   pack_rows("Harmonised System (HS)", 1, 7) %>%
   pack_rows("Standard International Trade Classification (SITC)", 8, 11) %>%
   pack_rows("International Standard Industrial Classification (ISIC)", 12, 14) %>%
   footnote(
-    general = "W: WITS, U: UN-Stats, x: reconstruction using mappings below.", 
+    general = "W: WITS, U: UN-Stats, x: reconstruction using mappings below.",
     general_title = "Abbreviations: ",
     alphabet = c(
       "H4 >> H3 >> I3.",
@@ -222,7 +222,6 @@ First, load the package.
 
 ```{r message=FALSE, warning=FALSE}
 library(comtradeRggregator)
-
 ```
 
 To download global (`World`) `HS2007` `commodity`  trade data in `USD` for `all` trade flows (i.e. imports, exports as well as re-imports and re-exports) at `AG6`  reported by `Austria`  in `2018`, run:
@@ -435,40 +434,54 @@ providing official concordance tables from the [UN Statistics Division (UNSD)](h
 #### Examples
 
 
-Using the abbreviations and information from the concordance table above, if you want to convert your Comtrade data set from `H3` to `I3` (see `?H3_I3` for more information on concordance table), run:
+Using the abbreviations and information from the concordance table above, if you want to convert your Comtrade data set from `H3` to `I3` (see `?H3_I3` for more information on concordance table), run the code below. For every non-matched code of argument `commodity.code` a warning message is returned.
 
 ```{r message=FALSE, warning=FALSE}
 I3 <- AT_World %>%
   convert_Comtrade(
-    classification = "classification",
+    classification.from = "H3",
     commodity.code = "commodity_code",
-    convert.to = "I3"
-  ) 
+    classification.to = "I3"
+  )
 I3 %>%
   select(classification, commodity_code, `ISIC Revision 3 Product Code`)
 ```
 
-<!-- Using the *Concordance Table* trade data can also easily be re-classified into a format that is not originally supported by [Comtrade](https://comtrade.un.org). For example, to reclassify the previous query into [ISIC Revision 3.1](https://unstats.un.org/unsd/statcom/doc02/isic.pdf), run: -->
 
-<!-- ```{r} -->
-<!-- I3 %>% -->
-<!--   convert_Comtrade( -->
-<!--     classification = "classification", -->
-<!--     commodity.code = "ISIC Revision 3 Product Code", -->
-<!--     convert.to = "I3.1" -->
-<!--   ) -->
-<!-- I3 %>% -->
-<!--   select(classification, commodity_code, `ISIC Revision 3 Product Code`) -->
-<!-- ``` -->
+
+Using the *Concordance Table* trade data can also easily be re-classified into a format that is not originally supported by [Comtrade](https://comtrade.un.org). For example, to further reclassify the previous query from `I3` to `I3.1`, i.e. [ISIC Revision 3.1](https://unstats.un.org/unsd/statcom/doc02/isic.pdf), run:
+
+
+```{r}
+I3.1 <- I3 %>%
+  convert_Comtrade(
+    classification.from = "I3",
+    commodity.code = "ISIC Revision 3 Product Code",
+    classification.to = "I31"
+  )
+I3.1 %>%
+  select(classification, commodity_code, `ISIC Revision 3 Product Code`, `ISIC Revision 3.1 Product Code`)
+```
+
+`convert_Comtrade()` supports all conversions described in the [Concordance Table](https://github.com/amannj/comtradeRggregator#concordance-table). Unsupported conversion return an error message:
+
+```{r}
+I3.1 <- I3 %>%
+  convert_Comtrade(
+    classification.from = "I3",
+    commodity.code = "ISIC Revision 3 Product Code",
+    classification.to = "MTN"
+  )
+```
 
 
 #### Arguments 
 
--   `classification` - Name of variable containing the trade classification (e.g. `H3`); default is 'classification'.
+-   `classification.from` - Abbreviation of origin classification based on the *Concordance Table*.
 
 - `commodity.code` - Name of variable containing the commodity codes corresponding to trade classification; default is 'commodity_code'.
 
-- `convert.to` - Abbreviation of target classification based on *Concordance table* provided above.
+- `classification.to` - Abbreviation of target classification based on the *Concordance Table*.
 
 See `?is.available_Comtrade` for full documentation.
 
@@ -508,7 +521,6 @@ Remove all temporary files and folders:
 
 ```{r}
 rm_temporaryFiles(location.temporaryFiles = NULL)
-
 ```
 
 - Otherwise:

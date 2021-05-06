@@ -528,6 +528,12 @@ for (c in codes) {
   message("\n-------------------\n HS0 to ", c, "\n-------------------\n")
   print(out)
 }
+AT_World_H0 %>%
+  convert_Comtrade(
+    classification.from = "H3",
+    commodity.code = "commodity_code",
+    classification.to = "I3"
+  )
 
 # Test 7.h1: Check all concordance tables for HS 1 -------------------------------
 download_Comtrade(
@@ -553,6 +559,12 @@ for (c in codes) {
   message("\n-------------------\n HS1 to ", c, "\n-------------------\n")
   print(out)
 }
+AT_World_H1 %>%
+  convert_Comtrade(
+    classification.from = "H1",
+    commodity.code = "commodity_code",
+    classification.to = "I3"
+  )
 
 # Test 7.h2: Check all concordance tables for HS 2 -------------------------------
 download_Comtrade(
@@ -578,6 +590,19 @@ for (c in codes) {
   message("\n-------------------\n HS2 to ", c, "\n-------------------\n")
   print(out)
 }
+AT_World_H2 %>%
+  convert_Comtrade(
+    classification.from = "H2",
+    commodity.code = "commodity_code",
+    classification.to = "I3"
+  )
+# Fails because no conversion available.
+AT_World_H2 %>%
+  convert_Comtrade(
+    classification.from = "H2",
+    commodity.code = "commodity_code",
+    classification.to = "MTN"
+  )
 
 # Test 7.h3: Check all concordance tables for HS 3 -------------------------------
 download_Comtrade(
@@ -603,6 +628,13 @@ for (c in codes) {
   message("\n-------------------\n HS3 to ", c, "\n-------------------\n")
   print(out)
 }
+## Fails because conversion only at 6-digit level for HS
+AT_World_H3 %>%
+  convert_Comtrade(
+    classification.from = "H3",
+    commodity.code = "commodity_code",
+    classification.to = "I3"
+  )
 
 # Test 7.h4: Check all concordance tables for HS 4 -------------------------------
 download_Comtrade(
@@ -617,6 +649,12 @@ download_Comtrade(
   direction = "all",
   sleep = 5
 ) -> DE_World_H4
+DE_World_H4 %>%
+  convert_Comtrade(
+    classification.from = "H4",
+    commodity.code = "commodity_code",
+    classification.to = "I3"
+  )
 
 codes <- c("H0", "H1", "H2", "H3", "S1", "S2", "S3", "S4")
 for (c in codes) {
@@ -629,7 +667,12 @@ for (c in codes) {
   message("\n-------------------\n HS4 to ", c, "\n-------------------\n")
   print(out)
 }
-
+AT_World_H3 %>%
+  convert_Comtrade(
+    classification.from = "H3",
+    commodity.code = "commodity_code",
+    classification.to = "I3"
+  )
 # Test 7.h5: Check all concordance tables for HS 5 -------------------------------
 download_Comtrade(
   year = "2017",
@@ -744,3 +787,14 @@ rm_temporaryFiles(location.temporaryFiles = NULL)
 rm_temporaryFiles(location.temporaryFiles = NULL) # feedback if tmp folder already empty
 rm_temporaryFiles(location.temporaryFiles = mytempDirectory)
 rm_temporaryFiles(location.temporaryFiles = mytempDirectory) # same
+
+
+
+
+
+
+
+
+
+
+
