@@ -65,7 +65,7 @@ The goal of the `comtradeRggregator` package is to provide a simple tool to down
 - Supports all key features of [comtradr](https://github.com/ropensci/comtradr) such as the option to download trade data following the different trade classifications offered by [Comtrade](https://comtrade.un.org/data); see [Comtrade API Data Availability Request](https://comtrade.un.org/data/doc/api/#DataAvailabilityRequests) for more information. The full list of possible trade classifications and their corresponding input arguments used in the `comtradeRggregator` package are provided in *Table Supported Trade Classification*:
 
 
-#### Supported Trade Classification
+#### Trade Classifications
 
 | Description                                                           | Trade code; use either version as input for argument `tradecode`   | Level of (dis-)aggregation for input argument `ag` |
 |-----------------------------------------------------------------------|--------------------------------------------------------------------|----------------------------------------------------|
@@ -266,7 +266,7 @@ download_Comtrade(
 )
 ```
 
-Sometimes trade data between countries does not add up. For example, say, in 2020 country A reported USD $X$ millions exports to country B while B was reporting USD $Y$ millions, where $X \neq Y$. In such cases it makes sense to use [mirrored Comtrade trade data](https://wits.worldbank.org/wits/wits/witshelp/Content/Data_Retrieval/T/Intro/B2.Imports_Exports_and_Mirror.htm). The function `download_Comtrade()` offers an easy option to accomplish this. The relation of the queries used for the extraction of trade data and mirrored trade data is illustrated in the example below: Reported imports by Germany from Austria and reported mirrored exports by Austria to Germany are identical by definition:<sup>[1](#fn1)</sup>
+Sometimes trade data between countries does not add up. For example, say, in 2020 country A reported USD $X$ millions exports to country B while B was reporting USD $Y$ millions, where $X \neq Y$. In such cases it makes sense to use [mirrored Comtrade trade data](https://wits.worldbank.org/wits/wits/witshelp/Content/Data_Retrieval/T/Intro/B2.Imports_Exports_and_Mirror.htm). The function `download_Comtrade()` offers an easy option to accomplish this. The relation of the queries used for the extraction of trade data and mirrored trade data is illustrated in the example below: Reported imports by Germany from Austria and reported mirrored exports by Austria to Germany are identical by definition<sup>[1](#fn1)</sup>(note that we can use either `tradecode` name or abbreviation as input arguments for `tradecode` as provided in table [Trade Classifications](https://github.com/amannj/comtradeRggregator#trade-classifications)):
 
 
 ```{r message=FALSE, warning=FALSE}
@@ -288,7 +288,7 @@ mirrX_AT_DE <- download_Comtrade(
   frequency = "annual",
   countries = "Austria",
   partners = "Germany",
-  tradecode = "HS2007",
+  tradecode = "H3",
   ag = "ag6",
   select.stats = "trade_value_usd",
   direction = "exports",
@@ -322,7 +322,7 @@ IM_DE_AT %>%
 
 -  `is.mirrorData` - Extract mirror trade data? default is `FALSE`; Set to `TRUE` to extract mirror trade data from country/countries specified in argument `partners`. For example, if `is.mirrorData = TRUE` export data from countries specified in argument `countries` to countries specified in argument `partners` is measured as import data from countries specified in argument `countries` to countries specified in argument `partners` as reported by countries specified in argument `partners`.
 
--   `tradecode` - Select trade database and classification to be extracted; default is `HS2007`; monthly trade data only available following `HS` classification; the full list of possible trade classifications and their corresponding input arguments used in the `comtradeRggregator` package are provided in *Table Supported Trade Classification*.
+-   `tradecode` - Select trade database and classification to be extracted; default is `HS2007`/`H3`; monthly trade data only available following `HS` classification; the full list of possible trade classifications and their corresponding input arguments used in the `comtradeRggregator` package are provided in *Table Supported Trade Classification*; argument accepts long classification names (e.g. `HS2007`) or abbreviation (e.g. `HS3`) as inputs.
 
 
 
@@ -436,7 +436,8 @@ providing official concordance tables from the [UN Statistics Division (UNSD)](h
 
 Using the abbreviations and information from the concordance table above, if you want to convert your Comtrade data set from `H3` to `I3` (see `?H3_I3` for more information on concordance table), run the code below. For every non-matched code of argument `commodity.code` a warning message is returned.
 
-```{r message=FALSE, warning=FALSE}
+
+```{r}
 I3 <- AT_World %>%
   convert_Comtrade(
     classification.from = "H3",
@@ -445,6 +446,18 @@ I3 <- AT_World %>%
   )
 I3 %>%
   select(classification, commodity_code, `ISIC Revision 3 Product Code`)
+```
+
+Also note that we can use either `tradecode` name or abbreviation as input arguments for `classification.from` as long as they are provided in table [Trade Classifications](https://github.com/amannj/comtradeRggregator#trade-classifications))
+
+```{r}
+I3_alt <- AT_World %>%
+  convert_Comtrade(
+    classification.from = "HS2007", 
+    commodity.code = "commodity_code",
+    classification.to = "I3"
+  )
+identical(I3, I3_alt)
 ```
 
 
@@ -463,16 +476,6 @@ I3.1 %>%
   select(classification, commodity_code, `ISIC Revision 3 Product Code`, `ISIC Revision 3.1 Product Code`)
 ```
 
-`convert_Comtrade()` supports all conversions described in the [Concordance Table](https://github.com/amannj/comtradeRggregator#concordance-table). Unsupported conversion return an error message:
-
-```{r}
-I3.1 <- I3 %>%
-  convert_Comtrade(
-    classification.from = "I3",
-    commodity.code = "ISIC Revision 3 Product Code",
-    classification.to = "MTN"
-  )
-```
 
 
 #### Arguments 

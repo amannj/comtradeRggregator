@@ -64,7 +64,7 @@ absent from either the [Comtrade](https://comtrade.un.org) or
     `comtradeRggregator` package are provided in *Table Supported Trade
     Classification*:
 
-*Table Supported Trade Classification*
+#### Trade Classifications
 
 | Description                                                   | Trade code; use either version as input for argument `tradecode` | Level of (dis-)aggregation for input argument `ag` |
 |---------------------------------------------------------------|------------------------------------------------------------------|----------------------------------------------------|
@@ -96,7 +96,7 @@ absent from either the [Comtrade](https://comtrade.un.org) or
     in R, type `<code from_<code to>`. For example, the concordance
     table from `H3` to `H0` is stored as object `H3_H0`.
 
-*Concordance Table*
+#### Concordance Table
 
 <table class="table" style="font-size: 11.5px; margin-left: auto; margin-right: auto;border-bottom: 0;">
 <thead>
@@ -1178,14 +1178,13 @@ devtools::install_github("amannj/comtradr",
   ref = "sitc-bug",
   force = TRUE
 )
-
-
 ## Download `comtradeRggregator`; private repository, therefore requires `auth_token`.
 devtools::install_github("amannj/comtradeRggregator",
   ref = "master",
-  auth_token = "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",
+  auth_token = "...",
   force = TRUE
 )
+
 ```
 
 ------------------------------------------------------------------------
@@ -1272,7 +1271,10 @@ The function `download_Comtrade()` offers an easy option to accomplish
 this. The relation of the queries used for the extraction of trade data
 and mirrored trade data is illustrated in the example below: Reported
 imports by Germany from Austria and reported mirrored exports by Austria
-to Germany are identical by definition:<sup>[1](#fn1)</sup>
+to Germany are identical by definition<sup>[1](#fn1)</sup>(note that we
+can use either `tradecode` name or abbreviation as input arguments for
+`tradecode` as provided in table [Trade
+Classifications](https://github.com/amannj/comtradeRggregator#trade-classifications)):
 
 ``` r
 IM_DE_AT <- download_Comtrade(
@@ -1293,7 +1295,7 @@ mirrX_AT_DE <- download_Comtrade(
   frequency = "annual",
   countries = "Austria",
   partners = "Germany",
-  tradecode = "HS2007",
+  tradecode = "H3",
   ag = "ag6",
   select.stats = "trade_value_usd",
   direction = "exports",
@@ -1349,11 +1351,12 @@ IM_DE_AT %>%
     reported by countries specified in argument `partners`.
 
 -   `tradecode` - Select trade database and classification to be
-    extracted; default is `HS2007`; monthly trade data only available
-    following `HS` classification; the full list of possible trade
-    classifications and their corresponding input arguments used in the
-    `comtradeRggregator` package are provided in *Table Supported Trade
-    Classification*.
+    extracted; default is `HS2007`/`H3`; monthly trade data only
+    available following `HS` classification; the full list of possible
+    trade classifications and their corresponding input arguments used
+    in the `comtradeRggregator` package are provided in *Table Supported
+    Trade Classification*; argument accepts long classification names
+    (e.g. `HS2007`) or abbreviation (e.g. `HS3`) as inputs.
 
 -   `ag` - Level of aggregation of trade data; varies by trade data set.
 
@@ -1503,18 +1506,23 @@ the [World Integrated Trade Solution
 
 Using the abbreviations and information from the concordance table
 above, if you want to convert your Comtrade data set from `H3` to `I3`
-(see `?H3_I3` for more information on concordance table), run:
+(see `?H3_I3` for more information on concordance table), run the code
+below. For every non-matched code of argument `commodity.code` a warning
+message is returned.
 
 ``` r
 I3 <- AT_World %>%
   convert_Comtrade(
-    classification = "classification",
+    classification.from = "H3",
     commodity.code = "commodity_code",
-    convert.to = "I3"
-  ) 
+    classification.to = "I3"
+  )
+#> Warning in convert_Comtrade(., classification.from = "H3", commodity.code =
+#> "commodity_code", : The following commodity codes of column 'commodity_code'
+#> could not be matched: 999999.
 I3 %>%
   select(classification, commodity_code, `ISIC Revision 3 Product Code`)
-#> # A tibble: 9,612 x 3
+#> # A tibble: 9,432 x 3
 #>    classification commodity_code `ISIC Revision 3 Product Code`
 #>    <chr>          <chr>          <chr>                         
 #>  1 H3             010110         0121                          
@@ -1527,31 +1535,72 @@ I3 %>%
 #>  8 H3             010310         0122                          
 #>  9 H3             010310         0122                          
 #> 10 H3             010391         0122                          
-#> # ... with 9,602 more rows
+#> # ... with 9,422 more rows
 ```
 
-<!-- Using the *Concordance Table* trade data can also easily be re-classified into a format that is not originally supported by [Comtrade](https://comtrade.un.org). For example, to reclassify the previous query into [ISIC Revision 3.1](https://unstats.un.org/unsd/statcom/doc02/isic.pdf), run: -->
-<!-- ```{r} -->
-<!-- I3 %>% -->
-<!--   convert_Comtrade( -->
-<!--     classification = "classification", -->
-<!--     commodity.code = "ISIC Revision 3 Product Code", -->
-<!--     convert.to = "I3.1" -->
-<!--   ) -->
-<!-- I3 %>% -->
-<!--   select(classification, commodity_code, `ISIC Revision 3 Product Code`) -->
-<!-- ``` -->
+Also note that we can use either `tradecode` name or abbreviation as
+input arguments for `classification.from` as long as they are provided
+in table [Trade
+Classifications](https://github.com/amannj/comtradeRggregator#trade-classifications))
+
+``` r
+I3_alt <- AT_World %>%
+  convert_Comtrade(
+    classification.from = "HS2007", 
+    commodity.code = "commodity_code",
+    classification.to = "I3"
+  )
+#> Warning in convert_Comtrade(., classification.from = "HS2007", commodity.code
+#> = "commodity_code", : The following commodity codes of column 'commodity_code'
+#> could not be matched: 999999.
+identical(I3, I3_alt)
+#> [1] TRUE
+```
+
+Using the *Concordance Table* trade data can also easily be
+re-classified into a format that is not originally supported by
+[Comtrade](https://comtrade.un.org). For example, to further reclassify
+the previous query from `I3` to `I3.1`, i.e. [ISIC Revision
+3.1](https://unstats.un.org/unsd/statcom/doc02/isic.pdf), run:
+
+``` r
+I3.1 <- I3 %>%
+  convert_Comtrade(
+    classification.from = "I3",
+    commodity.code = "ISIC Revision 3 Product Code",
+    classification.to = "I31"
+  )
+#> Warning in convert_Comtrade(., classification.from = "I3", commodity.code =
+#> "ISIC Revision 3 Product Code", : The following commodity codes of column 'ISIC
+#> Revision 3 Product Code' could not be matched: 9999, NA.
+I3.1 %>%
+  select(classification, commodity_code, `ISIC Revision 3 Product Code`, `ISIC Revision 3.1 Product Code`)
+#> # A tibble: 9,840 x 4
+#>    classification commodity_code `ISIC Revision 3 Produ~ `ISIC Revision 3.1 Pro~
+#>    <chr>          <chr>          <chr>                   <chr>                  
+#>  1 H3             010110         0121                    0121                   
+#>  2 H3             010190         0121                    0121                   
+#>  3 H3             010190         0121                    0121                   
+#>  4 H3             010210         0121                    0121                   
+#>  5 H3             010210         0121                    0121                   
+#>  6 H3             010290         0121                    0121                   
+#>  7 H3             010290         0121                    0121                   
+#>  8 H3             010310         0122                    0122                   
+#>  9 H3             010310         0122                    0122                   
+#> 10 H3             010391         0122                    0122                   
+#> # ... with 9,830 more rows
+```
 
 #### Arguments
 
--   `classification` - Name of variable containing the trade
-    classification (e.g. `H3`); default is ‘classification’.
+-   `classification.from` - Abbreviation of origin classification based
+    on the *Concordance Table*.
 
 -   `commodity.code` - Name of variable containing the commodity codes
     corresponding to trade classification; default is ‘commodity\_code’.
 
--   `convert.to` - Abbreviation of target classification based on
-    *Concordance table* provided above.
+-   `classification.to` - Abbreviation of target classification based on
+    the *Concordance Table*.
 
 See `?is.available_Comtrade` for full documentation.
 
