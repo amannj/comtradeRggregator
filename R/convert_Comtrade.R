@@ -118,7 +118,7 @@ convert_Comtrade <- function(data,
     },
     silent = TRUE
   )
-  if (exists("df_conc") == FALSE) {
+  if (!exists("df_conc")) {
     stop("No concordance table between ", classification.from, " and ", classification.to, " available. Please check abbreviations and/or Concordance Table.")
   }
   colnames(df_conc)[1] <- commodity.code
