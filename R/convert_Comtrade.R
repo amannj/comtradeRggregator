@@ -77,7 +77,20 @@ convert_Comtrade <- function(data,
 
 
   ## Check `tradecode` and return arg  ------
-  classification.from <- convert_tradecodes(tradecode = classification.from, return = 'Abbr', eval = FALSE)
+  if (classification.from %in% c(
+    "HS1992", "H0",
+    "HS1996", "H1",
+    "HS2002", "H2",
+    "HS2007", "H3",
+    "HS2012", "H4",
+    "HS2017", "H5",
+    "SITCrev1", "S1",
+    "SITCrev2", "S2",
+    "SITCrev3", "S3",
+    "SITCrev4", "S4"
+  )) {
+    classification.from <- convert_tradecodes(tradecode = classification.from, return = "Abbr", eval = FALSE)
+  }
 
   # Check length of commodity codes----
   s_cclgth <- as.character(data %>%
@@ -89,7 +102,7 @@ convert_Comtrade <- function(data,
   } else if (classification.from == "I3") {
     check_args(s_cclgth, "4", paste0(commodity.code, " has wrong length for conversion (check Concordance Table for more information); "))
   } else {
-    warning('No check of commodity code length implemented yet.')
+    warning("No check of commodity code length implemented yet.")
   }
 
   # Get concordance table ----------
