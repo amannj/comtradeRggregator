@@ -28,7 +28,7 @@ lapply(pkgs[!(pkgs %in% installed.packages())], install.packages)
 lapply(pkgs, library, character.only = TRUE)
 ```
 
-# comtradeRggregator <img src='man/figures/logo2.png' align="right" height="139" />
+# comtradeRggregator <img src='man/figures/logo1.png' align="right" height="139" />
 
 
 <!-- badges: start -->
@@ -51,7 +51,7 @@ The goal of the `comtradeRggregator` package is to provide a simple tool to down
 | Incorporating recent data updates and revisions                                | yes                                                   | with delay                            | yes (via Comtrade)                                     |
 | Extraction of monthly trade data                                               | yes                                                   | no                                    | yes                                                    |
 | Advanced querying and bulk download without registration                       | no                                                    | no                                    | yes, but slow                                           |
-| Reclassification of trade data according to official standards (e.g to ISIC)   | no                                                    | yes                                   | yes                                                    |
+| Reclassification of trade data according to official standards                 | no                                                    | selectively                           | yes                                                    |
 | API integration in R                                                           | with [comtradr](https://github.com/ropensci/comtradr) | no                                    | with [comtradr](https://github.com/ropensci/comtradr)  |
 | Designated option to download mirror trade data                                | no                                                    | no                                    | yes                                                    |
 
@@ -76,19 +76,19 @@ The goal of the `comtradeRggregator` package is to provide a simple tool to down
 | HS 2007                                                               | `HS2007`, `H3`                                                     | `TOTAL`,`AG2`, `AG4`, `AG6`                        |
 | HS 2012                                                               | `HS2012`, `H4`                                                     | `TOTAL`,`AG2`, `AG4`, `AG6`                        |
 | HS 2017                                                               | `HS2017`, `H5`                                                     | `TOTAL`,`AG2`, `AG4`, `AG6`                        |
-| SITC Standard International Trade Classification, as reported         | `SITC`, `ST`                                                       | `TOTAL`,`AG1`, `AG3`, `AG3`, `AG4`, `AG5`          |
-| SITC Revision 1                                                       | `SITCrev1`, `S1`                                                   | `TOTAL`,`AG1`, `AG3`, `AG3`, `AG4`, `AG5`          |
-| SITC Revision 2                                                       | `SITCrev2`, `S2`                                                   | `TOTAL`,`AG1`, `AG3`, `AG3`, `AG4`, `AG5`          |
-| SITC Revision 3                                                       | `SITCrev3`, `S3`                                                   | `TOTAL`,`AG1`, `AG3`, `AG3`, `AG4`, `AG5`          |
-| SITC Revision 4                                                       | `SITCrev4`, `S4`                                                   | `TOTAL`,`AG1`, `AG3`, `AG3`, `AG4`, `AG5`          |
-| Broad Economic Categories                                             | `BEC`                                                              | `TOTAL`,`AG1`, `AG3`, `AG3`                        |
-| ~~Extended Balance of Payments Services Classification~~              | ~~`EB02`~~                                                         |  .                                                 |
+| SITC Standard International Trade Classification, as reported         | `SITC`, `ST`                                                       | `TOTAL`,`AG1`, `AG2`, `AG3`, `AG4`, `AG5`          |
+| SITC Revision 1                                                       | `SITCrev1`, `S1`                                                   | `TOTAL`,`AG1`, `AG2`, `AG3`, `AG4`, `AG5`          |
+| SITC Revision 2                                                       | `SITCrev2`, `S2`                                                   | `TOTAL`,`AG1`, `AG2`, `AG3`, `AG4`, `AG5`          |
+| SITC Revision 3                                                       | `SITCrev3`, `S3`                                                   | `TOTAL`,`AG1`, `AG2`, `AG3`, `AG4`, `AG5`          |
+| SITC Revision 4                                                       | `SITCrev4`, `S4`                                                   | `TOTAL`,`AG1`, `AG2`, `AG3`, `AG4`, `AG5`          |
+| Broad Economic Categories                                             | `BEC`                                                              | `TOTAL`,`AG1`, `AG2`, `AG3`                        |
+| ~~Extended Balance of Payments Services Classification~~              | ~~`EB02`~~                                                         | ~~`TOTAL`, `ALL`~~                                 |
 
 
 -   Supports extraction of `annual` as well as `monthly` [Comtrade](https://comtrade.un.org) trade data.
 
 
--   Provides function for easy reclassification of trade data using official concordance tables from the [United Nations Statistical Division (UNSD)](https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp) and the [World Integrated Trade Solution (WITS)](https://wits.worldbank.org/product_concordance.html); see *Concordance Table* below. To access respective concordance tables in R, type `<code from_<code to>`. For example, the concordance table from `H3` to `H0` is stored as object `H3_H0`.
+-   Provides function for easy reclassification of trade data using official concordance tables from the [United Nations Statistical Division (UNSD)](https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp) and the [World Integrated Trade Solution (WITS)](https://wits.worldbank.org/product_concordance.html); see *Concordance Table* below. To access respective concordance tables in R, type `<tradecode from>_<tradecode to>`. For example, the concordance table from `H3` to `H0` is stored as object `H3_H0` and its R help file can be accessed by typinc `?H3_H0`.
 
 
 
@@ -101,13 +101,13 @@ h0 <- c("H0", "W", "W", "W", "W", NA, NA, NA, NA, NA, "W", "W", NA, NA, "W", "W"
 h1 <- c("H1", "W", "W", "W", "W", "W/U", NA, NA, NA, NA, "W", "W", NA, NA, "W", "W", "W/U", "W/U", "W/U", "W")
 h2 <- c("H2", "W", "W", "W", "W", "W/U", "W/U", NA, NA, NA, "W", "W", NA, NA, "W", "W", "W/U", "W/U", "W/U", "W")
 h3 <- c("H3", "W", "W", "W", "W", "W/U", "W/U", "W/U", NA, NA, "W", "W", NA, NA, "W", "W", "W/U", "W/U", "W/U", "W/U")
-h4 <- c("H4", "U", NA, NA, NA, "U", "U", "U", "U", NA, NA, paste0("x", footnote_marker_alphabet(1)), NA, NA, NA, NA, "U", "U", "U", "U")
-h5 <- c("H5", "U", NA, NA, NA, "U", "U", "U", "U", "U", NA, paste0("x", footnote_marker_alphabet(2)), NA, NA, NA, NA, "U", "U", "U", "U")
+h4 <- c("H4", "U", NA, NA, NA, "U", "U", "U", "U", NA, NA, NA, NA, NA, NA, NA, "U", "U", "U", "U")
+h5 <- c("H5", "U", NA, NA, NA, "U", "U", "U", "U", "U", NA, paste0("x", footnote_marker_alphabet(1)), NA, NA, NA, NA, "U", "U", "U", "U")
 
 s1 <- c("S1", "W", rep(NA, 18))
-s2 <- c("S2", "W/U", rep(NA, 8), "W", paste0("x", footnote_marker_alphabet(3)), NA, NA, NA, NA, "U", NA, NA, NA)
-s3 <- c("S3", rep(NA, 10), paste0("x", footnote_marker_alphabet(4)), NA, NA, NA, NA, "U", "U", NA, NA)
-s4 <- c("S4", rep(NA, 10), paste0("x", footnote_marker_alphabet(5)), NA, NA, NA, NA, NA, NA, NA, NA)
+s2 <- c("S2", "W/U", rep(NA, 8), "W", NA, NA, NA, NA, NA, "U", NA, NA, NA)
+s3 <- c("S3", rep(NA, 10), NA, NA, NA, NA, NA, "U", "U", NA, NA)
+s4 <- c("S4", rep(NA, 10), NA, NA, NA, NA, NA, NA, NA, NA, NA)
 
 i2 <- c("I2", rep(NA, 10), "U", "U", rep(NA, 7))
 i3 <- c("I3", rep(NA, 9), "U", NA, "U", rep(NA, 7))
@@ -119,17 +119,12 @@ table <- tibble(
   df
 )
 
-
-
-
-
-
 kable(table,
   col.names = c(
     "",
     "BEC", "CCCN", "CPC", "GTAP",
     "H0", "H1", "H2", "H3", "H4",
-    "I2", "I3", "I3.1", "I4",
+    "I2", "I3", "I31", "I4",
     "MTN", "SIC",
     "S1", "S2", "S3", "S4"
   ),
@@ -142,18 +137,15 @@ kable(table,
   pack_rows("Standard International Trade Classification (SITC)", 8, 11) %>%
   pack_rows("International Standard Industrial Classification (ISIC)", 12, 14) %>%
   footnote(
-    general = "W: WITS, U: UN-Stats, x: reconstruction using mappings below.",
-    general_title = "Abbreviations: ",
+    general = "Reclassification requires data at most granular levels for HS (AG6) and ISIC (AG4), and AG4 as well as AG5 for SITC. Abbreviations: W for WITS; U for UN-Stats.",
+    general_title = "Note: ",
     alphabet = c(
-      "H4 >> H3 >> I3.",
-      "H5 >> H3 >> I3.",
-      "S2 >> I2 >> I3",
-      "S3 >> S2 >> I2 >> I3",
-      "S4 >> S3 >> S2 >> I2 >> I3"
+      ": Example for how concordance across seemingly unrelated classifications can be established: H5 >> H3 >> I3; see more extensive discussion in documentation below."
     ),
-    alphabet_title = "Mapping: ",
-    # symbol = "Footnote Symbol 1; ",
-    # symbol_title = "Type III: ",
+    alphabet_title = "x",
+    # symbol = "Reclassification of SITC trade data requires data on aggregation levels four (AG4) and five (AG5) together.",
+    # symbol_title = "Note: ",
+    # paste0("S1", footnote_marker_symbol(1))
     footnote_as_chunk = T
   )
 ```
@@ -173,12 +165,12 @@ Data availability varies by country and classification, and new trade data is re
 
 `<your local package location>/data/Comtrade_DataAvailability-<date stamp>.csv.gz`
 
-The locally stored Comtrade Data Availability file is used in every `download_Comtrade()` data query. In other words, if new data becomes available and is documented in the [official Comtrade data availability file](https://comtrade.un.org/data/da), `comtradeRggregator` will use this information no later than 24 hours after its publication. The Comtrade Data Availability file can be accessed locally (file name `Comtrade_DA`), and more information on the file can be obtained by accessing the help menu (type `?Comtrade_DA`).
+The locally stored Comtrade Data Availability file is used in every `download_Comtrade()` data query. In other words, if new data becomes available and is documented in the [official Comtrade data availability file](https://comtrade.un.org/data/da), `comtradeRggregator` will use this information no later than 24 hours after its publication. The Comtrade Data Availability file can be accessed internally (by typing `Comtrade_DA`), and the help page can be accessed type `?Comtrade_DA`.
 
 
 #### Extraction of monthly trade data
 
-Monthly trade data is only reported as 'HS Combined' (`HS`) which combines all revisions of the Harmonised System nomenclature. As a country reports its tariff scheduled for a given year in only one revision, that is HS1988/1992 (`H0`), HS1996 (`H1`) or HS2002 (`H2`) etc., combining these different revisions enables users to choose products without having to know in which nomenclature a particular country reports in a particular year; [see here](https://wits.worldbank.org/WITS/wits/WITSHELP/Content/Annex/Annex1.About_WITS_HS_Combined.htm) for more information on the 'HS Combined' nomenclature.
+Monthly trade data is only reported as *HS Combined** (`HS`) which combines all revisions of the Harmonised System nomenclature. As a country reports its tariff scheduled for a given year in only one revision, that is *HS1988/1992* (`H0`), *HS1996* (`H1`) or *HS2002* (`H2`) etc., combining these different revisions enables users to choose products without having to know in which nomenclature a particular country reports in a particular year; see [here](https://wits.worldbank.org/WITS/wits/WITSHELP/Content/Annex/Annex1.About_WITS_HS_Combined.htm) for more information on the *HS Combined* nomenclature.
 
 ------------------------------------------------------------------------
 
@@ -224,7 +216,7 @@ First, load the package.
 library(comtradeRggregator)
 ```
 
-To download global (`World`) `HS2007` `commodity`  trade data in `USD` for `all` trade flows (i.e. imports, exports as well as re-imports and re-exports) at `AG6`  reported by `Austria`  in `2018`, run:
+To download `annual` global, i.e. `World`,  `commodity`  trade data following `HS2007` in `USD` for `all` available trade flows, i.e. imports, exports as well as re-imports and re-exports, at `AG6` level  reported by `Austria`  in `2018`, run:
 
 
 
@@ -244,12 +236,8 @@ AT_World
 ```
 
 
-Sometimes you might want to extract very specific information on particular trade flows between two countries. For example, in order to extract `re-exports` reported by `Austria` at `AG6` for `HS2007` `commodity` for trade with `Germany`   in `2018`, run the command below.  As you can see, this returns an empty data frame which means that there is no trade data recorded on [Comtrade](https://comtrade.un.org) that meets the specific characterisation.
+Sometimes you might want to extract very specific information on particular trade flows between two countries. For example, in order to extract  `commodity` `re-exports` reported by `Austria` at `AG6` level following `HS2007` for trade with `Germany`   in `2018`, run the command below.  As you can see, this returns an empty data frame which means that there is no trade data recorded on [Comtrade](https://comtrade.un.org) that meets the specific characterisation.
 
-
-```{r include=FALSE}
-Sys.sleep(60)
-```
 
 
 ```{r message=FALSE, warning=FALSE}
@@ -266,7 +254,9 @@ download_Comtrade(
 )
 ```
 
-Sometimes trade data between countries does not add up. For example, say, in 2020 country A reported USD $X$ millions exports to country B while B was reporting USD $Y$ millions, where $X \neq Y$. In such cases it makes sense to use [mirrored Comtrade trade data](https://wits.worldbank.org/wits/wits/witshelp/Content/Data_Retrieval/T/Intro/B2.Imports_Exports_and_Mirror.htm). The function `download_Comtrade()` offers an easy option to accomplish this. The relation of the queries used for the extraction of trade data and mirrored trade data is illustrated in the example below: Reported imports by Germany from Austria and reported mirrored exports by Austria to Germany are identical by definition<sup>[1](#fn1)</sup>(note that we can use either `tradecode` name or abbreviation as input arguments for `tradecode` as provided in table [Trade Classifications](https://github.com/amannj/comtradeRggregator#trade-classifications)):
+Sometimes trade data between countries does not add up. For example, say, in 2020 country A reported USD $X$ millions exports to country B while B was reporting USD $Y$ millions, where $X \neq Y$. In such cases it makes sense to use [mirrored trade data](https://wits.worldbank.org/wits/wits/witshelp/Content/Data_Retrieval/T/Intro/B2.Imports_Exports_and_Mirror.htm). The function `download_Comtrade()` offers an easy option to accomplish this. The relation of the queries used for the extraction of trade data and mirrored trade data is illustrated in the example below: 
+
+Reported imports by Germany from Austria and reported mirrored exports by Austria to Germany are identical by definition.<sup>[1](#fn1)</sup> Note that we can use either `tradecode` name or abbreviation as input arguments for `tradecode` as provided in table [Trade Classifications](https://github.com/amannj/comtradeRggregator#trade-classifications)).
 
 
 ```{r message=FALSE, warning=FALSE}
@@ -353,7 +343,8 @@ See `?download_Comtrade` for full documentation.
 
 ### `is.available_Comtrade()`
 
-To check if data of a particular trade data set, frequency or country available according to the [Comtrade Data Availability file](<https://comtrade.un.org/data/da>) before running a query, use function `is.available_Comtrade()`. The function uses the locally stored Comtrade Data Availability file which is updated on a daily basis.
+Sometimes you might want to check  if data for a particular trade classification, frequency and/or country is available on Comtrade before running a query.
+For this you can use function `is.available_Comtrade()` which uses the [Comtrade Data Availability file](<https://comtrade.un.org/data/da>) which it which is updates on a daily basis.<sup>[2](#fn2)</sup>
 
 #### Examples
 
@@ -371,7 +362,7 @@ da1 <- is.available_Comtrade(
 head(da1)
 ```
 
-Similarly, you might want to know if a particular (set of) country/countries is available in a particular trade data set. To check if either `Austria` or `Germany` have `annual` trade data reported in `HS2007` for the year `2012`, run:
+Similarly, you might want to know if a particular country (set ofcountries) is available in a particular trade data set. To check if either `Austria` or `Germany` have `annual` trade data reported in `HS2007` for the year `2012`, run:
 
 
 ```{r message=FALSE, warning=FALSE}
@@ -385,7 +376,7 @@ da2 <- is.available_Comtrade(
 da2
 ```
 
-The same can also be done for monthly data. As seen below, only `Germany` has `monthly` `HS2007` trade date for the first month of `2020` available in Comtrade.
+The same can also be done for monthly data. As seen below, only `Germany` has `monthly` `HS2007` trade date for the first month of `2020` available.
 
 ```{r message=FALSE, warning=FALSE}
 da3 <- is.available_Comtrade(
@@ -402,7 +393,7 @@ da3
 
 #### Arguments
 
--   `is.contained` - Check if a particular (set of) country/countries is available for a particular data set; default is `NULL` which returns list of all countries available for a given data set.
+-   `is.contained` - Check if a particular country (set of countries) is available for a particular data set; default is `NULL` which returns list of all countries available for a given data set.
 
 -   `type` - Type of trade data to be extracted; either `services` or `commodities`; currently only `commodities` implemented.
 
@@ -434,13 +425,13 @@ providing official concordance tables from the [UN Statistics Division (UNSD)](h
 #### Examples
 
 
-Using the abbreviations and information from the concordance table above, if you want to convert your Comtrade data set from `H3` to `I3` (see `?H3_I3` for more information on concordance table), run the code below. For every non-matched code of argument `commodity.code` a warning message is returned.
+Using the abbreviations and information from the [Concordance Table](https://github.com/amannj/comtradeRggregator#concordance-table) above, if might want to convert your Comtrade data set from `H3` to `I3` (see `?H3_I3` for more information on this particular concordance table). You can achieve this conversion by run the code below. Please note that for every non-matched code of argument `commodity.code` a warning message is returned. Note that we can use either `tradecode` name or abbreviation as input arguments for `classification.from` as long as they are provided in the [Trade Classifications](https://github.com/amannj/comtradeRggregator#trade-classifications) table. This is demonstrated below by passing argument `classification.from = "HS2007"`. The same could be achieved with `classification.from = "H3"`.
 
 
 ```{r}
 I3 <- AT_World %>%
   convert_Comtrade(
-    classification.from = "H3",
+    classification.from = "HS2007",
     commodity.code = "commodity_code",
     classification.to = "I3"
   )
@@ -448,21 +439,9 @@ I3 %>%
   select(classification, commodity_code, `ISIC Revision 3 Product Code`)
 ```
 
-Also note that we can use either `tradecode` name or abbreviation as input arguments for `classification.from` as long as they are provided in table [Trade Classifications](https://github.com/amannj/comtradeRggregator#trade-classifications))
 
-```{r}
-I3_alt <- AT_World %>%
-  convert_Comtrade(
-    classification.from = "HS2007", 
-    commodity.code = "commodity_code",
-    classification.to = "I3"
-  )
-identical(I3, I3_alt)
-```
-
-
-
-Using the *Concordance Table* trade data can also easily be re-classified into a format that is not originally supported by [Comtrade](https://comtrade.un.org). For example, to further reclassify the previous query from `I3` to `I3.1`, i.e. [ISIC Revision 3.1](https://unstats.un.org/unsd/statcom/doc02/isic.pdf), run:
+You can also us the  [Concordance Table](https://github.com/amannj/comtradeRggregator#concordance-table) to easily re-classify your trade data where no standard concordance table is available.
+For example, to further reclassify the previous query from `I3` to `I3.1`, i.e. [ISIC Revision 3.1](https://unstats.un.org/unsd/statcom/doc02/isic.pdf), run:
 
 
 ```{r}
@@ -476,6 +455,41 @@ I3.1 %>%
   select(classification, commodity_code, `ISIC Revision 3 Product Code`, `ISIC Revision 3.1 Product Code`)
 ```
 
+
+Note that the different building blocks of `comtradeRggregator` can be chained together very conveniently using the pipe (`%>%`) operator.  In the example below we want to download `HS2017` trade data for the year 2018 and convert it to the ISIC Rev. 3 standard. Such operations are typically rather cumbersom with both [Comtrade](https://comtrade.un.org) and [WITS](https://wits.worldbank.org/) but can be achieved in a couple of lines of code with `comtradeRggregator` as illustrated below. As before, we exploit the information provided in the [Concordance Table](https://github.com/amannj/comtradeRggregator#concordance-table) to first download `HS2017` data, then convert it to `HS3`, and then again from `HS3` to `ISIC Revision 3`.  Again note that again the input arguments for `tradecode` and `classification.from` and `classification.to` accept both names and abbreviations for the respective standards.
+
+
+```{r message=FALSE, warning=FALSE}
+# Step 1: Extract data from Comtrade
+download_Comtrade(
+  year = "2018",
+  frequency = "annual",
+  countries = "Austria",
+  partners = "World",
+  tradecode = "HS2017",
+  ag = "AG6",
+  type = "commodities",
+  select.stats = "trade_value_usd",
+  direction = "exports"
+) %>%
+  # Step 2: Convert from HS2012/H4 to HS2007/H3
+  convert_Comtrade(
+    classification.from = "H5",
+    commodity.code = "commodity_code",
+    classification.to = "HS2007"
+  ) %>%
+  # Step 3: Convert from HS2012/H4 to HS2007/H3
+  convert_Comtrade(
+    classification.from = "H3",
+    commodity.code = "HS 2007 Product Code",
+    classification.to = "I3"
+  ) %>%
+  select(
+    `Original Comtrade Query` = classification,
+    `HS 2017 Product Code` = commodity_code,
+    `HS 2007 Product Code`, `ISIC Revision 3 Product Code`
+  )
+```
 
 
 #### Arguments 
@@ -557,3 +571,6 @@ See `?rm_temporaryFiles` for full documentation.
 ### Footnotes
 
 <a name="fn1">1</a>: We set `rm.temporaryFiles = FALSE` in the second data query to demonstrate the different return messages for `rm_temporaryFiles()`.
+
+<a name="fn2">2</a>: The same is true for `download_Comtrade()`. In other words, both  `download_Comtrade()` as well as `is.available_Comtrade()` will check the time stamp of the internally stored Comtrade Data Availability file which it updates on a daily basis with the official [Comtrade Data Availability file](<https://comtrade.un.org/data/da>). The locally stored Comtrade Data Availability file can be accessed by typing `Comtrade_DA`, and the help page can be accessed by typing `?Comtrade_DA`.
+
