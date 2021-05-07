@@ -28,9 +28,9 @@ is.available_Comtrade(
 
 \item{year}{Year for which to extract data.}
 
-\item{directory}{Location of directory; default is \code{"data"}.}
+\item{directory}{Location of directory; default is \code{"<location of package on your system>\\data"}.}
 
-\item{file}{Location of Comtrade Data Availability file; default is \verb{Comtrade_DataAvailability-<time and date stamp>.csv.gz}}
+\item{file}{Location of Comtrade Data Availability file; default is \verb{Comtrade_DataAvailability-<time and date stamp>.csv.gz}.}
 }
 \description{
 Check if data of a particular trade data set, frequency or country is available.
