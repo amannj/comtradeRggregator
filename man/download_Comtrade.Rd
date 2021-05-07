@@ -20,7 +20,7 @@ download_Comtrade(
   is.mirrorData = FALSE,
   rm.temporaryFiles = TRUE,
   location.temporaryFiles = NULL,
-  sleep = 20
+  sleep = 5
 )
 }
 \arguments{
