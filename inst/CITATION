@@ -1,7 +1,7 @@
 citHeader("To cite package `comtradeRggregator` in publications use:")
 
 citEntry(
-  entry    = "Article",
+  entry    = "Manual",
   title    = "comtradeRggregator: Download and Reclassify Large Chunks of Trade Data",
   author   = "Juergen Amann",
   year     = "2021",
