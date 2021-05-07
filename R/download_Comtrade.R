@@ -83,7 +83,7 @@ download_Comtrade <- function(year = "2018", #  Years for which to extract
 
 
   ## Check `tradecode` and return arg  ------
-  tradecode <- convert_tradecodes(tradecode = tradecode, return = 'Name')
+  tradecode <- convert_tradecodes(tradecode = tradecode, return = "Name")
 
   ### Check for updates to country/commodity databases:
   ### Checks if Comtrade has made an update to either database specified by arg. `tradecode` and
@@ -405,7 +405,7 @@ download_Comtrade <- function(year = "2018", #  Years for which to extract
   )
 
   if (nrow(df_out) == 0) {
-    warning('Data query did not produce any results. Empty data frame is returned.')
+    warning("Data query did not produce any results. Empty data frame is returned.")
   }
   return(df_out)
 }

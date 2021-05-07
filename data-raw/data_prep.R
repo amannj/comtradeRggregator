@@ -1578,7 +1578,7 @@ usethis::use_data(H3_S4, overwrite = TRUE)
 ## H4 to BE   -----------------
 
 H4_BE <- readxl::read_excel("data-raw/HS 2012 to BEC Correlation and conversion tables.xls",
-                   skip = 5
+  skip = 5
 ) %>%
   select(
     `HS 2012 Product Code` = `HS 2012`,
@@ -1924,8 +1924,7 @@ usethis::use_data(H4_S4, overwrite = TRUE)
 
 ## H5 to BE -----------------
 
-H5_BE <- readxl::read_excel("data-raw/HS2017toBECConversionAndCorrelationTables.xlsx"
-) %>%
+H5_BE <- readxl::read_excel("data-raw/HS2017toBECConversionAndCorrelationTables.xlsx") %>%
   select(
     `HS 2017 Product Code` = `From HS 2017`,
     `BEC 4 Product Code` = `To BEC`
@@ -2392,10 +2391,13 @@ usethis::use_data(S3_S2, overwrite = TRUE)
 ## I2 to I3 -----------------
 
 I2_I3 <- readr::read_csv("data-raw/ISIC2-ISIC3.txt",
-                col_types = readr::cols(.default = "c")) %>%
-  select(`ISIC Revision 2 Product Code` = ISIC2,
-         `ISIC Revision 3 Product Code` = ISIC3,
-         `ISIC Revision 3 Product Description` = Detail)
+  col_types = readr::cols(.default = "c")
+) %>%
+  select(
+    `ISIC Revision 2 Product Code` = ISIC2,
+    `ISIC Revision 3 Product Code` = ISIC3,
+    `ISIC Revision 3 Product Description` = Detail
+  )
 
 
 I2_I3 <- I2_I3 %>%
@@ -2408,10 +2410,13 @@ usethis::use_data(I2_I3, overwrite = TRUE)
 ## I2 to I31 -----------------
 
 I2_I31 <- readr::read_csv("data-raw/ISIC_Rev_2-ISIC_Rev_3_1_correspondence.txt",
-                         col_types = readr::cols(.default = "c")) %>%
-  select(`ISIC Revision 2 Product Code` = Rev2,
-         `ISIC Revision 3.1 Product Code` = Rev31,
-         `ISIC Revision 3.1 Product Description` = Activity)
+  col_types = readr::cols(.default = "c")
+) %>%
+  select(
+    `ISIC Revision 2 Product Code` = Rev2,
+    `ISIC Revision 3.1 Product Code` = Rev31,
+    `ISIC Revision 3.1 Product Description` = Activity
+  )
 
 
 I2_I31 <- I2_I31 %>%
@@ -2426,10 +2431,13 @@ usethis::use_data(I2_I31, overwrite = TRUE)
 ## I3 to I2 -----------------
 
 I3_I2 <- readr::read_csv("data-raw/ISIC3-ISIC2.txt",
-                         col_types = readr::cols(.default = "c")) %>%
-  select(`ISIC Revision 3 Product Code` = ISIC3,
-         `ISIC Revision 2 Product Code` = ISIC2,
-         `ISIC Revision 2 Product Description` = Detail)
+  col_types = readr::cols(.default = "c")
+) %>%
+  select(
+    `ISIC Revision 3 Product Code` = ISIC3,
+    `ISIC Revision 2 Product Code` = ISIC2,
+    `ISIC Revision 2 Product Description` = Detail
+  )
 
 
 I3_I2 <- I3_I2 %>%
@@ -2442,10 +2450,13 @@ usethis::use_data(I3_I2, overwrite = TRUE)
 ## I3 to I31 -----------------
 
 I3_I31 <- readr::read_csv("data-raw/ISIC_Rev_3-ISIC_Rev_3_1_correspondence.txt",
-                          col_types = readr::cols(.default = "c")) %>%
-  select(`ISIC Revision 3 Product Code` = Rev3,
-         `ISIC Revision 3.1 Product Code` = Rev31,
-         `ISIC Revision 3.1 Product Description` = Activity)
+  col_types = readr::cols(.default = "c")
+) %>%
+  select(
+    `ISIC Revision 3 Product Code` = Rev3,
+    `ISIC Revision 3.1 Product Code` = Rev31,
+    `ISIC Revision 3.1 Product Description` = Activity
+  )
 
 
 I3_I31 <- I3_I31 %>%
@@ -2461,10 +2472,13 @@ usethis::use_data(I3_I31, overwrite = TRUE)
 ## I31 to I4 -----------------
 
 I31_I4 <- readr::read_csv("data-raw/ISIC31_ISIC4.txt",
-                         col_types = readr::cols(.default = "c")) %>%
-  select(`ISIC Revision 3.1 Product Code` = ISIC31code,
-         `ISIC Revision 4 Product Code` = ISIC4code,
-         `ISIC Revision 4 Product Description` = Detail)
+  col_types = readr::cols(.default = "c")
+) %>%
+  select(
+    `ISIC Revision 3.1 Product Code` = ISIC31code,
+    `ISIC Revision 4 Product Code` = ISIC4code,
+    `ISIC Revision 4 Product Description` = Detail
+  )
 
 
 I31_I4 <- I31_I4 %>%
@@ -2477,10 +2491,13 @@ usethis::use_data(I31_I4, overwrite = TRUE)
 ## I31 to I3 -----------------
 
 I31_I3 <- readr::read_csv("data-raw/ISIC_Rev_31-ISIC_Rev_3_correspondence.txt",
-                          col_types = readr::cols(.default = "c")) %>%
-  select(`ISIC Revision 3.1 Product Code` = Rev31,
-         `ISIC Revision 3 Product Code` = Rev3,
-         `ISIC Revision 3 Product Description` = Activity)
+  col_types = readr::cols(.default = "c")
+) %>%
+  select(
+    `ISIC Revision 3.1 Product Code` = Rev31,
+    `ISIC Revision 3 Product Code` = Rev3,
+    `ISIC Revision 3 Product Description` = Activity
+  )
 
 
 I31_I3 <- I31_I3 %>%

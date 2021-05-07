@@ -23,13 +23,13 @@ update_ComtradeDA <- function(directory = system.file("data", package = "comtrad
     if (!identical(file_old, character(0))) {
       file.remove(paste0(directory, "/", file_old))
     }
-    is.empty = TRUE
+    is.empty <- TRUE
     url <- "https://comtrade.un.org/api/refs/da/view?fmt=csv"
-    while(is.empty == TRUE) {
-    Comtrade_DA <- readr::read_csv(url, col_types = cols())
-    if (nrow(Comtrade_DA) > 0) {
-      is.empty <- FALSE
-    }
+    while (is.empty == TRUE) {
+      Comtrade_DA <- readr::read_csv(url, col_types = cols())
+      if (nrow(Comtrade_DA) > 0) {
+        is.empty <- FALSE
+      }
     }
     save(Comtrade_DA, file = paste0(directory, "/", file, ".rda"))
 
