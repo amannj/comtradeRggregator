@@ -17,8 +17,8 @@
 #' @param month   Optional parameter for `monthly` extract; ignored for `annual` extracts; only takes one entry as monthly trade data availability varies by month.
 #' @param tradecode  Select trade database and classification to be extracted; default is `HS2007`; monthly trade data only available following `HS` classification; the full list of possible trade classifications and their corresponding input arguments used in the `comtradeRggregator` package are provided in *Table Supported Trade Classification*.
 #' @param year Year for which to extract data.
-#' @param directory Location of directory; default is `"data"`.
-#' @param file Location of Comtrade Data Availability file; default is `Comtrade_DataAvailability-<time and date stamp>.csv.gz`
+#' @param file  Location of Comtrade Data Availability file; default is `Comtrade_DataAvailability-<time and date stamp>.csv.gz`.
+#' @param directory Location of directory; default is `"<location of package on your system>\data"`.
 #' @keywords Data Availability
 #' @export
 #' @import dplyr comtradr tibble readr rlang
