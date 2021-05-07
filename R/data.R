@@ -45,6 +45,7 @@
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "HS_BE"
 
+
 #' HS to CCCN Concordance Table
 #'
 #' Concordance table between `HS Combined` (`HS`) and `CCCN`
@@ -59,6 +60,7 @@
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "HS_CC"
 
+
 #' HS to CPC Concordance Table
 #'
 #' Concordance table between `HS Combined` (`HS`) and `CPC`
@@ -72,6 +74,7 @@
 #' }
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "HS_CP"
+
 
 #' HS to GTAP Concordance Table
 #'
@@ -132,6 +135,7 @@
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "HS_H2"
 
+
 #' HS to H3 Concordance Table
 #'
 #' Concordance table between `HS Combined` (`HS`) and `HS 2007` (`H3`)
@@ -145,6 +149,7 @@
 #' }
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "HS_H3"
+
 
 #' HS to H4 Concordance Table
 #'
@@ -279,41 +284,6 @@
 #' }
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "HS_S4"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 #' H0 to BEC Concordance Table
@@ -496,8 +466,6 @@
 "H0_S4"
 
 
-
-
 #' H2 to BEC Concordance Table
 #'
 #' Concordance table between `HS 2002` (`H2`) and `BEC`
@@ -557,6 +525,7 @@
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H2_GP"
 
+
 #' H2 to H0 Concordance Table
 #'
 #' Concordance table between `HS 2002` (`H2`) and `HS 1988/92` (`H0`)
@@ -571,6 +540,7 @@
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H2_H0"
 
+
 #' H2 to H1 Concordance Table
 #'
 #' Concordance table between `HS 2002` (`H2`) and `HS 1996` (`H1`)
@@ -584,6 +554,7 @@
 #' }
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H2_H1"
+
 
 #' H2 to ISIC Rev. 2 Concordance Table
 #'
@@ -705,7 +676,6 @@
 "H2_S4"
 
 
-
 #' H1 to BEC Concordance Table
 #'
 #' Concordance table between `HS 1996` (`H1`) and `BEC`
@@ -764,6 +734,7 @@
 #' }
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H1_GP"
+
 
 #' H1 to H0 Concordance Table
 #'
@@ -900,11 +871,6 @@
 "H1_S4"
 
 
-
-
-
-
-
 #' H2 to BEC Concordance Table
 #'
 #' Concordance table between `HS 2002` (`H2`) and `BEC`
@@ -964,6 +930,7 @@
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H2_GP"
 
+
 #' H2 to H0 Concordance Table
 #'
 #' Concordance table between `HS 2002` (`H2`) and `HS 1988/92` (`H0`)
@@ -978,6 +945,7 @@
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H2_H0"
 
+
 #' H2 to H1 Concordance Table
 #'
 #' Concordance table between `HS 2002` (`H2`) and `HS 1996` (`H1`)
@@ -991,6 +959,7 @@
 #' }
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H2_H1"
+
 
 #' H2 to ISIC Rev. 2 Concordance Table
 #'
@@ -1112,39 +1081,6 @@
 "H2_S4"
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #' H3 to BEC Concordance Table
 #'
 #' Concordance table between `HS 2007` (`H3`) and `BEC`
@@ -1158,6 +1094,7 @@
 #' }
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H3_BE"
+
 
 #' H3 to CCCN Concordance Table
 #'
@@ -1173,6 +1110,7 @@
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H3_CC"
 
+
 #' H3 to CPC Concordance Table
 #'
 #' Concordance table between `HS 2007` (`H3`) and `CPC`
@@ -1186,6 +1124,7 @@
 #' }
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H3_CP"
+
 
 #' H3 to GTAP Concordance Table
 #'
@@ -1459,6 +1398,7 @@
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
 "H4_S1"
 
+
 #' H4 to S2 Categories Concordance Table
 #'
 #' Concordance table between `HS 2012` (`H4`) and `SITC Rev.2` (`S2`). Product descriptions taken
@@ -1473,6 +1413,7 @@
 #' }
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
 "H4_S2"
+
 
 #' H4 to S3 Categories Concordance Table
 #'
@@ -1504,6 +1445,7 @@
 #' }
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
 "H4_S4"
+
 
 #' H5 to H0 Categories Concordance Table
 #'
@@ -1573,6 +1515,7 @@
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
 "H5_H3"
 
+
 #' H5 to H4 Categories Concordance Table
 #'
 #' Concordance table between `HS 2017` (`H5`) and `HS 2012` (`H4`).
@@ -1600,6 +1543,7 @@
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
 "H5_S1"
 
+
 #' H5 to S2 Categories Concordance Table
 #'
 #' Concordance table between `HS 2017` (`H5`) and `SITC Rev.2` (`S2`).
@@ -1611,6 +1555,7 @@
 #' }
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
 "H5_S2"
+
 
 #' H5 to S3 Categories Concordance Table
 #'
@@ -1669,6 +1614,7 @@
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "S2_BE"
 
+
 #' S2 to I2 Categories Concordance Table
 #'
 #' Concordance table between `SITC Rev.2` (`S2`) and `ISIC Rev. 2` (`I2`).
@@ -1717,6 +1663,7 @@
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "S3_S1"
 
+
 #' S3 to S1 Categories Concordance Table
 #'
 #' Concordance table between `SITC Rev.3` (`S3`) and  `SITC Rev.2` (`S2`). Product descriptions taken
@@ -1748,6 +1695,7 @@
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
 "I2_I3"
 
+
 #' I2 to I31 Categories Concordance Table
 #'
 #' Concordance table between `ISIC Rev.2` (`I2`) and  `ISIC Rev.3.1` (`I3.1`).
@@ -1761,6 +1709,7 @@
 #' }
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
 "I2_I31"
+
 
 #' I3 to I2 Categories Concordance Table
 #'
@@ -1776,6 +1725,7 @@
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
 "I3_I2"
 
+
 #' I3 to I31 Categories Concordance Table
 #'
 #' Concordance table between `ISIC Rev.3` (`I3`) and  `ISIC Rev.3.1` (`I3.1`).
@@ -1790,6 +1740,7 @@
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
 "I3_I31"
 
+
 #' I3 to 42 Categories Concordance Table
 #'
 #' Concordance table between `ISIC Rev.3.1` (`I3.1`) and  `ISIC Rev.4` (`I4`).
@@ -1803,6 +1754,7 @@
 #' }
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
 "I31_I4"
+
 
 #' I31 to Categories Concordance Table
 #'
