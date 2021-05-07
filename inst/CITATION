@@ -1,0 +1,13 @@
+citHeader("To cite comtradeRggregator in publications use:")
+
+citEntry(
+  entry    = "Article",
+  title    = "comtradeRggregator: Download and Reclassify Large Chunks of Trade Data",
+  author   = "Juergen Amann",
+  year     = "2021",
+  note     = "R package version XXX",
+  url      = "https://github.com/amannj/comtradeRggregator",
+  textVersion = paste(
+
+  )
+)
