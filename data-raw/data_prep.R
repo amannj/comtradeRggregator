@@ -1575,6 +1575,24 @@ usethis::use_data(H3_S4, overwrite = TRUE)
 
 # H4 ------------
 
+## H4 to BE   -----------------
+
+H4_BE <- readxl::read_excel("data-raw/HS 2012 to BEC Correlation and conversion tables.xls",
+                   skip = 5
+) %>%
+  select(
+    `HS 2012 Product Code` = `HS 2012`,
+    `BEC 4 Product Code` = `BEC`
+  )
+
+H4_BE <- H4_BE %>%
+  ## Add leading zeros to codes
+  add_lzs(variable = "HS 2012 Product Code", variable.length = 6) %>%
+  add_lzs(variable = "BEC 4 Product Code", variable.length = 3)
+
+usethis::use_data(H4_BE, overwrite = TRUE)
+
+
 ## H4 to H0 -----------------
 
 H4_H0 <- readxl::read_excel("data-raw/HS 2012 to HS 1992 Correlation and conversion tables.xls",
@@ -1903,6 +1921,23 @@ usethis::use_data(H4_S4, overwrite = TRUE)
 
 
 # H5 ------------
+
+## H5 to BE -----------------
+
+H5_BE <- readxl::read_excel("data-raw/HS2017toBECConversionAndCorrelationTables.xlsx"
+) %>%
+  select(
+    `HS 2017 Product Code` = `From HS 2017`,
+    `BEC 4 Product Code` = `To BEC`
+  )
+
+H5_BE <- H5_BE %>%
+  ## Add leading zeros to codes
+  add_lzs(variable = "HS 2017 Product Code", variable.length = 6) %>%
+  add_lzs(variable = "BEC 4 Product Code", variable.length = 3)
+
+usethis::use_data(H5_BE, overwrite = TRUE)
+
 
 ## H5 to H0 -----------------
 

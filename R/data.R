@@ -1369,6 +1369,19 @@
 
 #' H4 to H0 Categories Concordance Table
 #'
+#' Concordance table between `HS 2012` (`H4`) and `BEC Rev. 4` (`BEC`).
+#'
+#' @format A data frame with 5,283 rows and 2 variables:
+#' \describe{
+#'   \item{HS 2012 Product Code}{...}
+#'   \item{BEC 4 Product Code}{...}
+#' }
+#' @source \url{https://unstats.un.org/unsd/classifications/Econ#Correspondences}
+"H4_BE"
+
+
+#' H4 to H0 Categories Concordance Table
+#'
 #' Concordance table between `HS 2012` (`H4`) and `HS 1988/92` (`H0`). Product descriptions taken
 #' from WITS' `HS combined` concordance tables (\url{https://wits.worldbank.org/product_concordance.html}).
 #'
@@ -1492,7 +1505,17 @@
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
 "H4_S4"
 
-
+#' H5 to H0 Categories Concordance Table
+#'
+#' Concordance table between `HS 2017` (`H5`) and `BEC Rev. 4` (`BEC`).
+#'
+#' @format A data frame with 5,386 rows and 2 variables:
+#' \describe{
+#'   \item{HS 2017 Product Code}{...}
+#'   \item{BEC 4 Product Code}{...}
+#' }
+#' @source \url{https://unstats.un.org/unsd/classifications/Econ#Correspondences}
+"H5_BE"
 
 
 #' H5 to H0 Categories Concordance Table
