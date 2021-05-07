@@ -1200,6 +1200,7 @@ devtools::install_github("amannj/comtradeRggregator",
   auth_token = "...",
   force = TRUE
 )
+
 ```
 
 ------------------------------------------------------------------------
@@ -1612,20 +1613,20 @@ download_Comtrade(
     `HS 2017 Product Code` = commodity_code,
     `HS 2007 Product Code`, `ISIC Revision 3 Product Code`
   )
-#> # A tibble: 8,932 x 4
+#> # A tibble: 4,876 x 4
 #>    `Original Comtrade~ `HS 2017 Product ~ `HS 2007 Product~ `ISIC Revision 3 Pr~
 #>    <chr>               <chr>              <chr>             <chr>               
-#>  1 H3                  010110             <NA>              <NA>                
-#>  2 H3                  010190             010190            0121                
-#>  3 H3                  010210             <NA>              <NA>                
-#>  4 H3                  010290             010290            0121                
-#>  5 H3                  010391             010391            0122                
-#>  6 H3                  010392             010392            0122                
-#>  7 H3                  010410             010410            0121                
-#>  8 H3                  010420             010420            0121                
-#>  9 H3                  010511             010511            0122                
-#> 10 H3                  010512             010512            0122                
-#> # ... with 8,922 more rows
+#>  1 H5                  010121             010110            0121                
+#>  2 H5                  010129             010190            0121                
+#>  3 H5                  010221             010210            0121                
+#>  4 H5                  010229             010290            0121                
+#>  5 H5                  010310             010310            0122                
+#>  6 H5                  010391             010391            0122                
+#>  7 H5                  010392             010392            0122                
+#>  8 H5                  010410             010410            0121                
+#>  9 H5                  010420             010420            0121                
+#> 10 H5                  010511             010511            0122                
+#> # ... with 4,866 more rows
 ```
 
 #### Arguments
@@ -1681,7 +1682,7 @@ Remove all temporary files and folders:
 
 ``` r
 rm_temporaryFiles(location.temporaryFiles = NULL)
-#> Temporary file directory already empty. Nothing to delete.
+#> Temporary files delete.
 ```
 
 -   Otherwise:
