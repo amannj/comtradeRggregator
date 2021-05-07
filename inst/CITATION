@@ -1,4 +1,4 @@
-citHeader("To cite comtradeRggregator in publications use:")
+citHeader("To cite package `comtradeRggregator` in publications use:")
 
 citEntry(
   entry    = "Article",
