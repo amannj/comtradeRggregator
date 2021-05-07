@@ -51,52 +51,10 @@ convert_Comtrade <- function(data,
                              commodity.code = "commodity_code",
                              classification.to = "I3") {
 
-  # # Check input args ----------
-  # tradecode.ok <- c(
-  #   "HS",
-  #   "HS1992", "H0",
-  #   "HS1996", "H1",
-  #   "HS2002", "H2",
-  #   "HS2007", "H3",
-  #   "HS2012", "H4",
-  #   "HS2017", "H5",
-  #   "SITCrev1", "S1",
-  #   "SITCrev2", "S2",
-  #   "SITCrev3", "S3",
-  #   "SITCrev4", "S4",
-  #   'ISICrev2', "I2",
-  #   'ISICrev3', "I3",
-  #   'ISICrev31',"I31",
-  #   'ISICrev4', "I4",
-  #   "BEC", "BE",
-  #   "CCCN", "CC",
-  #   "CPC", "CP",
-  #   "GTAP", "GP",
-  #   "MTN", 'MT',
-  #   "SIC", 'IU'
-  # )
-  # check_args(classification.from, tradecode.ok, "classification.from")
-  # check_args(classification.to, tradecode.ok, "classification.from")
-
 
   ## Check `tradecode` and return arg  ------
   cls.from <- convert_tradecodes(tradecode = classification.from, return = "Abbr", eval = TRUE)
   cls.to <- convert_tradecodes(tradecode = classification.to, return = "Abbr", eval = TRUE)
-
-  # if (classification.from %in% c(
-  #   "HS1992", "H0",
-  #   "HS1996", "H1",
-  #   "HS2002", "H2",
-  #   "HS2007", "H3",
-  #   "HS2012", "H4",
-  #   "HS2017", "H5",
-  #   "SITCrev1", "S1",
-  #   "SITCrev2", "S2",
-  #   "SITCrev3", "S3",
-  #   "SITCrev4", "S4"
-  # )) {
-
-  #}
 
   # Check length of commodity codes----
   s_cclgth <- as.character(data %>%
@@ -123,7 +81,6 @@ convert_Comtrade <- function(data,
   }
   colnames(df_conc)[1] <- commodity.code
 
-  #
 
   # Evaluate non-matches and return if non-empty --------
   v_nonmatch <- data %>%

@@ -13,17 +13,6 @@
 add_lzs <- function(data,
                     variable,
                     variable.length) {
-  gen_lzs <- function(x) {
-    if (is.numeric(x)) {
-      lz <- function(x) {
-        paste0(rep("0", x), collapse = "")
-      }
-      sapply(x, lz)
-    } else {
-      stop("Input argument must be of class numeric.")
-    }
-  }
-
   data %>%
     mutate(lz = variable.length - nchar(.data[[variable]])) %>%
     mutate(lz = paste0(gen_lzs(lz), .data[[variable]])) %>%
