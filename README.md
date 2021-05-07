@@ -1104,18 +1104,15 @@ U
 <tfoot>
 <tr>
 <td style="padding: 0; " colspan="100%">
-<span style="font-style: italic;">Note: </span> <sup></sup>
-Reclassification requires data at most granular levels for HS (AG6) and
-ISIC (AG4), and AG4 as well as AG5 for SITC. Abbreviations: W for WITS;
+<span style="font-style: italic;">Note: </span> <sup></sup> W for WITS;
 U for UN-Stats.
 </td>
 </tr>
 <tr>
 <td style="padding: 0; " colspan="100%">
 <span style="font-style: italic;">x</span> <sup>a</sup> : Example for
-how concordance across seemingly unrelated classifications can be
-established: H5 &gt;&gt; H3 &gt;&gt; I3; see more extensive discussion
-in documentation below.
+concordance across seemingly unrelated classifications: H5 &gt;&gt; H3
+&gt;&gt; I3.
 </td>
 </tr>
 </tfoot>
@@ -1163,6 +1160,18 @@ country reports in a particular year; see
 [here](https://wits.worldbank.org/WITS/wits/WITSHELP/Content/Annex/Annex1.About_WITS_HS_Combined.htm)
 for more information on the *HS Combined* nomenclature.
 
+#### Reclassification of trade data to other standards
+
+Reclassification of Comtrade trade is possible using the information in
+[Concordance
+Table](https://github.com/amannj/comtradeRggregator#concordance-table)
+using the function `convert_Comtrade()`. The function requires trade
+data at most granular levels for the *Harmonised System (HS)*, which is
+`AG6`, and `AG4` for the *International Standard Industrial
+Classification (ISIC)* standard. For the *Standard International Trade
+Classification (SITC)* classification `AG4` as well as `AG5` is
+required.
+
 ------------------------------------------------------------------------
 
 ## Installation
@@ -1186,6 +1195,7 @@ devtools::install_github("amannj/comtradeRggregator",
   auth_token = "...",
   force = TRUE
 )
+
 ```
 
 ------------------------------------------------------------------------
