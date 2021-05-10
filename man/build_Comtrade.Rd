@@ -8,7 +8,7 @@ build_Comtrade(
   directory = loc_folder,
   rm.temporaryFiles = FALSE,
   is.mirrorData = FALSE,
-  partners = NULL
+  partner = NULL
 )
 }
 \arguments{
@@ -22,7 +22,7 @@ alternatively specify the temporary download directory.}
 
 \item{is.mirrorData}{Extract mirror trade data? default is \code{FALSE}; Set to \code{TRUE} to extract mirror trade data from country/countries specified in argument \code{partners}. For example, if \code{is.mirrorData = TRUE} export data from countries specified in argument \code{countries} to countries specified in argument \code{partners} is measured as import data from countries specified in argument \code{countries} to countries specified in argument \code{partners} as reported by countries specified in argument \code{partners}.}
 
-\item{partners}{List of partner countries. Needs to be provided if \code{is.mirrorData = TRUE}; default is \code{NULL}, i.e. no mirror data download.}
+\item{partner}{List of partner countries. Needs to be provided if \code{is.mirrorData = TRUE}; default is \code{NULL}, no mirror data download.}
 }
 \description{
 Builds final Comtrade data set from temporary files downloaded by \code{download_Comtrade()}.

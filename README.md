@@ -1169,12 +1169,12 @@ for more information on the *HS Combined* nomenclature.
 #### Reclassification of trade data to other standards
 
 Reclassification of [Comtrade trade data](https://comtrade.un.org) is
-possible using the information in [Concordance
+possible using the information in the [Concordance
 Table](https://github.com/amannj/comtradeRggregator#concordance-table)
-using the function `convert_Comtrade()`. The function requires trade
-data at most granular levels for the *Harmonised System (HS)*, which is
-the aggregation level `AG6`, and for the *International Standard
-Industrial Classification (ISIC)* standard (`AG4`); see [Trade
+by employing the function `convert_Comtrade()`. The function requires
+trade data at most granular levels for the *Harmonised System (HS)*,
+which is the aggregation level `AG6`, and for the *International
+Standard Industrial Classification (ISIC)* standard (`AG4`); see [Trade
 Classifications](https://github.com/amannj/comtradeRggregator#trade-classifications)
 for more information. For the *Standard International Trade
 Classification (SITC)* standard, `AG4` as well as `AG5` is required.
@@ -1200,7 +1200,6 @@ devtools::install_github("amannj/comtradeRggregator",
   auth_token = "...",
   force = TRUE
 )
-
 ```
 
 ------------------------------------------------------------------------
@@ -1338,7 +1337,7 @@ IM_DE_AT %>%
     `monthly`; default is `annual`.
 
 -   `month` - Optional parameter for `monthly` extract; ignored for
-    `annual` extracts; default is all 12 month if
+    `annual` extracts; default is all 12 months if
     `frequency = 'monthly'` while argument `monty` remains unspecified.
 
 -   `countries` - Select list of countries to be extracted; default is
@@ -1401,7 +1400,7 @@ IM_DE_AT %>%
 
 -   `ext_cnt` - Number of countries extracted with each query; default
     is 5 which is also the maximum in
-    [comtradr](https://github.com/ropensci/comtradr)
+    [comtradr](https://github.com/ropensci/comtradr).
 
 -   `rm.temporaryFiles` - Remove temporary download files stored at
     location provided in argument `location.temporaryFiles`; default is
@@ -1646,6 +1645,69 @@ See `?is.available_Comtrade` for full documentation.
 
 ------------------------------------------------------------------------
 
+### `build_Comtrade()`
+
+Sometimes you might want to rebuild a data set using the temporary data
+files you downloaded from Comtrade. Recall that when downloading the
+data frame `mirrX_AT_DE` we triggered the option
+`rm.temporaryFiles = FALSE` and R told us that the temporary file will
+be stored in:
+
+    system.file("data/tmp", package = "comtradeRggregator")
+
+We now use function `build_Comtrade()` in such cases where argument
+`directory` takes the location of a specific, temporary data folder as
+input argument. The remaining arguments correspond to the arguments in
+`download_Comtrade()` and have to be adjusted accordingly in case you
+want to divert from the defaults. For example, in case you want to
+delete the temporary files when using `build_Comtrade()`, set
+`rm.temporaryFiles = TRUE`.
+
+``` r
+# Location of temporary data download
+location_package <- system.file("data/tmp", package = "comtradeRggregator")
+location_files <- list.files(location_package)
+
+# Rebuilt mirrored exports from Austria to Germany in 2018
+mirrX_AT_DE_rebuilt <- build_Comtrade(
+  directory = paste(location_package, location_files, sep = "/")
+)
+
+# Confirm that identical
+mirrX_AT_DE %>%
+  summarise(sum(trade_value_usd)) %>%
+  pull() / mirrX_AT_DE_rebuilt %>%
+    summarise(sum(trade_value_usd)) %>%
+    pull()
+#> [1] 1
+```
+
+#### Arguments
+
+-   `directory` - Location of temporary file downloads; default is
+    `<your package directory>\data\tmp\<date-and-time-stamp>`;
+    alternatively specify the temporary download directory.
+
+-   `rm.temporaryFiles` - Remove temporary download files stored at
+    location provided in argument `location.temporaryFiles`; default is
+    `TRUE`.
+
+-   `is.mirrorData` - Specifies if mirror trade data is to be extracted;
+    default is `FALSE`; set to `TRUE` to extract mirror trade data from
+    country/countries specified in argument `partners`.
+
+-   For example, if `is.mirrorData = TRUE` export data from countries
+    specified in argument `countries` to countries specified in argument
+    `partners` is measured as import data from countries specified in
+    argument `countries` to countries specified in argument `partners`
+    as reported by countries specified in argument `partners`.
+
+-   `partners` List of partner countries. Needs to be provided if
+    `is.mirrorData = TRUE`; default is `NULL`, i.e. no mirror data
+    download.
+
+------------------------------------------------------------------------
+
 ### `add_lzs()`
 
 Adds leading zeros to variable `var` of data frame such that
@@ -1723,9 +1785,10 @@ See `?rm_temporaryFiles` for full documentation.
 ### Footnotes
 
 <a name="fn1">1</a>: Note that we set `rm.temporaryFiles = FALSE` in the
-second query to demonstrate the different return messages for
-`rm_temporaryFiles()` [later down in the
-documentation](https://github.com/amannj/comtradeRggregator#rm_temporaryfiles).
+second query to demonstrate (i) how to [rebuild trade data set using
+temporary data files using `build_Comtrade`]() , and (ii) the [different
+return messages for
+`rm_temporaryFiles()`](https://github.com/amannj/comtradeRggregator#rm_temporaryfiles).
 
 <a name="fn2">2</a>: The same is true for `download_Comtrade()`. In
 other words, both `download_Comtrade()` and `is.available_Comtrade()`
