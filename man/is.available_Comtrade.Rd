@@ -6,6 +6,7 @@
 \usage{
 is.available_Comtrade(
   is.contained = NULL,
+  is.fuzzy = FALSE,
   type = "commodities",
   frequency = "annual",
   month = NULL,
@@ -17,6 +18,8 @@ is.available_Comtrade(
 }
 \arguments{
 \item{is.contained}{Check if a particular country/set of countries is available for a particular data set; default is \code{NULL} which returns list of all countries available for a given data set.}
+
+\item{is.fuzzy}{Fuzzy match of country name fragments provided in \code{is.contained}; default is \code{FALSE}.}
 
 \item{type}{Type of trade data to be extracted; either \code{services} or \code{commodities}; currently only \code{commodities} implemented.}
 

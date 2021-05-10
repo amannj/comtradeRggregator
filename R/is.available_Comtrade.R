@@ -13,6 +13,7 @@
 #'   will use this information no later than 24 hours after its publication.
 #' @param is.contained  Check if a particular country/set of countries is available for a particular data set; default is `NULL` which returns list of all countries available for a given data set.
 #' @param type Type of trade data to be extracted; either `services` or `commodities`; currently only `commodities` implemented.
+#' @param is.fuzzy Fuzzy match of country name fragments provided in `is.contained`; default is `FALSE`.
 #' @param frequency   Frequency of data extract; either `annual` or `monthly`; default is `annual`.
 #' @param month   Optional parameter for `monthly` extract; ignored for `annual` extracts; only takes one entry as monthly trade data availability varies by month.
 #' @param tradecode  Select trade database and classification to be extracted; default is `HS2007`; monthly trade data only available following `HS` classification; the full list of possible trade classifications and their corresponding input arguments used in the `comtradeRggregator` package are provided in *Table Supported Trade Classification*.
@@ -35,6 +36,7 @@
 #' )
 #' }
 is.available_Comtrade <- function(is.contained = NULL,
+                                  is.fuzzy = FALSE,
                                   type = "commodities",
                                   frequency = "annual",
                                   month = NULL,
@@ -43,6 +45,10 @@ is.available_Comtrade <- function(is.contained = NULL,
                                   directory = system.file("data", package = "comtradeRggregator"),
                                   file = paste0("Comtrade_DataAvailability-", Sys.Date())) {
 
+  ## Check `tradecode` and return arg  ------
+  tradecode <- convert_tradecodes(tradecode = tradecode, return = "Abbr")
+
+
   ## Download data availability file once per extract and day   ------------
   Comtrade_DA <- update_ComtradeDA(directory, file) %>%
     filter(
@@ -50,6 +56,7 @@ is.available_Comtrade <- function(is.contained = NULL,
       freq == toupper(frequency)
     )
 
+  ## Return ls_cnt if `is.contained` is not triggered --------------
   if (tolower(frequency) == "annual") {
     Comtrade_DA %>%
       filter(
@@ -66,6 +73,7 @@ is.available_Comtrade <- function(is.contained = NULL,
     if (length(month) > 1) {
       stop("Monthly data coverage varies by month; please only provide one month.")
     }
+    warning("Only HS Combined nomenclature available for monthly trade data.")
     Comtrade_DA %>%
       filter(
         ps == paste0(year, month)
@@ -73,9 +81,14 @@ is.available_Comtrade <- function(is.contained = NULL,
       pull(rDesc) -> ls_cnt
   }
 
+  ## Country look-up if `is.contained` is not triggered --------------
   if (!is.null(is.contained)) {
-    ls_cnt <- is.contained %in% ls_cnt
-    names(ls_cnt) <- is.contained
+    if (is.fuzzy == FALSE) {
+      ls_cnt <- is.contained %in% ls_cnt
+      names(ls_cnt) <- is.contained
+    } else if (is.fuzzy == TRUE) {
+      ls_cnt <- grep(is.contained, ls_cnt, value = TRUE)
+    }
   }
   return(sort(ls_cnt))
 }
