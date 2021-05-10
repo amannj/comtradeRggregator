@@ -362,7 +362,7 @@ To get a list of all countries for which `annual`, `HS2007` trade data is availa
 da1 <- is.available_Comtrade(
   frequency = "annual",
   tradecode = "H3",
-  year = 2008
+  year = '2008'
 )
 head(da1)
 ```
@@ -375,7 +375,7 @@ da2 <- is.available_Comtrade(
   is.contained = c("Austria", "Germany"),
   frequency = "annual",
   tradecode = "H2",
-  year = 2012
+  year = '2012'
 )
 da2
 ```
@@ -388,10 +388,34 @@ da3 <- is.available_Comtrade(
   frequency = "monthly",
   month = "01",
   tradecode = "H3",
-  year = 2020
+  year = '2020'
 )
 da3
 ```
+
+
+If `is.fuzzy = TRUE`, function `is.available_Comtrade()` supports fuzzy country name look-ups. As you can see below, there are two countries that contain a character sequence `ustr`, i.e. 'Australia' and 'Austria' for `annual` Comtrade data following the `H3`/`HS2017` nomenclature and the year `2019`. Monthly data is, however, only available for 'Australia'. 
+
+
+```{r message=FALSE, warning=FALSE}
+is.available_Comtrade(
+  is.contained = "ustr",
+  is.fuzzy = TRUE,
+  frequency = "annual",
+  tradecode = "HS2017",
+  year = '2019'
+)
+
+is.available_Comtrade(
+  is.contained = "ustr",
+  is.fuzzy = TRUE,
+  frequency = "monthly",
+  tradecode = "HS2017",
+  year = '2019',
+  month = '05'
+)
+```
+
 
 
 #### Arguments
@@ -399,6 +423,8 @@ da3
 -   `is.contained` - Check if a particular country (set of countries) is available for a particular data set; default is `NULL` which returns list of all countries available for a given data set.
 
 -   `type` - Type of trade data to be extracted; either `services` or `commodities`; currently only `commodities` implemented.
+
+-  `is.fuzzy` -  Fuzzy match of country name fragments provided in `is.contained`; default is `FALSE`.
 
 -   `frequency` - Frequency of data extract; either `annual` or `monthly`; default is `annual`.
 
@@ -420,6 +446,7 @@ See `?is.available_Comtrade` for full documentation.
 
 
 ### `convert_Comtrade()`
+
 
 Sometimes you might want to reclassify trade data to a different nomenclature. Function `convert_Comtrade()` offers a simple way for such conversions by 
 providing official concordance tables from [UN Statistics Division (UNSD)](https://unstats.un.org/unsd/classifications/Econ#corresp-hs) and the [World Integrated Trade Solution (WITS)](https://wits.worldbank.org/product_concordance.html). 
@@ -447,6 +474,12 @@ I3 %>%
 Note that the different building blocks of `comtradeRggregator` can be chained together very conveniently using the pipe, `%>%`, operator.  In the example below we want to download `HS2017` trade data for the year 2018 and convert it to the ISIC Rev. 3, `I3`, standard. Such operations are typically rather cumbersome with either [Comtrade](https://comtrade.un.org) or [WITS](https://wits.worldbank.org/) but can be achieved in a couple of lines of code with `comtradeRggregator` as illustrated below.
 
 As before, we exploit the information provided in the [Concordance Table](https://github.com/amannj/comtradeRggregator#concordance-table) to first download `HS2017` data, then convert it to `HS3`, and then again from `HS3` to `I3`.  Note that the input arguments for `tradecode` and `classification.from` and `classification.to` accept both names and abbreviations for the respective `tradecode` standards as provided in table [Trade Classification](https://github.com/amannj/comtradeRggregator#trade-classifications).
+
+
+```{r include=FALSE}
+# Set sleep to make sure tmp folder doesn't get removed because two queries terminate with same time stamp.
+Sys.sleep(60)
+```
 
 
 ```{r message=FALSE, warning=FALSE}
@@ -542,6 +575,7 @@ mirrX_AT_DE %>%
 -   `partners` List of partner countries. Needs to be provided if `is.mirrorData = TRUE`; default is `NULL`, i.e. no mirror data download.
 
 
+See `?build_Comtrade` for full documentation.
 
 ------------------------------------------------------------------------
 
@@ -572,20 +606,14 @@ See `?add_lzs` for full documentation.
 ### `rm_temporaryFiles()`
 
 
-```{r include=FALSE}
-Sys.sleep(60)
-```
-
-Remove all temporary files and folders:
-
-- If there exist temporary files to be deleted, function `rm_temporaryFiles()`, returns :
+Remove all temporary files and folders: If there exist temporary files to be deleted, function `rm_temporaryFiles()` returns 
 
 
 ```{r}
 rm_temporaryFiles(location.temporaryFiles = NULL)
 ```
 
-- Otherwise:
+and otherwise
 
 ```{r}
 rm_temporaryFiles(location.temporaryFiles = NULL)
@@ -613,7 +641,7 @@ See `?rm_temporaryFiles` for full documentation.
 
 ### Footnotes
 
-<a name="fn1">1</a>: Note that we set `rm.temporaryFiles = FALSE` in the second  query to demonstrate (i) how to [rebuild trade data set using temporary data files using `build_Comtrade`]()
+<a name="fn1">1</a>: Note that we set `rm.temporaryFiles = FALSE` in the second  query to demonstrate (i) how to [rebuild trade data set using temporary data files using `build_Comtrade()`](https://github.com/amannj/comtradeRggregator#build_comtrade)
 , and (ii) the [different return messages for `rm_temporaryFiles()`](https://github.com/amannj/comtradeRggregator#rm_temporaryfiles).
 
 <a name="fn2">2</a>: The same is true for `download_Comtrade()`. In other words, both  `download_Comtrade()` and `is.available_Comtrade()` will check the time stamp of the internally stored Comtrade Data Availability file and update it once a day using the official [Comtrade Data Availability](<https://comtrade.un.org/data/da>)  file. For further reference, the locally stored Comtrade Data Availability file can be accessed by typing `Comtrade_DA`, and the help page can be accessed by typing `?Comtrade_DA`.

@@ -1194,12 +1194,14 @@ devtools::install_github("amannj/comtradr",
   force = TRUE
 )
 
+
 # Download `comtradeRggregator`; private repository, requires `auth_token`.
 devtools::install_github("amannj/comtradeRggregator",
   ref = "master",
-  auth_token = "...",
+  auth_token = "....",
   force = TRUE
 )
+
 ```
 
 ------------------------------------------------------------------------
@@ -1438,7 +1440,7 @@ is available for the year `2008`, run:
 da1 <- is.available_Comtrade(
   frequency = "annual",
   tradecode = "H3",
-  year = 2008
+  year = '2008'
 )
 head(da1)
 #> [1] "Algeria"   "Andorra"   "Argentina" "Armenia"   "Australia" "Austria"
@@ -1454,7 +1456,7 @@ da2 <- is.available_Comtrade(
   is.contained = c("Austria", "Germany"),
   frequency = "annual",
   tradecode = "H2",
-  year = 2012
+  year = '2012'
 )
 da2
 #> Austria Germany 
@@ -1471,11 +1473,39 @@ da3 <- is.available_Comtrade(
   frequency = "monthly",
   month = "01",
   tradecode = "H3",
-  year = 2020
+  year = '2020'
 )
 da3
 #> Austria Germany 
 #>   FALSE    TRUE
+```
+
+If `is.fuzzy = TRUE`, function `is.available_Comtrade()` supports fuzzy
+country name look-ups. As you can see below, there are two countries
+that contain a character sequence `ustr`, i.e. ‘Australia’ and ‘Austria’
+for `annual` Comtrade data following the `H3`/`HS2017` nomenclature and
+the year `2019`. Monthly data is, however, only available for
+‘Australia’.
+
+``` r
+is.available_Comtrade(
+  is.contained = "ustr",
+  is.fuzzy = TRUE,
+  frequency = "annual",
+  tradecode = "HS2017",
+  year = '2019'
+)
+#> [1] "Australia" "Austria"
+
+is.available_Comtrade(
+  is.contained = "ustr",
+  is.fuzzy = TRUE,
+  frequency = "monthly",
+  tradecode = "HS2017",
+  year = '2019',
+  month = '05'
+)
+#> [1] "Australia"
 ```
 
 #### Arguments
@@ -1486,6 +1516,9 @@ da3
 
 -   `type` - Type of trade data to be extracted; either `services` or
     `commodities`; currently only `commodities` implemented.
+
+-   `is.fuzzy` - Fuzzy match of country name fragments provided in
+    `is.contained`; default is `FALSE`.
 
 -   `frequency` - Frequency of data extract; either `annual` or
     `monthly`; default is `annual`.
@@ -1706,6 +1739,8 @@ mirrX_AT_DE %>%
     `is.mirrorData = TRUE`; default is `NULL`, i.e. no mirror data
     download.
 
+See `?build_Comtrade` for full documentation.
+
 ------------------------------------------------------------------------
 
 ### `add_lzs()`
@@ -1737,17 +1772,15 @@ See `?add_lzs` for full documentation.
 
 ### `rm_temporaryFiles()`
 
-Remove all temporary files and folders:
-
--   If there exist temporary files to be deleted, function
-    `rm_temporaryFiles()`, returns :
+Remove all temporary files and folders: If there exist temporary files
+to be deleted, function `rm_temporaryFiles()` returns
 
 ``` r
 rm_temporaryFiles(location.temporaryFiles = NULL)
 #> Temporary files delete.
 ```
 
--   Otherwise:
+and otherwise
 
 ``` r
 rm_temporaryFiles(location.temporaryFiles = NULL)
@@ -1786,8 +1819,9 @@ See `?rm_temporaryFiles` for full documentation.
 
 <a name="fn1">1</a>: Note that we set `rm.temporaryFiles = FALSE` in the
 second query to demonstrate (i) how to [rebuild trade data set using
-temporary data files using `build_Comtrade`]() , and (ii) the [different
-return messages for
+temporary data files using
+`build_Comtrade()`](https://github.com/amannj/comtradeRggregator#build_comtrade)
+, and (ii) the [different return messages for
 `rm_temporaryFiles()`](https://github.com/amannj/comtradeRggregator#rm_temporaryfiles).
 
 <a name="fn2">2</a>: The same is true for `download_Comtrade()`. In
