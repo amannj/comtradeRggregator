@@ -7,19 +7,16 @@
 #'
 #' `<your package directory>\data\tmp\<date-and-time-stamp>`;
 #'
-#' alternatively specify the temporary download directory you wish to remove.
-#' @param rm.temporaryFiles ...
-#' @param is.mirrorData ...
-#' @param partner ...
-#' @keywords remove
+#' alternatively specify the temporary download directory.
+#' @param rm.temporaryFiles Remove temporary download files stored at location provided in argument `location.temporaryFiles`; default is `FALSE`.
+#' @param is.mirrorData Extract mirror trade data? default is `FALSE`; Set to `TRUE` to extract mirror trade data from country/countries specified in argument `partners`. For example, if `is.mirrorData = TRUE` export data from countries specified in argument `countries` to countries specified in argument `partners` is measured as import data from countries specified in argument `countries` to countries specified in argument `partners` as reported by countries specified in argument `partners`.
+#' @param partner List of partner countries. Needs to be provided if `is.mirrorData = TRUE`; default is `NULL`, no mirror data download.
+#' @keywords build comtrade
 #' @export
 #' @import dplyr comtradr tibble readr rlang
-#' @examples
-#' rm_temporaryFiles(location.temporaryFiles = NULL)
-#' rm_temporaryFiles(location.temporaryFiles = "your-temporary-download-directory")
 build_Comtrade <- function(directory = loc_folder,
-                           rm.temporaryFiles = rm.temporaryFiles,
-                           is.mirrorData = is.mirrorData,
+                           rm.temporaryFiles = FALSE,
+                           is.mirrorData = FALSE,
                            partner = NULL) {
   tmp.Files <- list.files(directory)
   tmp.Data <- lapply(tmp.Files, function(x) {
@@ -29,6 +26,11 @@ build_Comtrade <- function(directory = loc_folder,
   df_out <- bind_rows(tmp.Data)
 
   if (is.mirrorData == TRUE) {
+    if (is.null(partner)) {
+      stop("Please provide list of partner countries fo")
+    }
+
+
     df_out %>%
       rename(
         partnernew = reporter,
