@@ -1194,11 +1194,10 @@ devtools::install_github("amannj/comtradr",
   force = TRUE
 )
 
-
 # Download `comtradeRggregator`; private repository, requires `auth_token`.
 devtools::install_github("amannj/comtradeRggregator",
   ref = "master",
-  auth_token = "....",
+  auth_token = "...",
   force = TRUE
 )
 
@@ -1681,10 +1680,19 @@ See `?is.available_Comtrade` for full documentation.
 ### `build_Comtrade()`
 
 Sometimes you might want to rebuild a data set using the temporary data
-files you downloaded from Comtrade. Recall that when downloading the
-data frame `mirrX_AT_DE` we triggered the option
-`rm.temporaryFiles = FALSE` and R told us that the temporary file will
-be stored in:
+files you downloaded from Comtrade. For example, you can use function
+`build_Comtrade()` whenever you have a very large data query which you
+would like to run over multiple days (and turn off your computer in the
+meantime) before building the finale Comtrade data base. In such a case
+you would set `rm.temporaryFiles = FALSE` when running
+`download_Comtrade()` and then, after you have run all your queries, you
+would then point `build_Comtrade()` to the location of all your
+temporary data files. A more practical example is provided in the next
+paragraph.
+
+Recall that when downloading the data frame `mirrX_AT_DE` we triggered
+the option `rm.temporaryFiles = FALSE` and R told us that the temporary
+file will be stored in:
 
     system.file("data/tmp", package = "comtradeRggregator")
 
