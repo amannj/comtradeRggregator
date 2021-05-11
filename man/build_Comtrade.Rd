@@ -27,6 +27,12 @@ alternatively specify the temporary download directory.}
 \description{
 Builds final Comtrade data set from temporary files downloaded by \code{download_Comtrade()}.
 where argument \code{rm.temporaryFiles} had been set to \code{FALSE}.
+
+Sometimes you might want to rebuild a data set using the temporary data files you downloaded from Comtrade.
+For example, you can use function \code{build_Comtrade()} whenever you have a very large data query which you would like to
+run over multiple days (and turn off your computer in the meantime) before building the finale Comtrade data base.
+In such a case you would set \code{rm.temporaryFiles = FALSE} when running \code{download_Comtrade()} and then, after you have run
+all your queries, you would then point \code{build_Comtrade()} to the location of all your temporary data files.
 }
 \keyword{build}
 \keyword{comtrade}

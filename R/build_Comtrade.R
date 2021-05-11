@@ -3,6 +3,12 @@
 #' @description Builds final Comtrade data set from temporary files downloaded by `download_Comtrade()`.
 #' where argument `rm.temporaryFiles` had been set to `FALSE`.
 #'
+#' Sometimes you might want to rebuild a data set using the temporary data files you downloaded from Comtrade.
+#' For example, you can use function `build_Comtrade()` whenever you have a very large data query which you would like to
+#' run over multiple days (and turn off your computer in the meantime) before building the finale Comtrade data base.
+#' In such a case you would set `rm.temporaryFiles = FALSE` when running `download_Comtrade()` and then, after you have run
+#' all your queries, you would then point `build_Comtrade()` to the location of all your temporary data files.
+#'
 #' @param directory  Location of temporary file downloads; default is
 #'
 #' `<your package directory>\data\tmp\<date-and-time-stamp>`;
