@@ -31,7 +31,7 @@ download_Comtrade_wrapper <- function(rep = "Austria",
 
     ## Standard data extract
     if (is.mirrorData == FALSE) {
-      message("\nRegular data download.")
+      message("Regular data download from partner(s): ", paste0(partners, collapse = ', '), ';')
       df_download <- try({
         comtradr::ct_search(
           reporters = rep,
@@ -56,7 +56,7 @@ download_Comtrade_wrapper <- function(rep = "Austria",
         if (is.null(partners)) {
           stop("Please provide mirror data country.")
         }
-        message("Mirror data download for ", partners, " for:")
+        message("Mirror data download from partner(s): ", paste0(partners, collapse = ', '), ';')
         df_download <- try({
           comtradr::ct_search(
             reporters = rep,
@@ -111,7 +111,7 @@ download_Comtrade_wrapper <- function(rep = "Austria",
   if (!is.na(suppressWarnings(stringr::str_match(df_download[1], "Error")))) {
     stop("Other error; sort this out!")
   }
-  message("   ", paste0(rep, collapse = ", "), "; year ", date, " direction '", paste0(dir, collapse = "', '"), "' done.\n    Going to sleep for ", sleep, " sec.")
+  message("   reported by: ",  paste0(rep, collapse = ', '), "; year: ", date, "; trade direction: '", paste0(dir, collapse = "', '"), "'.\n    Done! Going to sleep for ", sleep, " sec.\n")
   Sys.sleep(sleep)
 
   return(df_download)

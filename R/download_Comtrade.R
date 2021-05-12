@@ -262,8 +262,8 @@ download_Comtrade <- function(year = "2018", #  Years for which to extract
 
       ## Check data availability for `countries` and `partner` for every period t
       ### Check if selected countries are available in Comrade's list of reporters
-      if ("all" %in% countries) {
-        countries <- "all"
+      if ("all" %in% tolower(countries)) {
+        countries <- "All"
       } else {
         cnt_exist <- ls_cnt[ls_cnt %in% countries == TRUE]
         cnt_missing <- countries[countries %in% cnt_exist == FALSE]
@@ -277,10 +277,13 @@ download_Comtrade <- function(year = "2018", #  Years for which to extract
       if (is.null(partners)) {
         stop("\nPlease specify partner country/countries for mirror data extract: either 'world' or a (set of) specific country/countries.\n")
       }
-      if (("world" %in% partners) | ("World" %in% partners)) {
+      if ("world" %in% tolower(partners)) {
         partners <- "World"
       }
-      if ("World" %not.in% partners) {
+      if ("all" %in% tolower(partners)) {
+        partners <- "All"
+      }
+      if ("World" %not.in% partners & "All" %not.in% partners) {
         cnt_exist <- ls_cnt[ls_cnt %in% partners == TRUE]
         cnt_missing <- partners[partners %in% cnt_exist == FALSE]
 
@@ -325,7 +328,7 @@ download_Comtrade <- function(year = "2018", #  Years for which to extract
             } else {
               ### Check length of partner countries
               ls_cntk <- ls_cnt
-              if ("World" %not.in% partners) {
+              if ("All" %not.in% partners) {
                 ls_cntk <- ls_cntk[ls_cntk %in% partners]
               }
               kdx <- 1:.ext_cnt

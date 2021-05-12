@@ -12,7 +12,7 @@ mytempDirectory <- "C:/Users/juerg/Desktop/tmp"
 # mytoken <- '...'
 
 # Test 1: Basic country selection and storage of tmp files  -------------------------------
-### Works for Austria
+### Works for Austria to World (also WORLD, world)
 download_Comtrade(
   year = "2018", #  Years for which to extract
   frequency = "annual", #  or "monthly"
@@ -31,6 +31,27 @@ download_Comtrade(
   location.temporaryFiles = NULL, # location of temporary file downloads; default is `<package-directory>\data\tmp\<date-and-time-stamp>
   sleep = 10
 ) -> AT_World
+
+### Works for Austria to All countries (also ALL, all)
+download_Comtrade(
+  year = "2018", #  Years for which to extract
+  frequency = "annual", #  or "monthly"
+  month = NULL, # or c("01", "02"); specify months to be extracted for monthly data extraction; default is all 12 months if frequency == 'monthly'
+  countries = "Austria", # Select list of countries to be extracted; default is 'all'
+  partners = "All",
+  tradecode = "HS2007", # select trade classification to be extracted; default is HS03; monthly data only available as HS
+  ag = "ag6", #  select level of (dis)aggregation; evaluated automatically
+  direction = "all", # imports, exports, re-imports, re-exports or all; default is all
+  type = "commodities", # services not available
+  select.stats = "all", #  trade statistics to be selected; default is 'all' which includes `trade_value_usd`, `qty_unit_code`, `qty_unit`, `alt_qty_unit_code`, `alt_qty_unit`, `qty, alt_qty`, `netweight_kg`, `gross_weight_kg`.
+  token = mytoken, # set Comtrade token;
+  ext_cnt = 5, # number of countries extracted with each query; default is 5 which is also the max. in comtradr
+  is.mirrorData = FALSE, # Extract mirrored trade data; only one country supported at the moment
+  rm.temporaryFiles = TRUE, # Remove temporary files from data download; default is false
+  location.temporaryFiles = NULL, # location of temporary file downloads; default is `<package-directory>\data\tmp\<date-and-time-stamp>
+  sleep = 10
+) -> AT_All
+
 ### Works for Austria's exports to Germany
 download_Comtrade(
   year = "2018", #  Years for which to extract
