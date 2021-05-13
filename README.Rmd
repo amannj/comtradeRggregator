@@ -312,7 +312,7 @@ IM_DE_AT %>%
 
 -   `countries` - Select list of countries to be extracted; default is `all`.
 
--   `partners` - Specify partner country/countries or `World` (as provided by Comtrade) for global, aggregated trade; default is `World`.
+-   `partners` - Specify partner country/countries or `World` (as provided by Comtrade); use option `all` if you want to download trade data from all available countries but not Comtrade's `World` aggregate; default is `World`.
     - If `is.mirrorData = FALSE` and `partners = 'World'`, `download_Comtrade()` will download aggregated *"World"* trade as provided by [Comtrade](https://comtrade.un.org). 
     - If `is.mirrorData = TRUE` and `partners = 'World'`, no *"World"* aggregate is available via [Comtrade](https://comtrade.un.org). In this case, `download_Comtrade()` will download mirror trade data for [all available countries](https://comtrade.un.org/data/da), and creates and returns an artificial 'World' aggregate by summing up over all available countries.
 
