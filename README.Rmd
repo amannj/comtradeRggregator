@@ -33,6 +33,7 @@ lapply(pkgs, library, character.only = TRUE)
 
 <!-- badges: start -->
 [![Build](https://img.shields.io/badge/build-passing-green)](https://github.com/amannj/comtradeRggregator)
+[![codecov](https://codecov.io/gh/amannj/comtradeRggregator/branch/master/graph/badge.svg?token=03GW9TJP27)](https://codecov.io/gh/amannj/comtradeRggregator)
 [![Status\_Badge](https://img.shields.io/badge/comtradeRggregator-v.0.01-informational)](https://github.com/amannj/comtradeRggregator)
 <!-- badges: end -->
 
