@@ -1,14 +1,22 @@
 #' @title Remove Temporary Data Downloads
 #'
-#' @description Remove all temporary files and download directories created by `download_Comtrade()`.
-#' Run this In case in `download_Comtrade()` had been set to `rm.temporaryFiles = FALSE` but you now wish to remove  all temporary files and directories.
-#' @param location.temporaryFiles  Location of temporary file downloads; default is
+#' @description Remove all temporary files and download
+#' directories created by `download_Comtrade()`.
+#' Run this In case in `download_Comtrade()` had been set
+#' to `rm.temporaryFiles = FALSE` but you now wish to
+#' remove  all temporary files and directories.
+#' @param location.temporaryFiles  Location of temporary
+#' file downloads; default is
 #'
 #' `<your package directory>\data\tmp\<date-and-time-stamp>`;
 #'
-#' alternatively specify the temporary download directory you wish to remove.
-#' @param location.temporaryFiles  Location of temporary file downloads; default is `<your package directory>\data\tmp\<date-and-time-stamp>`;
-#' if you decide to use a different location, an alternative temporary folder needs to be created first.
+#' alternatively specify the temporary download directory
+#' you wish to remove.
+#' @param location.temporaryFiles  Location of temporary file
+#' downloads; default is
+#' `<your package directory>\data\tmp\<date-and-time-stamp>`;
+#' if you decide to use a different location, an alternative
+#' temporary folder needs to be created first.
 #' @keywords remove
 #' @export
 #' @import dplyr comtradr tibble readr rlang
@@ -28,7 +36,7 @@ rm_temporaryFiles <- function(location.temporaryFiles = NULL) {
   }
 
   ## Check if specified location exists
-  if(!file.exists(file.dir) & !is.null(location.temporaryFiles)) {
+  if (!file.exists(file.dir) & !is.null(location.temporaryFiles)) {
     stop("\nLocation for temporary files defined incorrectly. Please change argument 'location.temporaryFiles'.\n")
   }
 

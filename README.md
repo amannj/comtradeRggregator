@@ -1346,8 +1346,9 @@ IM_DE_AT %>%
     `all`.
 
 -   `partners` - Specify partner country/countries or `World` (as
-    provided by Comtrade) for global, aggregated trade; default is
-    `World`.
+    provided by Comtrade); use option `all` if you want to download
+    trade data from all available countries but not Comtrade’s `World`
+    aggregate; default is `World`.
 
     -   If `is.mirrorData = FALSE` and `partners = 'World'`,
         `download_Comtrade()` will download aggregated *“World”* trade
@@ -1793,7 +1794,7 @@ and otherwise
 
 ``` r
 rm_temporaryFiles(location.temporaryFiles = NULL)
-#> Temporary file directory already empty. Nothing to delete.
+#> Temporary directory already empty. Nothing to delete.
 ```
 
 #### Arguments Arguments

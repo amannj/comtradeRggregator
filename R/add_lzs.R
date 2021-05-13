@@ -25,7 +25,8 @@ add_lzs <- function(data,
 
 #' @title Generate Leading Zeros
 #'
-#' @description Returns vectors with `x` repeated zeros based on input vector containing `x`;
+#' @description Returns vectors with `x` repeated zeros based on
+#' input vector containing `x`;
 #' @param x Numeric vector.
 #' @keywords leading zero
 #' @import dplyr comtradr tibble readr rlang
