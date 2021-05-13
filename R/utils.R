@@ -15,15 +15,24 @@
 
 #' @title Evaluate Trade Classification
 #'
-#' @description Evaluates if a particular trade data set provided in argument `tradecode` is available for the provided level of
-#' aggregation in argument `ag`. Automatically switches to `HS (combined)` if argument `frequency = 'monthly'`.
-#' Returns classification abbreviation `.px` for further processing of Comtrade download
-#' @param ag Level of aggregation of trade data; varies by trade data set.
-#' @param tradecode  Select trade database and classification to be extracted; default is `HS2007`;
-#' monthly trade data only available following `HS` classification; the full list of possible trade classifications and their corresponding input
-#' arguments used in the `comtradeRggregator` package are provided in *Table Supported Trade Classification*.
-#' @param frequency   Frequency of data extract; either `annual` or `monthly`; default is `annual`.
-#' @return Trade classification abbreviation `.px` for further processing of Comtrade download
+#' @description Evaluates if a particular trade data set provided
+#' in argument `tradecode` is available for the provided level of
+#' aggregation in argument `ag`. Automatically switches to
+#' `HS (combined)` if argument `frequency = 'monthly'`.
+#' Returns classification abbreviation `.px` for further processing
+#' of Comtrade download
+#' @param ag Level of aggregation of trade data; varies by trade data
+#' set.
+#' @param tradecode  Select trade database and classification to be
+#' extracted; default is `HS2007`;
+#' monthly trade data only available following `HS` classification;
+#'  the full list of possible trade classifications and their
+#'  corresponding input arguments used in the `comtradeRggregator`
+#'  package are provided in *Table Supported Trade Classification*.
+#' @param frequency   Frequency of data extract; either `annual` or
+#' `monthly`; default is `annual`.
+#' @return Trade classification abbreviation `.px` for further processing
+#' of Comtrade download
 #' @keywords selection
 #' @export
 #' @import dplyr comtradr tibble readr rlang
@@ -34,46 +43,34 @@ eval_ag <- function(ag = ag,
                     tradecode = tradecode,
                     frequency = "annual") {
 
-
   ## Match classifications
-  if (tradecode == "HS" | tolower(frequency) == "monthly") {
-    .px <- "HS"
+  .px <- convert_tradecodes(tradecode = tradecode, return = "Abbr", eval = TRUE)
+
+  if (.px == "HS" | tolower(frequency) == "monthly") {
     is_ag <- c("TOTAL", "AG2", "AG4", "AG6")
-  } else if (tradecode == "HS1992") {
-    .px <- "H0"
+  } else if (.px == "H0") {
     is_ag <- c("TOTAL", "AG2", "AG4", "AG6")
-  } else if (tradecode == "HS1996") {
-    .px <- "H1"
+  } else if (.px == "H1") {
     is_ag <- c("TOTAL", "AG2", "AG4", "AG6")
-  } else if (tradecode == "HS2002") {
-    .px <- "H2"
+  } else if (.px == "H2") {
     is_ag <- c("TOTAL", "AG2", "AG4", "AG6")
-  } else if (tradecode == "HS2007") {
-    .px <- "H3"
+  } else if (.px == "H3") {
     is_ag <- c("TOTAL", "AG2", "AG4", "AG6")
-  } else if (tradecode == "HS2012") {
-    .px <- "H4"
+  } else if (.px == "H4") {
     is_ag <- c("TOTAL", "AG2", "AG4", "AG6")
-  } else if (tradecode == "HS2017") {
-    .px <- "H5"
+  } else if (.px == "H5") {
     is_ag <- c("TOTAL", "AG2", "AG4", "AG6")
-  } else if (tradecode == "SITC") {
-    .px <- "ST"
+  } else if (.px == "ST") {
     is_ag <- c("TOTAL", "AG1", "AG2", "AG3", "AG4", "AG5")
-  } else if (tradecode == "SITCrev1") {
-    .px <- "S1"
+  } else if (.px == "S1") {
     is_ag <- c("TOTAL", "AG1", "AG2", "AG3", "AG4", "AG5")
-  } else if (tradecode == "SITCrev2") {
-    .px <- "S2"
+  } else if (.px == "S2") {
     is_ag <- c("TOTAL", "AG1", "AG2", "AG3", "AG4", "AG5")
-  } else if (tradecode == "SITCrev3") {
-    .px <- "S3"
+  } else if (.px == "S3") {
     is_ag <- c("TOTAL", "AG1", "AG2", "AG3", "AG4", "AG5")
-  } else if (tradecode == "SITCrev4") {
-    .px <- "S4"
+  } else if (.px == "S4") {
     is_ag <- c("TOTAL", "AG1", "AG2", "AG3", "AG4", "AG5")
-  } else if (tradecode == "BEC") {
-    .px <- "BEC"
+  } else if (.px == "BEC") {
     is_ag <- c("TOTAL", "AG1", "AG2", "AG3")
   } else {
     stop("\nVariable 'tradecode' incorrectly specified.\n")
@@ -89,11 +86,10 @@ eval_ag <- function(ag = ag,
 }
 
 
-
-
 #' @title Evaluate String Scalar
 #'
-#' @description Evaluates if passed object `x` is a string scalar, i.e. a a character string of length 1.
+#' @description Evaluates if passed object `x` is a string scalar,
+#' i.e. a a character string of length 1.
 #' @param x An object
 #' @return  Boolean expression.
 #' @keywords string scalar
@@ -105,13 +101,15 @@ eval_ag <- function(ag = ag,
 is.strsclr <- function(x) is.character(x) && length(x) == 1
 
 
-
 #' @title Check Input Arguments
 #'
-#' @description Evaluates if input arguments for function  `download_Comtrade()` provided to parameter `.is` match expected arguments provided to parameter `.ok`.
+#' @description Evaluates if input arguments for function
+#' `download_Comtrade()` provided to parameter `.is` match
+#' expected arguments provided to parameter `.ok`.
 #' @param is Object passing provided argument(s).
 #' @param ok Object passing expected argument(s).
-#' @param arg Name of parameter evaluated; needed for return error message
+#' @param arg Name of parameter evaluated; needed for return
+#' error message
 #' @keywords check arguments
 #' @export
 #' @import dplyr comtradr tibble readr rlang
@@ -126,10 +124,18 @@ check_args <- function(is, ok, arg) {
 
 #' @title Convert Trade Codes
 #'
-#' @description  Allows user to input trade classifications and convert inputs for further processing
-#' @param tradecode Select trade database and classification to be extracted; default is `HS2007`; monthly trade data only available following `HS` classification; the full list of possible trade classifications and their corresponding input arguments used in the `comtradeRggregator` package are provided in *Table Supported Trade Classification*.
+#' @description  Allows user to input trade classifications and
+#' convert inputs for further processing
+#' @param tradecode Select trade database and classification to
+#' be extracted; default is `HS2007`; monthly trade data only
+#' available following `HS` classification; the full list of
+#' possible trade classifications and their corresponding input
+#' arguments used in the `comtradeRggregator` package are provided
+#' in *Table Supported Trade Classification*.
 #' @param return Return either `Name` or `Abbr` (abbreviation) of commodity code
-#' @param eval if `TRUE`, `tradecode` must be contained within `df_tradecode` which is used as input validation for `download_Comtrade()`; set `FALSE` for `convert_Comtrade()`.
+#' @param eval if `TRUE`, `tradecode` must be contained within
+#' `df_tradecode` which is used as input validation for
+#' `download_Comtrade()`; set `FALSE` for `convert_Comtrade()`.
 #' @keywords tradecode convert
 #' @export
 #' @import dplyr comtradr tibble readr rlang
@@ -187,15 +193,17 @@ convert_tradecodes <- function(tradecode = tradecode, return = "Name", eval = TR
       "ISICrev4"
     )
   )
-
   # Extract relevant row
   df_tradecode <- df_tradecode[which(df_tradecode == tradecode, arr.ind = TRUE)[1], ]
 
   if (eval == TRUE) {
-    if (nrow(df_tradecode) == 0) {
+    if (nrow(na.omit(df_tradecode)) == 0) {
       stop("Tradecode '", tradecode, "' not available. Please check available trade classifications for download.'")
     }
   }
-
-  df_tradecode %>% pull(return)
+  if (tradecode != "HS") {
+    df_tradecode %>% pull(return)
+  } else {
+    return("HS")
+  }
 }
