@@ -1,4 +1,3 @@
-# test_convert_Comtrade
 # Our file is called "test-utils.R" - we test all utils.R functions
 library(testthat) # load testthat package
 local_edition(3)
@@ -85,7 +84,7 @@ test_that("is string scalar", {
   expect_true(strsclr1)
 
   strsclr2 <- is.strsclr(c("1", "a")) == FALSE
-expect_true(strsclr2)
+  expect_true(strsclr2)
 })
 
 
@@ -98,7 +97,6 @@ test_that("is string scalar", {
 
 # Test conversion of trade codes with convert_tradecodes --------
 test_that("Test conversion of trade codes with convert_tradecodes", {
-
   df_tradecode <- tibble(
     "Abbr" = c(
       "HS",
@@ -150,10 +148,8 @@ test_that("Test conversion of trade codes with convert_tradecodes", {
     )
   )
 
-  for(i in 1:nrow(df_tradecode)) {
-
-  ag <- convert_tradecodes(tradecode = df_tradecode[i,1] %>% pull(), return = "Name", eval = TRUE)
-  expect_equal(ag, df_tradecode[i,2] %>% pull())
-
+  for (i in 1:nrow(df_tradecode)) {
+    ag <- convert_tradecodes(tradecode = df_tradecode[i, 1] %>% pull(), return = "Name", eval = TRUE)
+    expect_equal(ag, df_tradecode[i, 2] %>% pull())
   }
 })
