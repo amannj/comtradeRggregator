@@ -13,9 +13,6 @@
 "%not.in%" <- function(x, y) !("%in%"(x, y))
 
 
-
-
-
 #' @title Evaluate Trade Classification
 #'
 #' @description Evaluates if a particular trade data set provided in argument `tradecode` is available for the provided level of
@@ -123,28 +120,6 @@ is.strsclr <- function(x) is.character(x) && length(x) == 1
 check_args <- function(is, ok, arg) {
   if (is %in% ok != TRUE) {
     stop(paste0("Variable '", arg, "' incorrectly specified."))
-  }
-}
-
-
-
-#' @title Generate Leading Zeros
-#'
-#' @description Returns vectors with `x` repeated zeros based on input vector containing `x`;
-#' @param x Numeric vector.
-#' @keywords leading zero
-#' @export
-#' @import dplyr comtradr tibble readr rlang
-#' @examples
-#' gen_lzs(c(1, 2, 5))
-gen_lzs <- function(x) {
-  if (is.numeric(x)) {
-    lz <- function(x) {
-      paste0(rep("0", x), collapse = "")
-    }
-    sapply(x, lz)
-  } else {
-    stop("Input argument must be of class numeric.")
   }
 }
 

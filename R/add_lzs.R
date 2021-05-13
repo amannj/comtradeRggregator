@@ -1,9 +1,11 @@
 #' @title Convert Comtrade Trade Data
 #'
-#' @description Adds leading zeros to variable `var` of data frame such that `nchar(var) = length`.
+#' @description Adds leading zeros to variable `var` of data
+#' frame such that `nchar(var) = length`.
 #' @param data A data frame.
 #' @param variable Name of variable to be transformed.
-#' @param variable.length  The desired length of variable `variable`; i.e. `nchar(length.variable)`.
+#' @param variable.length  The desired length of variable
+#' `variable`; i.e. `nchar(length.variable)`.
 #' @keywords leading
 #' @export
 #' @import dplyr comtradr tibble readr rlang
@@ -34,7 +36,7 @@ gen_lzs <- function(x) {
     lz <- function(x) {
       paste0(rep("0", x), collapse = "")
     }
-    sapply(x, lz)
+    vapply(x, lz, character(1))
   } else {
     stop("Input argument must be of class numeric.")
   }
