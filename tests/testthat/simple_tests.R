@@ -92,6 +92,7 @@ X_AT_some %>% distinct(trade_flow)
 X_AT_some %>% distinct(partner)
 
 ### Fails if country does not exist
+try({
 download_Comtrade(
   year = "2018", #  Years for which to extract
   frequency = "annual", #  or "monthly"
@@ -109,7 +110,7 @@ download_Comtrade(
   rm.temporaryFiles = TRUE, # Remove temporary files from data download; default is false
   location.temporaryFiles = NULL # location of temporary file downloads; default is `<package-directory>\data\tmp\<date-and-time-stamp>
 )
-
+})
 ### Works for user-specified temporary directories
 ## Note: you have to create that folder yourself first and link to it with: `mytempDirectory`
 download_Comtrade(
@@ -130,6 +131,7 @@ download_Comtrade(
   location.temporaryFiles = mytempDirectory # location of temporary file downloads; default is `<package-directory>\data\tmp\<date-and-time-stamp>
 )
 ### Doesn't work for countries that don't exist
+try({
 download_Comtrade(
   year = "2018", #  Years for which to extract
   frequency = "annual", #  or "monthly"
@@ -146,8 +148,10 @@ download_Comtrade(
   rm.temporaryFiles = TRUE, # Remove temporary files from data download; default is false
   location.temporaryFiles = NULL # location of temporary file downloads; default is `<package-directory>\data\tmp\<date-and-time-stamp>
 )
+})
 
 ### fails because input arguments are not specified correctly (checks for reasonable values/default arguments
+try({
 download_Comtrade(
   year = "2218", #  Years for which to extract
   frequency = "annual", #  or "monthly"
@@ -164,10 +168,11 @@ download_Comtrade(
   rm.temporaryFiles = TRUE, # Remove temporary files from data download; default is false
   location.temporaryFiles = NULL # location of temporary file downloads; default is `<package-directory>\data\tmp\<date-and-time-stamp>
 )
-
+})
 
 # Test 2: country selection cond. on data availability  -------------------------------
 ### Fails because there is no monthly trade data for Austria:
+try({
 download_Comtrade(
   year = c("2018", "2019"), #  Years for which to extract
   frequency = "monthly", #  or "monthly"
@@ -185,6 +190,7 @@ download_Comtrade(
   rm.temporaryFiles = TRUE, # Remove temporary files from data download; default is false
   location.temporaryFiles = NULL # location of temporary file downloads; default is `<package-directory>\data\tmp\<date-and-time-stamp>
 )
+})
 ### Works for Australia
 download_Comtrade(
   year = c("2018", "2019"), #  Years for which to extract
@@ -207,6 +213,7 @@ download_Comtrade(
 
 # Test 3: Trade classification  -------------------------------
 ## Fails as ag 5 not defined for HS3
+try({
 download_Comtrade(
   year = "2018", #  Years for which to extract
   frequency = "annual", #  or "monthly"
@@ -224,7 +231,9 @@ download_Comtrade(
   rm.temporaryFiles = TRUE, # Remove temporary files from data download; default is false
   location.temporaryFiles = NULL # location of temporary file downloads; default is `<package-directory>\data\tmp\<date-and-time-stamp>
 )
+})
 ## Fails as ag 5 not defined for SITCrev3
+try({
 download_Comtrade(
   year = "2018", #  Years for which to extract
   frequency = "annual", #  or "monthly"
@@ -241,6 +250,7 @@ download_Comtrade(
   rm.temporaryFiles = TRUE, # Remove temporary files from data download; default is false
   location.temporaryFiles = NULL # location of temporary file downloads; default is `<package-directory>\data\tmp\<date-and-time-stamp>
 )
+})
 ## Works
 download_Comtrade(
   year = "2018", #  Years for which to extract
@@ -262,6 +272,7 @@ download_Comtrade(
 
 # Test 4: Mirror data  -------------------------------
 ## Fails because partner does not exist
+try({
 download_Comtrade(
   year = c("2018"), #  Years for which to extract
   frequency = "annual", #  or "monthly"
@@ -279,7 +290,9 @@ download_Comtrade(
   is.mirrorData = TRUE, # Extract mirrored trade data; only one country supported at the moment
   location.temporaryFiles = NULL # location of temporary file downloads; default is `<package-directory>\data\tmp\<date-and-time-stamp>
 )
+})
 ## Doesn't work for monthly data (no monthly trade data for AUT)
+try({
 download_Comtrade(
   year = c("2018"), #  Years for which to extract
   frequency = "monthly", #  or "monthly"
@@ -297,6 +310,7 @@ download_Comtrade(
   is.mirrorData = TRUE, # Extract mirrored trade data; only one country supported at the moment
   location.temporaryFiles = NULL # location of temporary file downloads; default is `<package-directory>\data\tmp\<date-and-time-stamp>
 )
+})
 
 
 
@@ -458,7 +472,10 @@ is.available_Comtrade(is.contained = c("Austria", "Germany"), frequency = "annua
 ### Works
 is.available_Comtrade(is.contained = c("Austria", "Germany"), frequency = "monthly", month = "01")
 ### Should fail as data availability varies by month
-is.available_Comtrade(is.contained = c("Germany"), frequency = "monthly", month = c("01", "02"))
+
+try({
+  is.available_Comtrade(is.contained = c("Germany"), frequency = "monthly", month = c("01", "02"))
+})
 
 
 # Test 6: Only select particular trade   -------------------------------
@@ -480,6 +497,7 @@ download_Comtrade(
   location.temporaryFiles = NULL # location of temporary file downloads; default is `<package-directory>\data\tmp\<date-and-time-stamp>
 )
 ### Fails because of incorrect  stats names
+try({
 download_Comtrade(
   year = c("2018"), #  Years for which to extract
   frequency = "annual", #  or "monthly"
@@ -496,7 +514,7 @@ download_Comtrade(
   is.mirrorData = FALSE, # Extract mirrored trade data; only one country supported at the moment
   location.temporaryFiles = NULL # location of temporary file downloads; default is `<package-directory>\data\tmp\<date-and-time-stamp>
 )
-
+})
 
 # Test 7.hs: Check all concordance tables for HS  -------------------------------
 download_Comtrade(
