@@ -27,6 +27,11 @@ rm_temporaryFiles <- function(location.temporaryFiles = NULL) {
     stop("\nLocation for temporary files defined incorrectly. Please change argument 'location.temporaryFiles'.\n")
   }
 
+  ## Check if specified location exists
+  if(!file.exists(file.dir) & !is.null(location.temporaryFiles)) {
+    stop("\nLocation for temporary files defined incorrectly. Please change argument 'location.temporaryFiles'.\n")
+  }
+
   ## Remove if temporary directory is not empty
   tmp.Files <- list.files(file.dir)
 
@@ -34,6 +39,6 @@ rm_temporaryFiles <- function(location.temporaryFiles = NULL) {
     unlink(paste0(file.dir, "/*"), recursive = TRUE, force = TRUE)
     message("Temporary files delete.")
   } else {
-    message("Temporary file directory already empty. Nothing to delete.")
+    message("Temporary directory already empty. Nothing to delete.")
   }
 }
