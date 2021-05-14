@@ -12,7 +12,8 @@ test_that("remove temporary files of folder that exists but file does not exist"
 test_that("remove temporary files of folder that exists and file exists", {
 
   df = tibble(a = c(1,2,3))
-  loc = 'C:/Users/juerg/Desktop/tmp'
+  loc = 'C:/Users/juerg/Desktop/tmp/tests'
+  mkdir(loc)
   saveRDS(df, paste0(loc,'/df.rds'))
 
   rm1 <- function() rm_temporaryFiles(location.temporaryFiles = loc)
