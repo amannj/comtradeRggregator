@@ -38,7 +38,7 @@ test_that("is.available_Comtrade returns evaluated list of all available countri
       year = "2020"
     )
   }
-  expect_warning(da3())
+  expect_message(da3())
 })
 
 
