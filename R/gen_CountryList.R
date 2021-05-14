@@ -22,7 +22,7 @@
 
 gen_CountryList <- function(directory = system.file("data", package = "comtradeRggregator"),
                             file = paste0("Comtrade_DataAvailability-", Sys.Date()),
-                            type = type,
+                            type = 'commodities',
                             frequency = frequency,
                             time = time,
                             px = .px,
