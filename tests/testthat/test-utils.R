@@ -51,6 +51,10 @@ test_that("eval_ag checks ag and returns tradecode abbreviation", {
   ag1 <- eval_ag(ag = c("AG2", "AG4", "AG6"), tradecode = "H5", frequency = "annual")
   expect_equal(ag1, "H5")
 })
+test_that("eval_ag checks ag and returns tradecode abbreviation", {
+  ag1 <- eval_ag(ag = c("AG1", "AG2", "AG3"), tradecode = "BEC", frequency = "annual")
+  expect_equal(ag1, "BEC")
+})
 # tradecode and wrong AG
 test_that("eval_ag checks if ag and tradecodes don't match", {
   ag_HS <- function() eval_ag(ag = c("AGx"), tradecode = "HS", frequency = "annual")
@@ -65,13 +69,15 @@ test_that("eval_ag checks if ag and tradecodes don't match", {
   ag_S2 <- function() eval_ag(ag = c("AGx"), tradecode = "SITCrev2", frequency = "annual")
   ag_S3 <- function() eval_ag(ag = c("AGx"), tradecode = "SITCrev3", frequency = "annual")
   ag_S4 <- function() eval_ag(ag = c("AGx"), tradecode = "SITCrev4", frequency = "annual")
+  ag_BE <- function() eval_ag(ag = c("AGx"), tradecode = "BEC", frequency = "annual")
 
   lapply(list(
     "ag_HS", "ag_H0",
     "ag_H3", "ag_H4",
     "ag_H5", "ag_ST",
     "ag_S1", "ag_S2",
-    "ag_S3", "ag_S4"
+    "ag_S3", "ag_S4",
+    "ag_BE"
   ), function(x) {
     expect_error(do.call(x, list()), "Specified aggregate(s)*")
   })
