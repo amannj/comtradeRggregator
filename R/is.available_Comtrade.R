@@ -73,7 +73,7 @@ is.available_Comtrade <- function(is.contained = NULL,
     if (length(month) > 1) {
       stop("Monthly data coverage varies by month; please only provide one month.")
     }
-    warning("Only HS Combined nomenclature available for monthly trade data.")
+    message("Only HS Combined nomenclature available for monthly trade data.")
     Comtrade_DA %>%
       filter(
         ps == paste0(year, month)
