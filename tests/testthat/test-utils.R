@@ -52,8 +52,8 @@ test_that("eval_ag checks ag and returns tradecode abbreviation", {
   expect_equal(ag1, "H5")
 })
 test_that("eval_ag checks ag and returns tradecode abbreviation", {
-  ag1 <- eval_ag(ag = c("AG1", "AG2", "AG3"), tradecode = "BEC", frequency = "annual")
-  expect_equal(ag1, "BEC")
+  ag1 <- eval_ag(ag = c("AG1", "AG2", "AG3"), tradecode = "BE", frequency = "annual")
+  expect_equal(ag1, "BE")
 })
 # tradecode and wrong AG
 test_that("eval_ag checks if ag and tradecodes don't match", {

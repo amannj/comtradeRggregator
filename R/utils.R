@@ -70,7 +70,7 @@ eval_ag <- function(ag = ag,
     is_ag <- c("TOTAL", "AG1", "AG2", "AG3", "AG4", "AG5")
   } else if (.px == "S4") {
     is_ag <- c("TOTAL", "AG1", "AG2", "AG3", "AG4", "AG5")
-  } else if (.px == "BEC") {
+  } else if (.px == "BE") {
     is_ag <- c("TOTAL", "AG1", "AG2", "AG3")
   } else {
     stop("\nVariable 'tradecode' incorrectly specified.\n")
