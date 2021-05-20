@@ -1306,7 +1306,7 @@
 "H3_S4"
 
 
-#' H4 to H0 Categories Concordance Table
+#' H4 to BEC 4 Categories Concordance Table
 #'
 #' Concordance table between `HS 2012` (`H4`) and `BEC Rev. 4` (`BEC`).
 #'
@@ -1317,6 +1317,24 @@
 #' }
 #' @source \url{https://unstats.un.org/unsd/classifications/Econ#Correspondences}
 "H4_BE"
+
+#' H4 to BEC 5 Categories Concordance Table
+#'
+#' Concordance table between `HS 2012` (`H4`) and `BEC Rev. 5` (`BEC`).
+#'
+#' @format A data frame with 5,205 rows and 8 variables:
+#' \describe{
+#'   \item{HS 2012 Product Code}{...}
+#'   \item{HS 2012 Product Description}{...}
+#'   \item{BEC 5 Product Category}{Broad Economic Categories.}
+#'   \item{BEC 5 Code}{...}
+#'   \item{BEC 5 End-user dimension}{ SNA end-user dimension}
+#'   \item{BEC 5 Processing dimension}{...}
+#'   \item{BEC 5 Specification dimension}{...}
+#'   \item{BEC 5 Durability dimension}{...}
+#' }
+#' @source \url{https://unstats.un.org/unsd/trade/classifications/bec.asp}
+"H4_BE5"
 
 
 #' H4 to H0 Categories Concordance Table

@@ -1593,6 +1593,28 @@ H4_BE <- H4_BE %>%
 usethis::use_data(H4_BE, overwrite = TRUE)
 
 
+## H4 to BE5   -----------------
+
+H4_BE5 <- readxl::read_excel("data-raw/HS2012-17-BEC5 -- 08 Nov 2018.xlsx") %>%
+  select(
+    `HS 2012 Product Code` = `HS6`,
+    `HS 2012 Product Description` = `HS6Desc`,
+    `BEC 5 Product Category` = `BEC5Category`,
+    `BEC 5 Code` = `BEC5Code1`,
+    `BEC 5 End-user Dimension` = `BEC5EndUse`,
+    `BEC 5 Processing Dimension` = `BEC5Processing`,
+    `BEC 5 Specification Dimension` = `BEC5Specification`,
+    `BEC 5 Durability Dimension` = `BEC5Durability`
+  ) %>%
+  mutate(
+    `BEC 5 End-user Dimension` = ifelse(`BEC 5 End-user Dimension` == "INT", "INTERMEDIATE CONSUMPTION", `BEC 5 End-user Dimension`),
+    `BEC 5 End-user Dimension` = ifelse(`BEC 5 End-user Dimension` == "CAP", "GROSS FIXED CAPITAL FORMATION", `BEC 5 End-user Dimension`),
+    `BEC 5 End-user Dimension` = ifelse(`BEC 5 End-user Dimension` == "CONS", "FINAL CONSUMPTION", `BEC 5 End-user Dimension`)
+  )
+
+usethis::use_data(H4_BE5, overwrite = TRUE)
+
+
 ## H4 to H0 -----------------
 
 H4_H0 <- readxl::read_excel("data-raw/HS 2012 to HS 1992 Correlation and conversion tables.xls",
