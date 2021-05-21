@@ -8,6 +8,7 @@
 [![Build](https://img.shields.io/badge/build-passing-green)](https://github.com/amannj/comtradeRggregator)
 [![codecov](https://codecov.io/gh/amannj/comtradeRggregator/branch/master/graph/badge.svg?token=03GW9TJP27)](https://codecov.io/gh/amannj/comtradeRggregator)
 [![Status\_Badge](https://img.shields.io/badge/comtradeRggregator-v.0.01-informational)](https://github.com/amannj/comtradeRggregator)
+[![R-CMD-check](https://github.com/amannj/comtradeRggregator/workflows/R-CMD-check/badge.svg)](https://github.com/amannj/comtradeRggregator/actions)
 <!-- badges: end -->
 
 The goal of the `comtradeRggregator` package is to provide a simple tool
@@ -1201,7 +1202,6 @@ devtools::install_github("amannj/comtradeRggregator",
   auth_token = "...",
   force = TRUE
 )
-
 ```
 
 ------------------------------------------------------------------------
@@ -1787,7 +1787,7 @@ to be deleted, function `rm_temporaryFiles()` returns
 
 ``` r
 rm_temporaryFiles(location.temporaryFiles = NULL)
-#> Temporary files delete.
+#> Temporary files deleted.
 ```
 
 and otherwise
