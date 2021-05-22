@@ -3,6 +3,8 @@ library(testthat) # load testthat package
 local_edition(3)
 library(comtradeRggregator) # load our package
 
+
+
 # Test %not.in% ----------
 test_that("%not.in% TRUE or FALSE", {
   is.not.in <- 5 %not.in% c(1, 5)
@@ -13,6 +15,7 @@ test_that("%not.in% TRUE or FALSE", {
   is.not.in <- 10 %not.in% c(1, 5)
   expect_true(is.not.in)
 })
+
 
 
 # Test eval_ag --------
@@ -84,6 +87,7 @@ test_that("eval_ag checks if ag and tradecodes don't match", {
 })
 
 
+
 # Test evaluate string scalar --------
 test_that("is string scalar", {
   strsclr1 <- is.strsclr("1")
@@ -94,11 +98,13 @@ test_that("is string scalar", {
 })
 
 
+
 # Test check_args --------
 test_that("is string scalar", {
   args <- function() check_args(is = c("a"), ok = ("b"), arg = "test")
   expect_error(args(), "Variable 'test' incorrectly specified.")
 })
+
 
 
 # Test conversion of trade codes with convert_tradecodes --------
