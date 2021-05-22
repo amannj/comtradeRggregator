@@ -24,7 +24,7 @@ test_that("build_Comtrade returns object 1 to 1 if no arguments are invoked", {
 
 test_that("build_Comtrade returns transformed object if arguments are invoked", {
   loc_path <- system.file(package = "comtradeRggregator")
-  loc <- paste0(loc_path, "/data/tmp/tests")
+  loc <- paste0(loc_path, "/tests-data")
   dir.create(loc)
 
   df <- tibble(

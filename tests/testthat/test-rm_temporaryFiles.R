@@ -14,7 +14,7 @@ test_that("remove temporary files of folder that exists but file does not exist"
 
 test_that("remove temporary files of folder that exists and file exists", {
   loc_path <- system.file(package = "comtradeRggregator")
-  loc <- paste0(loc_path, "/data/tmp/tests")
+  loc <- paste0(loc_path, "/tests-data")
   dir.create(loc)
 
   df <- tibble(a = c(1, 2, 3))
