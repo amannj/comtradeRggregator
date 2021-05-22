@@ -1,7 +1,8 @@
-# Our file is called "test-update_ComtradeDA.R"
+# Our file is called "test-build_Comtrade.R"
 library(testthat) # load testthat package
 local_edition(3)
 library(comtradeRggregator) # load package
+
 
 
 test_that("build_Comtrade returns object 1 to 1 if no arguments are invoked", {
@@ -22,6 +23,10 @@ test_that("build_Comtrade returns object 1 to 1 if no arguments are invoked", {
 
 
 test_that("build_Comtrade returns transformed object if arguments are invoked", {
+  loc_path <- system.file(package = "comtradeRggregator")
+  loc <- paste0(loc_path, "/data/tmp/tests")
+  dir.create(loc)
+
   df <- tibble(
     "classification" = "H3",
     "period" = 2000,
@@ -32,8 +37,6 @@ test_that("build_Comtrade returns transformed object if arguments are invoked", 
     "trade_flow" = c("Import", "Export", "Re-Import", "Re-Export"),
     "trade_value_usd" = 1
   )
-  loc <- "C:/Users/juerg/Desktop/tmp/tests"
-  dir.create(loc)
   saveRDS(df, paste0(loc, "/df.rds"))
 
   df <- build_Comtrade(
@@ -45,4 +48,6 @@ test_that("build_Comtrade returns transformed object if arguments are invoked", 
 
   expect_s3_class(df, "data.frame")
   expect_equal(nrow(df), 4)
+
+  unlink(loc, recursive = TRUE)
 })
