@@ -5,10 +5,10 @@
 \alias{HS_CC}
 \title{HS to CCCN Concordance Table}
 \format{
-A data frame with 5,703 rows and 4 variables:
+A data frame with 5,205 rows and 4 variables:
 \describe{
-\item{HS Combined Product Code}{...}
-\item{HS Combined Product Description}{...}
+\item{HS - Combined  Product Code}{...}
+\item{HS - Combined  Product Description}{...}
 \item{CCCN Product Code}{...}
 \item{CCCN Product Description}{...}
 }
@@ -20,6 +20,6 @@ A data frame with 5,703 rows and 4 variables:
 HS_CC
 }
 \description{
-Concordance table between \verb{HS Combined} (\code{HS}) and \code{CCCN}
+Concordance table between \verb{HS Combined} (\code{HS}) and \code{CCCN} (\code{CN})
 }
 \keyword{datasets}

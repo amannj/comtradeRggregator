@@ -7,7 +7,9 @@ library(comtradeRggregator)
 
 HS_BE <- readr::read_csv("data-raw/JobID-55_Concordance_HS_to_BE.CSV",
   col_types = readr::cols(.default = "c")
-)
+) %>%
+  rename(`HS Combined Product Code` = `HS - Combined  Product Code`) %>%
+  rename(`HS Combined Product Description` = `HS - Combined  Product Description`)
 ## Check var length
 colnames(HS_BE)
 HS_BE %>%
@@ -19,7 +21,7 @@ HS_BE %>%
 
 HS_BE <- HS_BE %>%
   ## Add leading zeros to codes
-  add_lzs(variable = "HS - Combined  Product Code", variable.length = 6) %>%
+  add_lzs(variable = "HS Combined Product Code", variable.length = 6) %>%
   add_lzs(variable = "BEC Product Code", variable.length = 3)
 
 usethis::use_data(HS_BE, overwrite = TRUE)
@@ -29,7 +31,9 @@ usethis::use_data(HS_BE, overwrite = TRUE)
 
 HS_CC <- readr::read_csv("data-raw/JobID-56_Concordance_HS_to_CC.CSV",
   col_types = readr::cols(.default = "c")
-)
+)%>%
+  rename(`HS Combined Product Code` = `HS - Combined  Product Code`) %>%
+  rename(`HS Combined Product Description` = `HS - Combined  Product Description`)
 ## Check var length
 colnames(HS_CC)
 HS_CC %>%
@@ -41,7 +45,7 @@ HS_CC %>%
 
 HS_CC <- HS_CC %>%
   ## Add leading zeros to codes
-  add_lzs(variable = "HS - Combined  Product Code", variable.length = 6) %>%
+  add_lzs(variable = "HS Combined Product Code", variable.length = 6) %>%
   add_lzs(variable = "CCCN Product Code", variable.length = 6)
 
 usethis::use_data(HS_CC, overwrite = TRUE)
@@ -51,7 +55,9 @@ usethis::use_data(HS_CC, overwrite = TRUE)
 
 HS_CP <- readr::read_csv("data-raw/JobID-57_Concordance_HS_to_CP.CSV",
   col_types = readr::cols(.default = "c")
-)
+)%>%
+  rename(`HS Combined Product Code` = `HS - Combined  Product Code`) %>%
+  rename(`HS Combined Product Description` = `HS - Combined  Product Description`)
 ## Check var length
 colnames(HS_CP)
 HS_CP %>%
@@ -63,7 +69,7 @@ HS_CP %>%
 
 HS_CP <- HS_CP %>%
   ## Add leading zeros to codes
-  add_lzs(variable = "HS - Combined  Product Code", variable.length = 6) %>%
+  add_lzs(variable = "HS Combined Product Code", variable.length = 6) %>%
   add_lzs(variable = "CPC Product Code", variable.length = 5)
 
 usethis::use_data(HS_CP, overwrite = TRUE)
@@ -73,7 +79,9 @@ usethis::use_data(HS_CP, overwrite = TRUE)
 
 HS_GP <- readr::read_csv("data-raw/JobID-58_Concordance_HS_to_GP.CSV",
   col_types = readr::cols(.default = "c")
-)
+)%>%
+  rename(`HS Combined Product Code` = `HS - Combined  Product Code`) %>%
+  rename(`HS Combined Product Description` = `HS - Combined  Product Description`)
 ## Check var length
 colnames(HS_GP)
 HS_GP %>%
@@ -85,7 +93,7 @@ HS_GP %>%
 
 HS_GP <- HS_GP %>%
   ## Add leading zeros to codes
-  add_lzs(variable = "HS - Combined  Product Code", variable.length = 6) %>%
+  add_lzs(variable = "HS Combined Product Code", variable.length = 6) %>%
   add_lzs(variable = "GTAP Product Code", variable.length = 2)
 
 usethis::use_data(HS_GP, overwrite = TRUE)
@@ -95,7 +103,9 @@ usethis::use_data(HS_GP, overwrite = TRUE)
 
 HS_H0 <- readr::read_csv("data-raw/JobID-59_Concordance_HS_to_H0.CSV",
   col_types = readr::cols(.default = "c")
-)
+)%>%
+  rename(`HS Combined Product Code` = `HS - Combined  Product Code`) %>%
+  rename(`HS Combined Product Description` = `HS - Combined  Product Description`)
 ## Check var length
 colnames(HS_H0)
 HS_H0 %>%
@@ -107,7 +117,7 @@ HS_H0 %>%
 
 HS_H0 <- HS_H0 %>%
   ## Add leading zeros to codes
-  add_lzs(variable = "HS - Combined  Product Code", variable.length = 6) %>%
+  add_lzs(variable = "HS Combined Product Code", variable.length = 6) %>%
   add_lzs(variable = "HS 1988/92 Product Code", variable.length = 6)
 
 usethis::use_data(HS_H0, overwrite = TRUE)
@@ -117,7 +127,9 @@ usethis::use_data(HS_H0, overwrite = TRUE)
 
 HS_H1 <- readr::read_csv("data-raw/JobID-60_Concordance_HS_to_H1.CSV",
   col_types = readr::cols(.default = "c")
-)
+) %>%
+  rename(`HS Combined Product Code` = `HS - Combined  Product Code`) %>%
+  rename(`HS Combined Product Description` = `HS - Combined  Product Description`)
 ## Check var length
 colnames(HS_H1)
 HS_H1 %>%
@@ -129,7 +141,7 @@ HS_H1 %>%
 
 HS_H1 <- HS_H1 %>%
   ## Add leading zeros to codes
-  add_lzs(variable = "HS - Combined  Product Code", variable.length = 6) %>%
+  add_lzs(variable = "HS Combined Product Code", variable.length = 6) %>%
   add_lzs(variable = "HS 1996 Product Code", variable.length = 6)
 
 usethis::use_data(HS_H1, overwrite = TRUE)
@@ -139,7 +151,9 @@ usethis::use_data(HS_H1, overwrite = TRUE)
 
 HS_H2 <- readr::read_csv("data-raw/JobID-61_Concordance_HS_to_H2.CSV",
   col_types = readr::cols(.default = "c")
-)
+) %>%
+  rename(`HS Combined Product Code` = `HS - Combined  Product Code`) %>%
+  rename(`HS Combined Product Description` = `HS - Combined  Product Description`)
 ## Check var length
 colnames(HS_H2)
 HS_H2 %>%
@@ -151,7 +165,7 @@ HS_H2 %>%
 
 HS_H2 <- HS_H2 %>%
   ## Add leading zeros to codes
-  add_lzs(variable = "HS - Combined  Product Code", variable.length = 6) %>%
+  add_lzs(variable = "HS Combined Product Code", variable.length = 6) %>%
   add_lzs(variable = "HS 2002 Product Code", variable.length = 6)
 
 usethis::use_data(HS_H2, overwrite = TRUE)
@@ -161,7 +175,9 @@ usethis::use_data(HS_H2, overwrite = TRUE)
 
 HS_H3 <- readr::read_csv("data-raw/JobID-62_Concordance_HS_to_H3.CSV",
   col_types = readr::cols(.default = "c")
-)
+) %>%
+  rename(`HS Combined Product Code` = `HS - Combined  Product Code`) %>%
+  rename(`HS Combined Product Description` = `HS - Combined  Product Description`)
 ## Check var length
 colnames(HS_H3)
 HS_H3 %>%
@@ -173,7 +189,7 @@ HS_H3 %>%
 
 HS_H3 <- HS_H3 %>%
   ## Add leading zeros to codes
-  add_lzs(variable = "HS - Combined  Product Code", variable.length = 6) %>%
+  add_lzs(variable = "HS Combined Product Code", variable.length = 6) %>%
   add_lzs(variable = "HS 2007 Product Code", variable.length = 6)
 
 usethis::use_data(HS_H3, overwrite = TRUE)
@@ -182,7 +198,7 @@ usethis::use_data(HS_H3, overwrite = TRUE)
 ## HS to H4 -----------------
 
 HS_H4 <- readxl::read_excel("data-raw/HS combined to HS 2012.xlsx")
-colnames(HS_H4)[c(1, 2)] <- c("HS - Combined  Product Code", "HS - Combined  Product Description")
+colnames(HS_H4)[c(1, 2)] <- c("HS Combined Product Code", "HS Combined Product Description")
 
 ## Check var length
 colnames(HS_H4)
@@ -195,7 +211,7 @@ HS_H4 %>%
 
 HS_H4 <- HS_H4 %>%
   ## Add leading zeros to codes
-  add_lzs(variable = "HS - Combined  Product Code", variable.length = 6) %>%
+  add_lzs(variable = "HS Combined Product Code", variable.length = 6) %>%
   add_lzs(variable = "HS 2012 Product Code", variable.length = 6)
 
 usethis::use_data(HS_H4, overwrite = TRUE)
@@ -205,7 +221,9 @@ usethis::use_data(HS_H4, overwrite = TRUE)
 
 HS_I2 <- readr::read_csv("data-raw/JobID-63_Concordance_HS_to_I2.CSV",
   col_types = readr::cols(.default = "c")
-)
+) %>%
+  rename(`HS Combined Product Code` = `HS - Combined  Product Code`) %>%
+  rename(`HS Combined Product Description` = `HS - Combined  Product Description`)
 ## Check var length
 colnames(HS_I2)
 HS_I2 %>%
@@ -217,7 +235,7 @@ HS_I2 %>%
 
 HS_I2 <- HS_I2 %>%
   ## Add leading zeros to codes
-  add_lzs(variable = "HS - Combined  Product Code", variable.length = 6) %>%
+  add_lzs(variable = "HS Combined Product Code", variable.length = 6) %>%
   add_lzs(variable = "ISIC Revision 2 Product Code", variable.length = 4)
 
 usethis::use_data(HS_I2, overwrite = TRUE)
@@ -227,7 +245,9 @@ usethis::use_data(HS_I2, overwrite = TRUE)
 
 HS_I3 <- readr::read_csv("data-raw/JobID-64_Concordance_HS_to_I3.CSV",
   col_types = readr::cols(.default = "c")
-)
+) %>%
+  rename(`HS Combined Product Code` = `HS - Combined  Product Code`) %>%
+  rename(`HS Combined Product Description` = `HS - Combined  Product Description`)
 ## Check var length
 colnames(HS_I3)
 HS_I3 %>%
@@ -239,7 +259,7 @@ HS_I3 %>%
 
 HS_I3 <- HS_I3 %>%
   ## Add leading zeros to codes
-  add_lzs(variable = "HS - Combined  Product Code", variable.length = 6) %>%
+  add_lzs(variable = "HS Combined Product Code", variable.length = 6) %>%
   add_lzs(variable = "ISIC Revision 3 Product Code", variable.length = 4)
 
 usethis::use_data(HS_I3, overwrite = TRUE)
@@ -249,7 +269,9 @@ usethis::use_data(HS_I3, overwrite = TRUE)
 
 HS_IU <- readr::read_csv("data-raw/JobID-65_Concordance_HS_to_IU.CSV",
   col_types = readr::cols(.default = "c")
-)
+) %>%
+  rename(`HS Combined Product Code` = `HS - Combined  Product Code`) %>%
+  rename(`HS Combined Product Description` = `HS - Combined  Product Description`)
 ## Check var length
 colnames(HS_IU)
 HS_IU %>%
@@ -261,7 +283,7 @@ HS_IU %>%
 
 HS_IU <- HS_IU %>%
   ## Add leading zeros to codes
-  add_lzs(variable = "HS - Combined  Product Code", variable.length = 6) %>%
+  add_lzs(variable = "HS Combined Product Code", variable.length = 6) %>%
   add_lzs(variable = "SIC Product Code", variable.length = 4)
 
 usethis::use_data(HS_IU, overwrite = TRUE)
@@ -271,7 +293,9 @@ usethis::use_data(HS_IU, overwrite = TRUE)
 
 HS_MT <- readr::read_csv("data-raw/JobID-66_Concordance_HS_to_MT.CSV",
   col_types = readr::cols(.default = "c")
-)
+) %>%
+  rename(`HS Combined Product Code` = `HS - Combined  Product Code`) %>%
+  rename(`HS Combined Product Description` = `HS - Combined  Product Description`)
 ## Check var length
 colnames(HS_MT)
 HS_MT %>%
@@ -283,7 +307,7 @@ HS_MT %>%
 
 HS_MT <- HS_MT %>%
   ## Add leading zeros to codes
-  add_lzs(variable = "HS - Combined  Product Code", variable.length = 6) %>%
+  add_lzs(variable = "HS Combined Product Code", variable.length = 6) %>%
   add_lzs(variable = "MTN Categories Product Code", variable.length = 4)
 
 usethis::use_data(HS_MT, overwrite = TRUE)
@@ -293,7 +317,9 @@ usethis::use_data(HS_MT, overwrite = TRUE)
 
 HS_S1 <- readr::read_csv("data-raw/JobID-67_Concordance_HS_to_S1.CSV",
   col_types = readr::cols(.default = "c")
-)
+) %>%
+  rename(`HS Combined Product Code` = `HS - Combined  Product Code`) %>%
+  rename(`HS Combined Product Description` = `HS - Combined  Product Description`)
 ## Check var length
 colnames(HS_S1)
 HS_S1 %>%
@@ -305,7 +331,7 @@ HS_S1 %>%
 
 HS_S1 <- HS_S1 %>%
   ## Add leading zeros to codes
-  add_lzs(variable = "HS - Combined  Product Code", variable.length = 6)
+  add_lzs(variable = "HS Combined Product Code", variable.length = 6)
 
 usethis::use_data(HS_S1, overwrite = TRUE)
 
@@ -314,7 +340,9 @@ usethis::use_data(HS_S1, overwrite = TRUE)
 
 HS_S2 <- readr::read_csv("data-raw/JobID-68_Concordance_HS_to_S2.CSV",
   col_types = readr::cols(.default = "c")
-)
+) %>%
+  rename(`HS Combined Product Code` = `HS - Combined  Product Code`) %>%
+  rename(`HS Combined Product Description` = `HS - Combined  Product Description`)
 ## Check var length
 colnames(HS_S2)
 HS_S2 %>%
@@ -326,7 +354,7 @@ HS_S2 %>%
 
 HS_S2 <- HS_S2 %>%
   ## Add leading zeros to codes
-  add_lzs(variable = "HS - Combined  Product Code", variable.length = 6)
+  add_lzs(variable = "HS Combined Product Code", variable.length = 6)
 
 usethis::use_data(HS_S2, overwrite = TRUE)
 
@@ -335,7 +363,9 @@ usethis::use_data(HS_S2, overwrite = TRUE)
 
 HS_S3 <- readr::read_csv("data-raw/JobID-69_Concordance_HS_to_S3.CSV",
   col_types = readr::cols(.default = "c")
-)
+) %>%
+  rename(`HS Combined Product Code` = `HS - Combined  Product Code`) %>%
+  rename(`HS Combined Product Description` = `HS - Combined  Product Description`)
 ## Check var length
 colnames(HS_S3)
 HS_S3 %>%
@@ -347,7 +377,7 @@ HS_S3 %>%
 
 HS_S3 <- HS_S3 %>%
   ## Add leading zeros to codes
-  add_lzs(variable = "HS - Combined  Product Code", variable.length = 6)
+  add_lzs(variable = "HS Combined Product Code", variable.length = 6)
 
 usethis::use_data(HS_S3, overwrite = TRUE)
 
@@ -356,7 +386,9 @@ usethis::use_data(HS_S3, overwrite = TRUE)
 
 HS_S4 <- readr::read_csv("data-raw/JobID-70_Concordance_HS_to_S4.CSV",
   col_types = readr::cols(.default = "c")
-)
+) %>%
+  rename(`HS Combined Product Code` = `HS - Combined  Product Code`) %>%
+  rename(`HS Combined Product Description` = `HS - Combined  Product Description`)
 ## Check var length
 colnames(HS_S4)
 HS_S4 %>%
@@ -368,7 +400,7 @@ HS_S4 %>%
 
 HS_S4 <- HS_S4 %>%
   ## Add leading zeros to codes
-  add_lzs(variable = "HS - Combined  Product Code", variable.length = 6)
+  add_lzs(variable = "HS Combined Product Code", variable.length = 6)
 
 usethis::use_data(HS_S4, overwrite = TRUE)
 

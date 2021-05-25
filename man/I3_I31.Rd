@@ -7,31 +7,18 @@
 \format{
 A data frame with 562   rows and 4 variables:
 \describe{
-\item{ISIC Revision 3 Combined Product Code}{...}
-\item{ISIC Revision 3.1 Combined Product Code}{...}
-\item{ISIC Revision 3.1 Combined Product Description}{...}
-}
-
-A data frame with 562   rows and 4 variables:
-\describe{
-\item{ISIC Revision 3.2 Combined Product Code}{...}
-\item{ISIC Revision 3 Combined Product Code}{...}
-\item{ISIC Revision 3 Combined Product Description}{...}
+\item{ISIC Revision 3 Product Code}{...}
+\item{ISIC Revision 3.1 Product Code}{...}
+\item{ISIC Revision 3.1 Product Description}{...}
 }
 }
 \source{
 \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
-
-\url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
 }
 \usage{
-I3_I31
-
 I3_I31
 }
 \description{
 Concordance table between \verb{ISIC Rev.3} (\code{I3}) and  \verb{ISIC Rev.3.1} (\code{I3.1}).
-
-Concordance table between  \verb{ISIC Rev.3.1} (\code{I3.1}) and \verb{ISIC Rev.3} (\code{I3}).
 }
 \keyword{datasets}

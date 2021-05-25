@@ -7,10 +7,10 @@
 \format{
 A data frame with 2,016 rows and 4 variables:
 \describe{
-\item{SITC Revision 3 Combined Product Code}{...}
-\item{SITC Revision 3 Combined Product Description}{...}
-\item{SITC Revision 1 Combined Product Code}{...}
-\item{SITC Revision 1 Combined Product Description}{...}
+\item{SITC Revision 3 Product Code}{...}
+\item{SITC Revision 3 Product Description}{...}
+\item{SITC Revision 1 Product Code}{...}
+\item{SITC Revision 1 Product Description}{...}
 }
 }
 \source{

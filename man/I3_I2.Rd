@@ -7,9 +7,9 @@
 \format{
 A data frame with 586  rows and 4 variables:
 \describe{
-\item{ISIC Revision 3 Combined Product Code}{...}
-\item{ISIC Revision 2 Combined Product Code}{...}
-\item{ISIC Revision 2 Combined Product Description}{...}
+\item{ISIC Revision 3 Product Code}{...}
+\item{ISIC Revision 2 Product Code}{...}
+\item{ISIC Revision 2 Product Description}{...}
 }
 }
 \source{

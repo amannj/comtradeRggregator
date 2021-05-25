@@ -3,13 +3,13 @@
 \docType{data}
 \name{I31_I4}
 \alias{I31_I4}
-\title{I3 to 42 Categories Concordance Table}
+\title{I3 to I4 Categories Concordance Table}
 \format{
 A data frame with 586  rows and 4 variables:
 \describe{
-\item{ISIC Revision 3 Combined Product Code}{...}
-\item{ISIC Revision 4 Combined Product Code}{...}
-\item{ISIC Revision 4 Combined Product Description}{...}
+\item{ISIC Revision 3.1 Product Code}{...}
+\item{ISIC Revision 4 Product Code}{...}
+\item{ISIC Revision 4 Product Description}{...}
 }
 }
 \source{

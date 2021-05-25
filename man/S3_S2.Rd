@@ -3,14 +3,14 @@
 \docType{data}
 \name{S3_S2}
 \alias{S3_S2}
-\title{S3 to S1 Categories Concordance Table}
+\title{S3 to S2 Categories Concordance Table}
 \format{
 A data frame with 3,121 rows and 4 variables:
 \describe{
-\item{SITC Revision 3 Combined Product Code}{...}
-\item{SITC Revision 3 Combined Product Description}{...}
-\item{SITC Revision 2 Combined Product Code}{...}
-\item{SITC Revision 2 Combined Product Description}{...}
+\item{SITC Revision 3 Product Code}{...}
+\item{SITC Revision 3 Product Description}{...}
+\item{SITC Revision 2 Product Code}{...}
+\item{SITC Revision 2 Product Description}{...}
 }
 }
 \source{

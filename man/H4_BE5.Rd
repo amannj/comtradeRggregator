@@ -11,10 +11,10 @@ A data frame with 5,205 rows and 8 variables:
 \item{HS 2012 Product Description}{...}
 \item{BEC 5 Product Category}{Broad Economic Categories.}
 \item{BEC 5 Code}{...}
-\item{BEC 5 End-user dimension}{ SNA end-user dimension}
-\item{BEC 5 Processing dimension}{...}
-\item{BEC 5 Specification dimension}{...}
-\item{BEC 5 Durability dimension}{...}
+\item{BEC 5 End-user Dimension}{SNA end-user dimension}
+\item{BEC 5 Processing Dimension}{...}
+\item{BEC 5 Specification Dimension}{...}
+\item{BEC 5 Durability Dimension}{...}
 }
 }
 \source{
@@ -24,6 +24,6 @@ A data frame with 5,205 rows and 8 variables:
 H4_BE5
 }
 \description{
-Concordance table between \verb{HS 2012} (\code{H4}) and \verb{BEC Rev. 5} (\code{BEC}).
+Concordance table between \verb{HS 2012} (\code{H4}) and \verb{BEC Rev. 5} (\code{BEC5}).
 }
 \keyword{datasets}
