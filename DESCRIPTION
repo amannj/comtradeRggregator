@@ -24,3 +24,5 @@ Depends:
     R (>= 3.5)
 Imports: 
     stringr
+Remotes: 
+    github::amannj/comtradr@d89167f
