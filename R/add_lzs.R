@@ -1,3 +1,22 @@
+#' @title Generate Leading Zeros
+#'
+#' @description Returns vectors with `x` repeated zeros based on
+#' input vector containing `x`;
+#' @param x Numeric vector.
+#' @keywords leading zero
+#' @import dplyr comtradr tibble readr rlang
+gen_lzs <- function(x) {
+  if (is.numeric(x)) {
+    lz <- function(x) {
+      paste0(rep("0", x), collapse = "")
+    }
+    vapply(x, lz, character(1))
+  } else {
+    stop("Input argument must be of class numeric.")
+  }
+}
+
+
 #' @title Convert Comtrade Trade Data
 #'
 #' @description Adds leading zeros to variable `var` of data
@@ -20,25 +39,4 @@ add_lzs <- function(data,
     mutate(lz = paste0(gen_lzs(lz), .data[[variable]])) %>%
     mutate({{ variable }} := lz) %>%
     select(-lz)
-}
-
-
-#' @title Generate Leading Zeros
-#'
-#' @description Returns vectors with `x` repeated zeros based on
-#' input vector containing `x`;
-#' @param x Numeric vector.
-#' @keywords leading zero
-#' @import dplyr comtradr tibble readr rlang
-#' @examples
-#' gen_lzs(c(1, 2, 5))
-gen_lzs <- function(x) {
-  if (is.numeric(x)) {
-    lz <- function(x) {
-      paste0(rep("0", x), collapse = "")
-    }
-    vapply(x, lz, character(1))
-  } else {
-    stop("Input argument must be of class numeric.")
-  }
 }
