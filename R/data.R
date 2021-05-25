@@ -1320,7 +1320,7 @@
 
 #' H4 to BEC 5 Categories Concordance Table
 #'
-#' Concordance table between `HS 2012` (`H4`) and `BEC Rev. 5` (`BEC`).
+#' Concordance table between `HS 2012` (`H4`) and `BEC Rev. 5` (`BEC5`).
 #'
 #' @format A data frame with 5,205 rows and 8 variables:
 #' \describe{
@@ -1328,10 +1328,10 @@
 #'   \item{HS 2012 Product Description}{...}
 #'   \item{BEC 5 Product Category}{Broad Economic Categories.}
 #'   \item{BEC 5 Code}{...}
-#'   \item{BEC 5 End-user dimension}{ SNA end-user dimension}
-#'   \item{BEC 5 Processing dimension}{...}
-#'   \item{BEC 5 Specification dimension}{...}
-#'   \item{BEC 5 Durability dimension}{...}
+#'   \item{BEC 5 End-user Dimension}{SNA end-user dimension}
+#'   \item{BEC 5 Processing Dimension}{...}
+#'   \item{BEC 5 Specification Dimension}{...}
+#'   \item{BEC 5 Durability Dimension}{...}
 #' }
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/bec.asp}
 "H4_BE5"
@@ -1758,8 +1758,22 @@
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
 "I3_I31"
 
+#' I31 to I3 Categories Concordance Table
+#'
+#' Concordance table between `ISIC Rev.3.1` (`I3.1`) and  `ISIC Rev.3` (`I3`).
+#'
+#'
+#' @format A data frame with 316  rows and 4 variables:
+#' \describe{
+#'   \item{ISIC Revision 3.1 Product Code}{...}
+#'   \item{ISIC Revision 3 Product Code}{...}
+#'   \item{ISIC Revision 3 Product Description}{...}
+#' }
+#' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+"I31_I3"
 
-#' I3 to 42 Categories Concordance Table
+
+#' I3 to I4 Categories Concordance Table
 #'
 #' Concordance table between `ISIC Rev.3.1` (`I3.1`) and  `ISIC Rev.4` (`I4`).
 #'
@@ -1774,16 +1788,3 @@
 "I31_I4"
 
 
-#' I31 to Categories Concordance Table
-#'
-#' Concordance table between  `ISIC Rev.3.1` (`I3.1`) and `ISIC Rev.3` (`I3`).
-#'
-#'
-#' @format A data frame with 562   rows and 4 variables:
-#' \describe{
-#'   \item{ISIC Revision 3.1 Product Code}{...}
-#'   \item{ISIC Revision 3 Product Code}{...}
-#'   \item{ISIC Revision 3 Product Description}{...}
-#' }
-#' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
-"I3_I31"
