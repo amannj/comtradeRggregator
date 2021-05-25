@@ -1609,8 +1609,8 @@
 #'
 #' @format A data frame with 1,312 rows and 4 variables:
 #' \describe{
-#'   \item{SITC Revision 1 Combined Product Code}{...}
-#'   \item{SITC Revision 1 Combined Product Description}{...}
+#'   \item{SITC Revision 1 Product Code}{...}
+#'   \item{SITC Revision 1 Product Description}{...}
 #'   \item{BEC Product Code}{...}
 #'   \item{BEC Product Description}{...}
 #' }
@@ -1624,8 +1624,8 @@
 #'
 #' @format A data frame with 1,312 rows and 4 variables:
 #' \describe{
-#'   \item{SITC Revision 2 Combined Product Code}{...}
-#'   \item{SITC Revision 2 Combined Product Description}{...}
+#'   \item{SITC Revision 2 Product Code}{...}
+#'   \item{SITC Revision 2 Product Description}{...}
 #'   \item{BEC Product Code}{...}
 #'   \item{BEC Product Description}{...}
 #' }
@@ -1639,8 +1639,8 @@
 #'
 #' @format A data frame with 1,312 rows and 4 variables:
 #' \describe{
-#'   \item{SITC Revision 2 Combined Product Code}{...}
-#'   \item{SITC Revision 2 Combined Product Description}{...}
+#'   \item{SITC Revision 2 Product Code}{...}
+#'   \item{SITC Revision 2 Product Description}{...}
 #'   \item{ISIC Revision 2 Product Code}{...}
 #'   \item{ISIC Revision 2 Product Description}{...}
 #' }
@@ -1656,10 +1656,10 @@
 #'
 #' @format A data frame with 2,016 rows and 4 variables:
 #' \describe{
-#'   \item{SITC Revision 2 Combined Product Code}{...}
-#'   \item{SITC Revision 2 Combined Product Description}{...}
-#'   \item{SITC Revision 1 Combined Product Code}{...}
-#'   \item{SITC Revision 1 Combined Product Description}{...}
+#'   \item{SITC Revision 2 Product Code}{...}
+#'   \item{SITC Revision 2 Product Description}{...}
+#'   \item{SITC Revision 1 Product Code}{...}
+#'   \item{SITC Revision 1 Product Description}{...}
 #' }
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "S2_S1"
@@ -1673,16 +1673,16 @@
 #'
 #' @format A data frame with 2,016 rows and 4 variables:
 #' \describe{
-#'   \item{SITC Revision 3 Combined Product Code}{...}
-#'   \item{SITC Revision 3 Combined Product Description}{...}
-#'   \item{SITC Revision 1 Combined Product Code}{...}
-#'   \item{SITC Revision 1 Combined Product Description}{...}
+#'   \item{SITC Revision 3 Product Code}{...}
+#'   \item{SITC Revision 3 Product Description}{...}
+#'   \item{SITC Revision 1 Product Code}{...}
+#'   \item{SITC Revision 1 Product Description}{...}
 #' }
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "S3_S1"
 
 
-#' S3 to S1 Categories Concordance Table
+#' S3 to S2 Categories Concordance Table
 #'
 #' Concordance table between `SITC Rev.3` (`S3`) and  `SITC Rev.2` (`S2`). Product descriptions taken
 #' from WITS' `HS combined` concordance tables (\url{https://wits.worldbank.org/product_concordance.html}).
@@ -1690,10 +1690,10 @@
 #'
 #' @format A data frame with 3,121 rows and 4 variables:
 #' \describe{
-#'   \item{SITC Revision 3 Combined Product Code}{...}
-#'   \item{SITC Revision 3 Combined Product Description}{...}
-#'   \item{SITC Revision 2 Combined Product Code}{...}
-#'   \item{SITC Revision 2 Combined Product Description}{...}
+#'   \item{SITC Revision 3 Product Code}{...}
+#'   \item{SITC Revision 3 Product Description}{...}
+#'   \item{SITC Revision 2 Product Code}{...}
+#'   \item{SITC Revision 2 Product Description}{...}
 #' }
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "S3_S2"
@@ -1706,9 +1706,9 @@
 #'
 #' @format A data frame with 586  rows and 4 variables:
 #' \describe{
-#'   \item{ISIC Revision 2 Combined Product Code}{...}
-#'   \item{ISIC Revision 3 Combined Product Code}{...}
-#'   \item{ISIC Revision 3 Combined Product Description}{...}
+#'   \item{ISIC Revision 2 Product Code}{...}
+#'   \item{ISIC Revision 3 Product Code}{...}
+#'   \item{ISIC Revision 3 Product Description}{...}
 #' }
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
 "I2_I3"
@@ -1721,9 +1721,9 @@
 #'
 #' @format A data frame with 562   rows and 4 variables:
 #' \describe{
-#'   \item{ISIC Revision 2 Combined Product Code}{...}
-#'   \item{ISIC Revision 3.1 Combined Product Code}{...}
-#'   \item{ISIC Revision 3.1 Combined Product Description}{...}
+#'   \item{ISIC Revision 2 Product Code}{...}
+#'   \item{ISIC Revision 3.1 Product Code}{...}
+#'   \item{ISIC Revision 3.1 Product Description}{...}
 #' }
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
 "I2_I31"
@@ -1736,9 +1736,9 @@
 #'
 #' @format A data frame with 586  rows and 4 variables:
 #' \describe{
-#'   \item{ISIC Revision 3 Combined Product Code}{...}
-#'   \item{ISIC Revision 2 Combined Product Code}{...}
-#'   \item{ISIC Revision 2 Combined Product Description}{...}
+#'   \item{ISIC Revision 3 Product Code}{...}
+#'   \item{ISIC Revision 2 Product Code}{...}
+#'   \item{ISIC Revision 2 Product Description}{...}
 #' }
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
 "I3_I2"
@@ -1751,9 +1751,9 @@
 #'
 #' @format A data frame with 562   rows and 4 variables:
 #' \describe{
-#'   \item{ISIC Revision 3 Combined Product Code}{...}
-#'   \item{ISIC Revision 3.1 Combined Product Code}{...}
-#'   \item{ISIC Revision 3.1 Combined Product Description}{...}
+#'   \item{ISIC Revision 3 Product Code}{...}
+#'   \item{ISIC Revision 3.1 Product Code}{...}
+#'   \item{ISIC Revision 3.1 Product Description}{...}
 #' }
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
 "I3_I31"
@@ -1766,9 +1766,9 @@
 #'
 #' @format A data frame with 586  rows and 4 variables:
 #' \describe{
-#'   \item{ISIC Revision 3 Combined Product Code}{...}
-#'   \item{ISIC Revision 4 Combined Product Code}{...}
-#'   \item{ISIC Revision 4 Combined Product Description}{...}
+#'   \item{ISIC Revision 3 Product Code}{...}
+#'   \item{ISIC Revision 4 Product Code}{...}
+#'   \item{ISIC Revision 4 Product Description}{...}
 #' }
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
 "I31_I4"
@@ -1781,9 +1781,9 @@
 #'
 #' @format A data frame with 562   rows and 4 variables:
 #' \describe{
-#'   \item{ISIC Revision 3.2 Combined Product Code}{...}
-#'   \item{ISIC Revision 3 Combined Product Code}{...}
-#'   \item{ISIC Revision 3 Combined Product Description}{...}
+#'   \item{ISIC Revision 3.1 Product Code}{...}
+#'   \item{ISIC Revision 3 Product Code}{...}
+#'   \item{ISIC Revision 3 Product Description}{...}
 #' }
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
 "I3_I31"
