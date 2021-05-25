@@ -6,9 +6,12 @@ library(comtradeRggregator) # load package
 
 
 test_that("build_Comtrade returns object 1 to 1 if no arguments are invoked", {
-  df <- tibble(a = c(1, 2, 3))
-  loc <- "C:/Users/juerg/Desktop/tmp/tests"
+  loc_path <- system.file(package = "comtradeRggregator")
+  loc <- paste0(loc_path, "/tests-data")
   dir.create(loc)
+
+
+  df <- tibble(a = c(1, 2, 3))
   saveRDS(df, paste0(loc, "/df.rds"))
 
   out <- build_Comtrade(
@@ -19,6 +22,8 @@ test_that("build_Comtrade returns object 1 to 1 if no arguments are invoked", {
   )
 
   expect_s3_class(out, "data.frame")
+
+  unlink(loc, recursive = TRUE)
 })
 
 
