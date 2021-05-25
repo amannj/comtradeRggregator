@@ -22,7 +22,9 @@
 #' @import dplyr comtradr tibble readr rlang
 #' @examples
 #' rm_temporaryFiles(location.temporaryFiles = NULL)
-#' rm_temporaryFiles(location.temporaryFiles = "<your-temporary-download-directory>S")
+#' \dontrun{
+#' rm_temporaryFiles(location.temporaryFiles = "<your-temporary-download-directory>")
+#' }
 rm_temporaryFiles <- function(location.temporaryFiles = NULL) {
 
   ## Obtain location of temporary directory
