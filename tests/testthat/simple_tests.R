@@ -703,7 +703,7 @@ download_Comtrade(
   sleep = 5
 ) -> DE_World_H4
 
-codes <- c('BE', 'BE5', "H0", "H1", "H2", "H3", "S1", "S2", "S3", "S4")
+codes <- c('BE', 'BE5', 'GTAP', 'CPC', "H0", "H1", "H2", "H3", 'I31','I4', "S1", "S2", "S3", "S4")
 for (c in codes) {
   DE_World_H4 %>%
     convert_Comtrade(
