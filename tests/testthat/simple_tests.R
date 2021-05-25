@@ -4,6 +4,7 @@
 #                          ref = "master",
 #                          auth_token = "..."
 # )
+covr::codecov(token = "625f5add-28a3-4c5b-9964-a1d71a14258d")
 library(comtradeRggregator)
 
 ## Please update to use your own when testing
@@ -701,24 +702,20 @@ download_Comtrade(
   direction = "all",
   sleep = 5
 ) -> DE_World_H4
-DE_World_H4 %>%
-  convert_Comtrade(
-    classification.from = "H4",
-    commodity.code = "commodity_code",
-    classification.to = "I3"
-  )
 
-codes <- c("H0", "H1", "H2", "H3", "S1", "S2", "S3", "S4")
+codes <- c('BE', 'BE5', "H0", "H1", "H2", "H3", "S1", "S2", "S3", "S4")
 for (c in codes) {
   DE_World_H4 %>%
     convert_Comtrade(
-      classification = "classification",
+      classification.from = "H4",
       commodity.code = "commodity_code",
       classification.to = c
     ) -> out
   message("\n-------------------\n HS4 to ", c, "\n-------------------\n")
   print(out)
 }
+
+
 AT_World_H3 %>%
   convert_Comtrade(
     classification.from = "H3",
