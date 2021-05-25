@@ -13,7 +13,8 @@ is.strsclr(x)
 Boolean expression.
 }
 \description{
-Evaluates if passed object \code{x} is a string scalar, i.e. a a character string of length 1.
+Evaluates if passed object \code{x} is a string scalar,
+i.e. a a character string of length 1.
 }
 \examples{
 is.strsclr("1")

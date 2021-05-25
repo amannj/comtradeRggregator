@@ -3,7 +3,7 @@
 \docType{data}
 \name{H4_BE}
 \alias{H4_BE}
-\title{H4 to H0 Categories Concordance Table}
+\title{H4 to BEC 4 Categories Concordance Table}
 \format{
 A data frame with 5,283 rows and 2 variables:
 \describe{

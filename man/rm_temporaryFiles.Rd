@@ -7,12 +7,18 @@
 rm_temporaryFiles(location.temporaryFiles = NULL)
 }
 \arguments{
-\item{location.temporaryFiles}{Location of temporary file downloads; default is \verb{<your package directory>\\data\\tmp\\<date-and-time-stamp>};
-if you decide to use a different location, an alternative temporary folder needs to be created first.}
+\item{location.temporaryFiles}{Location of temporary file
+downloads; default is
+\verb{<your package directory>\\data\\tmp\\<date-and-time-stamp>};
+if you decide to use a different location, an alternative
+temporary folder needs to be created first.}
 }
 \description{
-Remove all temporary files and download directories created by \code{download_Comtrade()}.
-Run this In case in \code{download_Comtrade()} had been set to \code{rm.temporaryFiles = FALSE} but you now wish to remove  all temporary files and directories.
+Remove all temporary files and download
+directories created by \code{download_Comtrade()}.
+Run this In case in \code{download_Comtrade()} had been set
+to \code{rm.temporaryFiles = FALSE} but you now wish to
+remove  all temporary files and directories.
 }
 \examples{
 rm_temporaryFiles(location.temporaryFiles = NULL)

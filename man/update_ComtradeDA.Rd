@@ -10,19 +10,29 @@ update_ComtradeDA(
 )
 }
 \arguments{
-\item{directory}{Location of Comtrade Data Availability file; default is \verb{data/Comtrade_DataAvailability/}}
+\item{directory}{Location of Comtrade Data Availability file; default is
+\verb{data/}}
 
-\item{file}{Name of file containing information on Comtrade's data availability; default is \verb{Comtrade_DataAvailability-<date stamp>}.}
+\item{file}{Name of file containing information on Comtrade's data availability;
+default is \verb{Comtrade_DataAvailability-<date stamp>}.}
 }
 \description{
-Extract or validate list of exporters for which in a given period (year or year-month) and trade classification data is available.
-Data availability varies by country and classification, and new trade data is released/revised very frequently on \href{https://comtrade.un.org/}{Comtrade}.
+Extract or validate list of exporters for which in a
+given period (year or year-month) and trade classification data
+is available.
+Data availability varies by country and classification, and new
+trade data is released/revised very frequently on
+\href{https://comtrade.un.org/}{Comtrade}.
 \code{comtradeRggregator} uses trade information corresponding to
-\href{https://comtrade.un.org/data/da}{official Comtrade data availability} which it updates once a day and stores locally on your machine:
-\verb{<your local package location>/data/Comtrade_DataAvailability/Comtrade_DataAvailability-<date stamp>.csv.gz}
-The locally stored Comtrade Data Availability file is used in every \code{download_Comtrade()} data query.
-In other words, if new data becomes available and is documented in the \href{https://comtrade.un.org/data/da}{official Comtrade data availability file},
-\code{comtradeRggregator} will use this information no later than 24 hours after its publication.
+\href{https://comtrade.un.org/data/da}{official Comtrade data availability}
+which it updates once a day and stores locally on your machine:
+\verb{<your local package location>/data/Comtrade_DataAvailability-<date stamp>.csv.gz}
+The locally stored Comtrade Data Availability file is used in
+every \code{download_Comtrade()} data query.
+In other words, if new data becomes available and is documented in the
+\href{https://comtrade.un.org/data/da}{official Comtrade data availability file},
+\code{comtradeRggregator} will use this information no later than 24
+hours after its publication.
 }
 \keyword{Comtrade}
 \keyword{availability}

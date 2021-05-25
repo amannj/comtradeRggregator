@@ -11,10 +11,13 @@ check_args(is, ok, arg)
 
 \item{ok}{Object passing expected argument(s).}
 
-\item{arg}{Name of parameter evaluated; needed for return error message}
+\item{arg}{Name of parameter evaluated; needed for return
+error message}
 }
 \description{
-Evaluates if input arguments for function  \code{download_Comtrade()} provided to parameter \code{.is} match expected arguments provided to parameter \code{.ok}.
+Evaluates if input arguments for function
+\code{download_Comtrade()} provided to parameter \code{.is} match
+expected arguments provided to parameter \code{.ok}.
 }
 \examples{
 check_args(is = c("a"), ok = ("a"), arg = "test")

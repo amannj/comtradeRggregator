@@ -11,10 +11,12 @@ add_lzs(data, variable, variable.length)
 
 \item{variable}{Name of variable to be transformed.}
 
-\item{variable.length}{The desired length of variable \code{variable}; i.e. \code{nchar(length.variable)}.}
+\item{variable.length}{The desired length of variable
+\code{variable}; i.e. \code{nchar(length.variable)}.}
 }
 \description{
-Adds leading zeros to variable \code{var} of data frame such that \code{nchar(var) = length}.
+Adds leading zeros to variable \code{var} of data
+frame such that \code{nchar(var) = length}.
 }
 \examples{
 df <- tibble(var = c("1", "11", "111"))
