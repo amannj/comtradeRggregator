@@ -10,6 +10,7 @@ Description: The goal of the `comtradeRggregator` package is to provide a simple
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+LazyDataCompression: xz 
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Suggests: 
