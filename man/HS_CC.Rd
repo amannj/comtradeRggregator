@@ -7,8 +7,8 @@
 \format{
 A data frame with 5,205 rows and 4 variables:
 \describe{
-\item{HS - Combined  Product Code}{...}
-\item{HS - Combined  Product Description}{...}
+\item{HS Combined Product Code}{...}
+\item{HS Combined Product Description}{...}
 \item{CCCN Product Code}{...}
 \item{CCCN Product Description}{...}
 }

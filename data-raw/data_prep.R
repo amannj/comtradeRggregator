@@ -1607,7 +1607,7 @@ usethis::use_data(H3_S4, overwrite = TRUE)
 
 # H4 ------------
 
-## H4 to BE   -----------------
+## H4 to BE4   -----------------
 
 H4_BE <- readxl::read_excel("data-raw/HS 2012 to BEC Correlation and conversion tables.xls",
   skip = 5
@@ -1647,7 +1647,34 @@ H4_BE5 <- readxl::read_excel("data-raw/HS2012-17-BEC5 -- 08 Nov 2018.xlsx") %>%
 usethis::use_data(H4_BE5, overwrite = TRUE)
 
 
-## H4 to H0 -----------------
+
+## H4 to CP -----------------
+
+H4_CP <- readxl::read_excel("data-raw/HS2012-17-BEC5 -- 08 Nov 2018.xlsx") %>%
+  select(
+    `HS 2012 Product Code` = `HS6`,
+    `HS 2012 Product Description` = `HS6Desc`,
+    `CPC Product Code` = `CPC1`,
+    `CPC Product Description` = `CPCdesc`)
+
+usethis::use_data(H4_CP, overwrite = TRUE)
+
+
+## H4 to GP -----------------
+
+H4_GP <- readxl::read_excel("data-raw/HS2012-17-BEC5 -- 08 Nov 2018.xlsx") %>%
+  select(
+    `HS 2012 Product Code` = `HS6`,
+    `HS 2012 Product Description` = `HS6Desc`,
+    `GTAP Product Code` = `GTAPcode`,
+    `GTAP Product` = `GTAP`,
+    `GTAP Product Description` = `GTAPdesc`)
+
+usethis::use_data(H4_GP, overwrite = TRUE)
+
+
+
+# H4 to H0 -----------------
 
 H4_H0 <- readxl::read_excel("data-raw/HS 2012 to HS 1992 Correlation and conversion tables.xls",
   skip = 5
@@ -1809,6 +1836,33 @@ H4_H3 <- H4_H3 %>%
   select(starts_with("HS 2012"), starts_with("HS 2007"))
 
 usethis::use_data(H4_H3, overwrite = TRUE)
+
+
+## H4 to I3.1   -----------------
+
+H4_I31 <- readxl::read_excel("data-raw/HS2012-17-BEC5 -- 08 Nov 2018.xlsx") %>%
+  select(
+    `HS 2012 Product Code` = `HS6`,
+    `HS 2012 Product Description` = `HS6Desc`,
+    `ISIC Revision 3.1 Product Code` = `i3`,
+    `ISIC Revision 3.1 Product Description` = `i31Desc`
+  )
+
+usethis::use_data(H4_I31, overwrite = TRUE)
+
+
+## H4 to I4   -----------------
+
+H4_I4 <- readxl::read_excel("data-raw/HS2012-17-BEC5 -- 08 Nov 2018.xlsx") %>%
+  select(
+    `HS 2012 Product Code` = `HS6`,
+    `HS 2012 Product Description` = `HS6Desc`,
+    `ISIC Revision 4 Product Code` = `i4`,
+    `ISIC Revision 4 Product Description` = `i4Desc`
+  )
+
+usethis::use_data(H4_I4, overwrite = TRUE)
+
 
 
 ## H4 to S1 -----------------

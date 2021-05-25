@@ -1318,6 +1318,7 @@
 #' @source \url{https://unstats.un.org/unsd/classifications/Econ#Correspondences}
 "H4_BE"
 
+
 #' H4 to BEC 5 Categories Concordance Table
 #'
 #' Concordance table between `HS 2012` (`H4`) and `BEC Rev. 5` (`BEC5`).
@@ -1335,6 +1336,38 @@
 #' }
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/bec.asp}
 "H4_BE5"
+
+
+
+#' H4 to CPC Concordance Table
+#'
+#' Concordance table between `HS 2012` (`H4`)and `CPC`
+#'
+#' @format A data frame with 5,205 rows and 4 variables:
+#' \describe{
+#'   \item{HS 2012 Product Code}{...}
+#'   \item{HS 2012 Product Description}{...}
+#'   \item{CPC Product Code}{...}
+#'   \item{CPC Product Description}{...}
+#' }
+#' @source \url{https://unstats.un.org/unsd/trade/classifications/bec.asp}
+"H4_CP"
+
+
+#' H4 to GTAP Concordance Table
+#'
+#' Concordance table between `HS 2012` (`H4`) and `GTAP`
+#'
+#' @format A data frame with 5,205 rows and 5 variables:
+#' \describe{
+#'   \item{HS 2012 Product Code}{...}
+#'   \item{HS 2012 Product Description}{...}
+#'   \item{GTAP Product Code}{...}
+#'   \item{GTAP Product}{...}
+#'   \item{GTAP Product Description}{...}
+#' }
+#' @source \url{https://unstats.un.org/unsd/trade/classifications/bec.asp}
+"H4_GP"
 
 
 #' H4 to H0 Categories Concordance Table
@@ -1399,6 +1432,37 @@
 #' }
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
 "H4_H3"
+
+
+
+
+#' H4 to I3.1 Categories Concordance Table
+#'
+#' Concordance table between `HS 2012` (`H4`) and `ISIC Rev. 3.1` (`I3.1`).
+#'
+#' @format A data frame with 5,205 rows and 4 variables:
+#' \describe{
+#'   \item{HS 2012 Product Code}{...}
+#'   \item{HS 2012 Product Description}{...}
+#'   \item{ISIC Revision 3.1 Code}{...}
+#'   \item{ISIC Revision 3.1 Description}{...}
+#' }
+#' @source \url{https://unstats.un.org/unsd/trade/classifications/bec.asp}
+"H4_I31"
+
+#' H4 to H3 Categories Concordance Table
+#'
+#' Concordance table between `HS 2012` (`H4`) and `ISIC Rev. 4` (`I4`).
+#'
+#' @format A data frame with 5,205 rows and 4 variables:
+#' \describe{
+#'   \item{HS 2012 Product Code}{...}
+#'   \item{HS 2012 Product Description}{...}
+#'   \item{ISIC Revision 4 Code}{...}
+#'   \item{ISIC Revision 4 Description}{...}
+#' }
+#' @source \url{https://unstats.un.org/unsd/trade/classifications/bec.asp}
+"H4_I4"
 
 
 #' H4 to S1 Categories Concordance Table
