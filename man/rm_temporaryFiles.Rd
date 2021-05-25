@@ -20,8 +20,4 @@ Run this In case in \code{download_Comtrade()} had been set
 to \code{rm.temporaryFiles = FALSE} but you now wish to
 remove  all temporary files and directories.
 }
-\examples{
-rm_temporaryFiles(location.temporaryFiles = NULL)
-rm_temporaryFiles(location.temporaryFiles = "<your-temporary-download-directory>S")
-}
 \keyword{remove}
