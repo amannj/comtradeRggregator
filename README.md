@@ -85,7 +85,7 @@ download and reclassification that are absent from either the
 | SITC Revision 2                                               | `SITCrev2`, `S2`                                     | `TOTAL`,`AG1`, `AG2`, `AG3`, `AG4`, `AG5`          |
 | SITC Revision 3                                               | `SITCrev3`, `S3`                                     | `TOTAL`,`AG1`, `AG2`, `AG3`, `AG4`, `AG5`          |
 | SITC Revision 4                                               | `SITCrev4`, `S4`                                     | `TOTAL`,`AG1`, `AG2`, `AG3`, `AG4`, `AG5`          |
-| Broad Economic Categories                                     | `BEC`                                                | `TOTAL`,`AG1`, `AG2`, `AG3`                        |
+| Broad Economic Categories Rev. 4                              | `BEC`, `BEC4`                                        | `TOTAL`,`AG1`, `AG2`, `AG3`                        |
 | ~~Extended Balance of Payments Services Classification~~      | ~~`EB02`~~                                           | ~~`TOTAL`, `ALL`~~                                 |
 
 -   Supports extraction of `annual` as well as `monthly`
@@ -119,7 +119,7 @@ From…
 </div>
 
 </th>
-<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="19">
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="20">
 
 <div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
 
@@ -130,7 +130,18 @@ From…
 </th>
 </tr>
 <tr>
-<th style="empty-cells: hide;border-bottom:hidden;" colspan="5">
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="1">
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2">
+
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+
+BEC
+
+</div>
+
+</th>
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="3">
 </th>
 <th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="5">
 
@@ -166,7 +177,10 @@ SITC
 <th style="text-align:left;">
 </th>
 <th style="text-align:left;">
-BEC
+BEC4
+</th>
+<th style="text-align:left;">
+BEC5
 </th>
 <th style="text-align:left;">
 CCCN
@@ -226,7 +240,7 @@ S4
 </thead>
 <tbody>
 <tr grouplength="7">
-<td colspan="20" style="border-bottom: 1px solid;">
+<td colspan="21" style="border-bottom: 1px solid;">
 <strong>Harmonised System (HS)</strong>
 </td>
 </tr>
@@ -236,6 +250,9 @@ HS
 </td>
 <td style="text-align:left;">
 W
+</td>
+<td style="text-align:left;">
+.
 </td>
 <td style="text-align:left;">
 W
@@ -300,6 +317,9 @@ H0
 W
 </td>
 <td style="text-align:left;">
+.
+</td>
+<td style="text-align:left;">
 W
 </td>
 <td style="text-align:left;">
@@ -360,6 +380,9 @@ H1
 </td>
 <td style="text-align:left;">
 W
+</td>
+<td style="text-align:left;">
+.
 </td>
 <td style="text-align:left;">
 W
@@ -424,6 +447,9 @@ H2
 W
 </td>
 <td style="text-align:left;">
+.
+</td>
+<td style="text-align:left;">
 W
 </td>
 <td style="text-align:left;">
@@ -484,6 +510,9 @@ H3
 </td>
 <td style="text-align:left;">
 W
+</td>
+<td style="text-align:left;">
+.
 </td>
 <td style="text-align:left;">
 W
@@ -548,10 +577,7 @@ H4
 U
 </td>
 <td style="text-align:left;">
-.
-</td>
-<td style="text-align:left;">
-.
+U
 </td>
 <td style="text-align:left;">
 .
@@ -569,7 +595,10 @@ U
 U
 </td>
 <td style="text-align:left;">
-.
+U
+</td>
+<td style="text-align:left;">
+U
 </td>
 <td style="text-align:left;">
 .
@@ -581,7 +610,10 @@ U
 .
 </td>
 <td style="text-align:left;">
-.
+U
+</td>
+<td style="text-align:left;">
+U
 </td>
 <td style="text-align:left;">
 .
@@ -608,6 +640,9 @@ H5
 </td>
 <td style="text-align:left;">
 U
+</td>
+<td style="text-align:left;">
+.
 </td>
 <td style="text-align:left;">
 .
@@ -665,7 +700,7 @@ U
 </td>
 </tr>
 <tr grouplength="4">
-<td colspan="20" style="border-bottom: 1px solid;">
+<td colspan="21" style="border-bottom: 1px solid;">
 <strong>Standard International Trade Classification (SITC)</strong>
 </td>
 </tr>
@@ -730,6 +765,9 @@ W
 <td style="text-align:left;">
 .
 </td>
+<td style="text-align:left;">
+.
+</td>
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
@@ -737,6 +775,9 @@ S2
 </td>
 <td style="text-align:left;">
 W/U
+</td>
+<td style="text-align:left;">
+.
 </td>
 <td style="text-align:left;">
 .
@@ -796,6 +837,9 @@ U
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
 S3
+</td>
+<td style="text-align:left;">
+.
 </td>
 <td style="text-align:left;">
 .
@@ -916,15 +960,21 @@ S4
 <td style="text-align:left;">
 .
 </td>
+<td style="text-align:left;">
+.
+</td>
 </tr>
 <tr grouplength="3">
-<td colspan="20" style="border-bottom: 1px solid;">
+<td colspan="21" style="border-bottom: 1px solid;">
 <strong>International Standard Industrial Classification (ISIC)</strong>
 </td>
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
 I2
+</td>
+<td style="text-align:left;">
+.
 </td>
 <td style="text-align:left;">
 .
@@ -1016,6 +1066,9 @@ I3
 .
 </td>
 <td style="text-align:left;">
+.
+</td>
+<td style="text-align:left;">
 U
 </td>
 <td style="text-align:left;">
@@ -1049,6 +1102,9 @@ U
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
 I3.1
+</td>
+<td style="text-align:left;">
+.
 </td>
 <td style="text-align:left;">
 .
@@ -1190,16 +1246,23 @@ directly from [GitHub](https://github.com/amannj/comtradeRggregator),
 use:
 
 ``` r
-# Download `comtradr` to use some minor bug fixes
-devtools::install_github("amannj/comtradr",
-  ref = "sitc-bug",
-  force = TRUE
-)
-
 # Download `comtradeRggregator`; private repository, requires `auth_token`.
 devtools::install_github("amannj/comtradeRggregator",
   ref = "master",
   auth_token = "...",
+  force = TRUE
+)
+```
+
+Note that you will need
+[this](https://github.com/amannj/comtradr/tree/sitc-bug) bug fix from
+the `comtradr` package which is listed as a dependency for this package.
+Alternatively, it can be installed by running:
+
+``` r
+# Download `comtradr` to use some minor bug fixes
+devtools::install_github("amannj/comtradr",
+  ref = "sitc-bug",
   force = TRUE
 )
 ```

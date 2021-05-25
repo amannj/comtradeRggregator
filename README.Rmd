@@ -85,7 +85,7 @@ The package offers functionality to download and aggregate [Comtrade trade data]
 | SITC Revision 2                                                       | `SITCrev2`, `S2`                                                   | `TOTAL`,`AG1`, `AG2`, `AG3`, `AG4`, `AG5`          |
 | SITC Revision 3                                                       | `SITCrev3`, `S3`                                                   | `TOTAL`,`AG1`, `AG2`, `AG3`, `AG4`, `AG5`          |
 | SITC Revision 4                                                       | `SITCrev4`, `S4`                                                   | `TOTAL`,`AG1`, `AG2`, `AG3`, `AG4`, `AG5`          |
-| Broad Economic Categories                                             | `BEC`                                                              | `TOTAL`,`AG1`, `AG2`, `AG3`                        |
+| Broad Economic Categories Rev. 4                                      | `BEC`, `BEC4`                                                      | `TOTAL`,`AG1`, `AG2`, `AG3`                        |
 | ~~Extended Balance of Payments Services Classification~~              | ~~`EB02`~~                                                         | ~~`TOTAL`, `ALL`~~                                 |
 
 
@@ -100,22 +100,22 @@ The package offers functionality to download and aggregate [Comtrade trade data]
 
 ```{r concordanceTable, echo=FALSE}
 
-hs <- c("HS", "W", "W", "W", "W", "W", "W", "W", "W", "W", "W", "W", NA, NA, "W", "W", "W", "W", "W", "W")
-h0 <- c("H0", "W", "W", "W", "W", NA, NA, NA, NA, NA, "W", "W", NA, NA, "W", "W", "W", "W", "W", "W")
-h1 <- c("H1", "W", "W", "W", "W", "W/U", NA, NA, NA, NA, "W", "W", NA, NA, "W", "W", "W/U", "W/U", "W/U", "W")
-h2 <- c("H2", "W", "W", "W", "W", "W/U", "W/U", NA, NA, NA, "W", "W", NA, NA, "W", "W", "W/U", "W/U", "W/U", "W")
-h3 <- c("H3", "W", "W", "W", "W", "W/U", "W/U", "W/U", NA, NA, "W", "W", NA, NA, "W", "W", "W/U", "W/U", "W/U", "W/U")
-h4 <- c("H4", "U", NA, NA, NA, "U", "U", "U", "U", NA, NA, NA, NA, NA, NA, NA, "U", "U", "U", "U")
-h5 <- c("H5", "U", NA, NA, NA, "U", "U", "U", "U", "U", NA, paste0("x", footnote_marker_alphabet(1)), NA, NA, NA, NA, "U", "U", "U", "U")
+hs <- c("HS", "W",NA, "W", "W", "W", "W", "W", "W", "W", "W", "W", "W", NA, NA, "W", "W", "W", "W", "W", "W")
+h0 <- c("H0", "W",NA, "W", "W", "W", NA, NA, NA, NA, NA, "W", "W", NA, NA, "W", "W", "W", "W", "W", "W")
+h1 <- c("H1", "W",NA, "W", "W", "W", "W/U", NA, NA, NA, NA, "W", "W", NA, NA, "W", "W", "W/U", "W/U", "W/U", "W")
+h2 <- c("H2", "W",NA, "W", "W", "W", "W/U", "W/U", NA, NA, NA, "W", "W", NA, NA, "W", "W", "W/U", "W/U", "W/U", "W")
+h3 <- c("H3", "W",NA, "W", "W", "W", "W/U", "W/U", "W/U", NA, NA, "W", "W", NA, NA, "W", "W", "W/U", "W/U", "W/U", "W/U")
+h4 <- c("H4", "U","U", NA, "U", "U", "U", "U", "U", "U", NA, NA, NA, "U", "U", NA, NA, "U", "U", "U", "U")
+h5 <- c("H5", "U",NA, NA, NA, NA, "U", "U", "U", "U", "U", NA, paste0("x", footnote_marker_alphabet(1)), NA, NA, NA, NA, "U", "U", "U", "U")
 
-s1 <- c("S1", "W", rep(NA, 18))
-s2 <- c("S2", "W/U", rep(NA, 8), "W", NA, NA, NA, NA, NA, "U", NA, NA, NA)
-s3 <- c("S3", rep(NA, 10), NA, NA, NA, NA, NA, "U", "U", NA, NA)
-s4 <- c("S4", rep(NA, 10), NA, NA, NA, NA, NA, NA, NA, NA, NA)
+s1 <- c("S1", "W", rep(NA, 19))
+s2 <- c("S2", "W/U", rep(NA, 9), "W", NA, NA, NA, NA, NA, "U", NA, NA, NA)
+s3 <- c("S3", rep(NA, 11), NA, NA, NA, NA, NA, "U", "U", NA, NA)
+s4 <- c("S4", rep(NA, 11), NA, NA, NA, NA, NA, NA, NA, NA, NA)
 
-i2 <- c("I2", rep(NA, 10), "U", "U", rep(NA, 7))
-i3 <- c("I3", rep(NA, 9), "U", NA, "U", rep(NA, 7))
-i31 <- c("I3.1", rep(NA, 10), "U", NA, "U", rep(NA, 6))
+i2 <- c("I2", rep(NA, 11), "U", "U", rep(NA, 7))
+i3 <- c("I3", rep(NA, 10), "U", NA, "U", rep(NA, 7))
+i31 <- c("I3.1", rep(NA, 11), "U", NA, "U", rep(NA, 6))
 
 df <- rbind(hs, h0, h1, h2, h3, h4, h5, s1, s2, s3, s4, i2, i3, i31)
 
@@ -126,7 +126,7 @@ table <- tibble(
 kable(table,
   col.names = c(
     "",
-    "BEC", "CCCN", "CPC", "GTAP",
+    "BEC4","BEC5", "CCCN", "CPC", "GTAP",
     "H0", "H1", "H2", "H3", "H4",
     "I2", "I3", "I31", "I4",
     "MTN", "SIC",
@@ -135,8 +135,8 @@ kable(table,
   escape = F
 ) %>%
   kable_styling(font_size = 11.5) %>%
-  add_header_above(c(" " = 5, "Harmonised System" = 5, "ISIC" = 4, " " = 2, "SITC" = 4)) %>%
-  add_header_above(c("From...", "...to" = 19)) %>%
+  add_header_above(c(" " = 1, "BEC" = 2, " " = 3, "Harmonised System" = 5, "ISIC" = 4, " " = 2, "SITC" = 4)) %>%
+  add_header_above(c("From...", "...to" = 20)) %>%
   pack_rows("Harmonised System (HS)", 1, 7) %>%
   pack_rows("Standard International Trade Classification (SITC)", 8, 11) %>%
   pack_rows("International Standard Industrial Classification (ISIC)", 12, 14) %>%
@@ -192,12 +192,6 @@ To install the latest development version of `comtradeRggregator` directly from 
 
 
 ```{r echo=TRUE, message=FALSE, warning=FALSE}
-# Download `comtradr` to use some minor bug fixes
-devtools::install_github("amannj/comtradr",
-  ref = "sitc-bug",
-  force = TRUE
-)
-
 # Download `comtradeRggregator`; private repository, requires `auth_token`.
 devtools::install_github("amannj/comtradeRggregator",
   ref = "master",
@@ -206,6 +200,17 @@ devtools::install_github("amannj/comtradeRggregator",
 )
 ```
 
+
+Note that you will need [this](https://github.com/amannj/comtradr/tree/sitc-bug) bug fix from the `comtradr` package which is listed as a dependency for this package. Alternatively, it can be installed by running:
+
+
+```
+# Download `comtradr` to use some minor bug fixes
+devtools::install_github("amannj/comtradr",
+  ref = "sitc-bug",
+  force = TRUE
+)
+```
 
 ------------------------------------------------------------------------
 
