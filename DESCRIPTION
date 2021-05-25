@@ -25,4 +25,4 @@ Depends:
 Imports: 
     stringr
 Remotes: 
-    github::amannj/comtradr@d89167f
+    amannj/comtradr@sitc-bug
