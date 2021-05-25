@@ -48,9 +48,9 @@
 
 #' HS to CCCN Concordance Table
 #'
-#' Concordance table between `HS Combined` (`HS`) and `CCCN`
+#' Concordance table between `HS Combined` (`HS`) and `CCCN` (`CN`)
 #'
-#' @format A data frame with 5,703 rows and 4 variables:
+#' @format A data frame with 5,205 rows and 4 variables:
 #' \describe{
 #'   \item{HS Combined Product Code}{...}
 #'   \item{HS Combined Product Description}{...}
@@ -1780,7 +1780,7 @@
 #'
 #' @format A data frame with 586  rows and 4 variables:
 #' \describe{
-#'   \item{ISIC Revision 3 Product Code}{...}
+#'   \item{ISIC Revision 3.1 Product Code}{...}
 #'   \item{ISIC Revision 4 Product Code}{...}
 #'   \item{ISIC Revision 4 Product Description}{...}
 #' }
