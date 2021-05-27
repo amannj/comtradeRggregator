@@ -5,7 +5,7 @@
 
 <!-- badges: start -->
 
-[![Status\_Badge](https://img.shields.io/badge/comtradeRggregator-v.0.01-informational)](https://github.com/amannj/comtradeRggregator)
+[![Status\_Badge](hhttps://img.shields.io/badge/comtradeRggregator-v0.0.1-blue)](https://github.com/amannj/comtradeRggregator)
 [![codecov](https://codecov.io/gh/amannj/comtradeRggregator/branch/master/graph/badge.svg?token=03GW9TJP27)](https://codecov.io/gh/amannj/comtradeRggregator)
 [![R-CMD-check](https://github.com/amannj/comtradeRggregator/workflows/R-CMD-check/badge.svg)](https://github.com/amannj/comtradeRggregator/actions)
 <!-- badges: end -->
@@ -1236,8 +1236,6 @@ Classifications](https://github.com/amannj/comtradeRggregator#trade-classificati
 for more information. For the *Standard International Trade
 Classification (SITC)* standard, `AG4` as well as `AG5` is required.
 
-------------------------------------------------------------------------
-
 ## Installation
 
 To install the latest development version of `comtradeRggregator`
@@ -1248,7 +1246,7 @@ use:
 # Download `comtradeRggregator`; private repository, requires `auth_token`.
 devtools::install_github("amannj/comtradeRggregator",
   ref = "master",
-  auth_token = "...",
+  auth_token = "....",
   force = TRUE
 )
 ```
@@ -1258,17 +1256,21 @@ Note that you will need
 the `comtradr` package which is listed as a dependency for this package.
 Alternatively, it can be installed by running:
 
-``` r
-# Download `comtradr` to use some minor bug fixes
-devtools::install_github("amannj/comtradr",
-  ref = "sitc-bug",
-  force = TRUE
-)
-```
+    # Download `comtradr` to use some minor bug fixes
+    devtools::install_github("amannj/comtradr",
+      ref = "sitc-bug",
+      force = TRUE
+    )
 
 ------------------------------------------------------------------------
 
-## Functions
+## Examples
+
+First, load the package.
+
+``` r
+library(comtradeRggregator)
+```
 
 ### `download_Comtrade()`
 
@@ -1276,14 +1278,6 @@ Function `download_Comtrade()` downloads and aggregates
 [Comtrade](https://comtrade.un.org) trade data using [Comtrade’s
 API](https://comtrade.un.org/data/doc/api/) and builds on the
 [comtradr](https://github.com/ropensci/comtradr) package.
-
-#### Examples
-
-First, load the package.
-
-``` r
-library(comtradeRggregator)
-```
 
 To download `annual` global, i.e. `World`, `commodity` trade data in
 `USD` following the `HS2007` nomenclature for `all` available trade
@@ -1395,92 +1389,9 @@ IM_DE_AT %>%
 
 #### Arguments
 
--   `year` - Year for which to extract data.
-
--   `frequency` - Frequency of data extract; either `annual` or
-    `monthly`; default is `annual`.
-
--   `month` - Optional parameter for `monthly` extract; ignored for
-    `annual` extracts; default is all 12 months if
-    `frequency = 'monthly'` while argument `monty` remains unspecified.
-
--   `countries` - Select list of countries to be extracted; default is
-    `all`.
-
--   `partners` - Specify partner country/countries or `World` (as
-    provided by Comtrade); use option `all` if you want to download
-    trade data from all available countries but not Comtrade’s `World`
-    aggregate; default is `World`.
-
-    -   If `is.mirrorData = FALSE` and `partners = 'World'`,
-        `download_Comtrade()` will download aggregated *“World”* trade
-        as provided by [Comtrade](https://comtrade.un.org).
-    -   If `is.mirrorData = TRUE` and `partners = 'World'`, no *“World”*
-        aggregate is available via [Comtrade](https://comtrade.un.org).
-        In this case, `download_Comtrade()` will download mirror trade
-        data for [all available
-        countries](https://comtrade.un.org/data/da), and creates and
-        returns an artificial ‘World’ aggregate by summing up over all
-        available countries.
-
--   `is.mirrorData` - Specifies if mirror trade data is to be extracted;
-    default is `FALSE`; set to `TRUE` to extract mirror trade data from
-    country/countries specified in argument `partners`.
-
--   For example, if `is.mirrorData = TRUE` export data from countries
-    specified in argument `countries` to countries specified in argument
-    `partners` is measured as import data from countries specified in
-    argument `countries` to countries specified in argument `partners`
-    as reported by countries specified in argument `partners`.
-
--   `tradecode` - Select trade database and classification to be
-    extracted; default is `HS2007`/`H3`; monthly trade data only
-    available following `HS` classification; the full list of possible
-    trade classifications and corresponding input arguments used in the
-    `comtradeRggregator` package are provided in table [Trade
-    Classification](https://github.com/amannj/comtradeRggregator#trade-classifications);
-    argument accepts long classification names, e.g. `HS2007`, as well
-    as abbreviation, e.g. `HS3`, as inputs.
-
--   `ag` - Level of aggregation of trade data; varies by trade data set;
-    see table [Trade
-    Classification](https://github.com/amannj/comtradeRggregator#trade-classifications)
-    for more information.
-
--   `type` - Type of trade data to be extracted (either `services` or
-    `commodities`); currently only `type = commodities` implemented.
-
--   `direction` - Direction of trade flow reported; either `imports`,
-    `exports`, `re-imports`, `re-exports` or `all`; default is `all`.
-
--   `select.stats` - Trade statistics to be reported; either
-    `trade_value_usd`, `qty_unit_code`, `qty_unit`, `alt_qty_unit_code`,
-    `alt_qty_unit`, `qty, alt_qty`, `netweight_kg`, `gross_weight_kg` or
-    `all`; default is `all`.
-
--   `token` - Set Comtrade token to increase hourly queries from
-    [Comtrade API](https://comtrade.un.org/Data/Doc/API); increases the
-    speed of large data extraction as it increases the number of queries
-    that can be run per hour.
-
--   `ext_cnt` - Number of countries extracted with each query; default
-    is 5 which is also the maximum in
-    [comtradr](https://github.com/ropensci/comtradr).
-
--   `rm.temporaryFiles` - Remove temporary download files stored at
-    location provided in argument `location.temporaryFiles`; default is
-    `TRUE`.
-
--   `location.temporaryFiles` - Location of temporary file downloads;
-    default is
-    `<your package directory>\data\tmp\<date-and-time-stamp>`; if you
-    decide to use a different location, an alternative temporary folder
-    needs to be created first.
-
--   `sleep` - Number of seconds to wait before the next Comtrade API
-    query is started; default is 5
-
-See `?download_Comtrade` for full documentation.
+For the full documentation, see the [reference
+section](https:amannj.github.io/resources/comtradeRggregator/docs/reference/download_Comtrade.html)
+or type `?download_Comtrade` in R.
 
 ------------------------------------------------------------------------
 
@@ -1573,39 +1484,9 @@ is.available_Comtrade(
 
 #### Arguments
 
--   `is.contained` - Check if a particular country (set of countries) is
-    available for a particular data set; default is `NULL` which returns
-    list of all countries available for a given data set.
-
--   `type` - Type of trade data to be extracted; either `services` or
-    `commodities`; currently only `commodities` implemented.
-
--   `is.fuzzy` - Fuzzy match of country name fragments provided in
-    `is.contained`; default is `FALSE`.
-
--   `frequency` - Frequency of data extract; either `annual` or
-    `monthly`; default is `annual`.
-
--   `month` - Optional parameter for `monthly` extract; ignored for
-    `annual` extracts; only takes one entry as monthly trade data
-    availability varies by month.
-
--   `tradecode` - Select trade database and classification to be
-    extracted; default is `HS2007`; monthly trade data only available
-    following `HS` classification; the full list of possible trade
-    classifications and their corresponding input arguments used in the
-    `comtradeRggregator` package are provided in table [Trade
-    Classifications](https://github.com/amannj/comtradeRggregator#trade-classifications).
-
--   `year` - Year for which to extract data.
-
--   `directory` - Location of directory; default is
-    `"<location of package on your system>\data"`.
-
--   `file` - Location of Comtrade Data Availability file; default is
-    `Comtrade_DataAvailability-<time and date stamp>.csv.gz`.
-
-See `?is.available_Comtrade` for full documentation.
+For the full documentation, see the [reference
+section](https:amannj.github.io/resources/comtradeRggregator/docs/reference/is.available_Comtrade.html)
+or type `?is.available_Comtrade` in R.
 
 ------------------------------------------------------------------------
 
@@ -1726,18 +1607,9 @@ download_Comtrade(
 
 #### Arguments
 
--   `classification.from` - Abbreviation of origin classification based
-    on the [Concordance
-    Table](https://github.com/amannj/comtradeRggregator#concordance-table).
-
--   `commodity.code` - Name of variable containing the commodity codes
-    corresponding to trade classification; default is ‘commodity\_code’.
-
--   `classification.to` - Abbreviation of target classification based on
-    the [Concordance
-    Table](https://github.com/amannj/comtradeRggregator#concordance-table).
-
-See `?is.available_Comtrade` for full documentation.
+For the full documentation, see the [reference
+section](https:amannj.github.io/resources/comtradeRggregator/docs/reference/convert_Comtrade.html)
+or type `?convert_Comtrade` in R.
 
 ------------------------------------------------------------------------
 
@@ -1789,29 +1661,9 @@ mirrX_AT_DE %>%
 
 #### Arguments
 
--   `directory` - Location of temporary file downloads; default is
-    `<your package directory>\data\tmp\<date-and-time-stamp>`;
-    alternatively specify the temporary download directory.
-
--   `rm.temporaryFiles` - Remove temporary download files stored at
-    location provided in argument `location.temporaryFiles`; default is
-    `TRUE`.
-
--   `is.mirrorData` - Specifies if mirror trade data is to be extracted;
-    default is `FALSE`; set to `TRUE` to extract mirror trade data from
-    country/countries specified in argument `partners`.
-
--   For example, if `is.mirrorData = TRUE` export data from countries
-    specified in argument `countries` to countries specified in argument
-    `partners` is measured as import data from countries specified in
-    argument `countries` to countries specified in argument `partners`
-    as reported by countries specified in argument `partners`.
-
--   `partners` List of partner countries. Needs to be provided if
-    `is.mirrorData = TRUE`; default is `NULL`, i.e. no mirror data
-    download.
-
-See `?build_Comtrade` for full documentation.
+For the full documentation, see the [reference
+section](https:amannj.github.io/resources/comtradeRggregator/docs/reference/build_Comtrade.html)
+or type `?build_Comtrade` in R.
 
 ------------------------------------------------------------------------
 
@@ -1834,11 +1686,9 @@ df %>% add_lzs(variable = "var", variable.length = 3)
 
 #### Arguments
 
--   `variable` - A variable name.
--   `length.variable` - The desired length of variable `variable`;
-    i.e. `nchar(length.variable)`.
-
-See `?add_lzs` for full documentation.
+For the full documentation, see the [reference
+section](https:amannj.github.io/resources/comtradeRggregator/docs/reference/add_lzs.html)
+or type `?add_lzs` in R.
 
 ------------------------------------------------------------------------
 
@@ -1859,15 +1709,11 @@ rm_temporaryFiles(location.temporaryFiles = NULL)
 #> Temporary directory already empty. Nothing to delete.
 ```
 
-#### Arguments Arguments
+#### Arguments
 
--   `location.temporaryFiles` - Location of temporary file downloads;
-    default is
-    `<your package directory>\data\tmp\<date-and-time-stamp>`;
-    alternatively specify the temporary download directory you wish to
-    remove.
-
-See `?rm_temporaryFiles` for full documentation.
+For the full documentation, see the [reference
+section](https:amannj.github.io/resources/comtradeRggregator/docs/reference/rm_temporaryFiles.html)
+or type `?rm_temporaryFiles` in R.
 
 ------------------------------------------------------------------------
 
@@ -1887,7 +1733,7 @@ See `?rm_temporaryFiles` for full documentation.
 
 ------------------------------------------------------------------------
 
-### Footnotes
+**Footnotes**
 
 <a name="fn1">1</a>: Note that we set `rm.temporaryFiles = FALSE` in the
 second query to demonstrate (i) how to [rebuild trade data set using
