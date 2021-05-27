@@ -3,16 +3,8 @@
 \docType{data}
 \name{H2_MT}
 \alias{H2_MT}
-\title{H2 to MTN Categories Concordance Table}
+\title{Concordance Table: H2 to MTN}
 \format{
-A data frame with 3,771 rows and 4 variables:
-\describe{
-\item{HS 2002 Product Code}{...}
-\item{HS 2002 Product Description}{...}
-\item{MTN Categories Product Code}{...}
-\item{MTN Categories Product Description}{...}
-}
-
 A data frame with 5,223 rows and 4 variables:
 \describe{
 \item{HS 2002 Product Code}{...}
@@ -23,17 +15,14 @@ A data frame with 5,223 rows and 4 variables:
 }
 \source{
 \url{https://wits.worldbank.org/product_concordance.html}
-
-\url{https://wits.worldbank.org/product_concordance.html}
 }
 \usage{
-H2_MT
-
 H2_MT
 }
 \description{
 Concordance table between \verb{HS 2002} (\code{H2}) and \verb{MTN Categories}
-
-Concordance table between \verb{HS 2002} (\code{H2}) and \verb{MTN Categories}
+}
+\examples{
+H2_MT
 }
 \keyword{datasets}

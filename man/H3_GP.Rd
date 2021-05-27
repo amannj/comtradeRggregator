@@ -3,7 +3,7 @@
 \docType{data}
 \name{H3_GP}
 \alias{H3_GP}
-\title{H3 to GTAP Concordance Table}
+\title{Concordance Table: H3 to GTAP}
 \format{
 A data frame with 5,052 rows and 4 variables:
 \describe{
@@ -21,5 +21,8 @@ H3_GP
 }
 \description{
 Concordance table between \verb{HS 2007} (\code{H3}) and \code{GTAP}
+}
+\examples{
+H3_GP
 }
 \keyword{datasets}

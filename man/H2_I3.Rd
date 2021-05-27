@@ -3,16 +3,8 @@
 \docType{data}
 \name{H2_I3}
 \alias{H2_I3}
-\title{H2 to ISIC Rev. 3 Concordance Table}
+\title{Concordance Table: H2 to ISIC Rev. 3}
 \format{
-A data frame with 5,113 rows and 4 variables:
-\describe{
-\item{HS 2002 Product Code}{...}
-\item{HS 2002 Product Description}{...}
-\item{ISIC Revision 3 Product Code}{...}
-\item{ISIC Revision 3 Product Description}{...}
-}
-
 A data frame with 5,224 rows and 4 variables:
 \describe{
 \item{HS 2002 Product Code}{...}
@@ -23,17 +15,14 @@ A data frame with 5,224 rows and 4 variables:
 }
 \source{
 \url{https://wits.worldbank.org/product_concordance.html}
-
-\url{https://wits.worldbank.org/product_concordance.html}
 }
 \usage{
-H2_I3
-
 H2_I3
 }
 \description{
 Concordance table between \verb{HS 2002} (\code{H2}) and \verb{ISIC Rev. 3}
-
-Concordance table between \verb{HS 2002} (\code{H2}) and \verb{ISIC Rev. 3}
+}
+\examples{
+H2_I3
 }
 \keyword{datasets}

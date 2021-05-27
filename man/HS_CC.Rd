@@ -3,7 +3,7 @@
 \docType{data}
 \name{HS_CC}
 \alias{HS_CC}
-\title{HS to CCCN Concordance Table}
+\title{Concordance Table: HS to CCCN}
 \format{
 A data frame with 5,205 rows and 4 variables:
 \describe{

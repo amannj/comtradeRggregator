@@ -3,7 +3,7 @@
 \docType{data}
 \name{H0_I2}
 \alias{H0_I2}
-\title{H0 to ISIC Rev. 2 Concordance Table}
+\title{Concordance Table: H0 to ISIC Rev. 2}
 \format{
 A data frame with 5,018 rows and 4 variables:
 \describe{
@@ -21,5 +21,8 @@ H0_I2
 }
 \description{
 Concordance table between \verb{HS 1988/92} (\code{H0}) and \verb{ISIC Rev. 2}
+}
+\examples{
+H0_I2
 }
 \keyword{datasets}

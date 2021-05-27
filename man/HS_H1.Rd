@@ -3,7 +3,7 @@
 \docType{data}
 \name{HS_H1}
 \alias{HS_H1}
-\title{HS to H1 Concordance Table}
+\title{Concordance Table: HS to H1}
 \format{
 A data frame with 5,113 rows and 4 variables:
 \describe{
@@ -21,5 +21,8 @@ HS_H1
 }
 \description{
 Concordance table between \verb{HS Combined} (\code{HS}) and \verb{HS 1996} (\code{H1})
+}
+\examples{
+HS_H1
 }
 \keyword{datasets}

@@ -20,6 +20,7 @@ download_Comtrade(
   is.mirrorData = FALSE,
   rm.temporaryFiles = TRUE,
   location.temporaryFiles = NULL,
+  build.Comtrade = TRUE,
   sleep = 5
 )
 }
@@ -53,6 +54,8 @@ download_Comtrade(
 \item{rm.temporaryFiles}{Remove temporary download files stored at location provided in argument \code{location.temporaryFiles}; default is \code{TRUE}.}
 
 \item{location.temporaryFiles}{Location of temporary file downloads; default is \verb{<your package directory>\\data\\tmp\\<date-and-time-stamp>}; if you decide to use a different location, an alternative temporary folder needs to be created first.}
+
+\item{build.Comtrade}{After having downloaded the separate temporary files (which will be saved to \code{location.temporaryFiles}), should function \code{download_Comtrade()} return a complete data object? Default is \code{TRUE}.}
 
 \item{sleep}{Number of seconds to wait before the next Comtrade API query is started; default is 20.}
 }

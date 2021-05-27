@@ -3,7 +3,7 @@
 \docType{data}
 \name{HS_BE}
 \alias{HS_BE}
-\title{HS to BEC Concordance Table}
+\title{Concordance Table: HS to BEC}
 \format{
 A data frame with 5,701 rows and 4 variables:
 \describe{
@@ -21,5 +21,8 @@ HS_BE
 }
 \description{
 Concordance table between \verb{HS Combined} (\code{HS}) and \code{BEC}
+}
+\examples{
+HS_BE
 }
 \keyword{datasets}

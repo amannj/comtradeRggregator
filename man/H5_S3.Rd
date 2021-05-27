@@ -3,7 +3,7 @@
 \docType{data}
 \name{H5_S3}
 \alias{H5_S3}
-\title{H5 to S3 Categories Concordance Table}
+\title{Concordance Table: H5 to S3}
 \format{
 A data frame with 5,386 rows and 4 variables:
 \describe{
@@ -20,5 +20,8 @@ H5_S3
 }
 \description{
 Concordance table between \verb{HS 2017} (\code{H5}) and \verb{SITC Rev.3} (\code{S3}).
+}
+\examples{
+H5_S3
 }
 \keyword{datasets}

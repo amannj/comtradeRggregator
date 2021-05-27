@@ -3,7 +3,7 @@
 \docType{data}
 \name{H0_IU}
 \alias{H0_IU}
-\title{H0 to SIC Concordance Table}
+\title{Concordance Table: H0 to SIC}
 \format{
 A data frame with 5,013 rows and 4 variables:
 \describe{
@@ -21,5 +21,8 @@ H0_IU
 }
 \description{
 Concordance table between \verb{HS 1988/92} (\code{H0}) and \code{SIC}
+}
+\examples{
+H0_IU
 }
 \keyword{datasets}

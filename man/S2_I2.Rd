@@ -3,7 +3,7 @@
 \docType{data}
 \name{S2_I2}
 \alias{S2_I2}
-\title{S2 to I2 Categories Concordance Table}
+\title{Concordance Table: S2 to I2}
 \format{
 A data frame with 1,312 rows and 4 variables:
 \describe{
@@ -21,5 +21,8 @@ S2_I2
 }
 \description{
 Concordance table between \verb{SITC Rev.2} (\code{S2}) and \verb{ISIC Rev. 2} (\code{I2}).
+}
+\examples{
+S2_I2
 }
 \keyword{datasets}

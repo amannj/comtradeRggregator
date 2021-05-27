@@ -3,16 +3,8 @@
 \docType{data}
 \name{H2_CC}
 \alias{H2_CC}
-\title{H2 to CCCN Concordance Table}
+\title{Concordance Table: H2 to CCCN}
 \format{
-A data frame with 5,111 rows and 4 variables:
-\describe{
-\item{HS 2002 Product Code}{...}
-\item{HS 2002 Product Description}{...}
-\item{CCCN Product Code}{...}
-\item{CCCN Product Description}{...}
-}
-
 A data frame with 5,222 rows and 4 variables:
 \describe{
 \item{HS 2002 Product Code}{...}
@@ -23,17 +15,14 @@ A data frame with 5,222 rows and 4 variables:
 }
 \source{
 \url{https://wits.worldbank.org/product_concordance.html}
-
-\url{https://wits.worldbank.org/product_concordance.html}
 }
 \usage{
-H2_CC
-
 H2_CC
 }
 \description{
 Concordance table between \verb{HS 2002} (\code{H2}) and \code{CCCN}
-
-Concordance table between \verb{HS 2002} (\code{H2}) and \code{CCCN}
+}
+\examples{
+H2_CC
 }
 \keyword{datasets}

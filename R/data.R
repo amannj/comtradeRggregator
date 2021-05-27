@@ -228,7 +228,7 @@
 #'   \item{SIC Product Description}{...}
 #' }
 #' @examples
-#' HS_UI
+#' HS_IU
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "HS_IU"
 
@@ -364,7 +364,7 @@
 #'   \item{CPC Product Description}{...}
 #' }
 #' @examples
-#' H0_CO
+#' H0_CP
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H0_CP"
 

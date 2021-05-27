@@ -3,7 +3,7 @@
 \docType{data}
 \name{S3_S1}
 \alias{S3_S1}
-\title{S3 to S1 Categories Concordance Table}
+\title{Concordance Table: S3 to S1}
 \format{
 A data frame with 2,016 rows and 4 variables:
 \describe{
@@ -22,5 +22,8 @@ S3_S1
 \description{
 Concordance table between \verb{SITC Rev.3} (\code{S3}) and  \verb{SITC Rev.1} (\code{S1}). Product descriptions taken
 from WITS' \verb{HS combined} concordance tables (\url{https://wits.worldbank.org/product_concordance.html}).
+}
+\examples{
+S3_S1
 }
 \keyword{datasets}

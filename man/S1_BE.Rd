@@ -3,7 +3,7 @@
 \docType{data}
 \name{S1_BE}
 \alias{S1_BE}
-\title{S1 to BE Categories Concordance Table}
+\title{Concordance Table: S1 to BE}
 \format{
 A data frame with 1,312 rows and 4 variables:
 \describe{
@@ -21,5 +21,8 @@ S1_BE
 }
 \description{
 Concordance table between \verb{SITC Rev.1} (\code{S1}) and \code{BEC}.
+}
+\examples{
+S1_BE
 }
 \keyword{datasets}

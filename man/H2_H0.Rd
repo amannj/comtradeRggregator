@@ -3,16 +3,8 @@
 \docType{data}
 \name{H2_H0}
 \alias{H2_H0}
-\title{H2 to H0 Concordance Table}
+\title{Concordance Table: H2 to H0}
 \format{
-A data frame with 5,113 rows and 4 variables:
-\describe{
-\item{HS 2002 Product Code}{...}
-\item{HS 2002 Product Description}{...}
-\item{HS 1988/92 Product Code}{...}
-\item{HS 1988/92 Product Description}{...}
-}
-
 A data frame with 5,224 rows and 4 variables:
 \describe{
 \item{HS 2002 Product Code}{...}
@@ -23,17 +15,14 @@ A data frame with 5,224 rows and 4 variables:
 }
 \source{
 \url{https://wits.worldbank.org/product_concordance.html}
-
-\url{https://wits.worldbank.org/product_concordance.html}
 }
 \usage{
-H2_H0
-
 H2_H0
 }
 \description{
 Concordance table between \verb{HS 2002} (\code{H2}) and \verb{HS 1988/92} (\code{H0})
-
-Concordance table between \verb{HS 2002} (\code{H2}) and \verb{HS 1988/92} (\code{H0})
+}
+\examples{
+H2_H0
 }
 \keyword{datasets}

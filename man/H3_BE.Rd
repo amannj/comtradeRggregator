@@ -3,7 +3,7 @@
 \docType{data}
 \name{H3_BE}
 \alias{H3_BE}
-\title{H3 to BEC Concordance Table}
+\title{Concordance Table: H3 to BEC}
 \format{
 A data frame with 5,050 rows and 4 variables:
 \describe{
@@ -21,5 +21,8 @@ H3_BE
 }
 \description{
 Concordance table between \verb{HS 2007} (\code{H3}) and \code{BEC}
+}
+\examples{
+H3_BE
 }
 \keyword{datasets}

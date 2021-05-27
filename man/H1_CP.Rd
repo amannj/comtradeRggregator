@@ -3,7 +3,7 @@
 \docType{data}
 \name{H1_CP}
 \alias{H1_CP}
-\title{H1 to CPC Concordance Table}
+\title{Concordance Table: H1 to CPC}
 \format{
 A data frame with 5,113 rows and 4 variables:
 \describe{
@@ -21,5 +21,8 @@ H1_CP
 }
 \description{
 Concordance table between \verb{HS 1996} (\code{H1}) and \code{CPC}
+}
+\examples{
+H1_CP
 }
 \keyword{datasets}

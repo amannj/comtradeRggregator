@@ -3,7 +3,7 @@
 \docType{data}
 \name{HS_GP}
 \alias{HS_GP}
-\title{HS to GTAP Concordance Table}
+\title{Concordance Table: HS to GTAP}
 \format{
 A data frame with 5,638 rows and 4 variables:
 \describe{
@@ -21,5 +21,8 @@ HS_GP
 }
 \description{
 Concordance table between \verb{HS Combined} (\code{HS}) and \code{GTAP}
+}
+\examples{
+HS_GP
 }
 \keyword{datasets}

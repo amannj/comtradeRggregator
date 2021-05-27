@@ -3,7 +3,7 @@
 \docType{data}
 \name{H4_S2}
 \alias{H4_S2}
-\title{H4 to S2 Categories Concordance Table}
+\title{Concordance Table: H4 to S2}
 \format{
 A data frame with 11,588 rows and 4 variables:
 \describe{
@@ -22,5 +22,8 @@ H4_S2
 \description{
 Concordance table between \verb{HS 2012} (\code{H4}) and \verb{SITC Rev.2} (\code{S2}). Product descriptions taken
 from WITS' \verb{HS combined} concordance tables (\url{https://wits.worldbank.org/product_concordance.html}).
+}
+\examples{
+H4_S2
 }
 \keyword{datasets}

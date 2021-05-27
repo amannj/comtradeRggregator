@@ -3,7 +3,7 @@
 \docType{data}
 \name{H3_IU}
 \alias{H3_IU}
-\title{H3 to SIC Concordance Table}
+\title{Concordance Table: H3 to SIC}
 \format{
 A data frame with 5,047 rows and 4 variables:
 \describe{
@@ -21,5 +21,8 @@ H3_IU
 }
 \description{
 Concordance table between \verb{HS 2007} (\code{H3}) and \code{SIC}
+}
+\examples{
+H3_IU
 }
 \keyword{datasets}

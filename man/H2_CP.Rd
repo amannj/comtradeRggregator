@@ -3,16 +3,8 @@
 \docType{data}
 \name{H2_CP}
 \alias{H2_CP}
-\title{H2 to CPC Concordance Table}
+\title{Concordance Table: H2 to CPC}
 \format{
-A data frame with 5,113 rows and 4 variables:
-\describe{
-\item{HS 2002 Product Code}{...}
-\item{HS 2002 Product Description}{...}
-\item{CPC Product Code}{...}
-\item{CPC Product Description}{...}
-}
-
 A data frame with 5,224 rows and 4 variables:
 \describe{
 \item{HS 2002 Product Code}{...}
@@ -23,17 +15,14 @@ A data frame with 5,224 rows and 4 variables:
 }
 \source{
 \url{https://wits.worldbank.org/product_concordance.html}
-
-\url{https://wits.worldbank.org/product_concordance.html}
 }
 \usage{
-H2_CP
-
 H2_CP
 }
 \description{
 Concordance table between \verb{HS 2002} (\code{H2}) and \code{CPC}
-
-Concordance table between \verb{HS 2002} (\code{H2}) and \code{CPC}
+}
+\examples{
+H2_CP
 }
 \keyword{datasets}

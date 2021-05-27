@@ -3,16 +3,8 @@
 \docType{data}
 \name{H2_S4}
 \alias{H2_S4}
-\title{H2 to SITC Rev. 4 Categories Concordance Table}
+\title{Concordance Table: H2 to SITC Rev. 4}
 \format{
-A data frame with 5,111 rows and 4 variables:
-\describe{
-\item{HS 2002 Product Code}{...}
-\item{HS 2002 Product Description}{...}
-\item{SITC Revision 4 Product Code}{...}
-\item{SITC Revision 4 Product Description}{...}
-}
-
 A data frame with 5,220 rows and 4 variables:
 \describe{
 \item{HS 2002 Product Code}{...}
@@ -23,17 +15,14 @@ A data frame with 5,220 rows and 4 variables:
 }
 \source{
 \url{https://wits.worldbank.org/product_concordance.html}
-
-\url{https://wits.worldbank.org/product_concordance.html}
 }
 \usage{
-H2_S4
-
 H2_S4
 }
 \description{
 Concordance table between \verb{HS 2002} (\code{H2}) and \verb{SITC Rev. 4}
-
-Concordance table between \verb{HS 2002} (\code{H2}) and \verb{SITC Rev. 4}
+}
+\examples{
+H2_S4
 }
 \keyword{datasets}

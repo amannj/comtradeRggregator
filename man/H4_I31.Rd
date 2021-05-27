@@ -3,7 +3,7 @@
 \docType{data}
 \name{H4_I31}
 \alias{H4_I31}
-\title{H4 to I3.1 Categories Concordance Table}
+\title{Concordance Table: H4 to I3.1}
 \format{
 A data frame with 5,205 rows and 4 variables:
 \describe{
@@ -21,5 +21,8 @@ H4_I31
 }
 \description{
 Concordance table between \verb{HS 2012} (\code{H4}) and \verb{ISIC Rev. 3.1} (\code{I3.1}).
+}
+\examples{
+H4_I31
 }
 \keyword{datasets}

@@ -3,7 +3,7 @@
 \docType{data}
 \name{H0_MT}
 \alias{H0_MT}
-\title{H0 to MTN Categories Concordance Table}
+\title{Concordance Table: H0 to MTN}
 \format{
 A data frame with 5,020 rows and 4 variables:
 \describe{
@@ -21,5 +21,8 @@ H0_MT
 }
 \description{
 Concordance table between \verb{HS 1988/92} (\code{H0}) and \verb{MTN Categories}
+}
+\examples{
+H0_MT
 }
 \keyword{datasets}

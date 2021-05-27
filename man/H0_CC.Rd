@@ -3,7 +3,7 @@
 \docType{data}
 \name{H0_CC}
 \alias{H0_CC}
-\title{H0 to CCCN Concordance Table}
+\title{Concordance Table: H0 to CCCN}
 \format{
 A data frame with 5,017 rows and 4 variables:
 \describe{
@@ -21,5 +21,8 @@ H0_CC
 }
 \description{
 Concordance table between \verb{HS 1988/92} (\code{H0}) and \code{CCCN}
+}
+\examples{
+H0_CC
 }
 \keyword{datasets}
