@@ -31,7 +31,7 @@
 "Comtrade_DA"
 
 
-#' HS to BEC Concordance Table
+#' Concordance Table: HS to BEC
 #'
 #' Concordance table between `HS Combined` (`HS`) and `BEC`
 #'
@@ -42,11 +42,13 @@
 #'   \item{BEC Product Code}{...}
 #'   \item{BEC Product Description}{...}
 #' }
+#' @examples
+#' HS_BE
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "HS_BE"
 
 
-#' HS to CCCN Concordance Table
+#' Concordance Table: HS to CCCN
 #'
 #' Concordance table between `HS Combined` (`HS`) and `CCCN` (`CN`)
 #'
@@ -61,7 +63,7 @@
 "HS_CC"
 
 
-#' HS to CPC Concordance Table
+#' Concordance Table: HS to CPC
 #'
 #' Concordance table between `HS Combined` (`HS`) and `CPC`
 #'
@@ -72,11 +74,13 @@
 #'   \item{CPC Product Code}{...}
 #'   \item{CPC Product Description}{...}
 #' }
+#' @examples
+#' HS_CP
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "HS_CP"
 
 
-#' HS to GTAP Concordance Table
+#' Concordance Table: HS to GTAP
 #'
 #' Concordance table between `HS Combined` (`HS`) and `GTAP`
 #'
@@ -87,11 +91,13 @@
 #'   \item{GTAP Product Code}{...}
 #'   \item{GTAP Product Description}{...}
 #' }
+#' @examples
+#' HS_GP
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "HS_GP"
 
 
-#' HS to H0 Concordance Table
+#' Concordance Table: HS to H0
 #'
 #' Concordance table between `HS Combined` (`HS`) and `HS 1988/92` (`H0`)
 #'
@@ -102,11 +108,13 @@
 #'   \item{HS 1988/92 Product Code}{...}
 #'   \item{HS 1988/92 Product Description}{...}
 #' }
+#' @examples
+#' HS_H0
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "HS_H0"
 
 
-#' HS to H1 Concordance Table
+#' Concordance Table: HS to H1
 #'
 #' Concordance table between `HS Combined` (`HS`) and `HS 1996` (`H1`)
 #'
@@ -117,11 +125,13 @@
 #'   \item{HS 1996 Product Code}{...}
 #'   \item{HS 1996 Product Description}{...}
 #' }
+#' @examples
+#' HS_H1
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "HS_H1"
 
 
-#' HS to H2 Concordance Table
+#' Concordance Table: HS to H2
 #'
 #' Concordance table between `HS Combined` (`HS`) and `HS 2002` (`H2`)
 #'
@@ -132,11 +142,13 @@
 #'   \item{HS 2002 Product Code}{...}
 #'   \item{HS 2002 Product Description}{...}
 #' }
+#' @examples
+#' HS_H2
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "HS_H2"
 
 
-#' HS to H3 Concordance Table
+#' Concordance Table: HS to H3
 #'
 #' Concordance table between `HS Combined` (`HS`) and `HS 2007` (`H3`)
 #'
@@ -147,11 +159,13 @@
 #'   \item{HS 2007 Product Code}{...}
 #'   \item{HS 2007 Product Description}{...}
 #' }
+#' @examples
+#' HS_H3
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "HS_H3"
 
 
-#' HS to H4 Concordance Table
+#' Concordance Table: HS to H4
 #'
 #' Concordance table between `HS Combined` (`HS`) and `HS 2012` (`H4`)
 #'
@@ -162,11 +176,13 @@
 #'   \item{HS 2012 Product Code}{...}
 #'   \item{HS 2012 Product Description}{...}
 #' }
+#' @examples
+#' HS_H4
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "HS_H4"
 
 
-#' HS to ISIC Rev. 2 Concordance Table
+#' Concordance Table: HS to ISIC Rev. 2
 #'
 #' Concordance table between `HS Combined` (`HS`) and `ISIC Rev. 2`
 #'
@@ -177,11 +193,13 @@
 #'   \item{ISIC Revision 2 Product Code}{...}
 #'   \item{ISIC Revision 2 Product Description}{...}
 #' }
+#' @examples
+#' HS_I2
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "HS_I2"
 
 
-#' HS to ISIC Rev. 3 Concordance Table
+#' Concordance Table: HS to ISIC Rev. 3
 #'
 #' Concordance table between `HS Combined` (`HS`) and `ISIC Rev. 3`
 #'
@@ -192,11 +210,13 @@
 #'   \item{ISIC Revision 3 Product Code}{...}
 #'   \item{ISIC Revision 3 Product Description}{...}
 #' }
+#' @examples
+#' HS_I3
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "HS_I3"
 
 
-#' HS to SIC Concordance Table
+#' Concordance Table: HS to SIC
 #'
 #' Concordance table between `HS Combined` (`HS`) and `SIC`
 #'
@@ -207,11 +227,13 @@
 #'   \item{SIC Product Code}{...}
 #'   \item{SIC Product Description}{...}
 #' }
+#' @examples
+#' HS_UI
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "HS_IU"
 
 
-#' HS to MTN Categories Concordance Table
+#' Concordance Table: HS to MTN
 #'
 #' Concordance table between `HS Combined` (`HS`) and `MTN Categories`
 #'
@@ -222,11 +244,13 @@
 #'   \item{MTN Categories Product Code}{...}
 #'   \item{MTN Categories Product Description}{...}
 #' }
+#' @examples
+#' HS_MT
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "HS_MT"
 
 
-#' HS to SITC Rev. 1 Categories Concordance Table
+#' Concordance Table: HS to SITC Rev. 1
 #'
 #' Concordance table between `HS Combined` (`HS`) and `SITC Rev. 1`
 #'
@@ -237,11 +261,13 @@
 #'   \item{SITC Revision 1 Product Code}{...}
 #'   \item{SITC Revision 1 Product Description}{...}
 #' }
+#' @examples
+#' HS_S1
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "HS_S1"
 
 
-#' HS to SITC Rev. 2 Categories Concordance Table
+#' Concordance Table: HS to SITC Rev. 2
 #'
 #' Concordance table between `HS Combined` (`HS`) and `SITC Rev. 2`
 #'
@@ -252,11 +278,13 @@
 #'   \item{SITC Revision 2 Product Code}{...}
 #'   \item{SITC Revision 2 Product Description}{...}
 #' }
+#' @examples
+#' HS_S2
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "HS_S2"
 
 
-#' HS to SITC Rev. 3 Categories Concordance Table
+#' Concordance Table: HS to SITC Rev. 3
 #'
 #' Concordance table between `HS Combined` (`HS`) and `SITC Rev. 3`
 #'
@@ -267,11 +295,13 @@
 #'   \item{SITC Revision 3 Product Code}{...}
 #'   \item{SITC Revision 3 Product Description}{...}
 #' }
+#' @examples
+#' HS_S3
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "HS_S3"
 
 
-#' HS to SITC Rev. 4 Categories Concordance Table
+#' Concordance Table: HS to SITC Rev. 4
 #'
 #' Concordance table between `HS Combined` (`HS`) and `SITC Rev. 4`
 #'
@@ -282,11 +312,13 @@
 #'   \item{SITC Revision 4 Product Code}{...}
 #'   \item{SITC Revision 4 Product Description}{...}
 #' }
+#' @examples
+#' HS_S4
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "HS_S4"
 
 
-#' H0 to BEC Concordance Table
+#' Concordance Table: H0 to BEC
 #'
 #' Concordance table between `HS 1988/92` (`H0`) and `BEC`
 #'
@@ -297,11 +329,13 @@
 #'   \item{BEC Product Code}{...}
 #'   \item{BEC Product Description}{...}
 #' }
+#' @examples
+#' H0_BE
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H0_BE"
 
 
-#' H0 to CCCN Concordance Table
+#' Concordance Table: H0 to CCCN
 #'
 #' Concordance table between `HS 1988/92` (`H0`) and `CCCN`
 #'
@@ -312,11 +346,13 @@
 #'   \item{CCCN Product Code}{...}
 #'   \item{CCCN Product Description}{...}
 #' }
+#' @examples
+#' H0_CC
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H0_CC"
 
 
-#' H0 to CPC Concordance Table
+#' Concordance Table: H0 to CPC
 #'
 #' Concordance table between `HS 1988/92` (`H0`) and `CPC`
 #'
@@ -327,11 +363,13 @@
 #'   \item{CPC Product Code}{...}
 #'   \item{CPC Product Description}{...}
 #' }
+#' @examples
+#' H0_CO
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H0_CP"
 
 
-#' H0 to GTAP Concordance Table
+#' Concordance Table: H0 to GTAPe
 #'
 #' Concordance table between `HS 1988/92` (`H0`) and `GTAP`
 #'
@@ -342,11 +380,13 @@
 #'   \item{GTAP Product Code}{...}
 #'   \item{GTAP Product Description}{...}
 #' }
+#' @examples
+#' H0_GP
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H0_GP"
 
 
-#' H0 to ISIC Rev. 2 Concordance Table
+#' Concordance Table: H0 to ISIC Rev. 2
 #'
 #' Concordance table between `HS 1988/92` (`H0`) and `ISIC Rev. 2`
 #'
@@ -357,11 +397,13 @@
 #'   \item{ISIC Revision 2 Product Code}{...}
 #'   \item{ISIC Revision 2 Product Description}{...}
 #' }
+#' @examples
+#' H0_I2
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H0_I2"
 
 
-#' H0 to ISIC Rev. 3 Concordance Table
+#' Concordance Table: H0 to ISIC Rev. 3
 #'
 #' Concordance table between `HS 1988/92` (`H0`) and `ISIC Rev. 3`
 #'
@@ -372,11 +414,13 @@
 #'   \item{ISIC Revision 3 Product Code}{...}
 #'   \item{ISIC Revision 3 Product Description}{...}
 #' }
+#' @examples
+#' H0_I3
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H0_I3"
 
 
-#' H0 to SIC Concordance Table
+#' Concordance Table: H0 to SIC
 #'
 #' Concordance table between `HS 1988/92` (`H0`) and `SIC`
 #'
@@ -387,11 +431,13 @@
 #'   \item{SIC Product Code}{...}
 #'   \item{SIC Product Description}{...}
 #' }
+#' @examples
+#' H0_IU
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H0_IU"
 
 
-#' H0 to MTN Categories Concordance Table
+#' Concordance Table: H0 to MTN
 #'
 #' Concordance table between `HS 1988/92` (`H0`) and `MTN Categories`
 #'
@@ -402,11 +448,13 @@
 #'   \item{MTN Categories Product Code}{...}
 #'   \item{MTN Categories Product Description}{...}
 #' }
+#' @examples
+#' H0_MT
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H0_MT"
 
 
-#' H0 to SITC Rev. 1 Categories Concordance Table
+#' Concordance Table: H0 to SITC Rev. 1
 #'
 #' Concordance table between `HS 1988/92` (`H0`) and `SITC Rev. 1`
 #'
@@ -417,11 +465,13 @@
 #'   \item{SITC Revision 1 Product Code}{...}
 #'   \item{SITC Revision 1 Product Description}{...}
 #' }
+#' @examples
+#' H0_S1
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H0_S1"
 
 
-#' H0 to SITC Rev. 2 Categories Concordance Table
+#' Concordance Table: H0 to SITC Rev. 2
 #'
 #' Concordance table between `HS 1988/92` (`H0`) and `SITC Rev. 2`
 #'
@@ -432,11 +482,13 @@
 #'   \item{SITC Revision 2 Product Code}{...}
 #'   \item{SITC Revision 2 Product Description}{...}
 #' }
+#' @examples
+#' H0_S2
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H0_S2"
 
 
-#' H0 to SITC Rev. 3 Categories Concordance Table
+#' Concordance Table: H0 to SITC Rev. 3
 #'
 #' Concordance table between `HS 1988/92` (`H0`) and `SITC Rev. 3`
 #'
@@ -447,11 +499,13 @@
 #'   \item{SITC Revision 3 Product Code}{...}
 #'   \item{SITC Revision 3 Product Description}{...}
 #' }
+#' @examples
+#' H0_S3
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H0_S3"
 
 
-#' H0 to SITC Rev. 4 Categories Concordance Table
+#' Concordance Table: H0 to SITC Rev. 4
 #'
 #' Concordance table between `HS 1988/92` (`H0`) and `SITC Rev. 4`
 #'
@@ -462,221 +516,13 @@
 #'   \item{SITC Revision 4 Product Code}{...}
 #'   \item{SITC Revision 4 Product Description}{...}
 #' }
+#' @examples
+#' H0_S4
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H0_S4"
 
 
-#' H2 to BEC Concordance Table
-#'
-#' Concordance table between `HS 2002` (`H2`) and `BEC`
-#'
-#' @format A data frame with 5,111 rows and 4 variables:
-#' \describe{
-#'   \item{HS 2002 Product Code}{...}
-#'   \item{HS 2002 Product Description}{...}
-#'   \item{BEC Product Code}{...}
-#'   \item{BEC Product Description}{...}
-#' }
-#' @source \url{https://wits.worldbank.org/product_concordance.html}
-"H2_BE"
-
-
-#' H2 to CCCN Concordance Table
-#'
-#' Concordance table between `HS 2002` (`H2`) and `CCCN`
-#'
-#' @format A data frame with 5,111 rows and 4 variables:
-#' \describe{
-#'   \item{HS 2002 Product Code}{...}
-#'   \item{HS 2002 Product Description}{...}
-#'   \item{CCCN Product Code}{...}
-#'   \item{CCCN Product Description}{...}
-#' }
-#' @source \url{https://wits.worldbank.org/product_concordance.html}
-"H2_CC"
-
-
-#' H2 to CPC Concordance Table
-#'
-#' Concordance table between `HS 2002` (`H2`) and `CPC`
-#'
-#' @format A data frame with 5,113 rows and 4 variables:
-#' \describe{
-#'   \item{HS 2002 Product Code}{...}
-#'   \item{HS 2002 Product Description}{...}
-#'   \item{CPC Product Code}{...}
-#'   \item{CPC Product Description}{...}
-#' }
-#' @source \url{https://wits.worldbank.org/product_concordance.html}
-"H2_CP"
-
-
-#' H2 to GTAP Concordance Table
-#'
-#' Concordance table between `HS 2002` (`H2`) and `GTAP`
-#'
-#' @format A data frame with 5,113 rows and 4 variables:
-#' \describe{
-#'   \item{HS 2002 Product Code}{...}
-#'   \item{HS 2002 Product Description}{...}
-#'   \item{GTAP Product Code}{...}
-#'   \item{GTAP Product Description}{...}
-#' }
-#' @source \url{https://wits.worldbank.org/product_concordance.html}
-"H2_GP"
-
-
-#' H2 to H0 Concordance Table
-#'
-#' Concordance table between `HS 2002` (`H2`) and `HS 1988/92` (`H0`)
-#'
-#' @format A data frame with 5,113 rows and 4 variables:
-#' \describe{
-#'   \item{HS 2002 Product Code}{...}
-#'   \item{HS 2002 Product Description}{...}
-#'   \item{HS 1988/92 Product Code}{...}
-#'   \item{HS 1988/92 Product Description}{...}
-#' }
-#' @source \url{https://wits.worldbank.org/product_concordance.html}
-"H2_H0"
-
-
-#' H2 to H1 Concordance Table
-#'
-#' Concordance table between `HS 2002` (`H2`) and `HS 1996` (`H1`)
-#'
-#' @format A data frame with 5,113 rows and 4 variables:
-#' \describe{
-#'   \item{HS 2002 Product Code}{...}
-#'   \item{HS 2002 Product Description}{...}
-#'   \item{HS 1996 Product Code}{...}
-#'   \item{HS 1996 Product Description}{...}
-#' }
-#' @source \url{https://wits.worldbank.org/product_concordance.html}
-"H2_H1"
-
-
-#' H2 to ISIC Rev. 2 Concordance Table
-#'
-#' Concordance table between `HS 2002` (`H2`) and `ISIC Rev. 2`
-#'
-#' @format A data frame with 5,113 rows and 4 variables:
-#' \describe{
-#'   \item{HS 2002 Product Code}{...}
-#'   \item{HS 2002 Product Description}{...}
-#'   \item{ISIC Revision 2 Product Code}{...}
-#'   \item{ISIC Revision 2 Product Description}{...}
-#' }
-#' @source \url{https://wits.worldbank.org/product_concordance.html}
-"H2_I2"
-
-
-#' H2 to ISIC Rev. 3 Concordance Table
-#'
-#' Concordance table between `HS 2002` (`H2`) and `ISIC Rev. 3`
-#'
-#' @format A data frame with 5,113 rows and 4 variables:
-#' \describe{
-#'   \item{HS 2002 Product Code}{...}
-#'   \item{HS 2002 Product Description}{...}
-#'   \item{ISIC Revision 3 Product Code}{...}
-#'   \item{ISIC Revision 3 Product Description}{...}
-#' }
-#' @source \url{https://wits.worldbank.org/product_concordance.html}
-"H2_I3"
-
-
-#' H2 to SIC Concordance Table
-#'
-#' Concordance table between `HS 2002` (`H2`) and `SIC`
-#'
-#' @format A data frame with 5,108 rows and 4 variables:
-#' \describe{
-#'   \item{HS 2002 Product Code}{...}
-#'   \item{HS 2002 Product Description}{...}
-#'   \item{SIC Product Code}{...}
-#'   \item{SIC Product Description}{...}
-#' }
-#' @source \url{https://wits.worldbank.org/product_concordance.html}
-"H2_IU"
-
-
-#' H2 to MTN Categories Concordance Table
-#'
-#' Concordance table between `HS 2002` (`H2`) and `MTN Categories`
-#'
-#' @format A data frame with 3,771 rows and 4 variables:
-#' \describe{
-#'   \item{HS 2002 Product Code}{...}
-#'   \item{HS 2002 Product Description}{...}
-#'   \item{MTN Categories Product Code}{...}
-#'   \item{MTN Categories Product Description}{...}
-#' }
-#' @source \url{https://wits.worldbank.org/product_concordance.html}
-"H2_MT"
-
-
-#' H2 to SITC Rev. 1 Categories Concordance Table
-#'
-#' Concordance table between `HS 2002` (`H2`) and `SITC Rev. 1`
-#'
-#' @format A data frame with 5,106 rows and 4 variables:
-#' \describe{
-#'   \item{HS 2002 Product Code}{...}
-#'   \item{HS 2002 Product Description}{...}
-#'   \item{SITC Revision 1 Product Code}{...}
-#'   \item{SITC Revision 1 Product Description}{...}
-#' }
-#' @source \url{https://wits.worldbank.org/product_concordance.html}
-"H2_S1"
-
-
-#' H2 to SITC Rev. 2 Categories Concordance Table
-#'
-#' Concordance table between `HS 2002` (`H2`) and `SITC Rev. 2`
-#'
-#' @format A data frame with 5,111 rows and 4 variables:
-#' \describe{
-#'   \item{HS 2002 Product Code}{...}
-#'   \item{HS 2002 Product Description}{...}
-#'   \item{SITC Revision 2 Product Code}{...}
-#'   \item{SITC Revision 2 Product Description}{...}
-#' }
-#' @source \url{https://wits.worldbank.org/product_concordance.html}
-"H2_S2"
-
-
-#' H2 to SITC Rev. 3 Categories Concordance Table
-#'
-#' Concordance table between `HS 2002` (`H2`) and `SITC Rev. 3`
-#'
-#' @format A data frame with 5,111 rows and 4 variables:
-#' \describe{
-#'   \item{HS 2002 Product Code}{...}
-#'   \item{HS 2002 Product Description}{...}
-#'   \item{SITC Revision 3 Product Code}{...}
-#'   \item{SITC Revision 3 Product Description}{...}
-#' }
-#' @source \url{https://wits.worldbank.org/product_concordance.html}
-"H2_S3"
-
-
-#' H2 to SITC Rev. 4 Categories Concordance Table
-#'
-#' Concordance table between `HS 2002` (`H2`) and `SITC Rev. 4`
-#'
-#' @format A data frame with 5,111 rows and 4 variables:
-#' \describe{
-#'   \item{HS 2002 Product Code}{...}
-#'   \item{HS 2002 Product Description}{...}
-#'   \item{SITC Revision 4 Product Code}{...}
-#'   \item{SITC Revision 4 Product Description}{...}
-#' }
-#' @source \url{https://wits.worldbank.org/product_concordance.html}
-"H2_S4"
-
-
-#' H1 to BEC Concordance Table
+#' Concordance Table: H1 to BEC
 #'
 #' Concordance table between `HS 1996` (`H1`) and `BEC`
 #'
@@ -687,11 +533,13 @@
 #'   \item{BEC Product Code}{...}
 #'   \item{BEC Product Description}{...}
 #' }
+#' @examples
+#' H1_BE
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H1_BE"
 
 
-#' H1 to CCCN Concordance Table
+#' Concordance Table: H1 to CCCN
 #'
 #' Concordance table between `HS 1996` (`H1`) and `CCCN`
 #'
@@ -702,11 +550,13 @@
 #'   \item{CCCN Product Code}{...}
 #'   \item{CCCN Product Description}{...}
 #' }
+#' @examples
+#' H1_CC
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H1_CC"
 
 
-#' H1 to CPC Concordance Table
+#' Concordance Table: H1 to CPC
 #'
 #' Concordance table between `HS 1996` (`H1`) and `CPC`
 #'
@@ -717,11 +567,13 @@
 #'   \item{CPC Product Code}{...}
 #'   \item{CPC Product Description}{...}
 #' }
+#' @examples
+#' H1_CP
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H1_CP"
 
 
-#' H1 to GTAP Concordance Table
+#' Concordance Table: H1 to GTAP
 #'
 #' Concordance table between `HS 1996` (`H1`) and `GTAP`
 #'
@@ -732,11 +584,13 @@
 #'   \item{GTAP Product Code}{...}
 #'   \item{GTAP Product Description}{...}
 #' }
+#' @examples
+#' H1_GP
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H1_GP"
 
 
-#' H1 to H0 Concordance Table
+#' Concordance Table: H1 to H0
 #'
 #' Concordance table between `HS 1996` (`H1`) and `HS 1988/92` (`H0`)
 #'
@@ -747,11 +601,13 @@
 #'   \item{HS 1988/92 Product Code}{...}
 #'   \item{HS 1988/92 Product Description}{...}
 #' }
+#' @examples
+#' H1_H0
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H1_H0"
 
 
-#' H1 to ISIC Rev. 2 Concordance Table
+#' Concordance Table: H1 to ISIC Rev. 2
 #'
 #' Concordance table between `HS 1996` (`H1`) and `ISIC Rev. 2`
 #'
@@ -762,11 +618,13 @@
 #'   \item{ISIC Revision 2 Product Code}{...}
 #'   \item{ISIC Revision 2 Product Description}{...}
 #' }
+#' @examples
+#' H1_I2
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H1_I2"
 
 
-#' H1 to ISIC Rev. 3 Concordance Table
+#' Concordance Table: H1 to ISIC Rev. 3
 #'
 #' Concordance table between `HS 1996` (`H1`) and `ISIC Rev. 3`
 #'
@@ -777,11 +635,13 @@
 #'   \item{ISIC Revision 3 Product Code}{...}
 #'   \item{ISIC Revision 3 Product Description}{...}
 #' }
+#' @examples
+#' H1_I3
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H1_I3"
 
 
-#' H1 to SIC Concordance Table
+#' Concordance Table: H1 to SIC
 #'
 #' Concordance table between `HS 1996` (`H1`) and `SIC`
 #'
@@ -792,11 +652,13 @@
 #'   \item{SIC Product Code}{...}
 #'   \item{SIC Product Description}{...}
 #' }
+#' @examples
+#' H1_IU
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H1_IU"
 
 
-#' H1 to MTN Categories Concordance Table
+#' Concordance Table: H1 to MTN
 #'
 #' Concordance table between `HS 1996` (`H1`) and `MTN Categories`
 #'
@@ -807,11 +669,13 @@
 #'   \item{MTN Categories Product Code}{...}
 #'   \item{MTN Categories Product Description}{...}
 #' }
+#' @examples
+#' H1_MT
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H1_MT"
 
 
-#' H1 to SITC Rev. 1 Categories Concordance Table
+#' Concordance Table: H1 to SITC Rev. 1
 #'
 #' Concordance table between `HS 1996` (`H1`) and `SITC Rev. 1`
 #'
@@ -822,11 +686,13 @@
 #'   \item{SITC Revision 1 Product Code}{...}
 #'   \item{SITC Revision 1 Product Description}{...}
 #' }
+#' @examples
+#' H1_S1
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H1_S1"
 
 
-#' H1 to SITC Rev. 2 Categories Concordance Table
+#' Concordance Table: H1 to SITC Rev. 2
 #'
 #' Concordance table between `HS 1996` (`H1`) and `SITC Rev. 2`
 #'
@@ -837,11 +703,13 @@
 #'   \item{SITC Revision 2 Product Code}{...}
 #'   \item{SITC Revision 2 Product Description}{...}
 #' }
+#' @examples
+#' H1_S2
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H1_S2"
 
 
-#' H1 to SITC Rev. 3 Categories Concordance Table
+#' Concordance Table: H1 to SITC Rev. 3
 #'
 #' Concordance table between `HS 1996` (`H1`) and `SITC Rev. 3`
 #'
@@ -852,11 +720,13 @@
 #'   \item{SITC Revision 3 Product Code}{...}
 #'   \item{SITC Revision 3 Product Description}{...}
 #' }
+#' @examples
+#' H1_S3
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H1_S3"
 
 
-#' H1 to SITC Rev. 4 Categories Concordance Table
+#' Concordance Table: H1 to SITC Rev. 4
 #'
 #' Concordance table between `HS 1996` (`H1`) and `SITC Rev. 4`
 #'
@@ -867,11 +737,13 @@
 #'   \item{SITC Revision 4 Product Code}{...}
 #'   \item{SITC Revision 4 Product Description}{...}
 #' }
+#' @examples
+#' H1_S4
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H1_S4"
 
 
-#' H2 to BEC Concordance Table
+#' Concordance Table: H2 to BEC
 #'
 #' Concordance table between `HS 2002` (`H2`) and `BEC`
 #'
@@ -882,11 +754,13 @@
 #'   \item{BEC Product Code}{...}
 #'   \item{BEC Product Description}{...}
 #' }
+#' @examples
+#' H2_BE
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H2_BE"
 
 
-#' H2 to CCCN Concordance Table
+#' Concordance Table: H2 to CCCN
 #'
 #' Concordance table between `HS 2002` (`H2`) and `CCCN`
 #'
@@ -897,11 +771,13 @@
 #'   \item{CCCN Product Code}{...}
 #'   \item{CCCN Product Description}{...}
 #' }
+#' @examples
+#' H2_CC
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H2_CC"
 
 
-#' H2 to CPC Concordance Table
+#' Concordance Table: H2 to CPC
 #'
 #' Concordance table between `HS 2002` (`H2`) and `CPC`
 #'
@@ -912,11 +788,13 @@
 #'   \item{CPC Product Code}{...}
 #'   \item{CPC Product Description}{...}
 #' }
+#' @examples
+#' H2_CP
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H2_CP"
 
 
-#' H2 to GTAP Concordance Table
+#' Concordance Table: H2 to GTAP
 #'
 #' Concordance table between `HS 2002` (`H2`) and `GTAP`
 #'
@@ -927,11 +805,13 @@
 #'   \item{GTAP Product Code}{...}
 #'   \item{GTAP Product Description}{...}
 #' }
+#' @examples
+#' H2_GP
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H2_GP"
 
 
-#' H2 to H0 Concordance Table
+#' Concordance Table: H2 to H0
 #'
 #' Concordance table between `HS 2002` (`H2`) and `HS 1988/92` (`H0`)
 #'
@@ -942,11 +822,13 @@
 #'   \item{HS 1988/92 Product Code}{...}
 #'   \item{HS 1988/92 Product Description}{...}
 #' }
+#' @examples
+#' H2_H0
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H2_H0"
 
 
-#' H2 to H1 Concordance Table
+#' Concordance Table: H2 to H1
 #'
 #' Concordance table between `HS 2002` (`H2`) and `HS 1996` (`H1`)
 #'
@@ -957,11 +839,13 @@
 #'   \item{HS 1996 Product Code}{...}
 #'   \item{HS 1996 Product Description}{...}
 #' }
+#' @examples
+#' H2_H1
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H2_H1"
 
 
-#' H2 to ISIC Rev. 2 Concordance Table
+#' Concordance Table: H2 to ISIC Rev. 2
 #'
 #' Concordance table between `HS 2002` (`H2`) and `ISIC Rev. 2`
 #'
@@ -972,11 +856,13 @@
 #'   \item{ISIC Revision 2 Product Code}{...}
 #'   \item{ISIC Revision 2 Product Description}{...}
 #' }
+#' @examples
+#' H2_I2
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H2_I2"
 
 
-#' H2 to ISIC Rev. 3 Concordance Table
+#' Concordance Table: H2 to ISIC Rev. 3
 #'
 #' Concordance table between `HS 2002` (`H2`) and `ISIC Rev. 3`
 #'
@@ -987,11 +873,13 @@
 #'   \item{ISIC Revision 3 Product Code}{...}
 #'   \item{ISIC Revision 3 Product Description}{...}
 #' }
+#' @examples
+#' H2_I3
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H2_I3"
 
 
-#' H2 to SIC Concordance Table
+#' Concordance Table: H2 to SIC
 #'
 #' Concordance table between `HS 2002` (`H2`) and `SIC`
 #'
@@ -1002,11 +890,13 @@
 #'   \item{SIC Product Code}{...}
 #'   \item{SIC Product Description}{...}
 #' }
+#' @examples
+#' H2_IU
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H2_IU"
 
 
-#' H2 to MTN Categories Concordance Table
+#' Concordance Table: H2 to MTN
 #'
 #' Concordance table between `HS 2002` (`H2`) and `MTN Categories`
 #'
@@ -1017,11 +907,13 @@
 #'   \item{MTN Categories Product Code}{...}
 #'   \item{MTN Categories Product Description}{...}
 #' }
+#' @examples
+#' H2_MT
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H2_MT"
 
 
-#' H2 to SITC Rev. 1 Categories Concordance Table
+#' Concordance Table: H2 to SITC Rev. 1
 #'
 #' Concordance table between `HS 2002` (`H2`) and `SITC Rev. 1`
 #'
@@ -1032,11 +924,13 @@
 #'   \item{SITC Revision 1 Product Code}{...}
 #'   \item{SITC Revision 1 Product Description}{...}
 #' }
+#' @examples
+#' H2_S1
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H2_S1"
 
 
-#' H2 to SITC Rev. 2 Categories Concordance Table
+#' Concordance Table: H2 to SITC Rev. 2
 #'
 #' Concordance table between `HS 2002` (`H2`) and `SITC Rev. 2`
 #'
@@ -1047,11 +941,13 @@
 #'   \item{SITC Revision 2 Product Code}{...}
 #'   \item{SITC Revision 2 Product Description}{...}
 #' }
+#' @examples
+#' H2_S2
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H2_S2"
 
 
-#' H2 to SITC Rev. 3 Categories Concordance Table
+#' Concordance Table: H2 to SITC Rev. 3
 #'
 #' Concordance table between `HS 2002` (`H2`) and `SITC Rev. 3`
 #'
@@ -1062,11 +958,13 @@
 #'   \item{SITC Revision 3 Product Code}{...}
 #'   \item{SITC Revision 3 Product Description}{...}
 #' }
+#' @examples
+#' H2_S3
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H2_S3"
 
 
-#' H2 to SITC Rev. 4 Categories Concordance Table
+#' Concordance Table: H2 to SITC Rev. 4
 #'
 #' Concordance table between `HS 2002` (`H2`) and `SITC Rev. 4`
 #'
@@ -1077,11 +975,13 @@
 #'   \item{SITC Revision 4 Product Code}{...}
 #'   \item{SITC Revision 4 Product Description}{...}
 #' }
+#' @examples
+#' H2_S4
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H2_S4"
 
 
-#' H3 to BEC Concordance Table
+#' Concordance Table: H3 to BEC
 #'
 #' Concordance table between `HS 2007` (`H3`) and `BEC`
 #'
@@ -1092,11 +992,13 @@
 #'   \item{BEC Product Code}{...}
 #'   \item{BEC Product Description}{...}
 #' }
+#' @examples
+#' H3_BE
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H3_BE"
 
 
-#' H3 to CCCN Concordance Table
+#' Concordance Table: H3 to CCCN
 #'
 #' Concordance table between `HS 2007` (`H3`) and `CCCN`
 #'
@@ -1107,11 +1009,13 @@
 #'   \item{CCCN Product Code}{...}
 #'   \item{CCCN Product Description}{...}
 #' }
+#' @examples
+#' H3_CC
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H3_CC"
 
 
-#' H3 to CPC Concordance Table
+#' Concordance Table: H3 to CPC
 #'
 #' Concordance table between `HS 2007` (`H3`) and `CPC`
 #'
@@ -1122,11 +1026,13 @@
 #'   \item{CPC Product Code}{...}
 #'   \item{CPC Product Description}{...}
 #' }
+#' @examples
+#' H3_CP
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H3_CP"
 
 
-#' H3 to GTAP Concordance Table
+#' Concordance Table: H3 to GTAP
 #'
 #' Concordance table between `HS 2007` (`H3`) and `GTAP`
 #'
@@ -1137,11 +1043,13 @@
 #'   \item{GTAP Product Code}{...}
 #'   \item{GTAP Product Description}{...}
 #' }
+#' @examples
+#' H3_GP
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H3_GP"
 
 
-#' H3 to H0 Concordance Table
+#' Concordance Table: H3 to H0
 #'
 #' Concordance table between `HS 2007` (`H3`) and `HS 1988/92` (`H0`)
 #'
@@ -1152,11 +1060,13 @@
 #'   \item{HS 1988/92 Product Code}{...}
 #'   \item{HS 1988/92 Product Description}{...}
 #' }
+#' @examples
+#' H3_H0
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H3_H0"
 
 
-#' H3 to H1 Concordance Table
+#' Concordance Table: H3 to H1
 #'
 #' Concordance table between `HS 2007` (`H3`) and `HS 1996` (`H1`)
 #'
@@ -1167,11 +1077,13 @@
 #'   \item{HS 1996 Product Code}{...}
 #'   \item{HS 1996 Product Description}{...}
 #' }
+#' @examples
+#' H3_H1
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H3_H1"
 
 
-#' H3 to H2 Concordance Table
+#' Concordance Table: H3 to H2
 #'
 #' Concordance table between `HS 2007` (`H3`) and `HS 2002` (`H2`)
 #'
@@ -1182,11 +1094,13 @@
 #'   \item{HS 2002 Product Code}{...}
 #'   \item{HS 2002 Product Description}{...}
 #' }
+#' @examples
+#' H3_H2
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H3_H2"
 
 
-#' H3 to ISIC Rev. 2 Concordance Table
+#' Concordance Table: H3 to ISIC Rev. 2
 #'
 #' Concordance table between `HS 2007` (`H3`) and `ISIC Rev. 2`
 #'
@@ -1197,11 +1111,13 @@
 #'   \item{ISIC Revision 2 Product Code}{...}
 #'   \item{ISIC Revision 2 Product Description}{...}
 #' }
+#' @examples
+#' H3_I2
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H3_I2"
 
 
-#' H3 to ISIC Rev. 3 Concordance Table
+#' Concordance Table: H3 to ISIC Rev. 3
 #'
 #' Concordance table between `HS 2007` (`H3`) and `ISIC Rev. 3`
 #'
@@ -1212,11 +1128,13 @@
 #'   \item{ISIC Revision 3 Product Code}{...}
 #'   \item{ISIC Revision 3 Product Description}{...}
 #' }
+#' @examples
+#' H3_I3
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H3_I3"
 
 
-#' H3 to SIC Concordance Table
+#' Concordance Table: H3 to SIC
 #'
 #' Concordance table between `HS 2007` (`H3`) and `SIC`
 #'
@@ -1227,11 +1145,13 @@
 #'   \item{SIC Product Code}{...}
 #'   \item{SIC Product Description}{...}
 #' }
+#' @examples
+#' H3_IU
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H3_IU"
 
 
-#' H3 to MTN Categories Concordance Table
+#' Concordance Table: H3 to MTN
 #'
 #' Concordance table between `HS 2007` (`H3`) and `MTN Categories`
 #'
@@ -1242,11 +1162,13 @@
 #'   \item{MTN Categories Product Code}{...}
 #'   \item{MTN Categories Product Description}{...}
 #' }
+#' @examples
+#' H3_MT
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H3_MT"
 
 
-#' H3 to SITC Rev. 1 Categories Concordance Table
+#' Concordance Table: H3 to SITC Rev. 1
 #'
 #' Concordance table between `HS 2007` (`H3`) and `SITC Rev. 1`
 #'
@@ -1257,11 +1179,13 @@
 #'   \item{SITC Revision 1 Product Code}{...}
 #'   \item{SITC Revision 1 Product Description}{...}
 #' }
+#' @examples
+#' H3_S1
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H3_S1"
 
 
-#' H3 to SITC Rev. 2 Categories Concordance Table
+#' Concordance Table: H3 to SITC Rev. 2
 #'
 #' Concordance table between `HS 2007` (`H3`) and `SITC Rev. 2`
 #'
@@ -1272,11 +1196,13 @@
 #'   \item{SITC Revision 2 Product Code}{...}
 #'   \item{SITC Revision 2 Product Description}{...}
 #' }
+#' @examples
+#' H3_S2
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H3_S2"
 
 
-#' H3 to SITC Rev. 3 Categories Concordance Table
+#' Concordance Table: H3 to SITC Rev. 3
 #'
 #' Concordance table between `HS 2007` (`H3`) and `SITC Rev. 3`
 #'
@@ -1287,11 +1213,13 @@
 #'   \item{SITC Revision 3 Product Code}{...}
 #'   \item{SITC Revision 3 Product Description}{...}
 #' }
+#' @examples
+#' H3_S3
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H3_S3"
 
 
-#' H3 to SITC Rev. 4 Categories Concordance Table
+#' Concordance Table: H3 to SITC Rev. 4
 #'
 #' Concordance table between `HS 2007` (`H3`) and `SITC Rev. 4`
 #'
@@ -1302,11 +1230,13 @@
 #'   \item{SITC Revision 4 Product Code}{...}
 #'   \item{SITC Revision 4 Product Description}{...}
 #' }
+#' @examples
+#' H3_S4
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "H3_S4"
 
 
-#' H4 to BEC 4 Categories Concordance Table
+#' Concordance Table: H4 to BEC 4
 #'
 #' Concordance table between `HS 2012` (`H4`) and `BEC Rev. 4` (`BEC`).
 #'
@@ -1315,11 +1245,13 @@
 #'   \item{HS 2012 Product Code}{...}
 #'   \item{BEC 4 Product Code}{...}
 #' }
+#' @examples
+#' H4_BE
 #' @source \url{https://unstats.un.org/unsd/classifications/Econ#Correspondences}
 "H4_BE"
 
 
-#' H4 to BEC 5 Categories Concordance Table
+#' Concordance Table: H4 to BEC 5
 #'
 #' Concordance table between `HS 2012` (`H4`) and `BEC Rev. 5` (`BEC5`).
 #'
@@ -1334,12 +1266,14 @@
 #'   \item{BEC 5 Specification Dimension}{...}
 #'   \item{BEC 5 Durability Dimension}{...}
 #' }
+#' @examples
+#' H4_BE5
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/bec.asp}
 "H4_BE5"
 
 
 
-#' H4 to CPC Concordance Table
+#' Concordance Table: H4 to CPC
 #'
 #' Concordance table between `HS 2012` (`H4`)and `CPC`
 #'
@@ -1350,11 +1284,13 @@
 #'   \item{CPC Product Code}{...}
 #'   \item{CPC Product Description}{...}
 #' }
+#' @examples
+#' H4_CP
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/bec.asp}
 "H4_CP"
 
 
-#' H4 to GTAP Concordance Table
+#' Concordance Table: H4 to GTAP
 #'
 #' Concordance table between `HS 2012` (`H4`) and `GTAP`
 #'
@@ -1366,11 +1302,13 @@
 #'   \item{GTAP Product}{...}
 #'   \item{GTAP Product Description}{...}
 #' }
+#' @examples
+#' H4_GP
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/bec.asp}
 "H4_GP"
 
 
-#' H4 to H0 Categories Concordance Table
+#' Concordance Table: H4 to H0
 #'
 #' Concordance table between `HS 2012` (`H4`) and `HS 1988/92` (`H0`). Product descriptions taken
 #' from WITS' `HS combined` concordance tables (\url{https://wits.worldbank.org/product_concordance.html}).
@@ -1382,11 +1320,13 @@
 #'   \item{HS 1988/92 Product Code}{...}
 #'   \item{HS 1988/92 Product Description}{...}
 #' }
+#' @examples
+#' H4_H0
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
 "H4_H0"
 
 
-#' H4 to H1 Categories Concordance Table
+#' Concordance Table: H4 to H1
 #'
 #' Concordance table between `HS 2012` (`H4`) and `HS 1996` (`H1`). Product descriptions taken
 #' from WITS' `HS combined` concordance tables (\url{https://wits.worldbank.org/product_concordance.html}).
@@ -1398,11 +1338,13 @@
 #'   \item{HS 1996 Product Code}{...}
 #'   \item{HS 1996 Product Description}{...}
 #' }
+#' @examples
+#' H4_H1
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
 "H4_H1"
 
 
-#' H4 to H2 Categories Concordance Table
+#' Concordance Table: H4 to H2
 #'
 #' Concordance table between `HS 2012` (`H4`) and `HS 2002` (`H2`). Product descriptions taken
 #' from WITS' `HS combined` concordance tables (\url{https://wits.worldbank.org/product_concordance.html}).
@@ -1414,11 +1356,13 @@
 #'   \item{HS 2002 Product Code}{...}
 #'   \item{HS 2002 Product Description}{...}
 #' }
+#' @examples
+#' H4_H2
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
 "H4_H2"
 
 
-#' H4 to H3 Categories Concordance Table
+#' Concordance Table: H4 to H3
 #'
 #' Concordance table between `HS 2012` (`H4`) and `HS 2007` (`H3`). Product descriptions taken
 #' from WITS' `HS combined` concordance tables (\url{https://wits.worldbank.org/product_concordance.html}).
@@ -1430,13 +1374,15 @@
 #'   \item{HS 2007 Product Code}{...}
 #'   \item{HS 2007 Product Description}{...}
 #' }
+#' @examples
+#' H4_H3
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
 "H4_H3"
 
 
 
 
-#' H4 to I3.1 Categories Concordance Table
+#' Concordance Table: H4 to I3.1
 #'
 #' Concordance table between `HS 2012` (`H4`) and `ISIC Rev. 3.1` (`I3.1`).
 #'
@@ -1447,10 +1393,12 @@
 #'   \item{ISIC Revision 3.1 Code}{...}
 #'   \item{ISIC Revision 3.1 Description}{...}
 #' }
+#' @examples
+#' H4_I31
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/bec.asp}
 "H4_I31"
 
-#' H4 to H3 Categories Concordance Table
+#' Concordance Table: H4 to H3
 #'
 #' Concordance table between `HS 2012` (`H4`) and `ISIC Rev. 4` (`I4`).
 #'
@@ -1461,11 +1409,13 @@
 #'   \item{ISIC Revision 4 Code}{...}
 #'   \item{ISIC Revision 4 Description}{...}
 #' }
+#' @examples
+#' H4_I4
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/bec.asp}
 "H4_I4"
 
 
-#' H4 to S1 Categories Concordance Table
+#' Concordance Table: H4 to S1
 #'
 #' Concordance table between `HS 2012` (`H4`) and `SITC Rev.1` (`S1`). Product descriptions taken
 #' from WITS' `HS combined` concordance tables (\url{https://wits.worldbank.org/product_concordance.html}).
@@ -1477,11 +1427,13 @@
 #'   \item{SITC Revision 1 Product Code}{...}
 #'   \item{SITC Revision 1 Product Description}{...}
 #' }
+#' @examples
+#' H4_S1
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
 "H4_S1"
 
 
-#' H4 to S2 Categories Concordance Table
+#' Concordance Table: H4 to S2
 #'
 #' Concordance table between `HS 2012` (`H4`) and `SITC Rev.2` (`S2`). Product descriptions taken
 #' from WITS' `HS combined` concordance tables (\url{https://wits.worldbank.org/product_concordance.html}).
@@ -1493,11 +1445,13 @@
 #'   \item{SITC Revision 2 Product Description}{...}
 #'   \item{SITC Revision 2 Product Code}{...}
 #' }
+#' @examples
+#' H4_S2
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
 "H4_S2"
 
 
-#' H4 to S3 Categories Concordance Table
+#' Concordance Table: H4 to S3
 #'
 #' Concordance table between `HS 2012` (`H4`) and `SITC Rev.3` (`S3`). Product descriptions taken
 #' from WITS' `HS combined` concordance tables (\url{https://wits.worldbank.org/product_concordance.html}).
@@ -1509,11 +1463,13 @@
 #'   \item{SITC Revision 3 Product Description}{...}
 #'   \item{SITC Revision 3 Product Code}{...}
 #' }
+#' @examples
+#' H4_S3
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
 "H4_S3"
 
 
-#' H4 to S4 Categories Concordance Table
+#' Concordance Table: H4 to S4
 #'
 #' Concordance table between `HS 2012` (`H4`) and `SITC Rev.4` (`S4`). Product descriptions taken
 #' from WITS' `HS combined` concordance tables (\url{https://wits.worldbank.org/product_concordance.html}).
@@ -1525,11 +1481,13 @@
 #'   \item{SITC Revision 4 Product Description}{...}
 #'   \item{SITC Revision 4 Product Code}{...}
 #' }
+#' @examples
+#' H4_S4
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
 "H4_S4"
 
 
-#' H5 to H0 Categories Concordance Table
+#' Concordance Table: H5 to H0
 #'
 #' Concordance table between `HS 2017` (`H5`) and `BEC Rev. 4` (`BEC`).
 #'
@@ -1538,11 +1496,13 @@
 #'   \item{HS 2017 Product Code}{...}
 #'   \item{BEC 4 Product Code}{...}
 #' }
+#' @examples
+#' H5_BE
 #' @source \url{https://unstats.un.org/unsd/classifications/Econ#Correspondences}
 "H5_BE"
 
 
-#' H5 to H0 Categories Concordance Table
+#' Concordance Table: H5 to H0
 #'
 #' Concordance table between `HS 2017` (`H5`) and `HS 1988/92` (`H0`).
 #'
@@ -1552,11 +1512,13 @@
 #'   \item{HS 1988/92 Product Code}{...}
 #'   \item{HS 1988/92 Product Description}{...}
 #' }
+#' @examples
+#' H5_H0
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
 "H5_H0"
 
 
-#' H5 to H1 Categories Concordance Table
+#' Concordance Table: H5 to H1
 #'
 #' Concordance table between `HS 2017` (`H5`) and `HS 1996` (`H1`).
 #'
@@ -1566,11 +1528,13 @@
 #'   \item{HS 1996 Product Code}{...}
 #'   \item{HS 1996 Product Description}{...}
 #' }
+#' @examples
+#' H5_H1
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
 "H5_H1"
 
 
-#' H5 to H2 Categories Concordance Table
+#' Concordance Table: H5 to H2
 #'
 #' Concordance table between `HS 2017` (`H5`) and `HS 2002` (`H2`).
 #'
@@ -1580,11 +1544,13 @@
 #'   \item{HS 2002 Product Code}{...}
 #'   \item{HS 2002 Product Description}{...}
 #' }
+#' @examples
+#' H5_H2
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
 "H5_H2"
 
 
-#' H5 to H3 Categories Concordance Table
+#' Concordance Table: H5 to H3
 #'
 #' Concordance table between `HS 2017` (`H5`) and `HS 2007` (`H3`).
 #'
@@ -1594,11 +1560,13 @@
 #'   \item{HS 2007 Product Code}{...}
 #'   \item{HS 2007 Product Description}{...}
 #' }
+#' @examples
+#' H5_H3
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
 "H5_H3"
 
 
-#' H5 to H4 Categories Concordance Table
+#' Concordance Table: H5 to H4
 #'
 #' Concordance table between `HS 2017` (`H5`) and `HS 2012` (`H4`).
 #'
@@ -1608,11 +1576,13 @@
 #'   \item{HS 2012 Product Code}{...}
 #'   \item{HS 2012 Product Description}{...}
 #' }
+#' @examples
+#' H5_H4
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
 "H5_H4"
 
 
-#' H5 to S1 Categories Concordance Table
+#' Concordance Table: H5 to S1
 #'
 #' Concordance table between `HS 2017` (`H5`) and `SITC Rev.1` (`S1`).
 #'
@@ -1622,11 +1592,13 @@
 #'   \item{SITC Revision 1 Product Code}{...}
 #'   \item{SITC Revision 1 Product Description}{...}
 #' }
+#' @examples
+#' H5_S1
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
 "H5_S1"
 
 
-#' H5 to S2 Categories Concordance Table
+#' Concordance Table: H5 to S2
 #'
 #' Concordance table between `HS 2017` (`H5`) and `SITC Rev.2` (`S2`).
 #' @format A data frame with 5,386 rows and 4 variables:
@@ -1635,11 +1607,13 @@
 #'   \item{SITC Revision 2 Product Description}{...}
 #'   \item{SITC Revision 2 Product Code}{...}
 #' }
+#' @examples
+#' H5_S2
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
 "H5_S2"
 
 
-#' H5 to S3 Categories Concordance Table
+#' Concordance Table: H5 to S3
 #'
 #' Concordance table between `HS 2017` (`H5`) and `SITC Rev.3` (`S3`).
 #'
@@ -1649,11 +1623,13 @@
 #'   \item{SITC Revision 3 Product Description}{...}
 #'   \item{SITC Revision 3 Product Code}{...}
 #' }
+#' @examples
+#' H5_S3
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
 "H5_S3"
 
 
-#' H5 to S4 Categories Concordance Table
+#' Concordance Table: H5 to S4
 #'
 #' Concordance table between `HS 2017` (`H5`) and `SITC Rev.4` (`S4`).
 #'
@@ -1663,11 +1639,13 @@
 #'   \item{SITC Revision 4 Product Description}{...}
 #'   \item{SITC Revision 4 Product Code}{...}
 #' }
+#' @examples
+#' H5_S4
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
 "H5_S4"
 
 
-#' S1 to BE Categories Concordance Table
+#' Concordance Table: S1 to BE
 #'
 #' Concordance table between `SITC Rev.1` (`S1`) and `BEC`.
 #'
@@ -1678,11 +1656,13 @@
 #'   \item{BEC Product Code}{...}
 #'   \item{BEC Product Description}{...}
 #' }
+#' @examples
+#' S1_BE
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "S1_BE"
 
 
-#' S2 to BE Categories Concordance Table
+#' Concordance Table: S2 to BE
 #'
 #' Concordance table between `SITC Rev.2` (`S2`) and `BEC`.
 #'
@@ -1693,11 +1673,13 @@
 #'   \item{BEC Product Code}{...}
 #'   \item{BEC Product Description}{...}
 #' }
+#' @examples
+#' S2_BE
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "S2_BE"
 
 
-#' S2 to I2 Categories Concordance Table
+#' Concordance Table: S2 to I2
 #'
 #' Concordance table between `SITC Rev.2` (`S2`) and `ISIC Rev. 2` (`I2`).
 #'
@@ -1708,11 +1690,13 @@
 #'   \item{ISIC Revision 2 Product Code}{...}
 #'   \item{ISIC Revision 2 Product Description}{...}
 #' }
+#' @examples
+#' S2_I2
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "S2_I2"
 
 
-#' S2 to S1 Categories Concordance Table
+#' Concordance Table: S2 to S1
 #'
 #' Concordance table between `SITC Rev.2` (`S2`) and  `SITC Rev.1` (`S1`). Product descriptions taken
 #' from WITS' `HS combined` concordance tables (\url{https://wits.worldbank.org/product_concordance.html}).
@@ -1725,11 +1709,13 @@
 #'   \item{SITC Revision 1 Product Code}{...}
 #'   \item{SITC Revision 1 Product Description}{...}
 #' }
+#' @examples
+#' S2_S1
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "S2_S1"
 
 
-#' S3 to S1 Categories Concordance Table
+#' Concordance Table: S3 to S1
 #'
 #' Concordance table between `SITC Rev.3` (`S3`) and  `SITC Rev.1` (`S1`). Product descriptions taken
 #' from WITS' `HS combined` concordance tables (\url{https://wits.worldbank.org/product_concordance.html}).
@@ -1742,11 +1728,13 @@
 #'   \item{SITC Revision 1 Product Code}{...}
 #'   \item{SITC Revision 1 Product Description}{...}
 #' }
+#' @examples
+#' S3_S1
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "S3_S1"
 
 
-#' S3 to S2 Categories Concordance Table
+#' Concordance Table: S3 to S2
 #'
 #' Concordance table between `SITC Rev.3` (`S3`) and  `SITC Rev.2` (`S2`). Product descriptions taken
 #' from WITS' `HS combined` concordance tables (\url{https://wits.worldbank.org/product_concordance.html}).
@@ -1759,11 +1747,13 @@
 #'   \item{SITC Revision 2 Product Code}{...}
 #'   \item{SITC Revision 2 Product Description}{...}
 #' }
+#' @examples
+#' S3_S2
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "S3_S2"
 
 
-#' I2 to I3 Categories Concordance Table
+#' Concordance Table: I2 to I3
 #'
 #' Concordance table between `ISIC Rev.2` (`I2`) and  `ISIC Rev.3` (`I3`).
 #'
@@ -1774,11 +1764,13 @@
 #'   \item{ISIC Revision 3 Product Code}{...}
 #'   \item{ISIC Revision 3 Product Description}{...}
 #' }
+#' @examples
+#' I2_I3
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
 "I2_I3"
 
 
-#' I2 to I31 Categories Concordance Table
+#' Concordance Table: I2 to I31
 #'
 #' Concordance table between `ISIC Rev.2` (`I2`) and  `ISIC Rev.3.1` (`I3.1`).
 #'
@@ -1789,11 +1781,13 @@
 #'   \item{ISIC Revision 3.1 Product Code}{...}
 #'   \item{ISIC Revision 3.1 Product Description}{...}
 #' }
+#' @examples
+#' I2_I31
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
 "I2_I31"
 
 
-#' I3 to I2 Categories Concordance Table
+#' Concordance Table: I3 to I2
 #'
 #' Concordance table between `ISIC Rev.3` (`I3`) and  `ISIC Rev.2` (`I2`).
 #'
@@ -1804,11 +1798,13 @@
 #'   \item{ISIC Revision 2 Product Code}{...}
 #'   \item{ISIC Revision 2 Product Description}{...}
 #' }
+#' @examples
+#' I3_I2
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
 "I3_I2"
 
 
-#' I3 to I31 Categories Concordance Table
+#' Concordance Table: I3 to I31
 #'
 #' Concordance table between `ISIC Rev.3` (`I3`) and  `ISIC Rev.3.1` (`I3.1`).
 #'
@@ -1819,10 +1815,12 @@
 #'   \item{ISIC Revision 3.1 Product Code}{...}
 #'   \item{ISIC Revision 3.1 Product Description}{...}
 #' }
+#' @examples
+#' I3_I31
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
 "I3_I31"
 
-#' I31 to I3 Categories Concordance Table
+#' Concordance Table: I31 to I3
 #'
 #' Concordance table between `ISIC Rev.3.1` (`I3.1`) and  `ISIC Rev.3` (`I3`).
 #'
@@ -1833,11 +1831,13 @@
 #'   \item{ISIC Revision 3 Product Code}{...}
 #'   \item{ISIC Revision 3 Product Description}{...}
 #' }
+#' @examples
+#' I31_I3
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
 "I31_I3"
 
 
-#' I3 to I4 Categories Concordance Table
+#' Concordance Table: I3 to I4
 #'
 #' Concordance table between `ISIC Rev.3.1` (`I3.1`) and  `ISIC Rev.4` (`I4`).
 #'
@@ -1848,6 +1848,8 @@
 #'   \item{ISIC Revision 4 Product Code}{...}
 #'   \item{ISIC Revision 4 Product Description}{...}
 #' }
+#' @examples
+#' I31_I4
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
 "I31_I4"
 
