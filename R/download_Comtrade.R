@@ -16,6 +16,7 @@
 #' @param is.mirrorData  Extract mirror trade data? default is `FALSE`; Set to `TRUE` to extract mirror trade data from country/countries specified in argument `partners`. For example, if `is.mirrorData = TRUE` export data from countries specified in argument `countries` to countries specified in argument `partners` is measured as import data from countries specified in argument `countries` to countries specified in argument `partners` as reported by countries specified in argument `partners`.
 #' @param rm.temporaryFiles Remove temporary download files stored at location provided in argument `location.temporaryFiles`; default is `TRUE`.
 #' @param location.temporaryFiles  Location of temporary file downloads; default is `<your package directory>\data\tmp\<date-and-time-stamp>`; if you decide to use a different location, an alternative temporary folder needs to be created first.
+#' @param build.Comtrade After having downloaded the separate temporary files (which will be saved to `location.temporaryFiles`), should function `download_Comtrade()` return a complete data object? Default is `TRUE`.
 #' @param sleep Number of seconds to wait before the next Comtrade API query is started; default is 20.
 #' @keywords Comtrade data download
 #' @export
@@ -38,6 +39,7 @@ download_Comtrade <- function(year = "2018", #  Years for which to extract
                               is.mirrorData = FALSE, # Extract mirrored trade data; only one country supported at the moment
                               rm.temporaryFiles = TRUE, # Remove temporary files from data download; default is false
                               location.temporaryFiles = NULL, # location of temporary file downloads; default is `<package-directory>\data\tmp\<date-and-time-stamp>
+                              build.Comtrade = TRUE,
                               sleep = 5) {
 
 
@@ -182,6 +184,12 @@ download_Comtrade <- function(year = "2018", #  Years for which to extract
       stop("Argument 'location.temporaryFiles' is wrong class.")
     }
   }
+
+
+  ## Check `build.Comtrade` ------
+  build.Comtrade.ok <- c(TRUE, FALSE)
+  check_args(build.Comtrade, build.Comtrade.ok, "build.Comtrade")
+
 
   ## Check `sleep`
   sleep.ok <- c(5:600)
@@ -400,6 +408,7 @@ download_Comtrade <- function(year = "2018", #  Years for which to extract
   }
 
   # Aggregate data, remove tmp files and return object ------------
+  if(build.Comtrade == TRUE) {
   df_out <- build_Comtrade(
     directory = loc_folder,
     rm.temporaryFiles = rm.temporaryFiles,
@@ -411,4 +420,7 @@ download_Comtrade <- function(year = "2018", #  Years for which to extract
     warning("Data query did not produce any results. Empty data frame is returned.")
   }
   return(df_out)
+  } else {
+    message("Data download complete. Please see location specified in argumen `location.temporaryFiles` for location of temporary files.")
+  }
 }
