@@ -133,7 +133,7 @@ kable(table,
   ),
   escape = F
 ) %>%
-  kable_styling(font_size = 11.5) %>%
+  kable_styling(font_size = 8) %>%
   add_header_above(c(" " = 1, "BEC" = 2, " " = 3, "Harmonised System" = 5, "ISIC" = 4, " " = 2, "SITC" = 4)) %>%
   add_header_above(c("From...", "...to" = 20)) %>%
   pack_rows("Harmonised System (HS)", 1, 7) %>%
@@ -212,7 +212,7 @@ devtools::install_github("amannj/comtradr",
 
 ------------------------------------------------------------------------
 
-## Examples
+## Get started
 
 First, load the package.
 

@@ -5,7 +5,7 @@
 
 <!-- badges: start -->
 
-[![Status\_Badge](hhttps://img.shields.io/badge/comtradeRggregator-v0.0.1-blue)](https://github.com/amannj/comtradeRggregator)
+[![Status\_Badge](https://img.shields.io/badge/comtradeRggregator-v0.0.1-blue)](https://github.com/amannj/comtradeRggregator)
 [![codecov](https://codecov.io/gh/amannj/comtradeRggregator/branch/master/graph/badge.svg?token=03GW9TJP27)](https://codecov.io/gh/amannj/comtradeRggregator)
 [![R-CMD-check](https://github.com/amannj/comtradeRggregator/workflows/R-CMD-check/badge.svg)](https://github.com/amannj/comtradeRggregator/actions)
 <!-- badges: end -->
@@ -106,7 +106,7 @@ download and reclassification that are absent from either the
 
 #### Concordance Table
 
-<table class="table" style="font-size: 11.5px; margin-left: auto; margin-right: auto;border-bottom: 0;">
+<table class="table" style="font-size: 8px; margin-left: auto; margin-right: auto;border-bottom: 0;">
 <thead>
 <tr>
 <th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="1">
@@ -1246,9 +1246,26 @@ use:
 # Download `comtradeRggregator`; private repository, requires `auth_token`.
 devtools::install_github("amannj/comtradeRggregator",
   ref = "master",
-  auth_token = "....",
+  auth_token = "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",
   force = TRUE
 )
+#> comtradr (NA -> d89167fed...) [GitHub]
+#> 
+#>          checking for file 'C:\Users\juerg\AppData\Local\Temp\RtmpcFx9WF\remotes4b98576c5728\amannj-comtradr-d89167f/DESCRIPTION' ...  v  checking for file 'C:\Users\juerg\AppData\Local\Temp\RtmpcFx9WF\remotes4b98576c5728\amannj-comtradr-d89167f/DESCRIPTION'
+#>       -  preparing 'comtradr':
+#>    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   v  checking DESCRIPTION meta-information
+#>       -  checking for LF line-endings in source and make files and shell scripts
+#>       -  checking for empty or unneeded directories
+#>       -  building 'comtradr_0.2.2.09000.tar.gz'
+#>      
+#>          checking for file 'C:\Users\juerg\AppData\Local\Temp\RtmpcFx9WF\remotes4b9861104f9c\amannj-comtradeRggregator-36088aa3ba5e6631c8a2bf740b57b8204d5f8b17/DESCRIPTION' ...  v  checking for file 'C:\Users\juerg\AppData\Local\Temp\RtmpcFx9WF\remotes4b9861104f9c\amannj-comtradeRggregator-36088aa3ba5e6631c8a2bf740b57b8204d5f8b17/DESCRIPTION'
+#>       -  preparing 'comtradeRggregator': (2.1s)
+#>    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   v  checking DESCRIPTION meta-information
+#>       -  checking for LF line-endings in source and make files and shell scripts
+#>       -  checking for empty or unneeded directories
+#>       -  building 'comtradeRggregator_0.0.0.9000.tar.gz'
+#>      
+#> 
 ```
 
 Note that you will need
@@ -1264,7 +1281,7 @@ Alternatively, it can be installed by running:
 
 ------------------------------------------------------------------------
 
-## Examples
+## Get started
 
 First, load the package.
 
