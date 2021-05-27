@@ -18,9 +18,13 @@ build_Comtrade(
 
 alternatively specify the temporary download directory.}
 
-\item{rm.temporaryFiles}{Remove temporary download files stored at location provided in argument \code{location.temporaryFiles}; default is \code{FALSE}.}
+\item{rm.temporaryFiles}{Remove temporary download files stored at location provided in argument \code{location.temporaryFiles}; default is \code{TRUE}.}
 
-\item{is.mirrorData}{Extract mirror trade data? default is \code{FALSE}; Set to \code{TRUE} to extract mirror trade data from country/countries specified in argument \code{partners}. For example, if \code{is.mirrorData = TRUE} export data from countries specified in argument \code{countries} to countries specified in argument \code{partners} is measured as import data from countries specified in argument \code{countries} to countries specified in argument \code{partners} as reported by countries specified in argument \code{partners}.}
+\item{is.mirrorData}{Extract mirror trade data? default is \code{FALSE}.
+\itemize{
+\item Set to \code{TRUE} to extract mirror trade data from country/countries specified in argument \code{partners}.
+For example, if \code{is.mirrorData = TRUE} export data from countries specified in argument \code{countries} to countries specified in argument \code{partners} is measured as import data from countries specified in argument \code{countries} to countries specified in argument \code{partners} as reported by countries specified in argument \code{partners}.
+}}
 
 \item{partner}{List of partner countries. Needs to be provided if \code{is.mirrorData = TRUE}; default is \code{NULL}, no mirror data download.}
 }

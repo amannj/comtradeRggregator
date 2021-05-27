@@ -17,7 +17,7 @@ is.available_Comtrade(
 )
 }
 \arguments{
-\item{is.contained}{Check if a particular country/set of countries is available for a particular data set; default is \code{NULL} which returns list of all countries available for a given data set.}
+\item{is.contained}{Check if a particular country (set of countries) is available for a particular data set; default is \code{NULL} which returns list of all countries available for a given data set.}
 
 \item{is.fuzzy}{Fuzzy match of country name fragments provided in \code{is.contained}; default is \code{FALSE}.}
 
@@ -27,7 +27,7 @@ is.available_Comtrade(
 
 \item{month}{Optional parameter for \code{monthly} extract; ignored for \code{annual} extracts; only takes one entry as monthly trade data availability varies by month.}
 
-\item{tradecode}{Select trade database and classification to be extracted; default is \code{HS2007}; monthly trade data only available following \code{HS} classification; the full list of possible trade classifications and their corresponding input arguments used in the \code{comtradeRggregator} package are provided in \emph{Table Supported Trade Classification}.}
+\item{tradecode}{Select trade database and classification to be extracted; default is \code{HS2007}; monthly trade data only available following \code{HS} classification; the full list of possible trade classifications and their corresponding input arguments used in the \code{comtradeRggregator} package are provided in table \href{https://github.com/amannj/comtradeRggregator#trade-classifications}{Trade Classifications}.}
 
 \item{year}{Year for which to extract data.}
 

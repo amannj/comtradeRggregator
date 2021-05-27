@@ -14,11 +14,11 @@ convert_Comtrade(
 \arguments{
 \item{data}{A data frame.}
 
-\item{classification.from}{Abbreviation of origin classification based on the \emph{Concordance Table}.}
+\item{classification.from}{Abbreviation of origin classification based on the \emph{Concordance Table} above.}
 
 \item{commodity.code}{Name of variable containing the commodity codes corresponding to trade classification; default is \code{commodity_code}.}
 
-\item{classification.to}{Abbreviation of target classification based on the \emph{Concordance Table}.}
+\item{classification.to}{Abbreviation of target classification based on the \emph{Concordance Table} above.}
 }
 \description{
 This function offers conversion tables for Comtrade trade data following official tables from the
