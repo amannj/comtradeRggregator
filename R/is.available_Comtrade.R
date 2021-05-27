@@ -11,12 +11,12 @@
 #'   In other words, if new data becomes available and is documented in the
 #'   [official Comtrade data availability file](https://comtrade.un.org/data/da), `comtradeRggregator`
 #'   will use this information no later than 24 hours after its publication.
-#' @param is.contained  Check if a particular country/set of countries is available for a particular data set; default is `NULL` which returns list of all countries available for a given data set.
+#' @param is.contained  Check if a particular country (set of countries) is available for a particular data set; default is `NULL` which returns list of all countries available for a given data set.
 #' @param type Type of trade data to be extracted; either `services` or `commodities`; currently only `commodities` implemented.
 #' @param is.fuzzy Fuzzy match of country name fragments provided in `is.contained`; default is `FALSE`.
-#' @param frequency   Frequency of data extract; either `annual` or `monthly`; default is `annual`.
-#' @param month   Optional parameter for `monthly` extract; ignored for `annual` extracts; only takes one entry as monthly trade data availability varies by month.
-#' @param tradecode  Select trade database and classification to be extracted; default is `HS2007`; monthly trade data only available following `HS` classification; the full list of possible trade classifications and their corresponding input arguments used in the `comtradeRggregator` package are provided in *Table Supported Trade Classification*.
+#' @param frequency Frequency of data extract; either `annual` or `monthly`; default is `annual`.
+#' @param month Optional parameter for `monthly` extract; ignored for `annual` extracts; only takes one entry as monthly trade data availability varies by month.
+#' @param tradecode  Select trade database and classification to be extracted; default is `HS2007`; monthly trade data only available following `HS` classification; the full list of possible trade classifications and their corresponding input arguments used in the `comtradeRggregator` package are provided in table [Trade Classifications](https://github.com/amannj/comtradeRggregator#trade-classifications).
 #' @param year Year for which to extract data.
 #' @param file  Location of Comtrade Data Availability file; default is `Comtrade_DataAvailability-<time and date stamp>.csv.gz`.
 #' @param directory Location of directory; default is `"<location of package on your system>\data"`.

@@ -4,15 +4,16 @@
 #'  [UN Statistics Division (UNSD)](https://unstats.un.org/unsd/classifications/Econ#corresp-hs) and the
 #'  [World Integrated Trade Solution (WITS)](https://wits.worldbank.org/product_concordance.html) as provided below:
 #'
+#'
 #' | Table | to     |
 #' | ---   | ---    |
 #' | be    | added. |
 #'
 #'
 #' @param data A data frame.
-#' @param classification.from Abbreviation of origin classification based on the *Concordance Table*.
+#' @param classification.from Abbreviation of origin classification based on the *Concordance Table* above.
 #' @param commodity.code  Name of variable containing the commodity codes corresponding to trade classification; default is `commodity_code`.
-#' @param classification.to Abbreviation of target classification based on the *Concordance Table*.
+#' @param classification.to Abbreviation of target classification based on the *Concordance Table* above.
 #' @keywords concordance
 #' @export
 #' @import dplyr comtradr tibble readr rlang

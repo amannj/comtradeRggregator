@@ -3,26 +3,42 @@
 #' @description  Main function to generate trade data querie that is processed in `download_Comtrade_core()`  to interact with `comtradr::ct_search()` and Comtrade's API to extract Comtrade trade data
 #' @param year Year for which to extract data.
 #' @param frequency Frequency of data extract; either `annual` or `monthly`; default is `annual`.
-#' @param month  Optional parameter for `monthly` extract; ignored for `annual` extracts; default is all 12 month if `frequency = 'monthly'`.
+#' @param month  Optional parameter for `monthly` extract; ignored for `annual` extracts; default is all 12 months if `frequency = 'monthly'` while argument `monty` remains unspecified.
 #' @param countries Select list of countries to be extracted; default is `all`.
-#' @param partners Specify partner country/countries or `World` (as provided by Comtrade) for global, aggregated trade; default is `World`.
-#' @param tradecode Select trade database and classification to be extracted; default is `HS2007`/`H3`; monthly trade data only available following `HS` classification; the full list of possible trade classifications and their corresponding input arguments used in the `comtradeRggregator` package are provided in *Table Supported Trade Classification*; argument accepts long classification names (e.g. `HS2007`) or abbreviation (e.g. `HS3`) as inputs.
-#' @param ag  Level of aggregation of trade data; varies by trade data set.
+#' @param partners Specify partner country/countries or `World` (as provided by Comtrade); use option `all` if you want to download trade data from all
+#' available countries but not Comtrade's `World` aggregate; default is `World`.
+#'    - If `is.mirrorData = FALSE` and `partners = 'World'`, `download_Comtrade()` will download aggregated *"World"* trade as provided by [Comtrade](https://comtrade.un.org).
+#'    - If `is.mirrorData = TRUE` and `partners = 'World'`, no *"World"* aggregate is available via [Comtrade](https://comtrade.un.org). In this case, `download_Comtrade()` will download mirror trade data for [all available countries](https://comtrade.un.org/data/da), and creates and returns an artificial 'World' aggregate by summing up over all available countries.
+#' @param tradecode Select trade database and classification to be extracted; default is `HS2007`/`H3`; monthly trade data only available following `HS` classification; the full list of possible trade classifications and corresponding input arguments used in the `comtradeRggregator` package are provided in table [Trade Classification](https://github.com/amannj/comtradeRggregator#trade-classifications); argument accepts long classification names, e.g. `HS2007`, as well as abbreviation, e.g. `HS3`, as inputs.
+#' @param ag Level of aggregation of trade data; varies by trade data set; see  table [Trade Classification](https://github.com/amannj/comtradeRggregator#trade-classifications) for more information.
 #' @param type Type of trade data to be extracted (either `services` or `commodities`); currently only `type = commodities` implemented.
 #' @param select.stats  Trade statistics to be reported; either `trade_value_usd`, `qty_unit_code`, `qty_unit`, `alt_qty_unit_code`, `alt_qty_unit`, `qty, alt_qty`, `netweight_kg`, `gross_weight_kg` or `all`; default is `all`.
-#' @param direction Direction of trade flow reported; either `imports`, `exports`, `re_-_imports`, `re_-_exports` or `all`; default is `all`.
+#' @param direction Direction of trade flow reported; either `imports`, `exports`, `re-imports`, `re-exports` or `all`; default is `all`.
 #' @param token Set Comtrade token to increase hourly queries from [Comtrade API](https://comtrade.un.org/Data/Doc/API); increases the speed of large data extraction as it increases the number of queries that can be run per hour.
-#' @param ext_cnt Number of countries extracted with each query; default is 5 which is also the maximum in [comtradr](https://github.com/ropensci/comtradr)
+#' @param ext_cnt Number of countries extracted with each query; default is 5 which is also the maximum in [comtradr](https://github.com/ropensci/comtradr).
 #' @param is.mirrorData  Extract mirror trade data? default is `FALSE`; Set to `TRUE` to extract mirror trade data from country/countries specified in argument `partners`. For example, if `is.mirrorData = TRUE` export data from countries specified in argument `countries` to countries specified in argument `partners` is measured as import data from countries specified in argument `countries` to countries specified in argument `partners` as reported by countries specified in argument `partners`.
 #' @param rm.temporaryFiles Remove temporary download files stored at location provided in argument `location.temporaryFiles`; default is `TRUE`.
 #' @param location.temporaryFiles  Location of temporary file downloads; default is `<your package directory>\data\tmp\<date-and-time-stamp>`; if you decide to use a different location, an alternative temporary folder needs to be created first.
 #' @param build.Comtrade After having downloaded the separate temporary files (which will be saved to `location.temporaryFiles`), should function `download_Comtrade()` return a complete data object? Default is `TRUE`.
-#' @param sleep Number of seconds to wait before the next Comtrade API query is started; default is 20.
+#' @param sleep Number of seconds to wait before the next Comtrade API query is started; default is 5.
 #' @keywords Comtrade data download
 #' @export
 #' @import dplyr comtradr tibble readr rlang
-
-
+#' @example
+#' \dontrun{
+#' AT_World <- download_Comtrade(
+#' year = "2018",
+#' frequency = "annual",
+#' countries = "Austria",
+#' partners = "World",
+#' tradecode = "HS2007",
+#' ag = "AG6",
+#' type = "commodities",
+#' select.stats = "trade_value_usd",
+#' direction = "all"
+#' )
+#' AT_World
+#' }
 
 download_Comtrade <- function(year = "2018", #  Years for which to extract
                               frequency = "annual", #  or "monthly"
