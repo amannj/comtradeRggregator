@@ -109,7 +109,7 @@ download_Comtrade_wrapper <- function(rep = "Austria",
     stop("[400] bad request, incorrect parameters (input data).")
   }
   if (!is.na(suppressWarnings(stringr::str_match(df_download[1], "Error")))) {
-    stop("Other error; sort this out!")
+    stop("Other error code.")
   }
   message("   reported by: ",  paste0(rep, collapse = ', '), "; year: ", date, "; trade direction: '", paste0(dir, collapse = "', '"), "'.\n    Done! Going to sleep for ", sleep, " sec.\n")
   Sys.sleep(sleep)
