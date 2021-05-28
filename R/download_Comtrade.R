@@ -437,6 +437,6 @@ download_Comtrade <- function(year = "2018", #  Years for which to extract
   }
   return(df_out)
   } else {
-    message("Data download complete. Please see location specified in argumen `location.temporaryFiles` for location of temporary files.")
+    message("Data download complete. Please see location specified in argument `location.temporaryFiles` for location of temporary files.")
   }
 }
