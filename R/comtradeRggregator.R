@@ -39,6 +39,9 @@ if (getRversion() >= "2.15.1") {
     "freq",
     "rDesc",
     "ps",
-    "H0_BE"
+    "H0_BE",
+    "x",
+    "na.omit",
+    "country"
   ))
 }
