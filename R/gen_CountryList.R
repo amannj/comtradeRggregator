@@ -15,7 +15,6 @@
 #' @param time Generic time id for internal processing; either a particular year or particular month of a particular year
 #' @param px Trade classification abbreviation `.px` for further processing of Comtrade download
 #' @param t Generic time index for internatl processing.
-#' @param is.MirrorData For mirror data, no year look-up; default is `FALSE`.
 #' @keywords Comtrade country list
 #' @export
 #' @import dplyr comtradr tibble readr rlang
@@ -23,12 +22,11 @@
 
 gen_CountryList <- function(directory = system.file("data", package = "comtradeRggregator"),
                             file = paste0("Comtrade_DataAvailability-", Sys.Date()),
-                            type = 'commodities',
+                            type = "commodities",
                             frequency = frequency,
                             time = time,
-                            px = .px,
-                            t = t,
-                            is.mirrorData = FALSE) {
+                            .px = .px,
+                            t = t) {
 
   ## Check if update necessary first
   Comtrade_DA <- update_ComtradeDA(directory, file)
@@ -37,11 +35,10 @@ gen_CountryList <- function(directory = system.file("data", package = "comtradeR
     select(type, freq, px, rDesc, ps, px) %>%
     filter(type == toupper(type) & freq == toupper(frequency)) -> ls_cnt
 
-  if(is.mirrorData == FALSE) {
   ## Filter by period
   if (tolower(frequency) == "annual") {
     ls_cnt %>%
-      filter(ps == time, px == px) -> ls_cnt
+      filter(ps == time, px %in% .px) -> ls_cnt
   } else if (tolower(frequency) == "monthly") {
     ls_cnt %>%
       mutate(
@@ -52,18 +49,12 @@ gen_CountryList <- function(directory = system.file("data", package = "comtradeR
   } else {
     stop("Option `frequency` incorrectly specified.")
   }
-  } else if (is.mirrorData == TRUE) {
-    if (tolower(frequency) == "annual") {
-      ls_cnt <- ls_cnt %>%
-      filter(px == px)
-    }
-  }
 
   ## Collapse and return
   ## Eliminated aggregates are either country aggregates of follow different name(s).
   ls_cnt %>%
     group_by(rDesc) %>%
     tally() %>%
-    filter(rDesc %not.in% c("ASEAN", "EU-28", "Other Asia, nes", "Eswatini", "North Macedonia")) %>%
+    filter(rDesc %not.in% c("ASEAN", "EU-28", "Other Asia, nes", "Eswatini", "North Macedonia", "Niue")) %>%
     pull(rDesc)
 }

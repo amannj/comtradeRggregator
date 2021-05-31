@@ -274,7 +274,7 @@ download_Comtrade <- function(year = "2018", #  Years for which to extract
         file = paste0("Comtrade_DataAvailability-", Sys.Date()),
         type = type,
         frequency = frequency,
-        px = .px,
+        .px = .px,
         time = time,
         t = t
       )
@@ -290,18 +290,6 @@ download_Comtrade <- function(year = "2018", #  Years for which to extract
         if (!identical(cnt_missing, character(0))) {
           stop("\nCountry '", paste0(cnt_missing, collapse = "', '"), "' not contained in particular version of Comtrade data base. Please check availability for selected data base using `is.available_Comtrade()` and/or spelling.\n")
         }
-      } else if(is.mirrorData == TRUE) {
-        # If mirror data remove year from extraction
-        ls_cnt <- gen_CountryList(
-          directory = int_ddir,
-          file = paste0("Comtrade_DataAvailability-", Sys.Date()),
-          type = type,
-          frequency = frequency,
-          px = .px,
-          time = '2015',
-          t = t,
-          is.mirrorData = is.mirrorData
-        )
       }
 
       ### Check country availability for `partners` conditional on available data (ls_cont)
@@ -326,8 +314,10 @@ download_Comtrade <- function(year = "2018", #  Years for which to extract
       ### Check if selected list of countries is > 5 (cometradr's extraction limit) and break extraction up in J groups of length ext_cnt
       ### plus sub-set country list for small extract
       ls_cntj <- ls_cnt
-      if ("All" %not.in% countries) {
+      if ("All" %not.in% countries & is.mirrorData == FALSE) {
         ls_cntj <- ls_cnt[ls_cnt %in% countries]
+      }  else  if ("All" %not.in% countries & is.mirrorData == TRUE) {
+        ls_cntj <- countries
       }
 
       .ext_cnt <- ext_cnt
