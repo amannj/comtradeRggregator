@@ -1390,8 +1390,8 @@
 #' \describe{
 #'   \item{HS 2012 Product Code}{...}
 #'   \item{HS 2012 Product Description}{...}
-#'   \item{ISIC Revision 3.1 Code}{...}
-#'   \item{ISIC Revision 3.1 Description}{...}
+#'   \item{ISIC Revision 3.1 Product Code}{...}
+#'   \item{ISIC Revision 3.1 Product Description}{...}
 #' }
 #' @examples
 #' H4_I31
@@ -1406,8 +1406,8 @@
 #' \describe{
 #'   \item{HS 2012 Product Code}{...}
 #'   \item{HS 2012 Product Description}{...}
-#'   \item{ISIC Revision 4 Code}{...}
-#'   \item{ISIC Revision 4 Description}{...}
+#'   \item{ISIC Revision 4 Product Code}{...}
+#'   \item{ISIC Revision 4 Produt Description}{...}
 #' }
 #' @examples
 #' H4_I4

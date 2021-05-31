@@ -9,8 +9,8 @@ A data frame with 5,205 rows and 4 variables:
 \describe{
 \item{HS 2012 Product Code}{...}
 \item{HS 2012 Product Description}{...}
-\item{ISIC Revision 4 Code}{...}
-\item{ISIC Revision 4 Description}{...}
+\item{ISIC Revision 4 Product Code}{...}
+\item{ISIC Revision 4 Produt Description}{...}
 }
 }
 \source{
