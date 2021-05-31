@@ -60,10 +60,10 @@ is.available_Comtrade <- function(is.contained = NULL,
   if (tolower(frequency) == "annual") {
     Comtrade_DA %>%
       filter(
-        px == tradecode,
-        ps == year
+        px %in% tradecode,
+        ps %in% year
       ) %>%
-      pull(rDesc) -> ls_cnt
+      select(country = rDesc, year = ps) -> ls_cnt
   }
 
   if (tolower(frequency) == "monthly") {
@@ -78,17 +78,21 @@ is.available_Comtrade <- function(is.contained = NULL,
       filter(
         ps == paste0(year, month)
       ) %>%
-      pull(rDesc) -> ls_cnt
+      mutate(ps = paste0(year, '-',month)) %>%
+      select(country = rDesc, year = ps) -> ls_cnt
   }
 
   ## Country look-up if `is.contained` is not triggered --------------
   if (!is.null(is.contained)) {
     if (is.fuzzy == FALSE) {
-      ls_cnt <- is.contained %in% ls_cnt
-      names(ls_cnt) <- is.contained
+      ls_cnt <- ls_cnt %>%
+        filter(country %in% is.contained) %>%
+        arrange(country, year)
     } else if (is.fuzzy == TRUE) {
-      ls_cnt <- grep(is.contained, ls_cnt, value = TRUE)
+      ls_cnt <- ls_cnt %>%
+        filter(country %in% grep(is.contained, .$country, value = TRUE)) %>%
+        arrange(country, year)
     }
   }
-  return(sort(ls_cnt))
+  return(ls_cnt)
 }

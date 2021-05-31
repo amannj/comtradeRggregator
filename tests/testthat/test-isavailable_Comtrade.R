@@ -5,14 +5,14 @@ library(comtradeRggregator) # load package
 
 
 
-test_that("is.available_Comtrade returns list of all available countries", {
+test_that("is.available_Comtrade returns data frame", {
   da1 <- is.available_Comtrade(
     frequency = "annual",
     tradecode = "H3",
     year = "2008"
   )
 
-  expect_type(da1, "character")
+  expect_s3_class(da1, "data.frame")
 })
 
 
@@ -23,8 +23,7 @@ test_that("is.available_Comtrade returns evaluated list of all available countri
     tradecode = "H2",
     year = "2012"
   )
-  expect_true(da2[1])
-  expect_true(da2[2])
+  expect_s3_class(da2, "data.frame")
 })
 
 
@@ -50,8 +49,8 @@ test_that("is.available_Comtrade returns evaluated list of all available countri
     tradecode = "H3",
     year = "2020"
   )
-  expect_false(da3[1])
-  expect_true(da3[2])
+  expect_s3_class(da3, "data.frame")
+  expect_equal(nrow(da3), 1)
 })
 
 
@@ -64,13 +63,13 @@ test_that("is.available_Comtrade returns evaluated list of all available countri
     year = "2019"
   )
 
-  expect_equal(da4[1], "Australia")
-  expect_equal(da4[2], "Austria")
+  expect_s3_class(da4, "data.frame")
+  expect_equal(nrow(da4), 2)
 })
 
 
 test_that("is.available_Comtrade returns evaluated list of all available countries", {
-  da4 <- is.available_Comtrade(
+  da5 <- is.available_Comtrade(
     is.contained = "ustr",
     is.fuzzy = TRUE,
     frequency = "monthly",
@@ -78,5 +77,6 @@ test_that("is.available_Comtrade returns evaluated list of all available countri
     year = "2019",
     month = "05"
   )
-  expect_equal(da4[1], "Australia")
+  expect_s3_class(da5, "data.frame")
+  expect_equal(nrow(da5), 1)
 })
