@@ -319,7 +319,7 @@ download_Comtrade <- function(year = "2018", #  Years for which to extract
       ### Check if selected list of countries is > 5 (cometradr's extraction limit) and break extraction up in J groups of length ext_cnt
       ### plus sub-set country list for small extract
       ls_cntj <- ls_cnt
-      if (countries %not.in% "All") {
+      if ("All" %not.in% countries) {
         ls_cntj <- ls_cnt[ls_cnt %in% countries]
       }
       .ext_cnt <- ext_cnt
