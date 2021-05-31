@@ -15,6 +15,7 @@
 #' @param time Generic time id for internal processing; either a particular year or particular month of a particular year
 #' @param px Trade classification abbreviation `.px` for further processing of Comtrade download
 #' @param t Generic time index for internatl processing.
+#' @param is.MirrorData For mirror data, no year look-up; default is `FALSE`.
 #' @keywords Comtrade country list
 #' @export
 #' @import dplyr comtradr tibble readr rlang
@@ -26,7 +27,8 @@ gen_CountryList <- function(directory = system.file("data", package = "comtradeR
                             frequency = frequency,
                             time = time,
                             px = .px,
-                            t = t) {
+                            t = t,
+                            is.mirrorData = FALSE) {
 
   ## Check if update necessary first
   Comtrade_DA <- update_ComtradeDA(directory, file)
@@ -35,6 +37,7 @@ gen_CountryList <- function(directory = system.file("data", package = "comtradeR
     select(type, freq, px, rDesc, ps, px) %>%
     filter(type == toupper(type) & freq == toupper(frequency)) -> ls_cnt
 
+  if(is.mirrorData == FALSE) {
   ## Filter by period
   if (tolower(frequency) == "annual") {
     ls_cnt %>%
@@ -48,6 +51,12 @@ gen_CountryList <- function(directory = system.file("data", package = "comtradeR
       filter(ps == time[t]) -> ls_cnt
   } else {
     stop("Option `frequency` incorrectly specified.")
+  }
+  } else if (is.mirrorData == TRUE) {
+    if (tolower(frequency) == "annual") {
+      ls_cnt <- ls_cnt %>%
+      filter(px == px)
+    }
   }
 
   ## Collapse and return

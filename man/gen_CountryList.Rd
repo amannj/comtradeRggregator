@@ -11,7 +11,8 @@ gen_CountryList(
   frequency = frequency,
   time = time,
   px = .px,
-  t = t
+  t = t,
+  is.mirrorData = FALSE
 )
 }
 \arguments{
@@ -28,6 +29,8 @@ gen_CountryList(
 \item{px}{Trade classification abbreviation \code{.px} for further processing of Comtrade download}
 
 \item{t}{Generic time index for internatl processing.}
+
+\item{is.MirrorData}{For mirror data, no year look-up; default is \code{FALSE}.}
 }
 \description{
 Extract or validate list of exporters for which in a given period (year or year-month) and trade classification data is available.
