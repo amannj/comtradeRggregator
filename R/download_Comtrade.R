@@ -353,7 +353,7 @@ download_Comtrade <- function(year = "2018", #  Years for which to extract
               if ("All" %not.in% partners) {
                 ls_cntk <- ls_cntk[ls_cntk %in% partners]
               }
-              kdx <- 1:.ext_cnt
+              kdx <- 1:5
               K <- ceiling(length(ls_cntk) / ext_cnt)
 
               ### Loop through every k group of partners
