@@ -103,18 +103,20 @@ is.strsclr <- function(x) is.character(x) && length(x) == 1
 
 #' @title Check Input Arguments
 #'
-#' @description Evaluates if input arguments for function
-#' `download_Comtrade()` provided to parameter `.is` match
-#' expected arguments provided to parameter `.ok`.
+#' @description Evaluates if input arguments match
+#' expected arguments.
 #' @param is Object passing provided argument(s).
 #' @param ok Object passing expected argument(s).
-#' @param arg Name of parameter evaluated; needed for return
+#' @param arg Name of parameter evaluated; used for return
 #' error message
 #' @keywords check arguments
 #' @export
 #' @import dplyr comtradr tibble readr rlang
 #' @examples
 #' check_args(is = c("a"), ok = ("a"), arg = "test")
+#' \dontrun{
+#' check_args(is = c("b"), ok = ("a"), arg = "test")
+#' }
 check_args <- function(is, ok, arg) {
   if (is %in% ok != TRUE) {
     stop(paste0("Variable '", arg, "' incorrectly specified."))

@@ -9,8 +9,10 @@
 #' the [United Nations Statistical Division (UNSD)](https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp)
 #' and the [World Integrated Trade Solution (WITS)](https://wits.worldbank.org/product_concordance.html).
 #'
-#' See the README on
-#'  \href{https://github.com/amannj/comtradeRggregator}{GitHub}.
+#' See the
+#'  \href{https://amannj.github.io/resources/comtradeRggregator}{project web page}
+#'  as well as the
+#'  \href{https://github.com/amannj/comtradeRggregator}{README onGitHub}.
 #'
 #' @docType package
 #' @name comtradeRggregator

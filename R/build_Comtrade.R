@@ -1,24 +1,23 @@
 #' @title Build Comtrade Data from Temporary Files
 #'
-#' @description Builds final Comtrade data set from temporary files downloaded by `download_Comtrade()`.
-#' where argument `rm.temporaryFiles` had been set to `FALSE`.
+#' @description Builds final Comtrade data set from temporary files
+#' downloaded using `download_Comtrade(..., rm.temporaryFiles = FALSE)`.
 #'
-#' Sometimes you might want to rebuild a data set using the temporary data files you downloaded from Comtrade.
-#' For example, you can use function `build_Comtrade()` whenever you have a very large data query which you would like to
-#' run over multiple days (and turn off your computer in the meantime) before building the finale Comtrade data base.
-#' In such a case you would set `rm.temporaryFiles = FALSE` when running `download_Comtrade()` and then, after you have run
-#' all your queries, you would then point `build_Comtrade()` to the location of all your temporary data files.
+#' Options `rm.temporaryFiles = FALSE` in `download_Comtrade()` are necessary as temporary files will be deleted as part of
+#' data download by default. See documentation of `download_Comtrade()` for more information.
+#'
+#' @seealso [comtradeRggregator::download_Comtrade()], `browseVignettes("comtradeRggregator")`
 #'
 #' @param directory  Location of temporary file downloads; default is
 #'
-#' `<your package directory>\data\tmp\<date-and-time-stamp>`;
-#'
-#' alternatively specify the temporary download directory.
-#' @param rm.temporaryFiles Remove temporary download files stored at location provided in argument `location.temporaryFiles`; default is `TRUE`.
-#' @param is.mirrorData Extract mirror trade data? default is `FALSE`.
-#'   - Set to `TRUE` to extract mirror trade data from country/countries specified in argument `partners`.
-#'   For example, if `is.mirrorData = TRUE` export data from countries specified in argument `countries` to countries specified in argument `partners` is measured as import data from countries specified in argument `countries` to countries specified in argument `partners` as reported by countries specified in argument `partners`.
-#' @param partner List of partner countries. Needs to be provided if `is.mirrorData = TRUE`; default is `NULL`, no mirror data download.
+#' `<your package directory>\data\tmp\<date-and-time-stamp>`.
+#' @param rm.temporaryFiles Remove temporary download files stored at location provided in argument `location.temporaryFiles` when building Comtrade trade data set; default is `TRUE`.
+#' @param is.mirrorData Is data set that is to be build mirror data? default is `FALSE`, i.e. non-mirror data.
+#' @param partner List of partner countries. Needs to be provided if `is.mirrorData = TRUE`; default is `NULL`, i.e. no mirror data download.
+#'   - If `is.mirrorData = TRUE`, export (import) data from  countries specified in
+#'   argument `partner` is measured as import (export) of countries specified in argument `partner` as reported by countries
+#'   specified in argument `partner`.
+
 #' @keywords build comtrade
 #' @export
 #' @import dplyr comtradr tibble readr rlang
