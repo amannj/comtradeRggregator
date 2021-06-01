@@ -63,7 +63,8 @@ is.available_Comtrade <- function(is.contained = NULL,
         px %in% tradecode,
         ps %in% year
       ) %>%
-      select(country = rDesc, year = ps) -> ls_cnt
+      select(country = rDesc, year = ps) %>%
+      arrange(country, year) -> ls_cnt
   }
 
   if (tolower(frequency) == "monthly") {
@@ -79,7 +80,8 @@ is.available_Comtrade <- function(is.contained = NULL,
         ps == paste0(year, month)
       ) %>%
       mutate(ps = paste0(year, '-',month)) %>%
-      select(country = rDesc, year = ps) -> ls_cnt
+      select(country = rDesc, year = ps) %>%
+      arrange(country, year) -> ls_cnt
   }
 
   ## Country look-up if `is.contained` is not triggered --------------
