@@ -1,0 +1,6 @@
+home:
+  strip_header: false
+
+authors:
+  "Juergen Amann":
+    href: https://amannj.github.io
