@@ -7,10 +7,10 @@
 \format{
 A data frame with 5,017 rows and 4 variables:
 \describe{
-\item{HS 1988/92 Product Code}{...}
-\item{HS 1988/92 Product Description}{...}
-\item{SITC Revision 3 Product Code}{...}
-\item{SITC Revision 3 Product Description}{...}
+\item{HS 1988/92 Product Code}{Harmonised System \verb{HS 1988/92} (\code{H0}) Product code.}
+\item{HS 1988/92 Product Description}{Harmonised System \verb{HS 1988/92} (\code{H0}) Product description.}
+\item{SITC Revision 3 Product Code}{Standard International Trade Classification \code{SITC} Revision 3 Product code.}
+\item{SITC Revision 3 Product Description}{Standard International Trade Classification \code{SITC} Revision 3 Product description.}
 }
 }
 \source{
@@ -20,7 +20,7 @@ A data frame with 5,017 rows and 4 variables:
 H0_S3
 }
 \description{
-Concordance table between \verb{HS 1988/92} (\code{H0}) and \verb{SITC Rev. 3}
+Concordance table from \verb{HS 1988/92} (\code{H0}) to \verb{SITC Rev. 3}
 }
 \examples{
 H0_S3

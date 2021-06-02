@@ -65,7 +65,24 @@ available countries but not Comtrade's \code{World} aggregate; default is \code{
 \item{sleep}{Number of seconds to wait before the next Comtrade API query is started; default is 5.}
 }
 \description{
-Main function to generate trade data querie that is processed in \code{download_Comtrade_core()}  to interact with \code{comtradr::ct_search()} and Comtrade's API to extract Comtrade trade data
+Main function to generate trade data querie that is processed in \code{download_Comtrade_core()}  to interact with \code{comtradr::ct_search()} and \href{https://comtrade.un.org/data/doc/api/}{Comtrade's API} to extract Comtrade trade data.
+}
+\references{
+\href{https://docs.ropensci.org/comtradr/index.html}{comtradr}
+\dontrun{
+AT_World <- download_Comtrade(
+year = "2018",
+frequency = "annual",
+countries = "Austria",
+partners = "World",
+tradecode = "HS2007",
+ag = "AG6",
+type = "commodities",
+select.stats = "trade_value_usd",
+direction = "all"
+)
+AT_World
+}
 }
 \keyword{Comtrade}
 \keyword{data}

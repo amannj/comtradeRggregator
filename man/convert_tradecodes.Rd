@@ -3,16 +3,16 @@
 \name{convert_tradecodes}
 \alias{convert_tradecodes}
 \title{Convert Trade Codes}
+\source{
+\url{https://amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications}
+}
 \usage{
 convert_tradecodes(tradecode = tradecode, return = "Name", eval = TRUE)
 }
 \arguments{
-\item{tradecode}{Select trade database and classification to
-be extracted; default is \code{HS2007}; monthly trade data only
-available following \code{HS} classification; the full list of
-possible trade classifications and their corresponding input
-arguments used in the \code{comtradeRggregator} package are provided
-in \emph{Table Supported Trade Classification}.}
+\item{tradecode}{Trade code input;
+see \href{https://amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications}{here}
+for more information.}
 
 \item{return}{Return either \code{Name} or \code{Abbr} (abbreviation) of commodity code}
 
@@ -21,8 +21,7 @@ in \emph{Table Supported Trade Classification}.}
 \code{download_Comtrade()}; set \code{FALSE} for \code{convert_Comtrade()}.}
 }
 \description{
-Allows user to input trade classifications and
-convert inputs for further processing
+Converts and harmonises trade code inputs for further processing (e.g. \code{H3} vs. \code{HS2007}).
 }
 \keyword{convert}
 \keyword{tradecode}

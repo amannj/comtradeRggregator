@@ -13,9 +13,10 @@ set.}
 \item{tradecode}{Select trade database and classification to be
 extracted; default is \code{HS2007};
 monthly trade data only available following \code{HS} classification;
-the full list of possible trade classifications and their
+for the full list of possible trade classifications and their
 corresponding input arguments used in the \code{comtradeRggregator}
-package are provided in \emph{Table Supported Trade Classification}.}
+package please see the list of all
+\href{https://amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications}{supported trade classifications}.}
 
 \item{frequency}{Frequency of data extract; either \code{annual} or
 \code{monthly}; default is \code{annual}.}

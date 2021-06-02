@@ -14,29 +14,28 @@ build_Comtrade(
 \arguments{
 \item{directory}{Location of temporary file downloads; default is
 
-\verb{<your package directory>\\data\\tmp\\<date-and-time-stamp>};
+\verb{<your package directory>\\data\\tmp\\<date-and-time-stamp>}.}
 
-alternatively specify the temporary download directory.}
+\item{rm.temporaryFiles}{Remove temporary download files stored at location provided in argument \code{location.temporaryFiles} when building Comtrade trade data set; default is \code{TRUE}.}
 
-\item{rm.temporaryFiles}{Remove temporary download files stored at location provided in argument \code{location.temporaryFiles}; default is \code{TRUE}.}
+\item{is.mirrorData}{Is data set that is to be build mirror data? default is \code{FALSE}, i.e. non-mirror data.}
 
-\item{is.mirrorData}{Extract mirror trade data? default is \code{FALSE}.
+\item{partner}{List of partner countries. Needs to be provided if \code{is.mirrorData = TRUE}; default is \code{NULL}, i.e. no mirror data download.
 \itemize{
-\item Set to \code{TRUE} to extract mirror trade data from country/countries specified in argument \code{partners}.
-For example, if \code{is.mirrorData = TRUE} export data from countries specified in argument \code{countries} to countries specified in argument \code{partners} is measured as import data from countries specified in argument \code{countries} to countries specified in argument \code{partners} as reported by countries specified in argument \code{partners}.
+\item If \code{is.mirrorData = TRUE}, export (import) data from  countries specified in
+argument \code{partner} is measured as import (export) of countries specified in argument \code{partner} as reported by countries
+specified in argument \code{partner}.
 }}
-
-\item{partner}{List of partner countries. Needs to be provided if \code{is.mirrorData = TRUE}; default is \code{NULL}, no mirror data download.}
 }
 \description{
-Builds final Comtrade data set from temporary files downloaded by \code{download_Comtrade()}.
-where argument \code{rm.temporaryFiles} had been set to \code{FALSE}.
+Builds final Comtrade data set from temporary files
+downloaded using \code{download_Comtrade(..., rm.temporaryFiles = FALSE)}.
 
-Sometimes you might want to rebuild a data set using the temporary data files you downloaded from Comtrade.
-For example, you can use function \code{build_Comtrade()} whenever you have a very large data query which you would like to
-run over multiple days (and turn off your computer in the meantime) before building the finale Comtrade data base.
-In such a case you would set \code{rm.temporaryFiles = FALSE} when running \code{download_Comtrade()} and then, after you have run
-all your queries, you would then point \code{build_Comtrade()} to the location of all your temporary data files.
+Options \code{rm.temporaryFiles = FALSE} in \code{download_Comtrade()} are necessary as temporary files will be deleted as part of
+data download by default. See documentation of \code{download_Comtrade()} for more information.
+}
+\seealso{
+\code{\link[=download_Comtrade]{download_Comtrade()}}, \code{browseVignettes("comtradeRggregator")}
 }
 \keyword{build}
 \keyword{comtrade}

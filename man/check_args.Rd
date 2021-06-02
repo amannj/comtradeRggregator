@@ -11,16 +11,18 @@ check_args(is, ok, arg)
 
 \item{ok}{Object passing expected argument(s).}
 
-\item{arg}{Name of parameter evaluated; needed for return
+\item{arg}{Name of parameter evaluated; used for return
 error message}
 }
 \description{
-Evaluates if input arguments for function
-\code{download_Comtrade()} provided to parameter \code{.is} match
-expected arguments provided to parameter \code{.ok}.
+Evaluates if input arguments match
+expected arguments.
 }
 \examples{
 check_args(is = c("a"), ok = ("a"), arg = "test")
+\dontrun{
+check_args(is = c("b"), ok = ("a"), arg = "test")
+}
 }
 \keyword{arguments}
 \keyword{check}

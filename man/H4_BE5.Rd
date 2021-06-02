@@ -7,14 +7,14 @@
 \format{
 A data frame with 5,205 rows and 8 variables:
 \describe{
-\item{HS 2012 Product Code}{...}
-\item{HS 2012 Product Description}{...}
-\item{BEC 5 Product Category}{Broad Economic Categories.}
-\item{BEC 5 Code}{...}
-\item{BEC 5 End-user Dimension}{SNA end-user dimension}
-\item{BEC 5 Processing Dimension}{...}
-\item{BEC 5 Specification Dimension}{...}
-\item{BEC 5 Durability Dimension}{...}
+\item{HS 2012 Product Code}{Harmonised System \verb{HS 2012} (\code{H4}) Product code.}
+\item{HS 2012 Product Description}{Harmonised System \verb{HS 2012} (\code{H4}) Product description.}
+\item{BEC 5 Product Category}{Broad Economic Category \code{BEC} 5 category.}
+\item{BEC 5 Code}{Broad Economic Category \code{BEC} 4 Product code.}
+\item{BEC 5 End-user Dimension}{Broad Economic Category \code{BEC} 5 end-user dimension.}
+\item{BEC 5 Processing Dimension}{Broad Economic Category \code{BEC} 5 processing dimension.}
+\item{BEC 5 Specification Dimension}{Broad Economic Category \code{BEC} 5 specification dimension.}
+\item{BEC 5 Durability Dimension}{Broad Economic Category \code{BEC} 5 durability dimension.}
 }
 }
 \source{
@@ -24,7 +24,7 @@ A data frame with 5,205 rows and 8 variables:
 H4_BE5
 }
 \description{
-Concordance table between \verb{HS 2012} (\code{H4}) and \verb{BEC Rev. 5} (\code{BEC5}).
+Concordance table from \verb{HS 2012} (\code{H4}) to \verb{BEC Rev. 5} (\code{BEC5}).
 }
 \examples{
 H4_BE5

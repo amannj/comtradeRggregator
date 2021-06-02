@@ -7,9 +7,9 @@
 \format{
 A data frame with 5,388 rows and 4 variables:
 \describe{
-\item{HS 2017 Product Code}{...}
-\item{HS 1996 Product Code}{...}
-\item{HS 1996 Product Description}{...}
+\item{HS 2017 Product Code}{Harmonised System \verb{HS 2017} (\code{H5}) Product code.}
+\item{HS 1996 Product Code}{Harmonised System \verb{HS 1996} (\code{H1}) Product code.}
+\item{HS 1996 Product Description}{Harmonised System \verb{HS 1996} (\code{H1}) Product description.}
 }
 }
 \source{
@@ -19,7 +19,7 @@ A data frame with 5,388 rows and 4 variables:
 H5_H1
 }
 \description{
-Concordance table between \verb{HS 2017} (\code{H5}) and \verb{HS 1996} (\code{H1}).
+Concordance table from \verb{HS 2017} (\code{H5}) to \verb{HS 1996} (\code{H1}).
 }
 \examples{
 H5_H1

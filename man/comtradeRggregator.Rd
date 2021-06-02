@@ -15,6 +15,8 @@ the \href{https://unstats.un.org/unsd/trade/classifications/correspondence-table
 and the \href{https://wits.worldbank.org/product_concordance.html}{World Integrated Trade Solution (WITS)}.
 }
 \details{
-See the README on
-\href{https://github.com/amannj/comtradeRggregator}{GitHub}.
+See the
+\href{https://amannj.github.io/resources/comtradeRggregator}{project web page}
+as well as the
+\href{https://github.com/amannj/comtradeRggregator}{README onGitHub}.
 }

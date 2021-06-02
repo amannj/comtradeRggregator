@@ -3,14 +3,14 @@
 \docType{data}
 \name{H0_BE}
 \alias{H0_BE}
-\title{Concordance Table: H0 to BEC}
+\title{Concordance Table: H0 to BEC 4}
 \format{
 A data frame with 5,016 rows and 4 variables:
 \describe{
-\item{HS 1988/92 Product Code}{...}
-\item{HS 1988/92 Product Description}{...}
-\item{BEC Product Code}{...}
-\item{BEC Product Description}{...}
+\item{HS 1988/92 Product Code}{Harmonised System \verb{HS 1988/92} (\code{H0}) Product code.}
+\item{HS 1988/92 Product Description}{Harmonised System \verb{HS 1988/92} (\code{H0}) Product description.}
+\item{BEC Product Code}{Broad Economic Category \code{BEC} Product code.}
+\item{BEC Product Description}{Broad Economic Category \code{BEC} Description code.}
 }
 }
 \source{
@@ -20,7 +20,7 @@ A data frame with 5,016 rows and 4 variables:
 H0_BE
 }
 \description{
-Concordance table between \verb{HS 1988/92} (\code{H0}) and \code{BEC}
+Concordance table fromm \verb{HS 1988/92} (\code{H0}) to \code{BEC4}
 }
 \examples{
 H0_BE

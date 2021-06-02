@@ -26,19 +26,19 @@ A data frame with 65k rows and 10 variables:
 Comtrade_DA
 }
 \description{
-Data availability varies by country and classification, and new trade data
-is released/revised very frequently on \href{https://comtrade.un.org/}{Comtrade}.
-\code{comtradeRggregator} uses trade information corresponding to
-\href{https://comtrade.un.org/data/da}{official Comtrade data availability} which it
-updates once a day and stores locally on your machine:
-}
-\details{
-\verb{<your local package location>/data/Comtrade_DataAvailability-<date stamp>.csv.gz}
-
-The locally stored Comtrade Data Availability file is used in every \code{download_Comtrade()}
+\href{https://comtrade.un.org}{Comtrade} data availability varies by country and nomenclature, and new trade data
+is released/revised very frequently.
+\code{comtradeRggregator} uses data availability information corresponding to the most recent
+\href{https://comtrade.un.org/data/da}{official Comtrade data source} which it
+updates once a day and stores locally in
+\verb{<your local package location>/data/Comtrade_DataAvailability-<date stamp>.rds}.
+This locally stored data file is used as part of every \code{download_Comtrade()}
 data query. In other words, if new data becomes available and is documented in
 the \href{https://comtrade.un.org/data/da}{official Comtrade data availability file},
 \code{comtradeRggregator} will use this information no later than 24 hours after its publication.
-The Comtrade Data Availability file can be accessed locally (file name \code{Comtrade_DA}).
+This data availability file can also be accessed locally by typing \code{Comtrade_DA} in R (see example).
+}
+\examples{
+Comtrade_DA
 }
 \keyword{datasets}

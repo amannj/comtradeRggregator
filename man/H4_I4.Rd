@@ -3,14 +3,14 @@
 \docType{data}
 \name{H4_I4}
 \alias{H4_I4}
-\title{Concordance Table: H4 to H3}
+\title{Concordance Table: H4 to I4}
 \format{
 A data frame with 5,205 rows and 4 variables:
 \describe{
-\item{HS 2012 Product Code}{...}
-\item{HS 2012 Product Description}{...}
-\item{ISIC Revision 4 Product Code}{...}
-\item{ISIC Revision 4 Produt Description}{...}
+\item{HS 2012 Product Code}{Harmonised System \verb{HS 2012} (\code{H4}) Product code.}
+\item{HS 2012 Product Description}{Harmonised System \verb{HS 2012} (\code{H4}) Product description.}
+\item{ISIC Revision 4 Product Code}{International Standard Industrial Classification \verb{ISIC Rev. 4} (\code{I4}) Product code.}
+\item{ISIC Revision 4 Product Description}{International Standard Industrial Classification \verb{ISIC Rev. 4} (\code{I4}) Product code.}
 }
 }
 \source{
@@ -20,7 +20,7 @@ A data frame with 5,205 rows and 4 variables:
 H4_I4
 }
 \description{
-Concordance table between \verb{HS 2012} (\code{H4}) and \verb{ISIC Rev. 4} (\code{I4}).
+Concordance table from \verb{HS 2012} (\code{H4}) to \verb{ISIC Rev. 4} (\code{I4}).
 }
 \examples{
 H4_I4

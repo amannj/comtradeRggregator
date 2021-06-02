@@ -7,11 +7,14 @@
 gen_lzs(x)
 }
 \arguments{
-\item{x}{Numeric vector.}
+\item{x}{Numeric scalar/vector of length > 0.}
 }
 \description{
-Returns vectors with \code{x} repeated zeros based on
-input vector containing \code{x};
+Returns vectors with \code{x} repeated zeros.
+}
+\examples{
+gen_lzs(2)
+gen_lzs(c(1,2))
 }
 \keyword{leading}
 \keyword{zero}

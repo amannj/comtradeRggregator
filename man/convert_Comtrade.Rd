@@ -3,6 +3,13 @@
 \name{convert_Comtrade}
 \alias{convert_Comtrade}
 \title{Convert Comtrade Trade Data}
+\source{
+\url{https://unstats.un.org/unsd/classifications/Econ#corresp-hs}
+\url{https://wits.worldbank.org/product_concordance.html}
+\url{https://unstats.un.org/unsd/classifications/Econ#corresp-hs}
+\url{https://amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications}
+\url{https://amannj.github.io/resources/comtradeRggregator/index.html#concordance-table}
+}
 \usage{
 convert_Comtrade(
   data,
@@ -12,21 +19,25 @@ convert_Comtrade(
 )
 }
 \arguments{
-\item{data}{A data frame.}
+\item{data}{A data frame or vector containing (a variable listing) commodity codes following one of the supported
+nomenclatures; see \href{https://amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications}{here}.}
 
-\item{classification.from}{Abbreviation of origin classification based on the \emph{Concordance Table} above.}
+\item{classification.from}{Abbreviation of origin classification supported by
+\href{https://amannj.github.io/resources/comtradeRggregator/index.html#concordance-table}{\code{comtradeRggregator}'s Concordance Table}.}
 
 \item{commodity.code}{Name of variable containing the commodity codes corresponding to trade classification; default is \code{commodity_code}.}
 
-\item{classification.to}{Abbreviation of target classification based on the \emph{Concordance Table} above.}
+\item{classification.to}{Abbreviation of target classification based on
+\href{https://amannj.github.io/resources/comtradeRggregator/index.html#concordance-table}{\code{comtradeRggregator}'s Concordance Table}.}
 }
 \description{
-This function offers conversion tables for Comtrade trade data following official tables from the
+Offers conversion tables for Comtrade trade data following official tables from the
 \href{https://unstats.un.org/unsd/classifications/Econ#corresp-hs}{UN Statistics Division (UNSD)} and the
-\href{https://wits.worldbank.org/product_concordance.html}{World Integrated Trade Solution (WITS)} as provided below:\tabular{ll}{
-   Table \tab to \cr
-   be \tab added. \cr
-}
+\href{https://wits.worldbank.org/product_concordance.html}{World Integrated Trade Solution (WITS)}.
+For a complete list of concordance tables please see
+\href{https://amannj.github.io/resources/comtradeRggregator/index.html#concordance-table}{\code{comtradeRggregator}'s Concordance Table}.
+Please see \href{https://amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications}{here}
+for a list of all nomenclatures supported by \code{comtradeRggregator}.
 }
 \examples{
 df <- tibble("H3 commodity code" = c("010110", "071040"))
@@ -49,7 +60,7 @@ AT_World <- download_Comtrade(
   direction = "all"
 )
 
-# Convert HS2007 trade data to ISIC Rev. 3
+# Convert HS2007/H3 trade data to ISIC Rev. 3
 AT_World \%>\%
   convert_Comtrade(
     classification.from = "H3",
@@ -57,6 +68,5 @@ AT_World \%>\%
     classification.to = "I3"
   )
 }
-
 }
 \keyword{concordance}

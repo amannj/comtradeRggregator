@@ -7,10 +7,10 @@
 \format{
 A data frame with 2,016 rows and 4 variables:
 \describe{
-\item{SITC Revision 3 Product Code}{...}
-\item{SITC Revision 3 Product Description}{...}
-\item{SITC Revision 1 Product Code}{...}
-\item{SITC Revision 1 Product Description}{...}
+\item{SITC Revision 3 Product Code}{Standard International Trade Classification \verb{SITC Rev.3} (\code{S3}) Product code.}
+\item{SITC Revision 3 Product Description}{Standard International Trade Classification \verb{SITC Rev.3} (\code{S3}) Product description.}
+\item{SITC Revision 1 Product Code}{Standard International Trade Classification \verb{SITC Rev.1} (\code{S1}) Product code.}
+\item{SITC Revision 1 Product Description}{Standard International Trade Classification \verb{SITC Rev.1} (\code{S1}) Product description.}
 }
 }
 \source{
@@ -20,8 +20,8 @@ A data frame with 2,016 rows and 4 variables:
 S3_S1
 }
 \description{
-Concordance table between \verb{SITC Rev.3} (\code{S3}) and  \verb{SITC Rev.1} (\code{S1}). Product descriptions taken
-from WITS' \verb{HS combined} concordance tables (\url{https://wits.worldbank.org/product_concordance.html}).
+Concordance table from \verb{SITC Rev.3} (\code{S3}) and  \verb{SITC Rev.1} (\code{S1}). Product descriptions taken
+fromm WITS' \verb{HS combined} concordance tables (\url{https://wits.worldbank.org/product_concordance.html}).
 }
 \examples{
 S3_S1

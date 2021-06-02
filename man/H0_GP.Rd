@@ -7,20 +7,21 @@
 \format{
 A data frame with 4,933 rows and 4 variables:
 \describe{
-\item{HS 1988/92 Product Code}{...}
-\item{HS 1988/92 Product Description}{...}
-\item{GTAP Product Code}{...}
-\item{GTAP Product Description}{...}
+\item{HS 1988/92 Product Code}{Harmonised System \verb{HS 1988/92} (\code{H0}) Product code.}
+\item{HS 1988/92 Product Description}{Harmonised System \verb{HS 1988/92} (\code{H0}) Product description.}
+\item{GTAP Product Code}{Global Trade Analysis Project \code{GTAP} Product code.}
+\item{GTAP Product Description}{Global Trade Analysis Project \code{GTAP} Product description.}
 }
 }
 \source{
 \url{https://wits.worldbank.org/product_concordance.html}
+\url{https://www.gtap.agecon.purdue.edu/}
 }
 \usage{
 H0_GP
 }
 \description{
-Concordance table between \verb{HS 1988/92} (\code{H0}) and \code{GTAP}
+Concordance table from \verb{HS 1988/92} (\code{H0}) to \code{GTAP}
 }
 \examples{
 H0_GP

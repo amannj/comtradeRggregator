@@ -7,9 +7,9 @@
 \format{
 A data frame with 562   rows and 4 variables:
 \describe{
-\item{ISIC Revision 2 Product Code}{...}
-\item{ISIC Revision 3.1 Product Code}{...}
-\item{ISIC Revision 3.1 Product Description}{...}
+\item{ISIC Revision 2 Product Code}{International Standard Industrial Classification \verb{ISIC Rev. 2} (\code{I2}) Product code.}
+\item{ISIC Revision 3.1 Product Code}{International Standard Industrial Classification \verb{ISIC Rev. 3.1} (\code{I31}) Product code.}
+\item{ISIC Revision 3.1 Product Description}{International Standard Industrial Classification \verb{ISIC Rev. 3.1} (\code{I31}) Product code.}
 }
 }
 \source{
@@ -19,7 +19,7 @@ A data frame with 562   rows and 4 variables:
 I2_I31
 }
 \description{
-Concordance table between \verb{ISIC Rev.2} (\code{I2}) and  \verb{ISIC Rev.3.1} (\code{I3.1}).
+Concordance table from \verb{ISIC Rev.2} (\code{I2}) and  \verb{ISIC Rev.3.1} (\code{I3.1}).
 }
 \examples{
 I2_I31

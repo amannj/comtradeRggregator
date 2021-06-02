@@ -7,8 +7,8 @@
 \format{
 A data frame with 5,050 rows and 4 variables:
 \describe{
-\item{HS 2007 Product Code}{...}
-\item{HS 2007 Product Description}{...}
+\item{HS 2007 Product Code}{Harmonised System \verb{HS 2007} (\code{H3}) Product code.}
+\item{HS 2007 Product Description}{Harmonised System \verb{HS 2007} (\code{H3}) Product description.}
 \item{SITC Revision 2 Product Code}{...}
 \item{SITC Revision 2 Product Description}{...}
 }
@@ -20,7 +20,7 @@ A data frame with 5,050 rows and 4 variables:
 H3_S2
 }
 \description{
-Concordance table between \verb{HS 2007} (\code{H3}) and \verb{SITC Rev. 2}
+Concordance table from \verb{HS 2007} (\code{H3}) to \verb{SITC Rev. 2}
 }
 \examples{
 H3_S2

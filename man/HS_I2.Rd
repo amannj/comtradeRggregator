@@ -7,10 +7,10 @@
 \format{
 A data frame with 5,703 rows and 4 variables:
 \describe{
-\item{HS Combined Product Code}{...}
-\item{HS Combined Product Description}{...}
-\item{ISIC Revision 2 Product Code}{...}
-\item{ISIC Revision 2 Product Description}{...}
+\item{HS Combined Product Code}{Harmonised System Combined Product code.}
+\item{HS Combined Product Description}{Harmonised System Combined Product description.}
+\item{ISIC Revision 2 Product Code}{International Standard Industrial Classification \verb{ISIC Rev. 2} (\code{I2}) Product code.}
+\item{ISIC Revision 2 Product Description}{International Standard Industrial Classification \verb{ISIC Rev. 2} (\code{I2}) Product code.}
 }
 }
 \source{
@@ -20,7 +20,7 @@ A data frame with 5,703 rows and 4 variables:
 HS_I2
 }
 \description{
-Concordance table between \verb{HS Combined} (\code{HS}) and \verb{ISIC Rev. 2}
+Concordance table from \verb{HS Combined} (\code{HS}) to \verb{ISIC Rev. 2}
 }
 \examples{
 HS_I2
