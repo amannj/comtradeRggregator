@@ -1,10 +1,10 @@
 #' @title Check Available Countries for Comtrade Query
 #'
 #' @description Extract or validate list of exporters for which in a given period (year or year-month) and trade classification data is available.
-#' Data availability varies by country and classification, and new trade data is released/revised very frequently on [Comtrade](https://comtrade.un.org/).
+#' Data availability varies by country and classification, and new trade data is released/revised very frequently.
 #' `comtradeRggregator` uses trade information corresponding to
 #' [official Comtrade data availability](https://comtrade.un.org/data/da) which it updates once a day and stores locally on your machine:
-#'   `<your local package location>/data/Comtrade_DataAvailability-<date stamp>.csv.gz`
+#'   `<your local package location>/data/Comtrade_DataAvailability-<date stamp>.rds`
 #'   The locally stored Comtrade Data Availability file is used in every `download_Comtrade()` data query.
 #'   In other words, if new data becomes available and is documented in the [official Comtrade data availability file](https://comtrade.un.org/data/da),
 #'   `comtradeRggregator` will use this information no later than 24 hours after its publication.
@@ -15,8 +15,9 @@
 #' @param time Generic time id for internal processing; either a particular year or particular month of a particular year
 #' @param px Trade classification abbreviation `.px` for further processing of Comtrade download
 #' @param t Generic time index for internatl processing.
-#' @keywords Comtrade country list
+#' @keywords Comtrade country list.
 #' @export
+#' @noRd
 #' @import dplyr comtradr tibble readr rlang
 
 

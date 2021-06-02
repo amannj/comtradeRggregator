@@ -1,6 +1,6 @@
 #' @title  Extract Comtrade Data
 #'
-#' @description  Main function to generate trade data querie that is processed in `download_Comtrade_core()`  to interact with `comtradr::ct_search()` and Comtrade's API to extract Comtrade trade data
+#' @description  Main function to generate trade data querie that is processed in `download_Comtrade_core()`  to interact with `comtradr::ct_search()` and [Comtrade's API](https://comtrade.un.org/data/doc/api/) to extract Comtrade trade data.
 #' @param year Year for which to extract data.
 #' @param frequency Frequency of data extract; either `annual` or `monthly`; default is `annual`.
 #' @param month  Optional parameter for `monthly` extract; ignored for `annual` extracts; default is all 12 months if `frequency = 'monthly'` while argument `monty` remains unspecified.
@@ -25,6 +25,7 @@
 #' @export
 #' @import dplyr comtradr tibble readr rlang
 #' @example
+#' @references [comtradr](https://docs.ropensci.org/comtradr/index.html)
 #' \dontrun{
 #' AT_World <- download_Comtrade(
 #' year = "2018",

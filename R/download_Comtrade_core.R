@@ -1,17 +1,18 @@
 #' @title Core function of `download_Comtrade()`
 #'
-#' @description  Interacts with `comtradr::ct_search()` and Comtrade's API to extract Comtrade trade data.
-#' @param rep Country/countries to be extracted; default is `all`.
+#' @description Core function for `download_Comtrade()`.
+#' @param rep Parameter passed on from `download_Comtrade()`.
 #' @param date Year/year-month for which to extract data.
-#' @param dir  Direction of trade flow reported; either `imports`, `exports`, `re_-_imports`, `re_-_exports` or `all`; default is `all`.
-#' @param is.mirrorData  Extract mirror trade data? default is `FALSE`; Set to `TRUE` to extract mirror trade data from country/countries specified in argument `partners`. For example, if `is.mirrorData = TRUE` export data from countries specified in argument `countries` to countries specified in argument `partners` is measured as import data from countries specified in argument `countries` to countries specified in argument `partners` as reported by countries specified in argument `partners`.
-#' @param aggregation_level Level of aggregation of trade data; varies by trade data set.
-#' @param select.stats  Trade statistics to be reported; either `trade_value_usd`, `qty_unit_code`, `qty_unit`, `alt_qty_unit_code`, `alt_qty_unit`, `qty, alt_qty`, `netweight_kg`, `gross_weight_kg` or `all`; default is `all`.
-#' @param frequency Frequency of data extract; either `annual` or `monthly`; default is `annual`.
-#' @param partners Specify partner country/countries or `World` (as provided by Comtrade) for global, aggregated trade; default is `World`.
-#' @param sleep Number of seconds to wait before the next Comtrade API query is started; default is 20.
+#' @param dir  Parameter passed on from `download_Comtrade()`.
+#' @param is.mirrorData  Parameter passed on from `download_Comtrade()`.
+#' @param aggregation_level Parameter passed on from `download_Comtrade()`.
+#' @param select.stats  Parameter passed on from `download_Comtrade()`.
+#' @param frequency Parameter passed on from `download_Comtrade()`.
+#' @param partners Parameter passed on from `download_Comtrade()`.
+#' @param sleep Parameter passed on from `download_Comtrade()`.
 #' @keywords Comtrade data download
 #' @export
+#' @noRd
 #' @import dplyr comtradr tibble readr rlang
 
 
@@ -99,6 +100,15 @@ download_Comtrade_wrapper <- function(rep = "Austria",
   while (!is.na(suppressWarnings(stringr::str_match(df_download[1], "500")))) {
     # ... wait for an hour ...
     message("Unspecified server error; wait for 1 min.")
+    rm(df_download)
+    Sys.sleep(60)
+    # ... then try again
+    message("...resume:")
+    df_download <- download_COMTRADE_core()
+  }
+  while (!is.na(suppressWarnings(stringr::str_match(df_download[1], "Error in curl::curl_fetch_memory")))) {
+    # ... wait for an hour ...
+    message("curl::curl_fetch_memory; wait for 1 min. If error persists consider decreasing `cnt_extr` in `download_Comtrade()`.")
     rm(df_download)
     Sys.sleep(60)
     # ... then try again

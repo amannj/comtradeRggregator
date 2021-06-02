@@ -26,9 +26,10 @@
 #' @param tradecode  Select trade database and classification to be
 #' extracted; default is `HS2007`;
 #' monthly trade data only available following `HS` classification;
-#'  the full list of possible trade classifications and their
+#'  for the full list of possible trade classifications and their
 #'  corresponding input arguments used in the `comtradeRggregator`
-#'  package are provided in *Table Supported Trade Classification*.
+#'  package please see the list of all
+#'  [supported trade classifications](https://amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications).
 #' @param frequency   Frequency of data extract; either `annual` or
 #' `monthly`; default is `annual`.
 #' @return Trade classification abbreviation `.px` for further processing
@@ -98,6 +99,7 @@ eval_ag <- function(ag = ag,
 #' @examples
 #' is.strsclr("1")
 #' is.strsclr(c("1", "a")) == FALSE
+#' @NoRd
 is.strsclr <- function(x) is.character(x) && length(x) == 1
 
 
@@ -117,6 +119,7 @@ is.strsclr <- function(x) is.character(x) && length(x) == 1
 #' \dontrun{
 #' check_args(is = c("b"), ok = ("a"), arg = "test")
 #' }
+#' @NoRd
 check_args <- function(is, ok, arg) {
   if (is %in% ok != TRUE) {
     stop(paste0("Variable '", arg, "' incorrectly specified."))
@@ -126,14 +129,10 @@ check_args <- function(is, ok, arg) {
 
 #' @title Convert Trade Codes
 #'
-#' @description  Allows user to input trade classifications and
-#' convert inputs for further processing
-#' @param tradecode Select trade database and classification to
-#' be extracted; default is `HS2007`; monthly trade data only
-#' available following `HS` classification; the full list of
-#' possible trade classifications and their corresponding input
-#' arguments used in the `comtradeRggregator` package are provided
-#' in *Table Supported Trade Classification*.
+#' @description  Converts and harmonises trade code inputs for further processing (e.g. `H3` vs. `HS2007`).
+#' @param tradecode Trade code input;
+#' see [here](https://amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications)
+#' for more information.
 #' @param return Return either `Name` or `Abbr` (abbreviation) of commodity code
 #' @param eval if `TRUE`, `tradecode` must be contained within
 #' `df_tradecode` which is used as input validation for
@@ -142,6 +141,8 @@ check_args <- function(is, ok, arg) {
 #' @export
 #' @import dplyr comtradr tibble readr rlang
 #' @examples
+#' @source \url{https://amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications}
+#' @NoRd
 convert_tradecodes <- function(tradecode = tradecode, return = "Name", eval = TRUE) {
 
   # List of trade classifications available via Comtrade

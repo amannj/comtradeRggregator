@@ -1,10 +1,12 @@
 #' @title Generate Leading Zeros
 #'
-#' @description Returns vectors with `x` repeated zeros based on
-#' input vector containing `x`;
-#' @param x Numeric vector.
+#' @description Returns vectors with `x` repeated zeros.
+#' @param x Numeric scalar/vector of length > 0.
 #' @keywords leading zero
 #' @import dplyr comtradr tibble readr rlang
+#' @examples
+#' gen_lzs(2)
+#' gen_lzs(c(1,2))
 gen_lzs <- function(x) {
   if (is.numeric(x)) {
     lz <- function(x) {

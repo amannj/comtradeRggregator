@@ -1,19 +1,19 @@
 #' @title Convert Comtrade Trade Data
 #'
-#' @description This function offers conversion tables for Comtrade trade data following official tables from the
+#' @description Offers conversion tables for Comtrade trade data following official tables from the
 #'  [UN Statistics Division (UNSD)](https://unstats.un.org/unsd/classifications/Econ#corresp-hs) and the
-#'  [World Integrated Trade Solution (WITS)](https://wits.worldbank.org/product_concordance.html) as provided below:
-#'
-#'
-#' | Table | to     |
-#' | ---   | ---    |
-#' | be    | added. |
-#'
-#'
-#' @param data A data frame.
-#' @param classification.from Abbreviation of origin classification based on the *Concordance Table* above.
+#'  [World Integrated Trade Solution (WITS)](https://wits.worldbank.org/product_concordance.html).
+#'  For a complete list of concordance tables please see
+#'  [`comtradeRggregator`'s Concordance Table](https://amannj.github.io/resources/comtradeRggregator/index.html#concordance-table).
+#' Please see [here](https://amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications)
+#' for a list of all nomenclatures supported by `comtradeRggregator`.
+#' @param data A data frame or vector containing (a variable listing) commodity codes following one of the supported
+#' nomenclatures; see [here](https://amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications).
+#' @param classification.from Abbreviation of origin classification supported by
+#' [`comtradeRggregator`'s Concordance Table](https://amannj.github.io/resources/comtradeRggregator/index.html#concordance-table).
 #' @param commodity.code  Name of variable containing the commodity codes corresponding to trade classification; default is `commodity_code`.
-#' @param classification.to Abbreviation of target classification based on the *Concordance Table* above.
+#' @param classification.to Abbreviation of target classification based on
+#' [`comtradeRggregator`'s Concordance Table](https://amannj.github.io/resources/comtradeRggregator/index.html#concordance-table).
 #' @keywords concordance
 #' @export
 #' @import dplyr comtradr tibble readr rlang
@@ -38,7 +38,7 @@
 #'   direction = "all"
 #' )
 #'
-#' # Convert HS2007 trade data to ISIC Rev. 3
+#' # Convert HS2007/H3 trade data to ISIC Rev. 3
 #' AT_World %>%
 #'   convert_Comtrade(
 #'     classification.from = "H3",
@@ -46,7 +46,11 @@
 #'     classification.to = "I3"
 #'   )
 #' }
-#'
+#' @source \url{https://unstats.un.org/unsd/classifications/Econ#corresp-hs}
+#' \url{https://wits.worldbank.org/product_concordance.html}
+#' \url{https://unstats.un.org/unsd/classifications/Econ#corresp-hs}
+#' \url{https://amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications}
+#' \url{https://amannj.github.io/resources/comtradeRggregator/index.html#concordance-table}
 convert_Comtrade <- function(data,
                              classification.from = "H3",
                              commodity.code = "commodity_code",
