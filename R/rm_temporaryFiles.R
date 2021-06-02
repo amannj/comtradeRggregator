@@ -20,7 +20,6 @@
 #' @keywords remove
 #' @export
 #' @import dplyr comtradr tibble readr rlang
-#' @examples
 rm_temporaryFiles <- function(location.temporaryFiles = NULL) {
 
   ## Obtain location of temporary directory

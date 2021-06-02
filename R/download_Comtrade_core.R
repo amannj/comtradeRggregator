@@ -12,7 +12,6 @@
 #' @param sleep Parameter passed on from `download_Comtrade()`.
 #' @keywords Comtrade data download
 #' @export
-#' @noRd
 #' @import dplyr comtradr tibble readr rlang
 
 

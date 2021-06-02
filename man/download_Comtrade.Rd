@@ -67,8 +67,7 @@ available countries but not Comtrade's \code{World} aggregate; default is \code{
 \description{
 Main function to generate trade data querie that is processed in \code{download_Comtrade_core()}  to interact with \code{comtradr::ct_search()} and \href{https://comtrade.un.org/data/doc/api/}{Comtrade's API} to extract Comtrade trade data.
 }
-\references{
-\href{https://docs.ropensci.org/comtradr/index.html}{comtradr}
+\examples{
 \dontrun{
 AT_World <- download_Comtrade(
 year = "2018",
@@ -83,6 +82,9 @@ direction = "all"
 )
 AT_World
 }
+}
+\references{
+\href{https://docs.ropensci.org/comtradr/index.html}{comtradr}
 }
 \keyword{Comtrade}
 \keyword{data}

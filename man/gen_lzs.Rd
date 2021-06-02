@@ -12,9 +12,5 @@ gen_lzs(x)
 \description{
 Returns vectors with \code{x} repeated zeros.
 }
-\examples{
-gen_lzs(2)
-gen_lzs(c(1,2))
-}
 \keyword{leading}
 \keyword{zero}

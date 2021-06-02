@@ -99,7 +99,6 @@ eval_ag <- function(ag = ag,
 #' @examples
 #' is.strsclr("1")
 #' is.strsclr(c("1", "a")) == FALSE
-#' @NoRd
 is.strsclr <- function(x) is.character(x) && length(x) == 1
 
 
@@ -119,7 +118,6 @@ is.strsclr <- function(x) is.character(x) && length(x) == 1
 #' \dontrun{
 #' check_args(is = c("b"), ok = ("a"), arg = "test")
 #' }
-#' @NoRd
 check_args <- function(is, ok, arg) {
   if (is %in% ok != TRUE) {
     stop(paste0("Variable '", arg, "' incorrectly specified."))
@@ -140,9 +138,7 @@ check_args <- function(is, ok, arg) {
 #' @keywords tradecode convert
 #' @export
 #' @import dplyr comtradr tibble readr rlang
-#' @examples
 #' @source \url{https://amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications}
-#' @NoRd
 convert_tradecodes <- function(tradecode = tradecode, return = "Name", eval = TRUE) {
 
   # List of trade classifications available via Comtrade

@@ -80,3 +80,4 @@ test_that("is.available_Comtrade returns evaluated list of all available countri
   expect_s3_class(da5, "data.frame")
   expect_equal(nrow(da5), 1)
 })
+

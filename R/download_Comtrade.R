@@ -24,8 +24,8 @@
 #' @keywords Comtrade data download
 #' @export
 #' @import dplyr comtradr tibble readr rlang
-#' @example
 #' @references [comtradr](https://docs.ropensci.org/comtradr/index.html)
+#' @examples
 #' \dontrun{
 #' AT_World <- download_Comtrade(
 #' year = "2018",

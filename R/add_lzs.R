@@ -4,9 +4,6 @@
 #' @param x Numeric scalar/vector of length > 0.
 #' @keywords leading zero
 #' @import dplyr comtradr tibble readr rlang
-#' @examples
-#' gen_lzs(2)
-#' gen_lzs(c(1,2))
 gen_lzs <- function(x) {
   if (is.numeric(x)) {
     lz <- function(x) {

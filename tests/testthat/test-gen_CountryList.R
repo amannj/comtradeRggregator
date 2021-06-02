@@ -9,7 +9,7 @@ test_that("gen_CountryList tests annual", {
     type = "commodities",
     frequency = "annual",
     time = "2018",
-    px = "HS",
+    .px = "HS",
     t = 1
   )
   expect_type(dat, "character")
@@ -21,7 +21,7 @@ test_that("gen_CountryList tests monthly", {
     type = "commodities",
     frequency = "monthly",
     time = "2012-01",
-    px = "HS",
+    .px = "HS",
     t = 1
   )
   expect_type(dat, "character")
@@ -34,10 +34,9 @@ test_that("gen_lzs() needs numeric input", {
       type = "commodities",
       frequency = "quarterly",
       time = "2012-01",
-      px = "HS",
+      .px = "HS",
       t = 1
     )
   }
-
   expect_error(r1(), "Option*")
 })

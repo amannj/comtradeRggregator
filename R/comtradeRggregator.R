@@ -44,6 +44,7 @@ if (getRversion() >= "2.15.1") {
     "H0_BE",
     "x",
     "na.omit",
-    "country"
+    "country",
+    "trade_value_usd"
   ))
 }
