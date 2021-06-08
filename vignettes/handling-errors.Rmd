@@ -62,6 +62,9 @@ In case you are running a very large request, consider increasing the interval b
 
 # Other error messages
 
+
+### Error in `curl::curl_fetch_memory()`
+
 Sometimes, especially when downloading large(r) chunks of data, you might run into the following error message.
 
 ```
@@ -69,7 +72,6 @@ Error in curl::curl_fetch_memory(url, handle = handle) :
   Operation was aborted by an application callback
 ```
 
-From experience, and in context of this package, the error message does not relate to the memory of the app, but rather
-the file you are trying to download with `curl`. In other words, there are limits on the respective file sizes and download times per file, and `curl` might hit one of those limits.
+From experience, and in context of this package, the error message relates to file you are trying to download with `curl`. In other words, there are limits on the respective file sizes and download times per file, and one of your `download_Comtrade()` queries might hit one of those `curl` limits.
   
-In such a case, try re-running your `download_Comtrade()` query by reducing the value for `ext_cnt` which sets the number of countries extracted with each query (default and maximum is 5). The lower the number for `ext_cnt`, the fewer countries are downloaded simultaneously, hence the smaller the file size and the shorter the download time.
+In such a case, try re-running your `download_Comtrade()` query by reducing the value for `ext_cnt` which sets the number of countries extracted with each query (default and maximum is 5). The lower the number for `ext_cnt`, the fewer countries are downloaded simultaneously, hence the smaller the file size and the shorter the download time. Alternatively, the same error message also gets triggered when your device gets disconnected from the internet, so also double-check to make sure you are still online.
