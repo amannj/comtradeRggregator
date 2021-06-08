@@ -70,5 +70,6 @@ build_Comtrade <- function(directory = loc_folder,
   }
 
   ## Return final object
-  return(df_out)
+  df_out %>%
+    arrange(reporter, period, partner, trade_flow, commodity_code)
 }
