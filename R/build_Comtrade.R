@@ -30,7 +30,8 @@ build_Comtrade <- function(directory = loc_folder,
     readRDS(paste0(directory, "/", x))
   })
 
-  df_out <- bind_rows(tmp.Data)
+  df_out <- bind_rows(tmp.Data) %>%
+    distinct(across(everything()))
 
   if (is.mirrorData == TRUE) {
     if (is.null(partner)) {
