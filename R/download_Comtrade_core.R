@@ -74,7 +74,7 @@ download_Comtrade_wrapper <- function(rep = "Austria",
               partner, commodity_code, commodity,
               all_of(select.stats)
             ) %>%
-            mutate(partner = paste0(partners, " mirrored"))
+            mutate(partner = paste0(partner, " mirrored"))
         })
       }
     }
