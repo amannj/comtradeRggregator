@@ -94,11 +94,14 @@ download_Comtrade <- function(year = "2018", #  Years for which to extract
 
 
   ## Check `countries` ------
-  ### see data extraction
-
+  ## Fix Comtrade API bug for Eswatini: https://github.com/ropensci/comtradr/issues/29
+  countries[countries %in% "Eswatini"] = 'Swaziland'
+  countries <- unique(countries)
 
   ## Check `partners` ------
-  ### see data extraction
+  ## Fix Comtrade API bug for Eswatini: https://github.com/ropensci/comtradr/issues/29
+  partners[partners %in% "Eswatini"] = 'Swaziland'
+  partners <- unique(partners)
 
 
   ## Check `tradecode` and return arg  ------
