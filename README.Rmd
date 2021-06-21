@@ -503,7 +503,7 @@ download_Comtrade(
 ```
 
 
-
+Please note that the chaining of concordance tables may be very intriguing; however, it's not free of any downsides as is discussed in the article on [chaining concordance tables])(https://amannj.github.io/resources/comtradeRggregator/articles/chaining-concordance-tables.html).
 
 
 ------------------------------------------------------------------------
