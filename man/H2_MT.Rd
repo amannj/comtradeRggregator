@@ -9,8 +9,8 @@ A data frame with 5,223 rows and 4 variables:
 \describe{
 \item{HS 2002 Product Code}{Harmonised System \verb{HS 2002} (\code{H2}) Product code.}
 \item{HS 2002 Product Description}{Harmonised System \verb{HS 2002} (\code{H2}) Product description.}
-\item{MTN Categories Product Code}{...}
-\item{MTN Categories Product Description}{...}
+\item{MTN Categories Product Code}{Multilateral Trade Negotiations \code{MTN} Product code.}
+\item{MTN Categories Product Description}{Multilateral Trade Negotiations \code{MTN} Product description.}
 }
 }
 \source{

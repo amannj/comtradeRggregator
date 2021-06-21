@@ -666,8 +666,8 @@
 #' \describe{
 #'   \item{HS 1996 Product Code}{Harmonised System `HS 1996` (`H1`) Product code.}
 #'   \item{HS 1996 Product Description}{Harmonised System `HS 1996` (`H1`) Product description.}
-#'   \item{MTN Categories Product Code}{...}
-#'   \item{MTN Categories Product Description}{...}
+#'   \item{MTN Categories Product Code}{Multilateral Trade Negotiations `MTN` Product code.}
+#'   \item{MTN Categories Product Description}{Multilateral Trade Negotiations `MTN` Product description.}
 #' }
 #' @examples
 #' H1_MT
@@ -904,8 +904,8 @@
 #' \describe{
 #'   \item{HS 2002 Product Code}{Harmonised System `HS 2002` (`H2`) Product code.}
 #'   \item{HS 2002 Product Description}{Harmonised System `HS 2002` (`H2`) Product description.}
-#'   \item{MTN Categories Product Code}{...}
-#'   \item{MTN Categories Product Description}{...}
+#'   \item{MTN Categories Product Code}{Multilateral Trade Negotiations `MTN` Product code.}
+#'   \item{MTN Categories Product Description}{Multilateral Trade Negotiations `MTN` Product description.}
 #' }
 #' @examples
 #' H2_MT
@@ -1159,8 +1159,8 @@
 #' \describe{
 #'   \item{HS 2007 Product Code}{Harmonised System `HS 2007` (`H3`) Product code.}
 #'   \item{HS 2007 Product Description}{Harmonised System `HS 2007` (`H3`) Product description.}
-#'   \item{MTN Categories Product Code}{...}
-#'   \item{MTN Categories Product Description}{...}
+#'   \item{MTN Categories Product Code}{Multilateral Trade Negotiations `MTN` Product code.}
+#'   \item{MTN Categories Product Description}{Multilateral Trade Negotiations `MTN` Product description.}
 #' }
 #' @examples
 #' H3_MT
