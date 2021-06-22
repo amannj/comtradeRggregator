@@ -127,12 +127,12 @@ Consequently, we can create our own `H4` to `MTN` classification by following th
 #### Step 1. Download Comtrade data using `download_Comtrade()`
 
 
-Let's again assume we want to download `annual` global, i.e. `World`,  `commodity`  trade data in `USD` following the `HS2012` nomenclature for `exports` at `AG6` level  reported by `Austria`  in `2019`:
+Let's again assume we want to download `annual` global, i.e. `World`,  `commodity`  trade data in `USD` following the `HS2012` nomenclature for `exports` at `AG6` level  reported by `Austria`  in `2018`:
 
 
 ```{r message=FALSE, warning=FALSE}
 AT_World_H4 <- download_Comtrade(
-  year = "2019",
+  year = "2018",
   frequency = "annual",
   countries = "Austria",
   partners = "World",
@@ -201,7 +201,7 @@ As we want to compare the quality of the results when using chained concordance 
 
 ```{r message=FALSE, warning=FALSE}
 AT_World_H3_MTN <- download_Comtrade(
-  year = "2019",
+  year = "2018",
   frequency = "annual",
   countries = "Austria",
   partners = "World",
@@ -218,7 +218,7 @@ AT_World_H3_MTN <- download_Comtrade(
 ```
 
 
-As Table 2 below illustrates, the conversion from `H4` to `H3` results in a loss of roughly 5 percentage points of trade data. The difference in the sums is exclusively due to `999999 - Commodities not specified according to kind` as established before. Chaining concordance tables results in a total loss of 7 percentage points which is indeed notable. However, as `AT_World_H3_MTN` indicates, this loss is mostly due to the unmapped category `999999 - Commodities not specified according to kind`, and not the result of chaining concordance tables.
+As Table 2 below illustrates, the conversion from `H4` to `H3` results in a loss of roughly 5 percentage points of trade data. The difference in the sums is exclusively due to `999999 - Commodities not specified according to kind` as established before. Chaining concordance tables results in a total loss of 8 percentage points which is indeed notable. However, as `AT_World_H3_MTN` indicates, this loss is mostly due to the unmapped category `999999 - Commodities not specified according to kind`, and not the result of chaining concordance tables.
 
 In other words, chaining concordance tables to transform `H4` trade data to the `MTN` classification does seem to produce sensible results on the basis of the explored example.
 
