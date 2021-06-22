@@ -13,7 +13,7 @@
 #' @param type Type of trade data to be extracted (either `services` or `commodities`); currently only `type = commodities` implemented.
 #' @param frequency Frequency of data extract; either `annual` or `monthly`; default is `annual`.
 #' @param time Generic time id for internal processing; either a particular year or particular month of a particular year
-#' @param px Trade classification abbreviation `.px` for further processing of Comtrade download
+#' @param .px Trade classification abbreviation `.px` for further processing of Comtrade download
 #' @param t Generic time index for internatl processing.
 #' @keywords Comtrade country list.
 #' @export
