@@ -70,18 +70,19 @@ Main function to generate trade data querie that is processed in \code{download_
 \examples{
 \dontrun{
 AT_World <- download_Comtrade(
-year = "2018",
-frequency = "annual",
-countries = "Austria",
-partners = "World",
-tradecode = "HS2007",
-ag = "AG6",
-type = "commodities",
-select.stats = "trade_value_usd",
-direction = "all"
+  year = "2018",
+  frequency = "annual",
+  countries = "Austria",
+  partners = "World",
+  tradecode = "HS2007",
+  ag = "AG6",
+  type = "commodities",
+  select.stats = "trade_value_usd",
+  direction = "all"
 )
 AT_World
 }
+
 }
 \references{
 \href{https://docs.ropensci.org/comtradr/index.html}{comtradr}
