@@ -66,6 +66,15 @@ convert_Comtrade <- function(data,
     mutate(x = nchar(.data[[commodity.code]])) %>%
     group_by(x) %>% tally(x) %>% na.omit() %>% pull(x))
 
+  # Checks for correct lengths of commodity variable -------
+  if (cls.from == "H3") {
+    check_args(s_cclgth, "6", paste0(commodity.code, " has wrong length for conversion (check Concordance Table for more information); "))
+  } else if (cls.from == "I3") {
+    check_args(s_cclgth, "4", paste0(commodity.code, " has wrong length for conversion (check Concordance Table for more information); "))
+  } else {
+    warning("No check of commodity code length implemented yet.")
+  }
+
   # Get concordance table ----------
   try(
     {
