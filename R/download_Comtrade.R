@@ -28,19 +28,19 @@
 #' @examples
 #' \dontrun{
 #' AT_World <- download_Comtrade(
-#' year = "2018",
-#' frequency = "annual",
-#' countries = "Austria",
-#' partners = "World",
-#' tradecode = "HS2007",
-#' ag = "AG6",
-#' type = "commodities",
-#' select.stats = "trade_value_usd",
-#' direction = "all"
+#'   year = "2018",
+#'   frequency = "annual",
+#'   countries = "Austria",
+#'   partners = "World",
+#'   tradecode = "HS2007",
+#'   ag = "AG6",
+#'   type = "commodities",
+#'   select.stats = "trade_value_usd",
+#'   direction = "all"
 #' )
 #' AT_World
 #' }
-
+#'
 download_Comtrade <- function(year = "2018", #  Years for which to extract
                               frequency = "annual", #  or "monthly"
                               month = NULL, # or c("01", "02"); pecify months to be extracted for monthly data extraction; default is all 12 months if frequency == 'monthly'
@@ -95,12 +95,12 @@ download_Comtrade <- function(year = "2018", #  Years for which to extract
 
   ## Check `countries` ------
   ## Fix Comtrade API bug for Eswatini: https://github.com/ropensci/comtradr/issues/29
-  countries[countries %in% "Eswatini"] = 'Swaziland'
+  countries[countries %in% "Eswatini"] <- "Swaziland"
   countries <- unique(countries)
 
   ## Check `partners` ------
   ## Fix Comtrade API bug for Eswatini: https://github.com/ropensci/comtradr/issues/29
-  partners[partners %in% "Eswatini"] = 'Swaziland'
+  partners[partners %in% "Eswatini"] <- "Swaziland"
   partners <- unique(partners)
 
 
@@ -287,7 +287,7 @@ download_Comtrade <- function(year = "2018", #  Years for which to extract
       ### Check if selected countries are available in Comrade's list of reporters
       if ("all" %in% tolower(countries)) {
         countries <- "All"
-      } else if(is.mirrorData == FALSE) {
+      } else if (is.mirrorData == FALSE) {
         cnt_exist <- ls_cnt[ls_cnt %in% countries == TRUE]
         cnt_missing <- countries[countries %in% cnt_exist == FALSE]
 
@@ -320,7 +320,7 @@ download_Comtrade <- function(year = "2018", #  Years for which to extract
       ls_cntj <- ls_cnt
       if ("All" %not.in% countries & is.mirrorData == FALSE) {
         ls_cntj <- ls_cnt[ls_cnt %in% countries]
-      }  else  if ("All" %not.in% countries & is.mirrorData == TRUE) {
+      } else if ("All" %not.in% countries & is.mirrorData == TRUE) {
         ls_cntj <- countries
       }
 
@@ -426,19 +426,17 @@ download_Comtrade <- function(year = "2018", #  Years for which to extract
   }
 
   # Aggregate data, remove tmp files and return object ------------
-  if(build.Comtrade == TRUE) {
-  df_out <- build_Comtrade(
-    directory = loc_folder,
-    rm.temporaryFiles = rm.temporaryFiles,
-    is.mirrorData = is.mirrorData,
-    partner = partners
-  )
-
-  if (nrow(df_out) == 0) {
-    warning("Data query did not produce any results. Empty data frame is returned.")
+  if (build.Comtrade == TRUE) {
+    df_out <- build_Comtrade(
+      directory = loc_folder,
+      rm.temporaryFiles = rm.temporaryFiles,
+      is.mirrorData = is.mirrorData,
+      partner = partners
+    )
+  }
+  if (build.Comtrade == FALSE) {
+    message("Data download complete. Please see location specified in argument `location.temporaryFiles` for location of temporary files.")
+    df_out <- NULL
   }
   return(df_out)
-  } else {
-    message("Data download complete. Please see location specified in argument `location.temporaryFiles` for location of temporary files.")
-  }
 }
