@@ -25,6 +25,7 @@
 #' @import dplyr comtradr tibble readr rlang
 update_ComtradeDA <- function(directory = system.file("data", package = "comtradeRggregator"),
                               file = paste0("Comtrade_DataAvailability-", Sys.Date())) {
+  # Check and remove if file is outdated
   file_exists <- list.files(directory, pattern = file)
 
   if (identical(file_exists, character(0))) {
@@ -37,7 +38,7 @@ update_ComtradeDA <- function(directory = system.file("data", package = "comtrad
     url <- "https://comtrade.un.org/api/refs/da/view?fmt=csv"
     while (is.empty == TRUE) {
       Comtrade_DA <- readr::read_csv(url, col_types = cols())
-      if (nrow(Comtrade_DA) > 0) {
+      if (nrow(Comtrade_DA) > 1) {
         is.empty <- FALSE
       }
     }
