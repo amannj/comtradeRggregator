@@ -25,7 +25,9 @@
 #'   \item{isPartnerDetail}{Partner detail.}
 #' }
 #' @examples
+#' \dontrun{
 #' Comtrade_DA
+#' }
 #' @source \url{https://comtrade.un.org/data/da}
 "Comtrade_DA"
 
@@ -1852,5 +1854,3 @@
 #' I31_I4
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
 "I31_I4"
-
-

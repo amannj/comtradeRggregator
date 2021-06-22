@@ -39,6 +39,8 @@ the \href{https://comtrade.un.org/data/da}{official Comtrade data availability f
 This data availability file can also be accessed locally by typing \code{Comtrade_DA} in R (see example).
 }
 \examples{
+\dontrun{
 Comtrade_DA
+}
 }
 \keyword{datasets}
