@@ -23,9 +23,8 @@ test_that("download_Comtrade returns a data frame", {
     is.mirrorData = FALSE,
     rm.temporaryFiles = TRUE,
     location.temporaryFiles = NULL,
-    sleep = 10
+    sleep = 5
   )
-
 
   expect_s3_class(AT_World, "data.frame")
 })
