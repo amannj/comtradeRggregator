@@ -33,44 +33,48 @@ build_Comtrade <- function(directory = loc_folder,
   df_out <- bind_rows(tmp.Data) %>%
     distinct(across(everything()))
 
-  if (is.mirrorData == TRUE) {
-    if (is.null(partner)) {
-      stop("Please provide list of partner countries fo")
-    }
-
-
-    df_out %>%
-      rename(
-        partnernew = reporter,
-        reporter = partner
-      ) %>%
-      mutate(
-        trade_flow = ifelse(trade_flow == "Import", "ExportX",
-          ifelse(trade_flow == "Export", "ImportX",
-            ifelse(trade_flow == "Re-Export", "Re-ImportX", "Re-ExportX")
-          )
-        ),
-        trade_flow = substr(trade_flow, 1, nchar(trade_flow) - 1)
-      ) %>%
-      select(classification, period, trade_flow, reporter, partner = partnernew, everything()) -> df_out
-
-    if (partner == "World") {
+  if (nrow(df_out) == 0) {
+    warning("Data query did not produce any results. Empty data frame is returned.")
+    df_out <- NULL
+  } else if (nrow(df_out) > 0) {
+    if (is.mirrorData == TRUE) {
+      if (is.null(partner)) {
+        stop("Please provide list of partner countries fo")
+      }
       df_out %>%
-        mutate(partner = "World") %>%
-        group_by(classification, period, trade_flow, reporter, partner, commodity_code, commodity) %>%
-        summarise(trade_value_usd = sum(trade_value_usd, na.rm = TRUE)) %>%
-        ungroup() -> df_out
-    }
-  }
-  ## Remove temporary files/folder
-  if (rm.temporaryFiles == TRUE) {
-    lapply(tmp.Files, function(x) {
-      file.remove(paste0(directory, "/", x))
-    })
-    unlink(directory, recursive = TRUE)
-  }
+        rename(
+          partnernew = reporter,
+          reporter = partner
+        ) %>%
+        mutate(
+          trade_flow = ifelse(trade_flow == "Import", "ExportX",
+            ifelse(trade_flow == "Export", "ImportX",
+              ifelse(trade_flow == "Re-Export", "Re-ImportX", "Re-ExportX")
+            )
+          ),
+          trade_flow = substr(trade_flow, 1, nchar(trade_flow) - 1)
+        ) %>%
+        select(classification, period, trade_flow, reporter, partner = partnernew, everything()) -> df_out
 
-  ## Return final object
-  df_out %>%
-    arrange(reporter, period, partner, trade_flow, commodity_code)
+      if (partner == "World") {
+        df_out %>%
+          mutate(partner = "World") %>%
+          group_by(classification, period, trade_flow, reporter, partner, commodity_code, commodity) %>%
+          summarise(trade_value_usd = sum(trade_value_usd, na.rm = TRUE)) %>%
+          ungroup() -> df_out
+      }
+    }
+    ## Remove temporary files/folder
+    if (rm.temporaryFiles == TRUE) {
+      lapply(tmp.Files, function(x) {
+        file.remove(paste0(directory, "/", x))
+      })
+      unlink(directory, recursive = TRUE)
+    }
+
+    ## Return final object
+    df_out <- df_out %>%
+      arrange(reporter, period, partner, trade_flow, commodity_code)
+  }
+  return(df_out)
 }
