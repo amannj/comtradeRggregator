@@ -1318,15 +1318,15 @@ AT_World
 #>    classification period trade_flow reporter partner commodity_code commodity   
 #>    <chr>           <int> <chr>      <chr>    <chr>   <chr>          <chr>       
 #>  1 H3               2018 Export     Austria  World   010110         Live horses~
-#>  2 H3               2018 Import     Austria  World   010190         Live horses~
-#>  3 H3               2018 Export     Austria  World   010190         Live horses~
-#>  4 H3               2018 Import     Austria  World   010210         Live bovine~
-#>  5 H3               2018 Export     Austria  World   010210         Live bovine~
-#>  6 H3               2018 Import     Austria  World   010290         Live bovine~
-#>  7 H3               2018 Export     Austria  World   010290         Live bovine~
-#>  8 H3               2018 Import     Austria  World   010310         Live swine:~
-#>  9 H3               2018 Export     Austria  World   010310         Live swine:~
-#> 10 H3               2018 Import     Austria  World   010391         Live swine ~
+#>  2 H3               2018 Export     Austria  World   010190         Live horses~
+#>  3 H3               2018 Export     Austria  World   010210         Live bovine~
+#>  4 H3               2018 Export     Austria  World   010290         Live bovine~
+#>  5 H3               2018 Export     Austria  World   010310         Live swine:~
+#>  6 H3               2018 Export     Austria  World   010391         Live swine ~
+#>  7 H3               2018 Export     Austria  World   010392         Live swine ~
+#>  8 H3               2018 Export     Austria  World   010410         Live sheep  
+#>  9 H3               2018 Export     Austria  World   010420         Live goats  
+#> 10 H3               2018 Export     Austria  World   010511         Live fowls ~
 #> # ... with 9,422 more rows, and 1 more variable: trade_value_usd <dbl>
 ```
 
@@ -1354,7 +1354,7 @@ download_Comtrade(
   select.stats = "trade_value_usd",
   direction = "re_exports"
 )
-#> # A tibble: 0 x 0
+#> NULL
 ```
 
 ### Example 3
@@ -1475,14 +1475,14 @@ da1 <- is.available_Comtrade(
 )
 head(da1)
 #> # A tibble: 6 x 2
-#>   country               year
-#>   <chr>                <dbl>
-#> 1 China, Hong Kong SAR  2008
-#> 2 Hungary               2008
-#> 3 Iceland               2008
-#> 4 Ireland               2008
-#> 5 Israel                2008
-#> 6 Italy                 2008
+#>   country    year
+#>   <chr>     <dbl>
+#> 1 Algeria    2008
+#> 2 Andorra    2008
+#> 3 Argentina  2008
+#> 4 Armenia    2008
+#> 5 Australia  2008
+#> 6 Austria    2008
 ```
 
 ### Example 2
@@ -1605,14 +1605,14 @@ I3 %>%
 #>    <chr>          <chr>          <chr>                         
 #>  1 H3             010110         0121                          
 #>  2 H3             010190         0121                          
-#>  3 H3             010190         0121                          
-#>  4 H3             010210         0121                          
-#>  5 H3             010210         0121                          
-#>  6 H3             010290         0121                          
-#>  7 H3             010290         0121                          
-#>  8 H3             010310         0122                          
-#>  9 H3             010310         0122                          
-#> 10 H3             010391         0122                          
+#>  3 H3             010210         0121                          
+#>  4 H3             010290         0121                          
+#>  5 H3             010310         0122                          
+#>  6 H3             010391         0122                          
+#>  7 H3             010392         0122                          
+#>  8 H3             010410         0121                          
+#>  9 H3             010420         0121                          
+#> 10 H3             010511         0122                          
 #> # ... with 9,422 more rows
 ```
 
@@ -1680,6 +1680,11 @@ download_Comtrade(
 #> 10 H5                  010511             010511            0122                
 #> # ... with 4,866 more rows
 ```
+
+Please note that the chaining of concordance tables may be very
+intriguing; however, it’s not free of any downsides as is discussed in
+the article on \[chaining concordance
+tables\])(<https://amannj.github.io/resources/comtradeRggregator/articles/chaining-concordance-tables.html>).
 
 ------------------------------------------------------------------------
 
