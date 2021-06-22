@@ -10,8 +10,11 @@ test_that("build_Comtrade returns object 1 to 1 if no arguments are invoked", {
   loc <- paste0(loc_path, "/tests-data")
   dir.create(loc)
 
-
-  df <- tibble(a = c(1, 2, 3))
+  df <- tibble(reporter = c(1, 2, 3),
+               period  = c(1, 2, 3),
+               partner  = c(1, 2, 3),
+               trade_flow  = c(1, 2, 3),
+               commodity_code  = c(1, 2, 3))
   saveRDS(df, paste0(loc, "/df.rds"))
 
   out <- build_Comtrade(

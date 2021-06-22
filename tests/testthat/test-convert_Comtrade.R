@@ -78,3 +78,4 @@ test_that("convert_Comtrade returns data frame of length 2", {
   expect_s3_class(out, "data.frame")
   expect_equal(nrow(out), 2)
 })
+
