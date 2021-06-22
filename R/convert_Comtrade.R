@@ -76,8 +76,14 @@ convert_Comtrade <- function(data,
   if (!exists("df_conc")) {
     stop("No concordance table between ", classification.from, " and ", classification.to, " available. Please check abbreviations and/or Concordance Table.")
   }
-  colnames(df_conc)[1] <- commodity.code
 
+  # Prepare concordance table for merge  ----------
+  ## Eliminate duplicate columns and only keep one common key
+  common_names <- colnames(df_conc)[colnames(df_conc) %in% colnames(data)]
+  df_conc <- df_conc %>%
+    select(-contains(common_names[grepl("Description", common_names)]))
+
+  colnames(df_conc)[1] <- commodity.code
 
   # Evaluate non-matches and return if non-empty --------
   v_nonmatch <- data %>%
