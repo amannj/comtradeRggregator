@@ -81,3 +81,31 @@ test_that("is.available_Comtrade returns evaluated list of all available countri
   expect_equal(nrow(da5), 1)
 })
 
+
+test_that("is.available_Comtrade requires input for monthly data", {
+  err1 <- function() {
+    is.available_Comtrade(
+      is.contained = "ustr",
+      is.fuzzy = TRUE,
+      frequency = "monthly",
+      tradecode = "HS2017",
+      year = "2019"
+    )
+  }
+  expect_error(err1())
+})
+
+
+test_that("is.available_Comtrade accepts input for monthl of length 1 only", {
+  err2 <- function() {
+    is.available_Comtrade(
+      is.contained = "ustr",
+      is.fuzzy = TRUE,
+      frequency = "monthly",
+      tradecode = "HS2017",
+      year = "2019",
+      month = c("01", "02")
+    )
+  }
+  expect_error(err2())
+})

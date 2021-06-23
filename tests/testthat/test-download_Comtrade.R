@@ -101,7 +101,7 @@ test_that("download_Comtrade fails if country doesn't exist", {
     )
   }
 
-  expect_error(rm1())
+  expect_error(AT_World())
 })
 
 
@@ -266,14 +266,14 @@ test_that("download_Comtrade fails if no reasonable input arguments are provided
     )
   }
 
-  expect_error(rm1())
-  expect_error(rm2())
-  expect_error(rm3())
-  expect_error(rm4())
-  expect_error(rm5())
-  expect_error(rm6())
-  expect_error(rm7())
-  expect_error(rm8())
+  expect_error(err1())
+  expect_error(err2())
+  expect_error(err3())
+  expect_error(err4())
+  expect_error(err5())
+  expect_error(err6())
+  expect_error(err7())
+  expect_error(err8())
 })
 
 
@@ -299,5 +299,5 @@ test_that("download_Comtrade fails if no monthly data for country available", {
     )
   }
 
-  expect_error(rm1())
+  expect_error(AT_World())
 })

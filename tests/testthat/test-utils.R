@@ -165,3 +165,11 @@ test_that("Test conversion of trade codes with convert_tradecodes", {
     expect_equal(ag, df_tradecode[i, 2] %>% pull())
   }
 })
+
+
+test_that("convert_tradecodes requires well-defined inputs", {
+  err1 <- function() {
+    convert_tradecodes(tradecode = "not_contained", return = "Name", eval = TRUE)
+  }
+  expect_error(err1())
+})

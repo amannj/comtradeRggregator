@@ -10,11 +10,13 @@ test_that("build_Comtrade returns object 1 to 1 if no arguments are invoked", {
   loc <- paste0(loc_path, "/tests-data")
   dir.create(loc)
 
-  df <- tibble(reporter = c(1, 2, 3),
-               period  = c(1, 2, 3),
-               partner  = c(1, 2, 3),
-               trade_flow  = c(1, 2, 3),
-               commodity_code  = c(1, 2, 3))
+  df <- tibble(
+    reporter = c(1, 2, 3),
+    period = c(1, 2, 3),
+    partner = c(1, 2, 3),
+    trade_flow = c(1, 2, 3),
+    commodity_code = c(1, 2, 3)
+  )
   saveRDS(df, paste0(loc, "/df.rds"))
 
   out <- build_Comtrade(
@@ -57,5 +59,36 @@ test_that("build_Comtrade returns transformed object if arguments are invoked", 
   expect_s3_class(df, "data.frame")
   expect_equal(nrow(df), 4)
 
+  unlink(loc, recursive = TRUE)
+})
+
+
+test_that("build_Comtrade requires list of partner countries for mirror download", {
+  loc_path <- system.file(package = "comtradeRggregator")
+  loc <- paste0(loc_path, "/tests-data")
+  dir.create(loc)
+
+  df <- tibble(
+    "classification" = "H3",
+    "period" = 2000,
+    "commodity_code" = 1,
+    "commodity" = "commodity",
+    "reporter" = "Reporter",
+    "partner" = "Partner",
+    "trade_flow" = c("Import", "Export", "Re-Import", "Re-Export"),
+    "trade_value_usd" = 1
+  )
+  saveRDS(df, paste0(loc, "/df.rds"))
+
+  df <- function() {
+    build_Comtrade(
+      directory = loc,
+      rm.temporaryFiles = TRUE,
+      is.mirrorData = TRUE,
+      partner = NULL
+    )
+  }
+
+  expect_error(df())
   unlink(loc, recursive = TRUE)
 })

@@ -39,7 +39,7 @@ build_Comtrade <- function(directory = loc_folder,
   } else if (nrow(df_out) > 0) {
     if (is.mirrorData == TRUE) {
       if (is.null(partner)) {
-        stop("Please provide list of partner countries fo")
+        stop("Please provide list of partner countries for mirror data download.")
       }
       df_out %>%
         rename(
