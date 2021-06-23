@@ -5,7 +5,7 @@
 ^data-raw$
 ^\.github$
 ^_pkgdown\.yml$
+^_pkgdown 
 ^docs$
 ^pkgdown$
 ^vignettes/articles$
-pkgdown 
