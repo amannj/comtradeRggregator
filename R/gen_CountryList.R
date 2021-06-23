@@ -51,10 +51,10 @@ gen_CountryList <- function(directory = system.file("data", package = "comtradeR
   }
 
   ## Collapse and return
-  ## Eliminated aggregates are either country aggregates of follow different name(s).
+  ## Eliminated country aggregates
   ls_cnt %>%
     group_by(rDesc) %>%
     tally() %>%
-    filter(rDesc %not.in% c("ASEAN", "EU-28", "Other Asia, nes", "Eswatini", "North Macedonia", "Niue")) %>%
+    filter(rDesc %not.in% c("ASEAN", "EU-28", "Other Asia, nes", "Niue")) %>%
     pull(rDesc)
 }
