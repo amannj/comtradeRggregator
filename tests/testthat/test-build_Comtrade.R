@@ -92,3 +92,34 @@ test_that("build_Comtrade requires list of partner countries for mirror download
   expect_error(df())
   unlink(loc, recursive = TRUE)
 })
+
+
+test_that("build_Comtrade returns NULL if input data frame is empty", {
+  loc_path <- system.file(package = "comtradeRggregator")
+  loc <- paste0(loc_path, "/tests-data")
+  dir.create(loc)
+
+  df <- tibble(
+    "classification" = NA ,
+    "period"  = NA,
+    "commodity_code"  = NA,
+    "commodity"  = NA,
+    "reporter" = NA,
+    "partner" = NA,
+    "trade_flow"= NA,
+    "trade_value_usd"= NA
+  )
+  saveRDS(df, paste0(loc, "/df.rds"))
+
+  df <- function() {
+    build_Comtrade(
+      directory = loc,
+      rm.temporaryFiles = TRUE,
+      is.mirrorData = TRUE,
+      partner = NULL
+    )
+  }
+
+  expect_warning(df())
+  unlink(loc, recursive = TRUE)
+})

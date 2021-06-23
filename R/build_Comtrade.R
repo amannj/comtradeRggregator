@@ -33,10 +33,10 @@ build_Comtrade <- function(directory = loc_folder,
   df_out <- bind_rows(tmp.Data) %>%
     distinct(across(everything()))
 
-  if (nrow(df_out) == 0) {
+  if (nrow(df_out) == 1) {
     warning("Data query did not produce any results. Empty data frame is returned.")
     df_out <- NULL
-  } else if (nrow(df_out) > 0) {
+  } else if (nrow(df_out) > 1) {
     if (is.mirrorData == TRUE) {
       if (is.null(partner)) {
         stop("Please provide list of partner countries for mirror data download.")

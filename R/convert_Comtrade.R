@@ -67,14 +67,10 @@ convert_Comtrade <- function(data,
     group_by(x) %>% tally(x) %>% na.omit() %>% pull(x))
 
   # Checks for correct lengths of commodity variable -------
-  if (cls.from %in% c("HS","H0","H1","H2","H3","H4","H5", 'CC')) {
+  if (cls.from %in% c("HS", "H0", "H1", "H2", "H3", "H4", "H5", "CC")) {
     check_args(s_cclgth, "6", paste0(commodity.code, " has wrong length for conversion (check Concordance Table for more information); "))
-  } else if (cls.from %in% c("CP")) {
-    check_args(s_cclgth, "5", paste0(commodity.code, " has wrong length for conversion (check Concordance Table for more information); "))
-  } else if (cls.from %in% c("I2", "I3", "I31", "I4", "S1", "S2", "S3", "S4", "IU", 'MT')) {
+  } else if (cls.from %in% c("I2", "I3", "I31", "I4", "S1", "S2", "S3", "S4", "IU", "MT")) {
     check_args(s_cclgth, "4", paste0(commodity.code, " has wrong length for conversion (check Concordance Table for more information); "))
-  } else if (cls.from %in% c("BE", "BE5")) {
-    check_args(s_cclgth, "3", paste0(commodity.code, " has wrong length for conversion (check Concordance Table for more information); "))
   }
 
   # Get concordance table ----------
