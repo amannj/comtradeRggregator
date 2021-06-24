@@ -14,14 +14,11 @@ knitr::opts_chunk$set(
 )
 ```
 
-
 `comtradeRggregator` uses [`comtradr`](https://github.com/ropensci/comtradr) to access Comtrade trade data using its [API](https://comtrade.un.org/data/doc/api/).
 This means that you sometimes are confronted with a set of API related error messages. To learn more about the different types of
 errors see [w3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
 
-
 # Typical API error messages in `comtradeRggregator` and how to fix them
-
 
 ## Error code 400
 
@@ -29,15 +26,12 @@ Typically, you get a **400 (bad request) error** whenever any of the input param
 
 Double-check all input parameters for `download_Comtrade()` for any issues/inconsistencies.
 
-
 ## Error code 409
 
 One of the most common issues is that if you hit a usage limit a,
 **409 (conflict) error** is returned along with a message specifying why the request was blocked and when requests may resume.
 
 Whenever such an error occurs during one of its queries, `comtradeRggregator` pauses the data query and, after a specified cool-off of an hour, tries to resume the download. This means that you can conveniently max out the user limit for bulk downloads, and  `comtradeRggregator` will make sure your query fails because of usage limits. The limits for unauthenticated requests, i.e. guests, are set to 100 requests per hour (per IP address or authenticated user). See [Comtrade's API help page](https://comtrade.un.org/data/doc/api/) for more information.
-
-
 
 However, this is **not** practice we wish to encourage. Instead, it is advised that for large bulk downloads you obtain an authentication code (token) which you can then use when calling `download_Comtrade()`. This will allow you to 
 
@@ -47,10 +41,7 @@ However, this is **not** practice we wish to encourage. Instead, it is advised t
 
 3. Use the token as input parameter `token` in function `download_Comtrade()` to get unlimited (authenticated) usage of 10,000 requests per hour .
 
-
-
 ## Error code 500
-
 
 Unexplored/unspecified error. `comtradeRggregator` will pause the download for 60 seconds and re-send the last unsuccessful query again.
 
@@ -58,10 +49,7 @@ This should typically eliminate the issue and your request should go through aft
 
 In case you are running a very large request, consider increasing the interval between every single request by increasing the parameter value for `sleep` in `download_Comtrade()`.
 
-
-
 # Other error messages
-
 
 ### Error in `curl::curl_fetch_memory()`
 
