@@ -29,7 +29,7 @@
 #' Comtrade_DA
 #' }
 #' @source \url{https://comtrade.un.org/data/da}
-"Comtrade_DA"
+NULL
 
 
 #' Concordance Table: HS to BEC
@@ -1387,6 +1387,52 @@
 #' Concordance Table: H4 to I3.1
 #'
 #' Concordance table from `HS 2012` (`H4`) to `ISIC Rev. 3.1` (`I3.1`).
+#' Please note that the H4_I31 does not provide ISIC Rev. 3.1 4-digit
+#' level for the following commodities for which concordance is only available
+#' at the 2-digit and 3-digit level, respectively:
+#'
+#' | `HS 2012 Product Code` | `HS 2012 Product Description`                                                                                                                 |  `ISIC Revision 3.1 Product Code` | `ISIC Revision 3.1 Product Description`                                  |
+#' | -----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------|--------------------------------------------------------------------------|
+#' | 030111                 | live ornamental freshwater fish                                                                                                               |  050                              | Fishing, aquaculture and service activities incidental to fishing        |
+#' | 030119                 | live ornamental fish, other than freshwater                                                                                                   |  050                              | Fishing, aquaculture and service activities incidental to fishing        |
+#' | 030194                 | atlantic and pacific bluefin tunas (thunnus thynnus, thunnus  orientalis).                                                                    |  050                              | Fishing, aquaculture and service activities incidental to fishing        |
+#' | 030195                 | Fish; live, southern bluefin tunas (Thunnus maccoyii)                                                                                         |  050                              | Fishing, aquaculture and service activities incidental to fishing        |
+#' | 030213                 | pacific salmon, fresh or chilled, excluding fillets, other meat portions, livers and roes                                                     |  050                              | Fishing, aquaculture and service activities incidental to fishing        |
+#' | 030214                 | atlantic and danube salmon, fresh or chilled, excluding fillets, other meat portions, livers and roes                                         |  050                              | Fishing, aquaculture and service activities incidental to fishing        |
+#' | 030224                 | turbots                                                                                                                                       |  050                              | Fishing, aquaculture and service activities incidental to fishing        |
+#' | 030241                 | herrings, fresh or chilled, excluding fillets, other meat portions, livers and roes                                                           |  050                              | Fishing, aquaculture and service activities incidental to fishing        |
+#' | 030242                 | anchovies, excl. fillets, livers & roes, fresh or chilled, scaled, in immediate containers weighing with their contents <6.8 kg               |  050                              | Fishing, aquaculture and service activities incidental to fishing        |
+#' | 030243                 | sardines, sardinella, brisling or sprats, fresh or chilled, excluding fillets, other meat portions, livers and roes                           |  050                              | Fishing, aquaculture and service activities incidental to fishing        |
+#' | 030244                 | mackerel, excl. fillets, livers & roes, fresh or chilled                                                                                      |  050                              | Fishing, aquaculture and service activities incidental to fishing        |
+#' | 030245                 | jack & horse mackerel, excl. fillets, livers & roes, fresh or chilled, scaled                                                                 |  050                              | Fishing, aquaculture and service activities incidental to fishing        |
+#' | 030246                 | cobia, excl. fillets, livers and roes, fresh or chilled, scaled                                                                               |  050                              | Fishing, aquaculture and service activities incidental to fishing        |
+#' | 030247                 | swordfish, fresh or chilled, excluding livers and roes                                                                                        |  050                              | Fishing, aquaculture and service activities incidental to fishing        |
+#' | 030251                 | cod, fresh or chilled, excluding fillets, other meat portions, livers and roes                                                                |  050                              | Fishing, aquaculture and service activities incidental to fishing        |
+#' | 030252                 | haddock, fresh or chilled, excluding fillets, other meat portions, livers and roes                                                            |  050                              | Fishing, aquaculture and service activities incidental to fishing        |
+#' | 030253                 | coalfish, fresh or chilled, excluding fillets, other meat portions, livers and roes                                                           |  050                              | Fishing, aquaculture and service activities incidental to fishing        |
+#' | 030254                 | hake, excl. fillets, livers and roes, fresh or chilled, scaled                                                                                |  050                              | Fishing, aquaculture and service activities incidental to fishing        |
+#' | 030255                 | alaska pollack, excl. fillets, livers,roes, fresh or chilled, scaled                                                                          |  050                              | Fishing, aquaculture and service activities incidental to fishing        |
+#' | 030256                 | blue whitings, excl. fillets, livers & roes, fresh or chilled, scaled                                                                         |  050                              | Fishing, aquaculture and service activities incidental to fishing        |
+#' | 030259                 | bregmacerotidae et al fish, nesi, excl. fillets, livers and roes, fresh or chilled, scaled                                                    |  050                              | Fishing, aquaculture and service activities incidental to fishing        |
+#' | 030271                 | tilapias, excl. fillets, livers and roes, fresh or chilled, scaled                                                                            |  050                              | Fishing, aquaculture and service activities incidental to fishing        |
+#' | 030272                 | catfish, excl. fillets, livers and roes, fresh or chilled, scaled                                                                             |  050                              | Fishing, aquaculture and service activities incidental to fishing        |
+#' | 030273                 | carp, excl. fillets, livers and roes, fresh or chilled, scaled                                                                                |  050                              | Fishing, aquaculture and service activities incidental to fishing        |
+#' | 030274                 | eels, fresh or chilled, excluding fillets, other meat portions, livers and roes                                                               |  050                              | Fishing, aquaculture and service activities incidental to fishing        |
+#' | 030279                 | fish beginning  0302.7, nesi, excl. fillets, livers and roes, fresh or chilled, scaled                                                        |  050                              | Fishing, aquaculture and service activities incidental to fishing        |
+#' | 030281                 | dogfish and other sharks, fresh or chilled, excluding fillets, livers, roes and fish meat of 0304                                             |  050                              | Fishing, aquaculture and service activities incidental to fishing        |
+#' | 030282                 | rays & skates, excl. fillets, livers & roes, fresh or chilled, not scaled, or scaled in immediate containers over 6.8 kg                      |  050                              | Fishing, aquaculture and service activities incidental to fishing        |
+#' | 030283                 | toothfish excl. fillets, livers & roes, fresh or chilled, not scaled, or scaled in immediate containers over 6.8 kg                           |  050                              | Fishing, aquaculture and service activities incidental to fishing        |
+#' | 030284                 | seabass, excl. fillets, livers and roes, fresh or chilled, scaled                                                                             |  050                              | Fishing, aquaculture and service activities incidental to fishing        |
+#' | 030285                 | seabream, excl. fillets, livers and roes, fresh or chilled, scaled                                                                            |  050                              | Fishing, aquaculture and service activities incidental to fishing        |
+#' | 030289                 | fish, nesi, excl. fillets, livers and roes, fresh or chilled, scaled                                                                          |  050                              | Fishing, aquaculture and service activities incidental to fishing        |
+#' | 470710                 | waste and scrap of unbleached kraft paper or paperboard or of corrugated paper or paperboard                                                  |  210                              | Manufacture of paper and paper products                                  |
+#' | 470720                 | recovered (waste and scrap) paper or paperboard, made mainly of bleached chemical pulp, not colored in the mass                               |  210                              | Manufacture of paper and paper products                                  |
+#' | 470730                 | recovered (waste and scrap) paper or paperboard, made mainly of mechanical pulp (for example, newspapers, journals and similar printed matter |  210                              | Manufacture of paper and paper products                                  |
+#' | 470790                 | waste and scrap of paper or paperboard, nesoi, including unsorted waste and scrap                                                             |  210                              | Manufacture of paper and paper products                                  |
+#' | 852910                 | antennas and antenna reflectors and parts thereof                                                                                             |  32                               | Manufacture of radio, television and communication equipment and appara~ |
+#' | 852990                 | parts (except antennas and reflectors) for use with radio transmission, radar, radio navigational aid, reception and television apparatus, n~ |  32                               | Manufacture of radio, television and communication equipment and appara~ |
+#'
+#'Please see the official UNSD documentation for further information.
 #'
 #' @format A data frame with 5,205 rows and 4 variables:
 #' \describe{
