@@ -78,7 +78,13 @@ eval_ag <- function(ag = ag,
   ## Evaluate matching classifications
   if (sum(ag %in% is_ag) != length(ag)) {
     ag_missing <- ag[ag %in% is_ag == FALSE]
-    stop("\nSpecified aggregate(s) '", paste0(ag_missing, collapse = "', '"), "' not reported in selected trade data base.\nSelected trade data base '", tradecode, "' reportes in aggregated commodity codes: '", paste0(is_ag, collapse = "','"), "'.\nPlease see https://comtrade.un.org for more information.\n")
+    stop(
+      "\nSpecified aggregate(s) '", paste0(ag_missing, collapse = "', '"),
+      "' not reported in selected trade data base.\nSelected trade data base '",
+      tradecode, "' reportes in aggregated commodity codes: '",
+      paste0(is_ag, collapse = "','"),
+      "'.\nPlease see https://comtrade.un.org for more information.\n"
+    )
   } else {
     return(.px)
   }
