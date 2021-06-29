@@ -1354,7 +1354,7 @@ download_Comtrade(
   select.stats = "trade_value_usd",
   direction = "re_exports"
 )
-#> NULL
+#> # A tibble: 0 x 0
 ```
 
 ### Example 3
