@@ -29,8 +29,6 @@ Comtrade_DA
 Comtrade Data Availability
 }
 \examples{
-\dontrun{
 Comtrade_DA
-}
 }
 \keyword{datasets}

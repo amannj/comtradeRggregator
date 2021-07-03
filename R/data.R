@@ -14,9 +14,7 @@
 #'   \item{isPartnerDetail}{Partner detail.}
 #' }
 #' @examples
-#' \dontrun{
 #' Comtrade_DA
-#' }
 #' @source \url{https://comtrade.un.org/data/da}
 "Comtrade_DA"
 
