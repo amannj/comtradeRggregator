@@ -8,13 +8,13 @@
 #' @param location.temporaryFiles  Location of temporary
 #' file downloads; default is
 #'
-#' `<your package directory>\data\tmp\<date-and-time-stamp>`;
+#' `your local package directory\data\tmp\<date-and-time-stamp>`;
 #'
 #' alternatively specify the temporary download directory
 #' you wish to remove.
 #' @param location.temporaryFiles  Location of temporary file
 #' downloads; default is
-#' `<your package directory>\data\tmp\<date-and-time-stamp>`;
+#' `your local package directory\data\tmp\<date-and-time-stamp>`;
 #' if you decide to use a different location, an alternative
 #' temporary folder needs to be created first.
 #' @keywords remove
@@ -29,12 +29,14 @@ rm_temporaryFiles <- function(location.temporaryFiles = NULL) {
   } else if (is.strsclr(location.temporaryFiles)) {
     file.dir <- location.temporaryFiles
   } else {
-    stop("\nLocation for temporary files defined incorrectly. Please change argument 'location.temporaryFiles'.\n")
+    stop("\nLocation for temporary files defined incorrectly.
+         Please change argument 'location.temporaryFiles'.\n")
   }
 
   ## Check if specified location exists
   if (!file.exists(file.dir) & !is.null(location.temporaryFiles)) {
-    stop("\nLocation for temporary files defined incorrectly. Please change argument 'location.temporaryFiles'.\n")
+    stop("\nLocation for temporary files defined incorrectly.
+         Please change argument 'location.temporaryFiles'.\n")
   }
 
   ## Remove if temporary directory is not empty

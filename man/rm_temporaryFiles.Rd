@@ -9,7 +9,7 @@ rm_temporaryFiles(location.temporaryFiles = NULL)
 \arguments{
 \item{location.temporaryFiles}{Location of temporary file
 downloads; default is
-\verb{<your package directory>\\data\\tmp\\<date-and-time-stamp>};
+\verb{your local package directory\\data\\tmp\\<date-and-time-stamp>};
 if you decide to use a different location, an alternative
 temporary folder needs to be created first.}
 }

@@ -17,35 +17,54 @@ is.available_Comtrade(
 )
 }
 \arguments{
-\item{is.contained}{Check if a particular country (set of countries) is available for a particular data set; default is \code{NULL} which returns list of all countries available for a given data set.}
+\item{is.contained}{Check if a particular country (set of countries) is
+available for a particular data set; default is \code{NULL} which returns list
+of all countries available for a given data set.}
 
-\item{is.fuzzy}{Fuzzy match of country name fragments provided in \code{is.contained}; default is \code{FALSE}.}
+\item{is.fuzzy}{Fuzzy match of country name fragments provided in
+\code{is.contained}; default is \code{FALSE}.}
 
-\item{type}{Type of trade data to be extracted; either \code{services} or \code{commodities}; currently only \code{commodities} implemented.}
+\item{type}{Type of trade data to be extracted; either \code{services} or
+\code{commodities}; currently only \code{commodities} implemented.}
 
-\item{frequency}{Frequency of data extract; either \code{annual} or \code{monthly}; default is \code{annual}.}
+\item{frequency}{Frequency of data extract; either \code{annual} or \code{monthly};
+default is \code{annual}.}
 
-\item{month}{Optional parameter for \code{monthly} extract; ignored for \code{annual} extracts; only takes one entry as monthly trade data availability varies by month.}
+\item{month}{Optional parameter for \code{monthly} extract; ignored for \code{annual}
+extracts; only takes one entry as monthly trade data availability varies
+by month.}
 
-\item{tradecode}{Select trade database and classification to be extracted; default is \code{HS2007}; monthly trade data only available following \code{HS} classification; the full list of possible trade classifications and their corresponding input arguments used in the \code{comtradeRggregator} package are provided in table \href{https://github.com/amannj/comtradeRggregator#trade-classifications}{Trade Classifications}.}
+\item{tradecode}{Select trade database and classification to be extracted;
+default is \code{HS2007}; monthly trade data only available following \code{HS}
+classification; the full list of possible trade classifications and their
+corresponding input arguments used in the \code{comtradeRggregator} package are
+provided in table Trade Classifications(
+\href{https://github.com/amannj/comtradeRggregator#trade-classifications}{link}).}
 
 \item{year}{Year for which to extract data.}
 
-\item{directory}{Location of directory; default is \code{"<location of package on your system>\\data"}.}
+\item{directory}{Location of directory; default is
+\code{"<location of package on your system>\\data"}.}
 
-\item{file}{Location of Comtrade Data Availability file; default is \verb{Comtrade_DataAvailability-<time and date stamp>.csv.gz}.}
+\item{file}{Location of Comtrade Data Availability file; default is
+\verb{Comtrade_DataAvailability-<time and date stamp>.csv.gz}.}
 }
 \description{
-Check if data of a particular trade data set, frequency or country is available.
-Data availability varies by country and classification, and new trade data is released/revised very frequently on \href{https://comtrade.un.org/}{Comtrade}.
+Check if data of a particular trade data set, frequency or
+country is available.
+Data availability varies by country and classification, and new trade data is
+released/revised very frequently on \href{https://comtrade.un.org/}{Comtrade}.
 \code{comtradeRggregator} uses trade information corresponding to
-\href{https://comtrade.un.org/data/da}{official Comtrade data availability} which it updates once a day and stores locally on your machine:
+\href{https://comtrade.un.org/data/da}{official Comtrade data availability} which
+it updates once a day and stores locally on your machine:
 
-\verb{<your local package location>/data/Comtrade_DataAvailability-<date stamp>.csv.gz}.
+\verb{your local package directory/data/Comtrade_DataAvailability-<date stamp>.rds}
 
-The locally stored Comtrade Data Availability file is used in every \code{download_Comtrade()} data query.
-In other words, if new data becomes available and is documented in the
-\href{https://comtrade.un.org/data/da}{official Comtrade data availability file}, \code{comtradeRggregator}
+The locally stored Comtrade Data Availability file is used in every
+\code{download_Comtrade()} data query. In other words, if new data becomes
+available and is documented in the official Comtrade
+\href{https://comtrade.un.org/data/da}{data availability file},
+\code{comtradeRggregator}
 will use this information no later than 24 hours after its publication.
 }
 \examples{

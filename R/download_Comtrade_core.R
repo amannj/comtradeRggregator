@@ -21,7 +21,13 @@ download_Comtrade_wrapper <- function(rep = "Austria",
                                       dir = "all",
                                       is.mirrorData = FALSE,
                                       aggregation_level = "AG6",
-                                      select.stats = .select.stats,
+                                      select.stats = c(
+                                        "trade_value_usd", "qty_unit_code",
+                                        "qty_unit", "alt_qty_unit_code",
+                                        "alt_qty_unit", "qty",
+                                        "alt_qty", "netweight_kg",
+                                        "gross_weight_kg"
+                                      ),
                                       frequency = "annual",
                                       partners = partners,
                                       sleep = sleep) {
@@ -31,7 +37,10 @@ download_Comtrade_wrapper <- function(rep = "Austria",
 
     ## Standard data extract
     if (is.mirrorData == FALSE) {
-      message("Regular data download from partner(s): ", paste0(partners, collapse = ', '), ';')
+      message(
+        "Regular data download from partner(s): ",
+        paste0(partners, collapse = ", "), ";"
+      )
       df_download <- try({
         comtradr::ct_search(
           reporters = rep,
@@ -45,8 +54,8 @@ download_Comtrade_wrapper <- function(rep = "Austria",
           # Reshape
           as_tibble() %>%
           select(
-            classification, period, trade_flow, reporter,
-            partner, commodity_code, commodity,
+            "classification", "period", "trade_flow", "reporter",
+            "partner", "commodity_code", "commodity",
             all_of(select.stats)
           )
       })
@@ -56,7 +65,10 @@ download_Comtrade_wrapper <- function(rep = "Austria",
         if (is.null(partners)) {
           stop("Please provide mirror data country.")
         }
-        message("Mirror data download from partner(s): ", paste0(partners, collapse = ', '), ';')
+        message(
+          "Mirror data download from partner(s): ",
+          paste0(partners, collapse = ", "), ";"
+        )
         df_download <- try({
           comtradr::ct_search(
             reporters = rep,
@@ -70,11 +82,11 @@ download_Comtrade_wrapper <- function(rep = "Austria",
             # Reshape
             as_tibble() %>%
             select(
-              classification, period, trade_flow, reporter,
-              partner, commodity_code, commodity,
+              "classification", "period", "trade_flow", "reporter",
+              "partner", "commodity_code", "commodity",
               all_of(select.stats)
             ) %>%
-            mutate(partner = paste0(partner, " mirrored"))
+            mutate("partner" = paste0(.data$partner, " mirrored"))
         })
       }
     }
@@ -86,8 +98,14 @@ download_Comtrade_wrapper <- function(rep = "Austria",
   df_download <- download_COMTRADE_core()
 
   ## If error in data extract....
-  while (!is.na(suppressWarnings(stringr::str_match(df_download[1], "hourly"))) |
-    !is.na(suppressWarnings(stringr::str_match(df_download[1], "409")))) {
+  while (!is.na(suppressWarnings(stringr::str_match(
+    df_download[1],
+    "hourly"
+  ))) |
+    !is.na(suppressWarnings(stringr::str_match(
+      df_download[1],
+      "409"
+    )))) {
     # ... wait for an hour ...
     message("...wait for 60 min.")
     rm(df_download)
@@ -105,9 +123,16 @@ download_Comtrade_wrapper <- function(rep = "Austria",
     message("...resume:")
     df_download <- download_COMTRADE_core()
   }
-  while (!is.na(suppressWarnings(stringr::str_match(df_download[1], "Error in curl::curl_fetch_memory")))) {
+  while (!is.na(suppressWarnings(
+    stringr::str_match(
+      df_download[1],
+      "Error in curl::curl_fetch_memory"
+    )
+  ))) {
     # ... wait for an hour ...
-    message("curl::curl_fetch_memory; wait for 1 min. If error persists consider decreasing `cnt_extr` in `download_Comtrade()`.")
+    message("curl::curl_fetch_memory; wait for 1 min.
+            If error persists consider decreasing `cnt_extr`
+            in `download_Comtrade()`.")
     rm(df_download)
     Sys.sleep(60)
     # ... then try again
@@ -120,7 +145,12 @@ download_Comtrade_wrapper <- function(rep = "Austria",
   if (!is.na(suppressWarnings(stringr::str_match(df_download[1], "Error")))) {
     stop("Other error code.")
   }
-  message("   reported by: ",  paste0(rep, collapse = ', '), "; year: ", date, "; trade direction: '", paste0(dir, collapse = "', '"), "'.\n    Done! Going to sleep for ", sleep, " sec.\n")
+  message(
+    "   reported by: ", paste0(rep, collapse = ", "), "; year: ",
+    date, "; trade direction: '",
+    paste0(dir, collapse = "', '"),
+    "'.\n    Done! Going to sleep for ", sleep, " sec.\n"
+  )
   Sys.sleep(sleep)
 
   return(df_download)

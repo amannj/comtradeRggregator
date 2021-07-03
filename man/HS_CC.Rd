@@ -10,7 +10,7 @@ A data frame with 5,205 rows and 4 variables:
 \item{HS Combined Product Code}{Harmonised System Combined Product code.}
 \item{HS Combined Product Description}{Harmonised System Combined Product description.}
 \item{CCCN Product Code}{Customs Co-operation Council Nomenclature \code{CCCN} Product code.}
-\item{CCCN Product Description}{Customs Co-operation Council Nomenclature \code{CCCN} Product description}
+\item{CCCN Product Description}{Customs Co-operation Council Nomenclature \code{CCCN} Product description.}
 }
 }
 \source{

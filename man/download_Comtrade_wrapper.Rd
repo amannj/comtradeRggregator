@@ -10,7 +10,8 @@ download_Comtrade_wrapper(
   dir = "all",
   is.mirrorData = FALSE,
   aggregation_level = "AG6",
-  select.stats = .select.stats,
+  select.stats = c("trade_value_usd", "qty_unit_code", "qty_unit", "alt_qty_unit_code",
+    "alt_qty_unit", "qty", "alt_qty", "netweight_kg", "gross_weight_kg"),
   frequency = "annual",
   partners = partners,
   sleep = sleep

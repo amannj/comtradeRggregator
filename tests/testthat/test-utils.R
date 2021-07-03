@@ -21,58 +21,174 @@ test_that("%not.in% TRUE or FALSE", {
 # Test eval_ag --------
 ## Tradecoe false
 test_that("eval_ag evaluates if tradecode and ag match", {
-  ag0 <- function() eval_ag(ag = c("AG2"), tradecode = "S5", frequency = "annual")
+  ag0 <- function() {
+    eval_ag(
+      ag = c("AG2"),
+      tradecode = "S5",
+      frequency = "annual"
+    )
+  }
   expect_error(ag0(), "Tradecode*")
 })
 
 ## HS correct
 test_that("eval_ag checks ag and returns tradecode abbreviation", {
-  ag1 <- eval_ag(ag = c("AG2", "AG4", "AG6"), tradecode = "HS", frequency = "annual")
+  ag1 <- eval_ag(
+    ag = c("AG2", "AG4", "AG6"),
+    tradecode = "HS",
+    frequency = "annual"
+  )
   expect_equal(ag1, "HS")
 })
 test_that("eval_ag checks ag and returns tradecode abbreviation", {
-  ag1 <- eval_ag(ag = c("AG2", "AG4", "AG6"), tradecode = "H0", frequency = "annual")
+  ag1 <- eval_ag(
+    ag = c("AG2", "AG4", "AG6"),
+    tradecode = "H0",
+    frequency = "annual"
+  )
   expect_equal(ag1, "H0")
 })
 test_that("eval_ag checks ag and returns tradecode abbreviation", {
-  ag1 <- eval_ag(ag = c("AG2", "AG4", "AG6"), tradecode = "H1", frequency = "annual")
+  ag1 <- eval_ag(
+    ag = c("AG2", "AG4", "AG6"),
+    tradecode = "H1",
+    frequency = "annual"
+  )
   expect_equal(ag1, "H1")
 })
 test_that("eval_ag checks ag and returns tradecode abbreviation", {
-  ag1 <- eval_ag(ag = c("AG2", "AG4", "AG6"), tradecode = "H2", frequency = "annual")
+  ag1 <- eval_ag(
+    ag = c("AG2", "AG4", "AG6"),
+    tradecode = "H2",
+    frequency = "annual"
+  )
   expect_equal(ag1, "H2")
 })
 test_that("eval_ag checks ag and returns tradecode abbreviation", {
-  ag1 <- eval_ag(ag = c("AG2", "AG4", "AG6"), tradecode = "H3", frequency = "annual")
+  ag1 <- eval_ag(
+    ag = c("AG2", "AG4", "AG6"),
+    tradecode = "H3",
+    frequency = "annual"
+  )
   expect_equal(ag1, "H3")
 })
 test_that("eval_ag checks ag and returns tradecode abbreviation", {
-  ag1 <- eval_ag(ag = c("AG2", "AG4", "AG6"), tradecode = "H4", frequency = "annual")
+  ag1 <- eval_ag(
+    ag = c("AG2", "AG4", "AG6"),
+    tradecode = "H4",
+    frequency = "annual"
+  )
   expect_equal(ag1, "H4")
 })
 test_that("eval_ag checks ag and returns tradecode abbreviation", {
-  ag1 <- eval_ag(ag = c("AG2", "AG4", "AG6"), tradecode = "H5", frequency = "annual")
+  ag1 <- eval_ag(
+    ag = c("AG2", "AG4", "AG6"),
+    tradecode = "H5",
+    frequency = "annual"
+  )
   expect_equal(ag1, "H5")
 })
 test_that("eval_ag checks ag and returns tradecode abbreviation", {
-  ag1 <- eval_ag(ag = c("AG1", "AG2", "AG3"), tradecode = "BE", frequency = "annual")
+  ag1 <- eval_ag(
+    ag = c("AG1", "AG2", "AG3"),
+    tradecode = "BE",
+    frequency = "annual"
+  )
   expect_equal(ag1, "BE")
 })
 # tradecode and wrong AG
 test_that("eval_ag checks if ag and tradecodes don't match", {
-  ag_HS <- function() eval_ag(ag = c("AGx"), tradecode = "HS", frequency = "annual")
-  ag_H0 <- function() eval_ag(ag = c("AGx"), tradecode = "HS1992", frequency = "annual")
-  ag_H1 <- function() eval_ag(ag = c("AGx"), tradecode = "HS1996", frequency = "annual")
-  ag_H2 <- function() eval_ag(ag = c("AGx"), tradecode = "HS2002", frequency = "annual")
-  ag_H3 <- function() eval_ag(ag = c("AGx"), tradecode = "HS2007", frequency = "annual")
-  ag_H4 <- function() eval_ag(ag = c("AGx"), tradecode = "HS2012", frequency = "annual")
-  ag_H5 <- function() eval_ag(ag = c("AGx"), tradecode = "HS2017", frequency = "annual")
-  ag_ST <- function() eval_ag(ag = c("AGx"), tradecode = "SITC", frequency = "annual")
-  ag_S1 <- function() eval_ag(ag = c("AGx"), tradecode = "SITCrev1", frequency = "annual")
-  ag_S2 <- function() eval_ag(ag = c("AGx"), tradecode = "SITCrev2", frequency = "annual")
-  ag_S3 <- function() eval_ag(ag = c("AGx"), tradecode = "SITCrev3", frequency = "annual")
-  ag_S4 <- function() eval_ag(ag = c("AGx"), tradecode = "SITCrev4", frequency = "annual")
-  ag_BE <- function() eval_ag(ag = c("AGx"), tradecode = "BEC", frequency = "annual")
+  ag_HS <- function() {
+    eval_ag(
+      ag = c("AGx"),
+      tradecode = "HS",
+      frequency = "annual"
+    )
+  }
+  ag_H0 <- function() {
+    eval_ag(
+      ag = c("AGx"),
+      tradecode = "HS1992",
+      frequency = "annual"
+    )
+  }
+  ag_H1 <- function() {
+    eval_ag(
+      ag = c("AGx"),
+      tradecode = "HS1996",
+      frequency = "annual"
+    )
+  }
+  ag_H2 <- function() {
+    eval_ag(
+      ag = c("AGx"),
+      tradecode = "HS2002",
+      frequency = "annual"
+    )
+  }
+  ag_H3 <- function() {
+    eval_ag(
+      ag = c("AGx"),
+      tradecode = "HS2007",
+      frequency = "annual"
+    )
+  }
+  ag_H4 <- function() {
+    eval_ag(
+      ag = c("AGx"),
+      tradecode = "HS2012",
+      frequency = "annual"
+    )
+  }
+  ag_H5 <- function() {
+    eval_ag(
+      ag = c("AGx"),
+      tradecode = "HS2017",
+      frequency = "annual"
+    )
+  }
+  ag_ST <- function() {
+    eval_ag(
+      ag = c("AGx"),
+      tradecode = "SITC",
+      frequency = "annual"
+    )
+  }
+  ag_S1 <- function() {
+    eval_ag(
+      ag = c("AGx"),
+      tradecode = "SITCrev1",
+      frequency = "annual"
+    )
+  }
+  ag_S2 <- function() {
+    eval_ag(
+      ag = c("AGx"),
+      tradecode = "SITCrev2",
+      frequency = "annual"
+    )
+  }
+  ag_S3 <- function() {
+    eval_ag(
+      ag = c("AGx"),
+      tradecode = "SITCrev3",
+      frequency = "annual"
+    )
+  }
+  ag_S4 <- function() {
+    eval_ag(
+      ag = c("AGx"),
+      tradecode = "SITCrev4",
+      frequency = "annual"
+    )
+  }
+  ag_BE <- function() {
+    eval_ag(
+      ag = c("AGx"),
+      tradecode = "BEC",
+      frequency = "annual"
+    )
+  }
 
   lapply(list(
     "ag_HS", "ag_H0",
@@ -160,8 +276,11 @@ test_that("Test conversion of trade codes with convert_tradecodes", {
     )
   )
 
-  for (i in 1:nrow(df_tradecode)) {
-    ag <- convert_tradecodes(tradecode = df_tradecode[i, 1] %>% pull(), return = "Name", eval = TRUE)
+  for (i in seq_along(df_tradecode)) {
+    ag <- convert_tradecodes(
+      tradecode = df_tradecode[i, 1] %>% pull(),
+      return = "Name", eval = TRUE
+    )
     expect_equal(ag, df_tradecode[i, 2] %>% pull())
   }
 })
@@ -169,7 +288,10 @@ test_that("Test conversion of trade codes with convert_tradecodes", {
 
 test_that("convert_tradecodes requires well-defined inputs", {
   err1 <- function() {
-    convert_tradecodes(tradecode = "not_contained", return = "Name", eval = TRUE)
+    convert_tradecodes(
+      tradecode = "not_contained",
+      return = "Name", eval = TRUE
+    )
   }
   expect_error(err1())
 })

@@ -8,8 +8,8 @@
 A data frame with 5,386 rows and 4 variables:
 \describe{
 \item{HS 2017 Product Code}{Harmonised System \verb{HS 2017} (\code{H5}) Product code.}
-\item{SITC Revision 3 Product Description}{...}
-\item{SITC Revision 3 Product Code}{...}
+\item{SITC Revision 3 Product Code}{Standard International Trade Classification \code{SITC} Revision 3 Product code.}
+\item{SITC Revision 3 Product Description}{Standard International Trade Classification \code{SITC} Revision 3 Product description.}
 }
 }
 \source{

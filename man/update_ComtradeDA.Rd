@@ -13,8 +13,8 @@ update_ComtradeDA(
 \item{directory}{Location of Comtrade Data Availability file; default is
 \verb{data/}}
 
-\item{file}{Name of file containing information on Comtrade's data availability;
-default is \verb{Comtrade_DataAvailability-<date stamp>}.}
+\item{file}{Name of file containing information on Comtrade's data
+availability; default is \verb{Comtrade_DataAvailability-<date stamp>}.}
 }
 \description{
 Extract or validate list of exporters for which in a
@@ -26,11 +26,11 @@ trade data is released/revised very frequently on
 \code{comtradeRggregator} uses trade information corresponding to
 \href{https://comtrade.un.org/data/da}{official Comtrade data availability}
 which it updates once a day and stores locally on your machine:
-\verb{<your local package location>/data/Comtrade_DataAvailability-<date stamp>.csv.gz}
+\verb{your local package directory/data/Comtrade_DataAvailability-<date stamp>.rds}
 The locally stored Comtrade Data Availability file is used in
-every \code{download_Comtrade()} data query.
-In other words, if new data becomes available and is documented in the
-\href{https://comtrade.un.org/data/da}{official Comtrade data availability file},
+every \code{download_Comtrade()} data query. In other words, if new data
+becomes available and is documented in the official Comtrade
+\href{https://comtrade.un.org/data/da}{data availability file},
 \code{comtradeRggregator} will use this information no later than 24
 hours after its publication.
 }

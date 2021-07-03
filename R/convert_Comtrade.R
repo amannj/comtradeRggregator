@@ -1,19 +1,28 @@
 #' @title Convert Comtrade Trade Data
 #'
-#' @description Offers conversion tables for Comtrade trade data following official tables from the
-#'  [UN Statistics Division (UNSD)](https://unstats.un.org/unsd/classifications/Econ#corresp-hs) and the
-#'  [World Integrated Trade Solution (WITS)](https://wits.worldbank.org/product_concordance.html).
-#'  For a complete list of concordance tables please see
-#'  [`comtradeRggregator`'s Concordance Table](https://amannj.github.io/resources/comtradeRggregator/index.html#concordance-table).
-#' Please see [here](https://amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications)
+#' @description Offers conversion tables for Comtrade trade data following
+#' official tables from the UN Statistics Division (
+#' [UNSD](unstats.un.org/unsd/classifications/Econ#corresp-hs))
+#' and the World Integrated Trade Solution (
+#' [WITS](wits.worldbank.org/product_concordance.html)).
+#' For a complete list of concordance tables please see
+#' `comtradeRggregator`'s Concordance Table (
+#' [link](amannj.github.io/resources/comtradeRggregator/index.html#concordance-table)).
+#' Please see
+#' [here](amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications)
 #' for a list of all nomenclatures supported by `comtradeRggregator`.
-#' @param data A data frame or vector containing (a variable listing) commodity codes following one of the supported
-#' nomenclatures; see [here](https://amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications).
-#' @param classification.from Abbreviation of origin classification supported by
-#' [`comtradeRggregator`'s Concordance Table](https://amannj.github.io/resources/comtradeRggregator/index.html#concordance-table).
-#' @param commodity.code  Name of variable containing the commodity codes corresponding to trade classification; default is `commodity_code`.
+#' @param data A data frame or vector containing (a variable listing)
+#' commodity codes following one of the supported
+#' nomenclatures; see
+#' [here](amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications).
+#' @param classification.from Abbreviation of origin classification supported
+#' by `comtradeRggregator`'s Concordance Table (
+#' [link](amannj.github.io/resources/comtradeRggregator/index.html#concordance-table)).
+#' @param commodity.code  Name of variable containing the commodity codes
+#' corresponding to trade classification; default is `commodity_code`.
 #' @param classification.to Abbreviation of target classification based on
-#' [`comtradeRggregator`'s Concordance Table](https://amannj.github.io/resources/comtradeRggregator/index.html#concordance-table).
+#' `comtradeRggregator`'s Concordance Table (
+#' [link](amannj.github.io/resources/comtradeRggregator/index.html#concordance-table)).
 #' @keywords concordance
 #' @export
 #' @import dplyr comtradr tibble readr rlang
@@ -46,11 +55,11 @@
 #'     classification.to = "I3"
 #'   )
 #' }
-#' @source \url{https://unstats.un.org/unsd/classifications/Econ#corresp-hs}
-#' \url{https://wits.worldbank.org/product_concordance.html}
-#' \url{https://unstats.un.org/unsd/classifications/Econ#corresp-hs}
-#' \url{https://amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications}
-#' \url{https://amannj.github.io/resources/comtradeRggregator/index.html#concordance-table}
+#' @source \url{unstats.un.org/unsd/classifications/Econ#corresp-hs}
+#' \url{wits.worldbank.org/product_concordance.html}
+#' \url{unstats.un.org/unsd/classifications/Econ#corresp-hs}
+#' \url{amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications}
+#' \url{amannj.github.io/resources/comtradeRggregator/index.html#concordance-table}
 convert_Comtrade <- function(data,
                              classification.from = "H3",
                              commodity.code = "commodity_code",
@@ -58,19 +67,48 @@ convert_Comtrade <- function(data,
 
 
   ## Check `tradecode` and return arg  ------
-  cls.from <- convert_tradecodes(tradecode = classification.from, return = "Abbr", eval = TRUE)
-  cls.to <- convert_tradecodes(tradecode = classification.to, return = "Abbr", eval = TRUE)
+  cls.from <- convert_tradecodes(
+    tradecode = classification.from,
+    return = "Abbr",
+    eval = TRUE
+  )
+  cls.to <- convert_tradecodes(
+    tradecode = classification.to,
+    return = "Abbr",
+    eval = TRUE
+  )
 
   # Check length of commodity codes----
   s_cclgth <- as.character(data %>%
     mutate(x = nchar(.data[[commodity.code]])) %>%
-    group_by(x) %>% tally(x) %>% na.omit() %>% pull(x))
+    group_by(.data$x) %>%
+    tally(.data$x) %>%
+    filter(!is.na(.data$x)) %>%
+    pull(.data$x)
+    )
 
   # Checks for correct lengths of commodity variable -------
   if (cls.from %in% c("HS", "H0", "H1", "H2", "H3", "H4", "H5", "CC")) {
-    check_args(s_cclgth, "6", paste0(commodity.code, " has wrong length for conversion (check Concordance Table for more information); "))
-  } else if (cls.from %in% c("I2", "I3", "I31", "I4", "S1", "S2", "S3", "S4", "IU", "MT")) {
-    check_args(s_cclgth, "4", paste0(commodity.code, " has wrong length for conversion (check Concordance Table for more information); "))
+    check_args(
+      s_cclgth, "6",
+      paste0(
+        commodity.code,
+        " has wrong length for conversion
+                      (check Concordance Table for more information); "
+      )
+    )
+  } else if (cls.from %in% c(
+    "I2", "I3", "I31", "I4", "S1",
+    "S2", "S3", "S4", "IU", "MT"
+  )) {
+    check_args(
+      s_cclgth, "4",
+      paste0(
+        commodity.code,
+        " has wrong length for conversion
+                      (check Concordance Table for more information); "
+      )
+    )
   }
 
   # Get concordance table ----------
@@ -81,7 +119,12 @@ convert_Comtrade <- function(data,
     silent = TRUE
   )
   if (!exists("df_conc")) {
-    stop("No concordance table between ", classification.from, " and ", classification.to, " available. Please check abbreviations and/or Concordance Table.")
+    stop(
+      "No concordance table between ",
+      classification.from, " and ",
+      classification.to,
+      " available. Please check abbreviations and/or Concordance Table."
+    )
   }
 
   # Prepare concordance table for merge  ----------
@@ -99,7 +142,12 @@ convert_Comtrade <- function(data,
     pull(.data[[commodity.code]])
 
   if (!identical(v_nonmatch, character(0))) {
-    warning("The following commodity codes of column '", commodity.code, "' could not be matched: ", paste0(v_nonmatch, collapse = ", "), ".")
+    warning(
+      "The following commodity codes of column '",
+      commodity.code,
+      "' could not be matched: ",
+      paste0(v_nonmatch, collapse = ", "), "."
+    )
   }
 
   # Merge concordance table ----------

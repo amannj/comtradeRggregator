@@ -32,39 +32,39 @@ test_that("download_Comtrade returns a data frame", {
 
 test_that("download_Comtrade returns consistent mirror data", {
   download_Comtrade(
-    year = c("2018"), #  Years for which to extract
-    frequency = "annual", #  or "monthly"
-    month = NULL, # or c("01", "02"); specify months to be extracted for monthly data extraction; default is all 12 months if frequency == 'monthly'
-    countries = "Germany", # Select list of countries to be extracted; default is 'all'
-    partners = "Austria", # either 'world' (all countries) or specific country name(s)
-    tradecode = "HS2007", # select trade classification to be extracted; default is HS03; monthly data only available as HS
-    ag = c("ag6"), #  select level of (dis)aggregation; evaluated automatically
+    year = c("2018"),
+    frequency = "annual",
+    month = NULL,
+    countries = "Germany",
+    partners = "Austria",
+    tradecode = "HS2007",
+    ag = c("ag6"),
     select.stats = "trade_value_usd",
-    direction = "imports", # imports, exports, re-imports, re-exports or all; default is all
-    type = "commodities", # services not available
-    rm.temporaryFiles = TRUE, # Remove temporary files from data download; default is false
-    token = mytoken, # set Comtrade token;
-    ext_cnt = 5, # number of countries extracted with each query; default is 5 which is also the max. in comtradr
-    is.mirrorData = FALSE, # Extract mirrored trade data; only one country supported at the moment
-    location.temporaryFiles = NULL # location of temporary file downloads; default is `<package-directory>\data\tmp\<date-and-time-stamp>
+    direction = "imports",
+    type = "commodities",
+    rm.temporaryFiles = TRUE,
+    token = mytoken,
+    ext_cnt = 5,
+    is.mirrorData = FALSE,
+    location.temporaryFiles = NULL
   ) -> IM_DE_AT
 
   download_Comtrade(
-    year = c("2018"), #  Years for which to extract
-    frequency = "annual", #  or "monthly"
-    month = NULL, # or c("01", "02"); specify months to be extracted for monthly data extraction; default is all 12 months if frequency == 'monthly'
-    countries = "Austria", # Select list of countries to be extracted; default is 'all'
-    partners = "Germany", # either 'world' (all countries) or specific country name(s)
-    tradecode = "HS2007", # select trade classification to be extracted; default is HS03; monthly data only available as HS
-    ag = c("ag6"), #  select level of (dis)aggregation; evaluated automatically
+    year = c("2018"),
+    frequency = "annual",
+    month = NULL,
+    countries = "Austria",
+    partners = "Germany",
+    tradecode = "HS2007",
+    ag = c("ag6"),
     select.stats = "trade_value_usd",
-    direction = "exports", # imports, exports, re-imports, re-exports or all; default is all
-    type = "commodities", # services not available
-    rm.temporaryFiles = TRUE, # Remove temporary files from data download; default is false
-    token = mytoken, # set Comtrade token;
-    ext_cnt = 5, # number of countries extracted with each query; default is 5 which is also the max. in comtradr
-    is.mirrorData = TRUE, # Extract mirrored trade data; only one country supported at the moment
-    location.temporaryFiles = NULL # location of temporary file downloads; default is `<package-directory>\data\tmp\<date-and-time-stamp>
+    direction = "exports",
+    type = "commodities",
+    rm.temporaryFiles = TRUE,
+    token = mytoken,
+    ext_cnt = 5,
+    is.mirrorData = TRUE,
+    location.temporaryFiles = NULL
   ) -> mirrX_AT_DE
 
   IM_DE_AT %>%
@@ -105,7 +105,8 @@ test_that("download_Comtrade fails if country doesn't exist", {
 })
 
 
-test_that("download_Comtrade fails if no reasonable input arguments are provided", {
+test_that("download_Comtrade fails if no reasonable input arguments
+          are provided", {
   err1 <- function() {
     download_Comtrade(
       year = "5018",

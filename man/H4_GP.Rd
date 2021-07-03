@@ -9,8 +9,8 @@ A data frame with 5,205 rows and 5 variables:
 \describe{
 \item{HS 2012 Product Code}{Harmonised System \verb{HS 2012} (\code{H4}) Product code.}
 \item{HS 2012 Product Description}{Harmonised System \verb{HS 2012} (\code{H4}) Product description.}
-\item{GTAP Product}{...}
 \item{GTAP Product Code}{Global Trade Analysis Project \code{GTAP} Product code.}
+\item{GTAP Product}{Global Trade Analysis Project \code{GTAP} Product group.}
 \item{GTAP Product Description}{Global Trade Analysis Project \code{GTAP} Product description.}
 }
 }

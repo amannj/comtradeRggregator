@@ -42,7 +42,8 @@ test_that("convert_Comtrade returns an error message", {
 })
 
 
-test_that("convert_Comtrade returns an error message as classification doesn't exist", {
+test_that("convert_Comtrade returns an error message as classification
+          doesn't exist", {
   dat <- tibble("commodity_code" = c("01"))
   out <- function() {
     convert_Comtrade(dat,
@@ -55,7 +56,8 @@ test_that("convert_Comtrade returns an error message as classification doesn't e
 })
 
 
-test_that("convert_Comtrade returns an error message as concordence does not exist", {
+test_that("convert_Comtrade returns an error message as concordence
+          does not exist", {
   dat <- tibble("commodity_code" = c("220110"))
   out <- function() {
     convert_Comtrade(dat,

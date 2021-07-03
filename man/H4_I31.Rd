@@ -23,10 +23,7 @@ H4_I31
 Concordance table from \verb{HS 2012} (\code{H4}) to \verb{ISIC Rev. 3.1} (\code{I3.1}).
 Please note that the H4_I31 does not provide ISIC Rev. 3.1 4-digit
 level for the following commodities for which concordance is only available
-at the 2-digit and 3-digit level, respectively:
-}
-\details{
-\tabular{llll}{
+at the 2-digit and 3-digit level, respectively:\tabular{llll}{
    \verb{HS 2012 Product Code} \tab \verb{HS 2012 Product Description} \tab \verb{ISIC Revision 3.1 Product Code} \tab \verb{ISIC Revision 3.1 Product Description} \cr
    030111 \tab live ornamental freshwater fish \tab 050 \tab Fishing, aquaculture and service activities incidental to fishing \cr
    030119 \tab live ornamental fish, other than freshwater \tab 050 \tab Fishing, aquaculture and service activities incidental to fishing \cr

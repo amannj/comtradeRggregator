@@ -56,10 +56,11 @@ The package offers functionality to download and aggregate [Comtrade trade data]
 |--------------------------------------------------------------------------------|-------------------------------------------------------|---------------------------------------|--------------------------------------------------------|
 | Incorporating recent data updates and revisions                                | yes                                                   | with delay                            | yes (via Comtrade)                                     |
 | Extraction of monthly trade data                                               | yes                                                   | no                                    | yes                                                    |
-| Advanced querying and bulk download without registration                       | no                                                    | no                                    | yes, but slow                                           |
+| User limits without registration                                               | [yes](https://comtrade.un.org/data/doc/api/#APIKey)   | yes                                   | no                                                     |
 | Reclassification of trade data according to official standards                 | no                                                    | selectively                           | yes                                                    |
-| API integration in R                                                           | [comtradr](https://github.com/ropensci/comtradr) | no                                    | [comtradr](https://github.com/ropensci/comtradr)  |
+| API integration in R                                                           | [comtradr](https://github.com/ropensci/comtradr)      | no                                    | [comtradr](https://github.com/ropensci/comtradr)       |
 | Designated option to download mirror trade data                                | no                                                    | no                                    | yes                                                    |
+| Integrated  product nomenclature mapping                                       | no                                                    | [WITS](https://wits.worldbank.org/product_concordance.html) concordance tables | [WITS](https://wits.worldbank.org/product_concordance.html) and [United Nations Statistical Division (UNSD)](https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp) concordance tables |
 
 
 ## Features
@@ -257,7 +258,7 @@ AT_World
 
 Sometimes you might want to extract very specific information on particular trade flows between two countries. 
 
-For example, in order to extract  `commodity` `re-exports` reported by `Austria` at `AG6` level following hte `HS2007` nomenclature for trade with `Germany`   in `2018`, run the command below.  As you can see, this returns an empty data frame. This means that there is no trade data recorded on [Comtrade](https://comtrade.un.org) that meets the specific criteria. 
+For example, in order to extract  `commodity` `re-exports` reported by `Austria` at `AG6` level following the `HS2007` nomenclature for trade with `Germany`   in `2018`, run the command below.  As you can see, this returns an empty data frame. This means that there is no trade data recorded on [Comtrade](https://comtrade.un.org) that meets the specific criteria. 
 
 
 

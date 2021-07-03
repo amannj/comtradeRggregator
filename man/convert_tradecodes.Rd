@@ -4,14 +4,15 @@
 \alias{convert_tradecodes}
 \title{Convert Trade Codes}
 \source{
-\url{https://amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications}
+\url{amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications}
 }
 \usage{
 convert_tradecodes(tradecode = tradecode, return = "Name", eval = TRUE)
 }
 \arguments{
 \item{tradecode}{Trade code input;
-see \href{https://amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications}{here}
+see
+\href{amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications}{here}
 for more information.}
 
 \item{return}{Return either \code{Name} or \code{Abbr} (abbreviation) of commodity code}
@@ -21,7 +22,8 @@ for more information.}
 \code{download_Comtrade()}; set \code{FALSE} for \code{convert_Comtrade()}.}
 }
 \description{
-Converts and harmonises trade code inputs for further processing (e.g. \code{H3} vs. \code{HS2007}).
+Converts and harmonises trade code inputs for further
+processing (e.g. \code{H3} vs. \code{HS2007}).
 }
 \keyword{convert}
 \keyword{tradecode}

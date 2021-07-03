@@ -28,8 +28,8 @@
 #' monthly trade data only available following `HS` classification;
 #'  for the full list of possible trade classifications and their
 #'  corresponding input arguments used in the `comtradeRggregator`
-#'  package please see the list of all
-#'  [supported trade classifications](https://amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications).
+#'  package please see the list of all supported trade classifications (
+#'  [link](amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications)).
 #' @param frequency   Frequency of data extract; either `annual` or
 #' `monthly`; default is `annual`.
 #' @return Trade classification abbreviation `.px` for further processing
@@ -131,9 +131,11 @@ check_args <- function(is, ok, arg) {
 
 #' @title Convert Trade Codes
 #'
-#' @description  Converts and harmonises trade code inputs for further processing (e.g. `H3` vs. `HS2007`).
+#' @description  Converts and harmonises trade code inputs for further
+#' processing (e.g. `H3` vs. `HS2007`).
 #' @param tradecode Trade code input;
-#' see [here](https://amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications)
+#' see
+#' [here](amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications)
 #' for more information.
 #' @param return Return either `Name` or `Abbr` (abbreviation) of commodity code
 #' @param eval if `TRUE`, `tradecode` must be contained within
@@ -142,8 +144,10 @@ check_args <- function(is, ok, arg) {
 #' @keywords tradecode convert
 #' @export
 #' @import dplyr comtradr tibble readr rlang
-#' @source \url{https://amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications}
-convert_tradecodes <- function(tradecode = tradecode, return = "Name", eval = TRUE) {
+#' @source \url{amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications}
+convert_tradecodes <- function(tradecode = tradecode,
+                               return = "Name",
+                               eval = TRUE) {
 
   # List of trade classifications available via Comtrade
   df_tradecode <- tibble(
@@ -199,11 +203,20 @@ convert_tradecodes <- function(tradecode = tradecode, return = "Name", eval = TR
     )
   )
   # Extract relevant row
-  df_tradecode <- df_tradecode[which(df_tradecode == tradecode, arr.ind = TRUE)[1], ]
+  df_tradecode <- df_tradecode[which(df_tradecode == tradecode,
+    arr.ind = TRUE
+  )[1], ]
 
   if (eval == TRUE) {
-    if (nrow(na.omit(df_tradecode)) == 0) {
-      stop("Tradecode '", tradecode, "' not available. Please check available trade classifications for download.'")
+    empty_df <- df_tradecode %>%
+      filter(!is.na(.data$Abbr) & !is.na(.data$Name)) %>%
+      nrow() == 0
+    if (empty_df) {
+      stop(
+        "Tradecode '", tradecode,
+        "' not available.
+           Please check available trade classifications for download.'"
+      )
     }
   }
   if (tradecode != "HS") {

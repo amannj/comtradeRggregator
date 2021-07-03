@@ -16,7 +16,8 @@ test_that("is.available_Comtrade returns data frame", {
 })
 
 
-test_that("is.available_Comtrade returns evaluated list of all available countries", {
+test_that("is.available_Comtrade returns evaluated list of
+          all available countries", {
   da2 <- is.available_Comtrade(
     is.contained = c("Austria", "Germany"),
     frequency = "annual",
@@ -27,7 +28,8 @@ test_that("is.available_Comtrade returns evaluated list of all available countri
 })
 
 
-test_that("is.available_Comtrade returns evaluated list of all available countries", {
+test_that("is.available_Comtrade returns evaluated list of
+          all available countries", {
   da3 <- function() {
     is.available_Comtrade(
       is.contained = c("Austria", "Germany"),
@@ -41,7 +43,8 @@ test_that("is.available_Comtrade returns evaluated list of all available countri
 })
 
 
-test_that("is.available_Comtrade returns evaluated list of all available countries", {
+test_that("is.available_Comtrade returns evaluated list of
+          all available countries", {
   da3 <- is.available_Comtrade(
     is.contained = c("Austria", "Germany"),
     frequency = "monthly",
@@ -54,7 +57,8 @@ test_that("is.available_Comtrade returns evaluated list of all available countri
 })
 
 
-test_that("is.available_Comtrade returns evaluated list of all available countries", {
+test_that("is.available_Comtrade returns evaluated list of
+          all available countries", {
   da4 <- is.available_Comtrade(
     is.contained = "ustr",
     is.fuzzy = TRUE,
@@ -68,7 +72,8 @@ test_that("is.available_Comtrade returns evaluated list of all available countri
 })
 
 
-test_that("is.available_Comtrade returns evaluated list of all available countries", {
+test_that("is.available_Comtrade returns evaluated list of
+          all available countries", {
   da5 <- is.available_Comtrade(
     is.contained = "ustr",
     is.fuzzy = TRUE,
@@ -109,3 +114,4 @@ test_that("is.available_Comtrade accepts input for monthl of length 1 only", {
   }
   expect_error(err2())
 })
+

@@ -15,8 +15,8 @@ extracted; default is \code{HS2007};
 monthly trade data only available following \code{HS} classification;
 for the full list of possible trade classifications and their
 corresponding input arguments used in the \code{comtradeRggregator}
-package please see the list of all
-\href{https://amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications}{supported trade classifications}.}
+package please see the list of all supported trade classifications (
+\href{amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications}{link}).}
 
 \item{frequency}{Frequency of data extract; either \code{annual} or
 \code{monthly}; default is \code{annual}.}

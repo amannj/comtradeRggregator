@@ -5,7 +5,7 @@
 \title{Build Comtrade Data from Temporary Files}
 \usage{
 build_Comtrade(
-  directory = loc_folder,
+  directory = system.file("data", package = "comtradeRggregator"),
   rm.temporaryFiles = FALSE,
   is.mirrorData = FALSE,
   partner = NULL
@@ -14,16 +14,22 @@ build_Comtrade(
 \arguments{
 \item{directory}{Location of temporary file downloads; default is
 
-\verb{<your package directory>\\data\\tmp\\<date-and-time-stamp>}.}
+\verb{<your local package directory>\\data\\tmp\\<date-and-time-stamp>}.}
 
-\item{rm.temporaryFiles}{Remove temporary download files stored at location provided in argument \code{location.temporaryFiles} when building Comtrade trade data set; default is \code{TRUE}.}
+\item{rm.temporaryFiles}{Remove temporary download files stored at
+location provided in argument \code{location.temporaryFiles} when building
+Comtrade trade data set; default is \code{TRUE}.}
 
-\item{is.mirrorData}{Is data set that is to be build mirror data? default is \code{FALSE}, i.e. non-mirror data.}
+\item{is.mirrorData}{Is data set that is to be build mirror data? default
+is \code{FALSE}, i.e. non-mirror data.}
 
-\item{partner}{List of partner countries. Needs to be provided if \code{is.mirrorData = TRUE}; default is \code{NULL}, i.e. no mirror data download.
+\item{partner}{List of partner countries. Needs to be provided
+if \code{is.mirrorData = TRUE}; default is \code{NULL}, i.e. no mirror data download.
 \itemize{
-\item If \code{is.mirrorData = TRUE}, export (import) data from  countries specified in
-argument \code{partner} is measured as import (export) of countries specified in argument \code{partner} as reported by countries
+\item If \code{is.mirrorData = TRUE}, export (import) data from  countries
+specified in
+argument \code{partner} is measured as import (export) of countries
+specified in argument \code{partner} as reported by countries
 specified in argument \code{partner}.
 }}
 }
@@ -31,11 +37,14 @@ specified in argument \code{partner}.
 Builds final Comtrade data set from temporary files
 downloaded using \code{download_Comtrade(..., rm.temporaryFiles = FALSE)}.
 
-Options \code{rm.temporaryFiles = FALSE} in \code{download_Comtrade()} are necessary as temporary files will be deleted as part of
-data download by default. See documentation of \code{download_Comtrade()} for more information.
+Options \code{rm.temporaryFiles = FALSE} in \code{download_Comtrade()} are necessary
+as temporary files will be deleted as part of
+data download by default. See documentation of \code{download_Comtrade()}
+for more information.
 }
 \seealso{
-\code{\link[=download_Comtrade]{download_Comtrade()}}, \code{browseVignettes("comtradeRggregator")}
+\code{\link[=download_Comtrade]{download_Comtrade()}},
+\code{browseVignettes("comtradeRggregator")}
 }
 \keyword{build}
 \keyword{comtrade}

@@ -1,16 +1,5 @@
-#' Comtrade Data Availability
+#' @title Comtrade Data Availability
 #'
-#' [Comtrade](https://comtrade.un.org) data availability varies by country and nomenclature, and new trade data
-#' is released/revised very frequently.
-#' `comtradeRggregator` uses data availability information corresponding to the most recent
-#' [official Comtrade data source](https://comtrade.un.org/data/da) which it
-#' updates once a day and stores locally in
-#'   `<your local package location>/data/Comtrade_DataAvailability-<date stamp>.rds`.
-#' This locally stored data file is used as part of every `download_Comtrade()`
-#' data query. In other words, if new data becomes available and is documented in
-#' the [official Comtrade data availability file](https://comtrade.un.org/data/da),
-#' `comtradeRggregator` will use this information no later than 24 hours after its publication.
-#' This data availability file can also be accessed locally by typing `Comtrade_DA` in R (see example).
 #' @format A data frame with 65k rows and 10 variables:
 #' \describe{
 #'   \item{type}{Type of trade data to be extracted (either `services` or `commodities`).}
@@ -29,12 +18,12 @@
 #' Comtrade_DA
 #' }
 #' @source \url{https://comtrade.un.org/data/da}
-NULL
+"Comtrade_DA"
 
 
-#' Concordance Table: HS to BEC
+#' @title Concordance Table: HS to BEC
 #'
-#' Concordance table from `HS Combined` (`HS`) to `BEC`
+#' @description Concordance table from `HS Combined` (`HS`) to `BEC`
 #'
 #' @format A data frame with 5,701 rows and 4 variables:
 #' \describe{
@@ -49,24 +38,24 @@ NULL
 "HS_BE"
 
 
-#' Concordance Table: HS to CCCN
+#' @title Concordance Table: HS to CCCN
 #'
-#' Concordance table from `HS Combined` (`HS`) to `CCCN` (`CN`)
+#' @description Concordance table from `HS Combined` (`HS`) to `CCCN` (`CN`)
 #'
 #' @format A data frame with 5,205 rows and 4 variables:
 #' \describe{
 #'   \item{HS Combined Product Code}{Harmonised System Combined Product code.}
 #'   \item{HS Combined Product Description}{Harmonised System Combined Product description.}
 #'   \item{CCCN Product Code}{Customs Co-operation Council Nomenclature `CCCN` Product code.}
-#'   \item{CCCN Product Description}{Customs Co-operation Council Nomenclature `CCCN` Product description}
+#'   \item{CCCN Product Description}{Customs Co-operation Council Nomenclature `CCCN` Product description.}
 #' }
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 "HS_CC"
 
 
-#' Concordance Table: HS to CPC
+#' @title Concordance Table: HS to CPC
 #'
-#' Concordance table from `HS Combined` (`HS`) to `CPC`
+#' @description Concordance table from `HS Combined` (`HS`) to `CPC`
 #'
 #' @format A data frame with 5,703 rows and 4 variables:
 #' \describe{
@@ -81,9 +70,9 @@ NULL
 "HS_CP"
 
 
-#' Concordance Table: HS to GTAP
+#' @title Concordance Table: HS to GTAP
 #'
-#' Concordance table from `HS Combined` (`HS`) to `GTAP`
+#' @description Concordance table from `HS Combined` (`HS`) to `GTAP`
 #'
 #' @format A data frame with 5,638 rows and 4 variables:
 #' \describe{
@@ -98,9 +87,9 @@ NULL
 "HS_GP"
 
 
-#' Concordance Table: HS to H0
+#' @title Concordance Table: HS to H0
 #'
-#' Concordance table from `HS Combined` (`HS`) to `HS 1988/92` (`H0`)
+#' @description Concordance table from `HS Combined` (`HS`) to `HS 1988/92` (`H0`)
 #'
 #' @format A data frame with 5,020 rows and 4 variables:
 #' \describe{
@@ -115,9 +104,9 @@ NULL
 "HS_H0"
 
 
-#' Concordance Table: HS to H1
+#' @title Concordance Table: HS to H1
 #'
-#' Concordance table from `HS Combined` (`HS`) to `HS 1996` (`H1`)
+#' @description Concordance table from `HS Combined` (`HS`) to `HS 1996` (`H1`)
 #'
 #' @format A data frame with 5,113 rows and 4 variables:
 #' \describe{
@@ -132,9 +121,9 @@ NULL
 "HS_H1"
 
 
-#' Concordance Table: HS to H2
+#' @title Concordance Table: HS to H2
 #'
-#' Concordance table from `HS Combined` (`HS`) to `HS 2002` (`H2`)
+#' @description Concordance table from `HS Combined` (`HS`) to `HS 2002` (`H2`)
 #'
 #' @format A data frame with 5,224 rows and 4 variables:
 #' \describe{
@@ -149,9 +138,9 @@ NULL
 "HS_H2"
 
 
-#' Concordance Table: HS to H3
+#' @title Concordance Table: HS to H3
 #'
-#' Concordance table from `HS Combined` (`HS`) to `HS 2007` (`H3`)
+#' @description Concordance table from `HS Combined` (`HS`) to `HS 2007` (`H3`)
 #'
 #' @format A data frame with 5,052 rows and 4 variables:
 #' \describe{
@@ -166,9 +155,9 @@ NULL
 "HS_H3"
 
 
-#' Concordance Table: HS to H4
+#' @title Concordance Table: HS to H4
 #'
-#' Concordance table from `HS Combined` (`HS`) to `HS 2012` (`H4`)
+#' @description Concordance table from `HS Combined` (`HS`) to `HS 2012` (`H4`)
 #'
 #' @format A data frame with 5,205 rows and 4 variables:
 #' \describe{
@@ -183,9 +172,9 @@ NULL
 "HS_H4"
 
 
-#' Concordance Table: HS to ISIC Rev. 2
+#' @title Concordance Table: HS to ISIC Rev. 2
 #'
-#' Concordance table from `HS Combined` (`HS`) to `ISIC Rev. 2`
+#' @description Concordance table from `HS Combined` (`HS`) to `ISIC Rev. 2`
 #'
 #' @format A data frame with 5,703 rows and 4 variables:
 #' \describe{
@@ -200,9 +189,9 @@ NULL
 "HS_I2"
 
 
-#' Concordance Table: HS to ISIC Rev. 3
+#' @title Concordance Table: HS to ISIC Rev. 3
 #'
-#' Concordance table from `HS Combined` (`HS`) to `ISIC Rev. 3`
+#' @description Concordance table from `HS Combined` (`HS`) to `ISIC Rev. 3`
 #'
 #' @format A data frame with 5,703 rows and 4 variables:
 #' \describe{
@@ -217,9 +206,9 @@ NULL
 "HS_I3"
 
 
-#' Concordance Table: HS to SIC
+#' @title Concordance Table: HS to SIC
 #'
-#' Concordance table from `HS Combined` (`HS`) to `SIC`
+#' @description Concordance table from `HS Combined` (`HS`) to `SIC`
 #'
 #' @format A data frame with 5,698 rows and 4 variables:
 #' \describe{
@@ -234,9 +223,9 @@ NULL
 "HS_IU"
 
 
-#' Concordance Table: HS to MTN
+#' @title Concordance Table: HS to MTN
 #'
-#' Concordance table from `HS Combined` (`HS`) to `MTN Categories`
+#' @description Concordance table from `HS Combined` (`HS`) to `MTN Categories`
 #'
 #' @format A data frame with 5,704 rows and 4 variables:
 #' \describe{
@@ -251,9 +240,9 @@ NULL
 "HS_MT"
 
 
-#' Concordance Table: HS to SITC Rev. 1
+#' @title Concordance Table: HS to SITC Rev. 1
 #'
-#' Concordance table from `HS Combined` (`HS`) to `SITC Rev. 1`
+#' @description Concordance table from `HS Combined` (`HS`) to `SITC Rev. 1`
 #'
 #' @format A data frame with 5,698 rows and 4 variables:
 #' \describe{
@@ -268,9 +257,9 @@ NULL
 "HS_S1"
 
 
-#' Concordance Table: HS to SITC Rev. 2
+#' @title Concordance Table: HS to SITC Rev. 2
 #'
-#' Concordance table from `HS Combined` (`HS`) to `SITC Rev. 2`
+#' @description Concordance table from `HS Combined` (`HS`) to `SITC Rev. 2`
 #'
 #' @format A data frame with 5,693 rows and 4 variables:
 #' \describe{
@@ -285,9 +274,9 @@ NULL
 "HS_S2"
 
 
-#' Concordance Table: HS to SITC Rev. 3
+#' @title Concordance Table: HS to SITC Rev. 3
 #'
-#' Concordance table from `HS Combined` (`HS`) to `SITC Rev. 3`
+#' @description Concordance table from `HS Combined` (`HS`) to `SITC Rev. 3`
 #'
 #' @format A data frame with 5,705 rows and 4 variables:
 #' \describe{
@@ -302,9 +291,9 @@ NULL
 "HS_S3"
 
 
-#' Concordance Table: HS to SITC Rev. 4
+#' @title Concordance Table: HS to SITC Rev. 4
 #'
-#' Concordance table from `HS Combined` (`HS`) to `SITC Rev. 4`
+#' @description Concordance table from `HS Combined` (`HS`) to `SITC Rev. 4`
 #'
 #' @format A data frame with 5,956 rows and 4 variables:
 #' \describe{
@@ -319,9 +308,9 @@ NULL
 "HS_S4"
 
 
-#' Concordance Table: H0 to BEC 4
+#' @title Concordance Table: H0 to BEC 4
 #'
-#' Concordance table fromm `HS 1988/92` (`H0`) to `BEC4`
+#' @description Concordance table fromm `HS 1988/92` (`H0`) to `BEC4`
 #'
 #' @format A data frame with 5,016 rows and 4 variables:
 #' \describe{
@@ -336,9 +325,9 @@ NULL
 "H0_BE"
 
 
-#' Concordance Table: H0 to CCCN
+#' @title Concordance Table: H0 to CCCN
 #'
-#' Concordance table fromm `HS 1988/92` (`H0`) to `CCCN`
+#' @description Concordance table fromm `HS 1988/92` (`H0`) to `CCCN`
 #'
 #' @format A data frame with 5,017 rows and 4 variables:
 #' \describe{
@@ -353,9 +342,9 @@ NULL
 "H0_CC"
 
 
-#' Concordance Table: H0 to CPC
+#' @title Concordance Table: H0 to CPC
 #'
-#' Concordance table from `HS 1988/92` (`H0`) to `CPC`
+#' @description Concordance table from `HS 1988/92` (`H0`) to `CPC`
 #'
 #' @format A data frame with 5,018 rows and 4 variables:
 #' \describe{
@@ -370,9 +359,9 @@ NULL
 "H0_CP"
 
 
-#' Concordance Table: H0 to GTAPe
+#' @title Concordance Table: H0 to GTAPe
 #'
-#' Concordance table from `HS 1988/92` (`H0`) to `GTAP`
+#' @description Concordance table from `HS 1988/92` (`H0`) to `GTAP`
 #'
 #' @format A data frame with 4,933 rows and 4 variables:
 #' \describe{
@@ -388,9 +377,9 @@ NULL
 "H0_GP"
 
 
-#' Concordance Table: H0 to ISIC Rev. 2
+#' @title Concordance Table: H0 to ISIC Rev. 2
 #'
-#' Concordance table from `HS 1988/92` (`H0`) to `ISIC Rev. 2`
+#' @description Concordance table from `HS 1988/92` (`H0`) to `ISIC Rev. 2`
 #'
 #' @format A data frame with 5,018 rows and 4 variables:
 #' \describe{
@@ -405,9 +394,9 @@ NULL
 "H0_I2"
 
 
-#' Concordance Table: H0 to ISIC Rev. 3
+#' @title Concordance Table: H0 to ISIC Rev. 3
 #'
-#' Concordance table from `HS 1988/92` (`H0`) to `ISIC Rev. 3`
+#' @description Concordance table from `HS 1988/92` (`H0`) to `ISIC Rev. 3`
 #'
 #' @format A data frame with 5,018 rows and 4 variables:
 #' \describe{
@@ -422,9 +411,9 @@ NULL
 "H0_I3"
 
 
-#' Concordance Table: H0 to SIC
+#' @title Concordance Table: H0 to SIC
 #'
-#' Concordance table from `HS 1988/92` (`H0`) to `SIC`
+#' @description Concordance table from `HS 1988/92` (`H0`) to `SIC`
 #'
 #' @format A data frame with 5,013 rows and 4 variables:
 #' \describe{
@@ -439,9 +428,9 @@ NULL
 "H0_IU"
 
 
-#' Concordance Table: H0 to MTN
+#' @title Concordance Table: H0 to MTN
 #'
-#' Concordance table from `HS 1988/92` (`H0`) to `MTN Categories`
+#' @description Concordance table from `HS 1988/92` (`H0`) to `MTN Categories`
 #'
 #' @format A data frame with 5,020 rows and 4 variables:
 #' \describe{
@@ -456,9 +445,9 @@ NULL
 "H0_MT"
 
 
-#' Concordance Table: H0 to SITC Rev. 1
+#' @title Concordance Table: H0 to SITC Rev. 1
 #'
-#' Concordance table from `HS 1988/92` (`H0`) to `SITC Rev. 1`
+#' @description Concordance table from `HS 1988/92` (`H0`) to `SITC Rev. 1`
 #'
 #' @format A data frame with 5,012 rows and 4 variables:
 #' \describe{
@@ -473,9 +462,9 @@ NULL
 "H0_S1"
 
 
-#' Concordance Table: H0 to SITC Rev. 2
+#' @title Concordance Table: H0 to SITC Rev. 2
 #'
-#' Concordance table from `HS 1988/92` (`H0`) to `SITC Rev. 2`
+#' @description Concordance table from `HS 1988/92` (`H0`) to `SITC Rev. 2`
 #'
 #' @format A data frame with 5,017 rows and 4 variables:
 #' \describe{
@@ -490,9 +479,9 @@ NULL
 "H0_S2"
 
 
-#' Concordance Table: H0 to SITC Rev. 3
+#' @title Concordance Table: H0 to SITC Rev. 3
 #'
-#' Concordance table from `HS 1988/92` (`H0`) to `SITC Rev. 3`
+#' @description Concordance table from `HS 1988/92` (`H0`) to `SITC Rev. 3`
 #'
 #' @format A data frame with 5,017 rows and 4 variables:
 #' \describe{
@@ -507,9 +496,9 @@ NULL
 "H0_S3"
 
 
-#' Concordance Table: H0 to SITC Rev. 4
+#' @title Concordance Table: H0 to SITC Rev. 4
 #'
-#' Concordance table from `HS 1988/92` (`H0`) to `SITC Rev. 4`
+#' @description Concordance table from `HS 1988/92` (`H0`) to `SITC Rev. 4`
 #'
 #' @format A data frame with 5,018 rows and 4 variables:
 #' \describe{
@@ -524,9 +513,9 @@ NULL
 "H0_S4"
 
 
-#' Concordance Table: H1 to BEC
+#' @title Concordance Table: H1 to BEC
 #'
-#' Concordance table from `HS 1996` (`H1`) to `BEC`
+#' @description Concordance table from `HS 1996` (`H1`) to `BEC`
 #'
 #' @format A data frame with 5,111 rows and 4 variables:
 #' \describe{
@@ -541,9 +530,9 @@ NULL
 "H1_BE"
 
 
-#' Concordance Table: H1 to CCCN
+#' @title Concordance Table: H1 to CCCN
 #'
-#' Concordance table from `HS 1996` (`H1`) to `CCCN`
+#' @description Concordance table from `HS 1996` (`H1`) to `CCCN`
 #'
 #' @format A data frame with 5,111 rows and 4 variables:
 #' \describe{
@@ -558,9 +547,9 @@ NULL
 "H1_CC"
 
 
-#' Concordance Table: H1 to CPC
+#' @title Concordance Table: H1 to CPC
 #'
-#' Concordance table from `HS 1996` (`H1`) to `CPC`
+#' @description Concordance table from `HS 1996` (`H1`) to `CPC`
 #'
 #' @format A data frame with 5,113 rows and 4 variables:
 #' \describe{
@@ -575,9 +564,9 @@ NULL
 "H1_CP"
 
 
-#' Concordance Table: H1 to GTAP
+#' @title Concordance Table: H1 to GTAP
 #'
-#' Concordance table from `HS 1996` (`H1`) to `GTAP`
+#' @description Concordance table from `HS 1996` (`H1`) to `GTAP`
 #'
 #' @format A data frame with 5,113 rows and 4 variables:
 #' \describe{
@@ -592,9 +581,9 @@ NULL
 "H1_GP"
 
 
-#' Concordance Table: H1 to H0
+#' @title Concordance Table: H1 to H0
 #'
-#' Concordance table from `HS 1996` (`H1`) to `HS 1988/92` (`H0`)
+#' @description Concordance table from `HS 1996` (`H1`) to `HS 1988/92` (`H0`)
 #'
 #' @format A data frame with 5,113 rows and 4 variables:
 #' \describe{
@@ -609,16 +598,16 @@ NULL
 "H1_H0"
 
 
-#' Concordance Table: H1 to ISIC Rev. 2
+#' @title Concordance Table: H1 to ISIC Rev. 2
 #'
-#' Concordance table from `HS 1996` (`H1`) to `ISIC Rev. 2`
+#' @description Concordance table from `HS 1996` (`H1`) to `ISIC Rev. 2`
 #'
 #' @format A data frame with 5,113 rows and 4 variables:
 #' \describe{
 #'   \item{HS 1996 Product Code}{Harmonised System `HS 1996` (`H1`) Product code.}
 #'   \item{HS 1996 Product Description}{Harmonised System `HS 1996` (`H1`) Product description.}
-#'   \item{ISIC Revision 2 Product Code}{...}
-#'   \item{ISIC Revision 2 Product Description}{...}
+#'   \item{ISIC Revision 2 Product Code}{International Standard Industrial Classification `ISIC Rev. 2` (`I2`) Product code.}
+#'   \item{ISIC Revision 2 Product Description}{International Standard Industrial Classification `ISIC Rev. 2` (`I2`) Product code.}
 #' }
 #' @examples
 #' H1_I2
@@ -626,16 +615,16 @@ NULL
 "H1_I2"
 
 
-#' Concordance Table: H1 to ISIC Rev. 3
+#' @title Concordance Table: H1 to ISIC Rev. 3
 #'
-#' Concordance table from `HS 1996` (`H1`) to `ISIC Rev. 3`
+#' @description Concordance table from `HS 1996` (`H1`) to `ISIC Rev. 3`
 #'
 #' @format A data frame with 5,113 rows and 4 variables:
 #' \describe{
 #'   \item{HS 1996 Product Code}{Harmonised System `HS 1996` (`H1`) Product code.}
 #'   \item{HS 1996 Product Description}{Harmonised System `HS 1996` (`H1`) Product description.}
-#'   \item{ISIC Revision 3 Product Code}{...}
-#'   \item{ISIC Revision 3 Product Description}{...}
+#'   \item{ISIC Revision 3 Product Code}{International Standard Industrial Classification `ISIC Rev. 3` (`I3`) Product code.}
+#'   \item{ISIC Revision 3 Product Description}{International Standard Industrial Classification `ISIC Rev. 3` (`I3`) Product code.}
 #' }
 #' @examples
 #' H1_I3
@@ -643,16 +632,16 @@ NULL
 "H1_I3"
 
 
-#' Concordance Table: H1 to SIC
+#' @title Concordance Table: H1 to SIC
 #'
-#' Concordance table from `HS 1996` (`H1`) to `SIC`
+#' @description Concordance table from `HS 1996` (`H1`) to `SIC`
 #'
 #' @format A data frame with 5,108 rows and 4 variables:
 #' \describe{
 #'   \item{HS 1996 Product Code}{Harmonised System `HS 1996` (`H1`) Product code.}
 #'   \item{HS 1996 Product Description}{Harmonised System `HS 1996` (`H1`) Product description.}
-#'   \item{SIC Product Code}{...}
-#'   \item{SIC Product Description}{...}
+#'   \item{SIC Product Code}{Standard Industrial Classification `SIC` Product code.}
+#'   \item{SIC Product Description}{Standard Industrial Classification `SIC` Product description.}
 #' }
 #' @examples
 #' H1_IU
@@ -660,9 +649,9 @@ NULL
 "H1_IU"
 
 
-#' Concordance Table: H1 to MTN
+#' @title Concordance Table: H1 to MTN
 #'
-#' Concordance table from `HS 1996` (`H1`) to `MTN Categories`
+#' @description Concordance table from `HS 1996` (`H1`) to `MTN Categories`
 #'
 #' @format A data frame with 3,771 rows and 4 variables:
 #' \describe{
@@ -677,16 +666,16 @@ NULL
 "H1_MT"
 
 
-#' Concordance Table: H1 to SITC Rev. 1
+#' @title Concordance Table: H1 to SITC Rev. 1
 #'
-#' Concordance table from `HS 1996` (`H1`) to `SITC Rev. 1`
+#' @description Concordance table from `HS 1996` (`H1`) to `SITC Rev. 1`
 #'
 #' @format A data frame with 5,106 rows and 4 variables:
 #' \describe{
 #'   \item{HS 1996 Product Code}{Harmonised System `HS 1996` (`H1`) Product code.}
 #'   \item{HS 1996 Product Description}{Harmonised System `HS 1996` (`H1`) Product description.}
-#'   \item{SITC Revision 1 Product Code}{...}
-#'   \item{SITC Revision 1 Product Description}{...}
+#'   \item{SITC Revision 1 Product Code}{Standard International Trade Classification `SITC` Revision 1 Product code.}
+#'   \item{SITC Revision 1 Product Description}{Standard International Trade Classification `SITC` Revision 1 Product description.}
 #' }
 #' @examples
 #' H1_S1
@@ -694,16 +683,16 @@ NULL
 "H1_S1"
 
 
-#' Concordance Table: H1 to SITC Rev. 2
+#' @title Concordance Table: H1 to SITC Rev. 2
 #'
-#' Concordance table from `HS 1996` (`H1`) to `SITC Rev. 2`
+#' @description Concordance table from `HS 1996` (`H1`) to `SITC Rev. 2`
 #'
 #' @format A data frame with 5,111 rows and 4 variables:
 #' \describe{
 #'   \item{HS 1996 Product Code}{Harmonised System `HS 1996` (`H1`) Product code.}
 #'   \item{HS 1996 Product Description}{Harmonised System `HS 1996` (`H1`) Product description.}
-#'   \item{SITC Revision 2 Product Code}{...}
-#'   \item{SITC Revision 2 Product Description}{...}
+#'   \item{SITC Revision 2 Product Code}{Standard International Trade Classification `SITC` Revision 2 Product code.}
+#'   \item{SITC Revision 2 Product Description}{Standard International Trade Classification `SITC` Revision 2 Product description.}
 #' }
 #' @examples
 #' H1_S2
@@ -711,16 +700,16 @@ NULL
 "H1_S2"
 
 
-#' Concordance Table: H1 to SITC Rev. 3
+#' @title Concordance Table: H1 to SITC Rev. 3
 #'
-#' Concordance table from `HS 1996` (`H1`) to `SITC Rev. 3`
+#' @description Concordance table from `HS 1996` (`H1`) to `SITC Rev. 3`
 #'
 #' @format A data frame with 5,111 rows and 4 variables:
 #' \describe{
 #'   \item{HS 1996 Product Code}{Harmonised System `HS 1996` (`H1`) Product code.}
 #'   \item{HS 1996 Product Description}{Harmonised System `HS 1996` (`H1`) Product description.}
-#'   \item{SITC Revision 3 Product Code}{...}
-#'   \item{SITC Revision 3 Product Description}{...}
+#'   \item{SITC Revision 3 Product Code}{Standard International Trade Classification `SITC` Revision 3 Product code.}
+#'   \item{SITC Revision 3 Product Description}{Standard International Trade Classification `SITC` Revision 3 Product description.}
 #' }
 #' @examples
 #' H1_S3
@@ -728,16 +717,16 @@ NULL
 "H1_S3"
 
 
-#' Concordance Table: H1 to SITC Rev. 4
+#' @title Concordance Table: H1 to SITC Rev. 4
 #'
-#' Concordance table from `HS 1996` (`H1`) to `SITC Rev. 4`
+#' @description Concordance table from `HS 1996` (`H1`) to `SITC Rev. 4`
 #'
 #' @format A data frame with 5,111 rows and 4 variables:
 #' \describe{
 #'   \item{HS 1996 Product Code}{Harmonised System `HS 1996` (`H1`) Product code.}
 #'   \item{HS 1996 Product Description}{Harmonised System `HS 1996` (`H1`) Product description.}
-#'   \item{SITC Revision 4 Product Code}{...}
-#'   \item{SITC Revision 4 Product Description}{...}
+#'   \item{SITC Revision 4 Product Code}{Standard International Trade Classification `SITC` Revision 4 Product code.}
+#'   \item{SITC Revision 4 Product Description}{Standard International Trade Classification `SITC` Revision 4 Product description.}
 #' }
 #' @examples
 #' H1_S4
@@ -745,9 +734,9 @@ NULL
 "H1_S4"
 
 
-#' Concordance Table: H2 to BEC
+#' @title Concordance Table: H2 to BEC
 #'
-#' Concordance table from `HS 2002` (`H2`) to `BEC`
+#' @description Concordance table from `HS 2002` (`H2`) to `BEC`
 #'
 #' @format A data frame with 5,222 rows and 4 variables:
 #' \describe{
@@ -762,9 +751,9 @@ NULL
 "H2_BE"
 
 
-#' Concordance Table: H2 to CCCN
+#' @title Concordance Table: H2 to CCCN
 #'
-#' Concordance table from `HS 2002` (`H2`) to `CCCN`
+#' @description Concordance table from `HS 2002` (`H2`) to `CCCN`
 #'
 #' @format A data frame with 5,222 rows and 4 variables:
 #' \describe{
@@ -779,9 +768,9 @@ NULL
 "H2_CC"
 
 
-#' Concordance Table: H2 to CPC
+#' @title Concordance Table: H2 to CPC
 #'
-#' Concordance table from `HS 2002` (`H2`) to `CPC`
+#' @description Concordance table from `HS 2002` (`H2`) to `CPC`
 #'
 #' @format A data frame with 5,224 rows and 4 variables:
 #' \describe{
@@ -796,9 +785,9 @@ NULL
 "H2_CP"
 
 
-#' Concordance Table: H2 to GTAP
+#' @title Concordance Table: H2 to GTAP
 #'
-#' Concordance table from `HS 2002` (`H2`) to `GTAP`
+#' @description Concordance table from `HS 2002` (`H2`) to `GTAP`
 #'
 #' @format A data frame with 5,224 rows and 4 variables:
 #' \describe{
@@ -813,9 +802,9 @@ NULL
 "H2_GP"
 
 
-#' Concordance Table: H2 to H0
+#' @title Concordance Table: H2 to H0
 #'
-#' Concordance table from `HS 2002` (`H2`) to `HS 1988/92` (`H0`)
+#' @description Concordance table from `HS 2002` (`H2`) to `HS 1988/92` (`H0`)
 #'
 #' @format A data frame with 5,224 rows and 4 variables:
 #' \describe{
@@ -830,9 +819,9 @@ NULL
 "H2_H0"
 
 
-#' Concordance Table: H2 to H1
+#' @title Concordance Table: H2 to H1
 #'
-#' Concordance table from `HS 2002` (`H2`) to `HS 1996` (`H1`)
+#' @description Concordance table from `HS 2002` (`H2`) to `HS 1996` (`H1`)
 #'
 #' @format A data frame with 5,224 rows and 4 variables:
 #' \describe{
@@ -847,16 +836,16 @@ NULL
 "H2_H1"
 
 
-#' Concordance Table: H2 to ISIC Rev. 2
+#' @title Concordance Table: H2 to ISIC Rev. 2
 #'
-#' Concordance table from `HS 2002` (`H2`) to `ISIC Rev. 2`
+#' @description Concordance table from `HS 2002` (`H2`) to `ISIC Rev. 2`
 #'
 #' @format A data frame with 5,224 rows and 4 variables:
 #' \describe{
 #'   \item{HS 2002 Product Code}{Harmonised System `HS 2002` (`H2`) Product code.}
 #'   \item{HS 2002 Product Description}{Harmonised System `HS 2002` (`H2`) Product description.}
-#'   \item{ISIC Revision 2 Product Code}{...}
-#'   \item{ISIC Revision 2 Product Description}{...}
+#'   \item{ISIC Revision 2 Product Code}{International Standard Industrial Classification `ISIC Rev. 2` (`I2`) Product code.}
+#'   \item{ISIC Revision 2 Product Description}{International Standard Industrial Classification `ISIC Rev. 2` (`I2`) Product code.}
 #' }
 #' @examples
 #' H2_I2
@@ -864,16 +853,16 @@ NULL
 "H2_I2"
 
 
-#' Concordance Table: H2 to ISIC Rev. 3
+#' @title Concordance Table: H2 to ISIC Rev. 3
 #'
-#' Concordance table from `HS 2002` (`H2`) to `ISIC Rev. 3`
+#' @description Concordance table from `HS 2002` (`H2`) to `ISIC Rev. 3`
 #'
 #' @format A data frame with 5,224 rows and 4 variables:
 #' \describe{
 #'   \item{HS 2002 Product Code}{Harmonised System `HS 2002` (`H2`) Product code.}
 #'   \item{HS 2002 Product Description}{Harmonised System `HS 2002` (`H2`) Product description.}
-#'   \item{ISIC Revision 3 Product Code}{...}
-#'   \item{ISIC Revision 3 Product Description}{...}
+#'   \item{ISIC Revision 3 Product Code}{International Standard Industrial Classification `ISIC Rev. 3` (`I3`) Product code.}
+#'   \item{ISIC Revision 3 Product Description}{International Standard Industrial Classification `ISIC Rev. 3` (`I3`) Product code.}
 #' }
 #' @examples
 #' H2_I3
@@ -881,16 +870,16 @@ NULL
 "H2_I3"
 
 
-#' Concordance Table: H2 to SIC
+#' @title Concordance Table: H2 to SIC
 #'
-#' Concordance table from `HS 2002` (`H2`) to `SIC`
+#' @description Concordance table from `HS 2002` (`H2`) to `SIC`
 #'
 #' @format A data frame with 5,219 rows and 4 variables:
 #' \describe{
 #'   \item{HS 2002 Product Code}{Harmonised System `HS 2002` (`H2`) Product code.}
 #'   \item{HS 2002 Product Description}{Harmonised System `HS 2002` (`H2`) Product description.}
-#'   \item{SIC Product Code}{...}
-#'   \item{SIC Product Description}{...}
+#'   \item{SIC Product Code}{Standard Industrial Classification `SIC` Product code.}
+#'   \item{SIC Product Description}{Standard Industrial Classification `SIC` Product description.}
 #' }
 #' @examples
 #' H2_IU
@@ -898,9 +887,9 @@ NULL
 "H2_IU"
 
 
-#' Concordance Table: H2 to MTN
+#' @title Concordance Table: H2 to MTN
 #'
-#' Concordance table from `HS 2002` (`H2`) to `MTN Categories`
+#' @description Concordance table from `HS 2002` (`H2`) to `MTN Categories`
 #'
 #' @format A data frame with 5,223 rows and 4 variables:
 #' \describe{
@@ -915,16 +904,16 @@ NULL
 "H2_MT"
 
 
-#' Concordance Table: H2 to SITC Rev. 1
+#' @title Concordance Table: H2 to SITC Rev. 1
 #'
-#' Concordance table from `HS 2002` (`H2`) to `SITC Rev. 1`
+#' @description Concordance table from `HS 2002` (`H2`) to `SITC Rev. 1`
 #'
 #' @format A data frame with 5,217 rows and 4 variables:
 #' \describe{
 #'   \item{HS 2002 Product Code}{Harmonised System `HS 2002` (`H2`) Product code.}
 #'   \item{HS 2002 Product Description}{Harmonised System `HS 2002` (`H2`) Product description.}
-#'   \item{SITC Revision 1 Product Code}{...}
-#'   \item{SITC Revision 1 Product Description}{...}
+#'   \item{SITC Revision 1 Product Code}{Standard International Trade Classification `SITC` Revision 1 Product code.}
+#'   \item{SITC Revision 1 Product Description}{Standard International Trade Classification `SITC` Revision 1 Product description.}
 #' }
 #' @examples
 #' H2_S1
@@ -932,16 +921,16 @@ NULL
 "H2_S1"
 
 
-#' Concordance Table: H2 to SITC Rev. 2
+#' @title Concordance Table: H2 to SITC Rev. 2
 #'
-#' Concordance table from `HS 2002` (`H2`) to `SITC Rev. 2`
+#' @description Concordance table from `HS 2002` (`H2`) to `SITC Rev. 2`
 #'
 #' @format A data frame with 5,222 rows and 4 variables:
 #' \describe{
 #'   \item{HS 2002 Product Code}{Harmonised System `HS 2002` (`H2`) Product code.}
 #'   \item{HS 2002 Product Description}{Harmonised System `HS 2002` (`H2`) Product description.}
-#'   \item{SITC Revision 2 Product Code}{...}
-#'   \item{SITC Revision 2 Product Description}{...}
+#'   \item{SITC Revision 2 Product Code}{Standard International Trade Classification `SITC` Revision 2 Product code.}
+#'   \item{SITC Revision 2 Product Description}{Standard International Trade Classification `SITC` Revision 2 Product description.}
 #' }
 #' @examples
 #' H2_S2
@@ -949,16 +938,16 @@ NULL
 "H2_S2"
 
 
-#' Concordance Table: H2 to SITC Rev. 3
+#' @title Concordance Table: H2 to SITC Rev. 3
 #'
-#' Concordance table from `HS 2002` (`H2`) to `SITC Rev. 3`
+#' @description Concordance table from `HS 2002` (`H2`) to `SITC Rev. 3`
 #'
 #' @format A data frame with 5,222 rows and 4 variables:
 #' \describe{
 #'   \item{HS 2002 Product Code}{Harmonised System `HS 2002` (`H2`) Product code.}
 #'   \item{HS 2002 Product Description}{Harmonised System `HS 2002` (`H2`) Product description.}
-#'   \item{SITC Revision 3 Product Code}{...}
-#'   \item{SITC Revision 3 Product Description}{...}
+#'   \item{SITC Revision 3 Product Code}{Standard International Trade Classification `SITC` Revision 3 Product code.}
+#'   \item{SITC Revision 3 Product Description}{Standard International Trade Classification `SITC` Revision 3 Product description.}
 #' }
 #' @examples
 #' H2_S3
@@ -966,16 +955,16 @@ NULL
 "H2_S3"
 
 
-#' Concordance Table: H2 to SITC Rev. 4
+#' @title Concordance Table: H2 to SITC Rev. 4
 #'
-#' Concordance table from `HS 2002` (`H2`) to `SITC Rev. 4`
+#' @description Concordance table from `HS 2002` (`H2`) to `SITC Rev. 4`
 #'
 #' @format A data frame with 5,220 rows and 4 variables:
 #' \describe{
 #'   \item{HS 2002 Product Code}{Harmonised System `HS 2002` (`H2`) Product code.}
 #'   \item{HS 2002 Product Description}{Harmonised System `HS 2002` (`H2`) Product description.}
-#'   \item{SITC Revision 4 Product Code}{...}
-#'   \item{SITC Revision 4 Product Description}{...}
+#'   \item{SITC Revision 4 Product Code}{Standard International Trade Classification `SITC` Revision 4 Product code.}
+#'   \item{SITC Revision 4 Product Description}{Standard International Trade Classification `SITC` Revision 4 Product description.}
 #' }
 #' @examples
 #' H2_S4
@@ -983,9 +972,9 @@ NULL
 "H2_S4"
 
 
-#' Concordance Table: H3 to BEC
+#' @title Concordance Table: H3 to BEC
 #'
-#' Concordance table from `HS 2007` (`H3`) to `BEC`
+#' @description Concordance table from `HS 2007` (`H3`) to `BEC`
 #'
 #' @format A data frame with 5,050 rows and 4 variables:
 #' \describe{
@@ -1000,9 +989,9 @@ NULL
 "H3_BE"
 
 
-#' Concordance Table: H3 to CCCN
+#' @title Concordance Table: H3 to CCCN
 #'
-#' Concordance table from `HS 2007` (`H3`) to `CCCN`
+#' @description Concordance table from `HS 2007` (`H3`) to `CCCN`
 #'
 #' @format A data frame with 5,050 rows and 4 variables:
 #' \describe{
@@ -1017,9 +1006,9 @@ NULL
 "H3_CC"
 
 
-#' Concordance Table: H3 to CPC
+#' @title Concordance Table: H3 to CPC
 #'
-#' Concordance table from `HS 2007` (`H3`) to `CPC`
+#' @description Concordance table from `HS 2007` (`H3`) to `CPC`
 #'
 #' @format A data frame with 5,052 rows and 4 variables:
 #' \describe{
@@ -1034,9 +1023,9 @@ NULL
 "H3_CP"
 
 
-#' Concordance Table: H3 to GTAP
+#' @title Concordance Table: H3 to GTAP
 #'
-#' Concordance table from `HS 2007` (`H3`) to `GTAP`
+#' @description Concordance table from `HS 2007` (`H3`) to `GTAP`
 #'
 #' @format A data frame with 5,052 rows and 4 variables:
 #' \describe{
@@ -1051,9 +1040,9 @@ NULL
 "H3_GP"
 
 
-#' Concordance Table: H3 to H0
+#' @title Concordance Table: H3 to H0
 #'
-#' Concordance table from `HS 2007` (`H3`) to `HS 1988/92` (`H0`)
+#' @description Concordance table from `HS 2007` (`H3`) to `HS 1988/92` (`H0`)
 #'
 #' @format A data frame with 5,052 rows and 4 variables:
 #' \describe{
@@ -1068,9 +1057,9 @@ NULL
 "H3_H0"
 
 
-#' Concordance Table: H3 to H1
+#' @title Concordance Table: H3 to H1
 #'
-#' Concordance table from `HS 2007` (`H3`) to `HS 1996` (`H1`)
+#' @description Concordance table from `HS 2007` (`H3`) to `HS 1996` (`H1`)
 #'
 #' @format A data frame with 5,052 rows and 4 variables:
 #' \describe{
@@ -1085,9 +1074,9 @@ NULL
 "H3_H1"
 
 
-#' Concordance Table: H3 to H2
+#' @title Concordance Table: H3 to H2
 #'
-#' Concordance table from `HS 2007` (`H3`) to `HS 2002` (`H2`)
+#' @description Concordance table from `HS 2007` (`H3`) to `HS 2002` (`H2`)
 #'
 #' @format A data frame with 5,052 rows and 4 variables:
 #' \describe{
@@ -1102,9 +1091,9 @@ NULL
 "H3_H2"
 
 
-#' Concordance Table: H3 to ISIC Rev. 2
+#' @title Concordance Table: H3 to ISIC Rev. 2
 #'
-#' Concordance table from `HS 2007` (`H3`) to `ISIC Rev. 2`
+#' @description Concordance table from `HS 2007` (`H3`) to `ISIC Rev. 2`
 #'
 #' @format A data frame with 5,052 rows and 4 variables:
 #' \describe{
@@ -1119,9 +1108,9 @@ NULL
 "H3_I2"
 
 
-#' Concordance Table: H3 to ISIC Rev. 3
+#' @title Concordance Table: H3 to ISIC Rev. 3
 #'
-#' Concordance table from `HS 2007` (`H3`) to `ISIC Rev. 3`
+#' @description Concordance table from `HS 2007` (`H3`) to `ISIC Rev. 3`
 #'
 #' @format A data frame with 5,052 rows and 4 variables:
 #' \describe{
@@ -1136,16 +1125,16 @@ NULL
 "H3_I3"
 
 
-#' Concordance Table: H3 to SIC
+#' @title Concordance Table: H3 to SIC
 #'
-#' Concordance table from `HS 2007` (`H3`) to `SIC`
+#' @description Concordance table from `HS 2007` (`H3`) to `SIC`
 #'
 #' @format A data frame with 5,047 rows and 4 variables:
 #' \describe{
 #'   \item{HS 2007 Product Code}{Harmonised System `HS 2007` (`H3`) Product code.}
 #'   \item{HS 2007 Product Description}{Harmonised System `HS 2007` (`H3`) Product description.}
-#'   \item{SIC Product Code}{...}
-#'   \item{SIC Product Description}{...}
+#'   \item{SIC Product Code}{Standard Industrial Classification `SIC` Product code.}
+#'   \item{SIC Product Description}{Standard Industrial Classification `SIC` Product description.}
 #' }
 #' @examples
 #' H3_IU
@@ -1153,9 +1142,9 @@ NULL
 "H3_IU"
 
 
-#' Concordance Table: H3 to MTN
+#' @title Concordance Table: H3 to MTN
 #'
-#' Concordance table from `HS 2007` (`H3`) to `MTN Categories`
+#' @description Concordance table from `HS 2007` (`H3`) to `MTN Categories`
 #'
 #' @format A data frame with 5,051 rows and 4 variables:
 #' \describe{
@@ -1170,16 +1159,16 @@ NULL
 "H3_MT"
 
 
-#' Concordance Table: H3 to SITC Rev. 1
+#' @title Concordance Table: H3 to SITC Rev. 1
 #'
-#' Concordance table from `HS 2007` (`H3`) to `SITC Rev. 1`
+#' @description Concordance table from `HS 2007` (`H3`) to `SITC Rev. 1`
 #'
 #' @format A data frame with 5,045 rows and 4 variables:
 #' \describe{
 #'   \item{HS 2007 Product Code}{Harmonised System `HS 2007` (`H3`) Product code.}
 #'   \item{HS 2007 Product Description}{Harmonised System `HS 2007` (`H3`) Product description.}
-#'   \item{SITC Revision 1 Product Code}{...}
-#'   \item{SITC Revision 1 Product Description}{...}
+#'   \item{SITC Revision 1 Product Code}{Standard International Trade Classification `SITC` Revision 1 Product code.}
+#'   \item{SITC Revision 1 Product Description}{Standard International Trade Classification `SITC` Revision 1 Product description.}
 #' }
 #' @examples
 #' H3_S1
@@ -1187,16 +1176,16 @@ NULL
 "H3_S1"
 
 
-#' Concordance Table: H3 to SITC Rev. 2
+#' @title Concordance Table: H3 to SITC Rev. 2
 #'
-#' Concordance table from `HS 2007` (`H3`) to `SITC Rev. 2`
+#' @description Concordance table from `HS 2007` (`H3`) to `SITC Rev. 2`
 #'
 #' @format A data frame with 5,050 rows and 4 variables:
 #' \describe{
 #'   \item{HS 2007 Product Code}{Harmonised System `HS 2007` (`H3`) Product code.}
 #'   \item{HS 2007 Product Description}{Harmonised System `HS 2007` (`H3`) Product description.}
-#'   \item{SITC Revision 2 Product Code}{...}
-#'   \item{SITC Revision 2 Product Description}{...}
+#'   \item{SITC Revision 2 Product Code}{Standard International Trade Classification `SITC` Revision 2 Product code.}
+#'   \item{SITC Revision 2 Product Description}{Standard International Trade Classification `SITC` Revision 2 Product description.}
 #' }
 #' @examples
 #' H3_S2
@@ -1204,16 +1193,16 @@ NULL
 "H3_S2"
 
 
-#' Concordance Table: H3 to SITC Rev. 3
+#' @title Concordance Table: H3 to SITC Rev. 3
 #'
-#' Concordance table from `HS 2007` (`H3`) to `SITC Rev. 3`
+#' @description Concordance table from `HS 2007` (`H3`) to `SITC Rev. 3`
 #'
 #' @format A data frame with 5,050 rows and 4 variables:
 #' \describe{
 #'   \item{HS 2007 Product Code}{Harmonised System `HS 2007` (`H3`) Product code.}
 #'   \item{HS 2007 Product Description}{Harmonised System `HS 2007` (`H3`) Product description.}
-#'   \item{SITC Revision 3 Product Code}{...}
-#'   \item{SITC Revision 3 Product Description}{...}
+#'   \item{SITC Revision 3 Product Code}{Standard International Trade Classification `SITC` Revision 3 Product code.}
+#'   \item{SITC Revision 3 Product Description}{Standard International Trade Classification `SITC` Revision 3 Product description.}
 #' }
 #' @examples
 #' H3_S3
@@ -1221,16 +1210,16 @@ NULL
 "H3_S3"
 
 
-#' Concordance Table: H3 to SITC Rev. 4
+#' @title Concordance Table: H3 to SITC Rev. 4
 #'
-#' Concordance table from `HS 2007` (`H3`) to `SITC Rev. 4`
+#' @description Concordance table from `HS 2007` (`H3`) to `SITC Rev. 4`
 #'
 #' @format A data frame with 5,050 rows and 4 variables:
 #' \describe{
 #'   \item{HS 2007 Product Code}{Harmonised System `HS 2007` (`H3`) Product code.}
 #'   \item{HS 2007 Product Description}{Harmonised System `HS 2007` (`H3`) Product description.}
-#'   \item{SITC Revision 4 Product Code}{...}
-#'   \item{SITC Revision 4 Product Description}{...}
+#'   \item{SITC Revision 4 Product Code}{Standard International Trade Classification `SITC` Revision 4 Product code.}
+#'   \item{SITC Revision 4 Product Description}{Standard International Trade Classification `SITC` Revision 4 Product description.}
 #' }
 #' @examples
 #' H3_S4
@@ -1238,9 +1227,9 @@ NULL
 "H3_S4"
 
 
-#' Concordance Table: H4 to BEC 4
+#' @title Concordance Table: H4 to BEC 4
 #'
-#' Concordance table from `HS 2012` (`H4`) to `BEC Rev. 4` (`BEC`).
+#' @description Concordance table from `HS 2012` (`H4`) to `BEC Rev. 4` (`BEC`).
 #'
 #' @format A data frame with 5,283 rows and 2 variables:
 #' \describe{
@@ -1253,9 +1242,9 @@ NULL
 "H4_BE"
 
 
-#' Concordance Table: H4 to BEC 5
+#' @title Concordance Table: H4 to BEC 5
 #'
-#' Concordance table from `HS 2012` (`H4`) to `BEC Rev. 5` (`BEC5`).
+#' @description Concordance table from `HS 2012` (`H4`) to `BEC Rev. 5` (`BEC5`).
 #'
 #' @format A data frame with 5,205 rows and 8 variables:
 #' \describe{
@@ -1275,9 +1264,9 @@ NULL
 
 
 
-#' Concordance Table: H4 to CPC
+#' @title Concordance Table: H4 to CPC
 #'
-#' Concordance table from `HS 2012` (`H4`)to `CPC`
+#' @description Concordance table from `HS 2012` (`H4`)to `CPC`
 #'
 #' @format A data frame with 5,205 rows and 4 variables:
 #' \describe{
@@ -1292,16 +1281,16 @@ NULL
 "H4_CP"
 
 
-#' Concordance Table: H4 to GTAP
+#' @title Concordance Table: H4 to GTAP
 #'
-#' Concordance table from `HS 2012` (`H4`) to `GTAP`
+#' @description Concordance table from `HS 2012` (`H4`) to `GTAP`
 #'
 #' @format A data frame with 5,205 rows and 5 variables:
 #' \describe{
 #'   \item{HS 2012 Product Code}{Harmonised System `HS 2012` (`H4`) Product code.}
 #'   \item{HS 2012 Product Description}{Harmonised System `HS 2012` (`H4`) Product description.}
-#'   \item{GTAP Product}{...}
 #'   \item{GTAP Product Code}{Global Trade Analysis Project `GTAP` Product code.}
+#'   \item{GTAP Product}{Global Trade Analysis Project `GTAP` Product group.}
 #'   \item{GTAP Product Description}{Global Trade Analysis Project `GTAP` Product description.}
 #' }
 #' @examples
@@ -1310,9 +1299,9 @@ NULL
 "H4_GP"
 
 
-#' Concordance Table: H4 to H0
+#' @title Concordance Table: H4 to H0
 #'
-#' Concordance table from `HS 2012` (`H4`) to `HS 1988/92` (`H0`). Product descriptions taken
+#' @description Concordance table from `HS 2012` (`H4`) to `HS 1988/92` (`H0`). Product descriptions taken
 #' fromm WITS' `HS combined` concordance tables (\url{https://wits.worldbank.org/product_concordance.html}).
 #'
 #' @format A data frame with 6,739 rows and 4 variables:
@@ -1328,9 +1317,9 @@ NULL
 "H4_H0"
 
 
-#' Concordance Table: H4 to H1
+#' @title Concordance Table: H4 to H1
 #'
-#' Concordance table from `HS 2012` (`H4`) to `HS 1996` (`H1`). Product descriptions taken
+#' @description Concordance table from `HS 2012` (`H4`) to `HS 1996` (`H1`). Product descriptions taken
 #' fromm WITS' `HS combined` concordance tables (\url{https://wits.worldbank.org/product_concordance.html}).
 #'
 #' @format A data frame with 6,420 rows and 4 variables:
@@ -1346,9 +1335,9 @@ NULL
 "H4_H1"
 
 
-#' Concordance Table: H4 to H2
+#' @title Concordance Table: H4 to H2
 #'
-#' Concordance table from `HS 2012` (`H4`) to `HS 2002` (`H2`). Product descriptions taken
+#' @description Concordance table from `HS 2012` (`H4`) to `HS 2002` (`H2`). Product descriptions taken
 #' fromm WITS' `HS combined` concordance tables (\url{https://wits.worldbank.org/product_concordance.html}).
 #'
 #' @format A data frame with 6,025 rows and 4 variables:
@@ -1364,9 +1353,9 @@ NULL
 "H4_H2"
 
 
-#' Concordance Table: H4 to H3
+#' @title Concordance Table: H4 to H3
 #'
-#' Concordance table from `HS 2012` (`H4`) to `HS 2007` (`H3`). Product descriptions taken
+#' @description Concordance table from `HS 2012` (`H4`) to `HS 2007` (`H3`). Product descriptions taken
 #' fromm WITS' `HS combined` concordance tables (\url{https://wits.worldbank.org/product_concordance.html}).
 #'
 #' @format A data frame with 5,205 rows and 4 variables:
@@ -1384,9 +1373,9 @@ NULL
 
 
 
-#' Concordance Table: H4 to I3.1
+#' @title Concordance Table: H4 to I3.1
 #'
-#' Concordance table from `HS 2012` (`H4`) to `ISIC Rev. 3.1` (`I3.1`).
+#' @description Concordance table from `HS 2012` (`H4`) to `ISIC Rev. 3.1` (`I3.1`).
 #' Please note that the H4_I31 does not provide ISIC Rev. 3.1 4-digit
 #' level for the following commodities for which concordance is only available
 #' at the 2-digit and 3-digit level, respectively:
@@ -1446,9 +1435,9 @@ NULL
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/bec.asp}
 "H4_I31"
 
-#' Concordance Table: H4 to I4
+#' @title Concordance Table: H4 to I4
 #'
-#' Concordance table from `HS 2012` (`H4`) to `ISIC Rev. 4` (`I4`).
+#' @description Concordance table from `HS 2012` (`H4`) to `ISIC Rev. 4` (`I4`).
 #'
 #' @format A data frame with 5,205 rows and 4 variables:
 #' \describe{
@@ -1463,17 +1452,17 @@ NULL
 "H4_I4"
 
 
-#' Concordance Table: H4 to S1
+#' @title Concordance Table: H4 to S1
 #'
-#' Concordance table from `HS 2012` (`H4`) to `SITC Rev.1` (`S1`). Product descriptions taken
+#' @description Concordance table from `HS 2012` (`H4`) to `SITC Rev.1` (`S1`). Product descriptions taken
 #' fromm WITS' `HS combined` concordance tables (\url{https://wits.worldbank.org/product_concordance.html}).
 #'
 #' @format A data frame with 10,220 rows and 4 variables:
 #' \describe{
 #'   \item{HS 2012 Product Code}{Harmonised System `HS 2012` (`H4`) Product code.}
 #'   \item{HS 2012 Product Description}{Harmonised System `HS 2012` (`H4`) Product description.}
-#'   \item{SITC Revision 1 Product Code}{...}
-#'   \item{SITC Revision 1 Product Description}{...}
+#'   \item{SITC Revision 1 Product Code}{Standard International Trade Classification `SITC` Revision 1 Product code.}
+#'   \item{SITC Revision 1 Product Description}{Standard International Trade Classification `SITC` Revision 1 Product description.}
 #' }
 #' @examples
 #' H4_S1
@@ -1481,17 +1470,17 @@ NULL
 "H4_S1"
 
 
-#' Concordance Table: H4 to S2
+#' @title Concordance Table: H4 to S2
 #'
-#' Concordance table from `HS 2012` (`H4`) to `SITC Rev.2` (`S2`). Product descriptions taken
+#' @description Concordance table from `HS 2012` (`H4`) to `SITC Rev.2` (`S2`). Product descriptions taken
 #' fromm WITS' `HS combined` concordance tables (\url{https://wits.worldbank.org/product_concordance.html}).
 #'
 #' @format A data frame with 11,588 rows and 4 variables:
 #' \describe{
 #'   \item{HS 2012 Product Code}{Harmonised System `HS 2012` (`H4`) Product code.}
 #'   \item{HS 2012 Product Description}{Harmonised System `HS 2012` (`H4`) Product description.}
-#'   \item{SITC Revision 2 Product Description}{...}
-#'   \item{SITC Revision 2 Product Code}{...}
+#'   \item{SITC Revision 2 Product Code}{Standard International Trade Classification `SITC` Revision 2 Product code.}
+#'   \item{SITC Revision 2 Product Description}{Standard International Trade Classification `SITC` Revision 2 Product description.}
 #' }
 #' @examples
 #' H4_S2
@@ -1499,17 +1488,17 @@ NULL
 "H4_S2"
 
 
-#' Concordance Table: H4 to S3
+#' @title Concordance Table: H4 to S3
 #'
-#' Concordance table from `HS 2012` (`H4`) to `SITC Rev.3` (`S3`). Product descriptions taken
+#' @description Concordance table from `HS 2012` (`H4`) to `SITC Rev.3` (`S3`). Product descriptions taken
 #' fromm WITS' `HS combined` concordance tables (\url{https://wits.worldbank.org/product_concordance.html}).
 #'
 #' @format A data frame with 6,605 rows and 4 variables:
 #' \describe{
 #'   \item{HS 2012 Product Code}{Harmonised System `HS 2012` (`H4`) Product code.}
 #'   \item{HS 2012 Product Description}{Harmonised System `HS 2012` (`H4`) Product description.}
-#'   \item{SITC Revision 3 Product Description}{...}
-#'   \item{SITC Revision 3 Product Code}{...}
+#'   \item{SITC Revision 3 Product Code}{Standard International Trade Classification `SITC` Revision 3 Product code.}
+#'   \item{SITC Revision 3 Product Description}{Standard International Trade Classification `SITC` Revision 3 Product description.}
 #' }
 #' @examples
 #' H4_S3
@@ -1517,17 +1506,17 @@ NULL
 "H4_S3"
 
 
-#' Concordance Table: H4 to S4
+#' @title Concordance Table: H4 to S4
 #'
-#' Concordance table from `HS 2012` (`H4`) to `SITC Rev.4` (`S4`). Product descriptions taken
+#' @description Concordance table from `HS 2012` (`H4`) to `SITC Rev.4` (`S4`). Product descriptions taken
 #' fromm WITS' `HS combined` concordance tables (\url{https://wits.worldbank.org/product_concordance.html}).
 #'
 #' @format A data frame with 5,299 rows and 4 variables:
 #' \describe{
 #'   \item{HS 2012 Product Code}{Harmonised System `HS 2012` (`H4`) Product code.}
 #'   \item{HS 2012 Product Description}{Harmonised System `HS 2012` (`H4`) Product description.}
-#'   \item{SITC Revision 4 Product Description}{...}
-#'   \item{SITC Revision 4 Product Code}{...}
+#'   \item{SITC Revision 4 Product Code}{Standard International Trade Classification `SITC` Revision 4 Product code.}
+#'   \item{SITC Revision 4 Product Description}{Standard International Trade Classification `SITC` Revision 4 Product description.}
 #' }
 #' @examples
 #' H4_S4
@@ -1535,9 +1524,9 @@ NULL
 "H4_S4"
 
 
-#' Concordance Table: H5 to H0
+#' @title Concordance Table: H5 to H0
 #'
-#' Concordance table from `HS 2017` (`H5`) to `BEC Rev. 4` (`BEC`).
+#' @description Concordance table from `HS 2017` (`H5`) to `BEC Rev. 4` (`BEC`).
 #'
 #' @format A data frame with 5,386 rows and 2 variables:
 #' \describe{
@@ -1550,9 +1539,9 @@ NULL
 "H5_BE"
 
 
-#' Concordance Table: H5 to H0
+#' @title Concordance Table: H5 to H0
 #'
-#' Concordance table from `HS 2017` (`H5`) to `HS 1988/92` (`H0`).
+#' @description Concordance table from `HS 2017` (`H5`) to `HS 1988/92` (`H0`).
 #'
 #' @format A data frame with 5,388 rows and 4 variables:
 #' \describe{
@@ -1566,9 +1555,9 @@ NULL
 "H5_H0"
 
 
-#' Concordance Table: H5 to H1
+#' @title Concordance Table: H5 to H1
 #'
-#' Concordance table from `HS 2017` (`H5`) to `HS 1996` (`H1`).
+#' @description Concordance table from `HS 2017` (`H5`) to `HS 1996` (`H1`).
 #'
 #' @format A data frame with 5,388 rows and 4 variables:
 #' \describe{
@@ -1582,9 +1571,9 @@ NULL
 "H5_H1"
 
 
-#' Concordance Table: H5 to H2
+#' @title Concordance Table: H5 to H2
 #'
-#' Concordance table from `HS 2017` (`H5`) to `HS 2002` (`H2`).
+#' @description Concordance table from `HS 2017` (`H5`) to `HS 2002` (`H2`).
 #'
 #' @format A data frame with 5,388  rows and 4 variables:
 #' \describe{
@@ -1598,9 +1587,9 @@ NULL
 "H5_H2"
 
 
-#' Concordance Table: H5 to H3
+#' @title Concordance Table: H5 to H3
 #'
-#' Concordance table from `HS 2017` (`H5`) to `HS 2007` (`H3`).
+#' @description Concordance table from `HS 2017` (`H5`) to `HS 2007` (`H3`).
 #'
 #' @format A data frame with 5,388 rows and 4 variables:
 #' \describe{
@@ -1614,9 +1603,9 @@ NULL
 "H5_H3"
 
 
-#' Concordance Table: H5 to H4
+#' @title Concordance Table: H5 to H4
 #'
-#' Concordance table from `HS 2017` (`H5`) to `HS 2012` (`H4`).
+#' @description Concordance table from `HS 2017` (`H5`) to `HS 2012` (`H4`).
 #'
 #' @format A data frame with 5,388 rows and 4 variables:
 #' \describe{
@@ -1630,9 +1619,9 @@ NULL
 "H5_H4"
 
 
-#' Concordance Table: H5 to S1
+#' @title Concordance Table: H5 to S1
 #'
-#' Concordance table from `HS 2017` (`H5`) to `SITC Rev.1` (`S1`).
+#' @description Concordance table from `HS 2017` (`H5`) to `SITC Rev.1` (`S1`).
 #'
 #' @format A data frame with 5,380 rows and 4 variables:
 #' \describe{
@@ -1646,9 +1635,9 @@ NULL
 "H5_S1"
 
 
-#' Concordance Table: H5 to S2
+#' @title Concordance Table: H5 to S2
 #'
-#' Concordance table from `HS 2017` (`H5`) to `SITC Rev.2` (`S2`).
+#' @description Concordance table from `HS 2017` (`H5`) to `SITC Rev.2` (`S2`).
 #' @format A data frame with 5,386 rows and 4 variables:
 #' \describe{
 #'   \item{HS 2017 Product Code}{Harmonised System `HS 2017` (`H5`) Product code.}
@@ -1661,15 +1650,15 @@ NULL
 "H5_S2"
 
 
-#' Concordance Table: H5 to S3
+#' @title Concordance Table: H5 to S3
 #'
-#' Concordance table from `HS 2017` (`H5`) to `SITC Rev.3` (`S3`).
+#' @description Concordance table from `HS 2017` (`H5`) to `SITC Rev.3` (`S3`).
 #'
 #' @format A data frame with 5,386 rows and 4 variables:
 #' \describe{
 #'   \item{HS 2017 Product Code}{Harmonised System `HS 2017` (`H5`) Product code.}
-#'   \item{SITC Revision 3 Product Description}{...}
-#'   \item{SITC Revision 3 Product Code}{...}
+#'   \item{SITC Revision 3 Product Code}{Standard International Trade Classification `SITC` Revision 3 Product code.}
+#'   \item{SITC Revision 3 Product Description}{Standard International Trade Classification `SITC` Revision 3 Product description.}
 #' }
 #' @examples
 #' H5_S3
@@ -1677,9 +1666,9 @@ NULL
 "H5_S3"
 
 
-#' Concordance Table: H5 to S4
+#' @title Concordance Table: H5 to S4
 #'
-#' Concordance table from `HS 2017` (`H5`) to `SITC Rev.4` (`S4`).
+#' @description Concordance table from `HS 2017` (`H5`) to `SITC Rev.4` (`S4`).
 #'
 #' @format A data frame with 5,386 rows and 4 variables:
 #' \describe{
@@ -1693,9 +1682,9 @@ NULL
 "H5_S4"
 
 
-#' Concordance Table: S1 to BE
+#' @title Concordance Table: S1 to BE
 #'
-#' Concordance table from `SITC Rev.1` (`S1`) to `BEC`.
+#' @description Concordance table from `SITC Rev.1` (`S1`) to `BEC`.
 #'
 #' @format A data frame with 1,312 rows and 4 variables:
 #' \describe{
@@ -1710,9 +1699,9 @@ NULL
 "S1_BE"
 
 
-#' Concordance Table: S2 to BE
+#' @title Concordance Table: S2 to BE
 #'
-#' Concordance table from `SITC Rev.2` (`S2`) to `BEC`.
+#' @description Concordance table from `SITC Rev.2` (`S2`) to `BEC`.
 #'
 #' @format A data frame with 1,312 rows and 4 variables:
 #' \describe{
@@ -1727,9 +1716,9 @@ NULL
 "S2_BE"
 
 
-#' Concordance Table: S2 to I2
+#' @title Concordance Table: S2 to I2
 #'
-#' Concordance table from `SITC Rev.2` (`S2`) to `ISIC Rev. 2` (`I2`).
+#' @description Concordance table from `SITC Rev.2` (`S2`) to `ISIC Rev. 2` (`I2`).
 #'
 #' @format A data frame with 1,312 rows and 4 variables:
 #' \describe{
@@ -1744,9 +1733,9 @@ NULL
 "S2_I2"
 
 
-#' Concordance Table: S2 to S1
+#' @title Concordance Table: S2 to S1
 #'
-#' Concordance table from `SITC Rev.2` (`S2`) and  `SITC Rev.1` (`S1`). Product descriptions taken
+#' @description Concordance table from `SITC Rev.2` (`S2`) and  `SITC Rev.1` (`S1`). Product descriptions taken
 #' fromm WITS' `HS combined` concordance tables (\url{https://wits.worldbank.org/product_concordance.html}).
 #'
 #'
@@ -1763,9 +1752,9 @@ NULL
 "S2_S1"
 
 
-#' Concordance Table: S3 to S1
+#' @title Concordance Table: S3 to S1
 #'
-#' Concordance table from `SITC Rev.3` (`S3`) and  `SITC Rev.1` (`S1`). Product descriptions taken
+#' @description Concordance table from `SITC Rev.3` (`S3`) and  `SITC Rev.1` (`S1`). Product descriptions taken
 #' fromm WITS' `HS combined` concordance tables (\url{https://wits.worldbank.org/product_concordance.html}).
 #'
 #'
@@ -1782,9 +1771,9 @@ NULL
 "S3_S1"
 
 
-#' Concordance Table: S3 to S2
+#' @title Concordance Table: S3 to S2
 #'
-#' Concordance table from `SITC Rev.3` (`S3`) and  `SITC Rev.2` (`S2`). Product descriptions taken
+#' @description Concordance table from `SITC Rev.3` (`S3`) and  `SITC Rev.2` (`S2`). Product descriptions taken
 #' fromm WITS' `HS combined` concordance tables (\url{https://wits.worldbank.org/product_concordance.html}).
 #'
 #'
@@ -1801,9 +1790,9 @@ NULL
 "S3_S2"
 
 
-#' Concordance Table: I2 to I3
+#' @title Concordance Table: I2 to I3
 #'
-#' Concordance table from `ISIC Rev.2` (`I2`) and  `ISIC Rev.3` (`I3`).
+#' @description Concordance table from `ISIC Rev.2` (`I2`) and  `ISIC Rev.3` (`I3`).
 #'
 #'
 #' @format A data frame with 586  rows and 4 variables:
@@ -1818,9 +1807,9 @@ NULL
 "I2_I3"
 
 
-#' Concordance Table: I2 to I31
+#' @title Concordance Table: I2 to I31
 #'
-#' Concordance table from `ISIC Rev.2` (`I2`) and  `ISIC Rev.3.1` (`I3.1`).
+#' @description Concordance table from `ISIC Rev.2` (`I2`) and  `ISIC Rev.3.1` (`I3.1`).
 #'
 #'
 #' @format A data frame with 562   rows and 4 variables:
@@ -1835,9 +1824,9 @@ NULL
 "I2_I31"
 
 
-#' Concordance Table: I3 to I2
+#' @title Concordance Table: I3 to I2
 #'
-#' Concordance table from `ISIC Rev.3` (`I3`) and  `ISIC Rev.2` (`I2`).
+#' @description Concordance table from `ISIC Rev.3` (`I3`) and  `ISIC Rev.2` (`I2`).
 #'
 #'
 #' @format A data frame with 586  rows and 4 variables:
@@ -1852,9 +1841,9 @@ NULL
 "I3_I2"
 
 
-#' Concordance Table: I3 to I31
+#' @title Concordance Table: I3 to I31
 #'
-#' Concordance table from `ISIC Rev.3` (`I3`) and  `ISIC Rev.3.1` (`I3.1`).
+#' @description Concordance table from `ISIC Rev.3` (`I3`) and  `ISIC Rev.3.1` (`I3.1`).
 #'
 #'
 #' @format A data frame with 562   rows and 4 variables:
@@ -1868,9 +1857,9 @@ NULL
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
 "I3_I31"
 
-#' Concordance Table: I31 to I3
+#' @title Concordance Table: I31 to I3
 #'
-#' Concordance table from `ISIC Rev.3.1` (`I3.1`) and  `ISIC Rev.3` (`I3`).
+#' @description Concordance table from `ISIC Rev.3.1` (`I3.1`) and  `ISIC Rev.3` (`I3`).
 #'
 #'
 #' @format A data frame with 316  rows and 4 variables:
@@ -1885,9 +1874,9 @@ NULL
 "I31_I3"
 
 
-#' Concordance Table: I3 to I4
+#' @title Concordance Table: I3 to I4
 #'
-#' Concordance table from `ISIC Rev.3.1` (`I3.1`) and  `ISIC Rev.4` (`I4`).
+#' @description Concordance table from `ISIC Rev.3.1` (`I3.1`) and  `ISIC Rev.4` (`I4`).
 #'
 #'
 #' @format A data frame with 586  rows and 4 variables:

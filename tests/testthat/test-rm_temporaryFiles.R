@@ -5,7 +5,8 @@ library(comtradeRggregator) # load package
 
 
 
-test_that("remove temporary files of folder that exists but file does not exist", {
+test_that("remove temporary files of folder that exists
+          but file does not exist", {
   msg1 <- function() rm_temporaryFiles(location.temporaryFiles = NULL)
 
   expect_message(msg1(), "Temporary*")
@@ -31,15 +32,18 @@ test_that("remove temporary files of folder that exists and file exists", {
 })
 
 
-test_that("try to remove temporary files of folder that does not exist (wrong class)", {
+test_that("try to remove temporary files of folder that does
+          not exist (wrong class)", {
   err1 <- function() rm_temporaryFiles(location.temporaryFiles = 12)
 
   expect_error(err1())
 })
 
 
-test_that("try to remove temporary files of folder that does not exist (wrong location)", {
-  err2 <- function() rm_temporaryFiles(location.temporaryFiles = "random location")
+test_that("try to remove temporary files of folder that does
+          not exist (wrong location)", {
+  err2 <- function() rm_temporaryFiles(
+    location.temporaryFiles = "random location")
 
   expect_error(err2())
 })

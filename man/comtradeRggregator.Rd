@@ -5,18 +5,32 @@
 \alias{comtradeRggregator}
 \title{\code{comtradeRggregator} package}
 \description{
-The goal of the \code{comtradeRggregator} package is to provide a simple tool to
-download and reclassify large chunks of \href{https://comtrade.un.org}{Comtrade trade data}.
-It offers functionality to download and aggregate \href{https://comtrade.un.org}{Comtrade trade data}
-using \href{https://comtrade.un.org/data/doc/api/}{Comtrade's API} by building on
-the \href{https://github.com/ropensci/comtradr}{comtradr} package. Furthermore, it provides a
-function for easy reclassification of trade data using official concordance tables from
-the \href{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}{United Nations Statistical Division (UNSD)}
-and the \href{https://wits.worldbank.org/product_concordance.html}{World Integrated Trade Solution (WITS)}.
+The goal of "comtradeRggregator" package is to provide a simple tool to
+download and reclassify large chunks of Comtrade trade data.
+It offers functionality to download and aggregate Comtrade trade data
+using Comtrade's official API and provides  options for easy
+reclassification of trade data using official
+United Nations Statistical Division (UNSD) and
+World Integrated Trade Solution (WITS).
 }
 \details{
-See the
-\href{https://amannj.github.io/resources/comtradeRggregator}{project web page}
-as well as the
-\href{https://github.com/amannj/comtradeRggregator}{README onGitHub}.
+\code{comtradeRggregator}:
+\itemize{
+\item \href{amannj.github.io/resources/comtradeRggregator}{project web page}
+\item \href{github.com/amannj/comtradeRggregator}{GitHub}.
+}
+
+\code{comtradr}
+\itemize{
+\item \href{docs.ropensci.org/comtradr/}{rOpenSci}
+\item \href{github.com/ropensci/comtradr}{Github}
+}
+
+Concordance tables
+\itemize{
+\item United Nations Statistical Division
+\href{unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}{(UNSD)}
+\item World Integrated Trade Solution
+\href{wits.worldbank.org/product_concordance.html}{(WITS)}.
+}
 }

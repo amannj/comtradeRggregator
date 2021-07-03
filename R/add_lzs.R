@@ -35,8 +35,11 @@ add_lzs <- function(data,
                     variable,
                     variable.length) {
   data %>%
-    mutate(lz = variable.length - nchar(.data[[variable]])) %>%
-    mutate(lz = paste0(gen_lzs(lz), .data[[variable]])) %>%
-    mutate({{ variable }} := lz) %>%
-    select(-lz)
+    mutate(
+      "lz" = variable.length - nchar(.data[[variable]]),
+      "lz" = gen_lzs(.data$lz),
+      "lz" = paste0(.data$lz, .data[[variable]]),
+      {{ variable }} := .data$lz
+    ) %>%
+    select(-"lz")
 }

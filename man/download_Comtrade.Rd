@@ -27,45 +27,94 @@ download_Comtrade(
 \arguments{
 \item{year}{Year for which to extract data.}
 
-\item{frequency}{Frequency of data extract; either \code{annual} or \code{monthly}; default is \code{annual}.}
+\item{frequency}{Frequency of data extract;
+either \code{annual} or \code{monthly}; default is \code{annual}.}
 
-\item{month}{Optional parameter for \code{monthly} extract; ignored for \code{annual} extracts; default is all 12 months if \code{frequency = 'monthly'} while argument \code{monty} remains unspecified.}
+\item{month}{Optional parameter for \code{monthly} extract; ignored for
+\code{annual} extracts; default is all 12 months if
+\code{frequency = 'monthly'} while argument \code{monty} remains unspecified.}
 
 \item{countries}{Select list of countries to be extracted; default is \code{all}.}
 
-\item{partners}{Specify partner country/countries or \code{World} (as provided by Comtrade); use option \code{all} if you want to download trade data from all
+\item{partners}{Specify partner country/countries or \code{World}
+(as provided by Comtrade); use option \code{all} if you want to
+download trade data from all
 available countries but not Comtrade's \code{World} aggregate; default is \code{World}.
 \itemize{
-\item If \code{is.mirrorData = FALSE} and \code{partners = 'World'}, \code{download_Comtrade()} will download aggregated \emph{"World"} trade as provided by \href{https://comtrade.un.org}{Comtrade}.
-\item If \code{is.mirrorData = TRUE} and \code{partners = 'World'}, no \emph{"World"} aggregate is available via \href{https://comtrade.un.org}{Comtrade}. In this case, \code{download_Comtrade()} will download mirror trade data for \href{https://comtrade.un.org/data/da}{all available countries}, and creates and returns an artificial 'World' aggregate by summing up over all available countries.
+\item If \code{is.mirrorData = FALSE} and \code{partners = 'World'},
+\code{download_Comtrade()} will download aggregated \emph{"World"} trade as
+provided by \href{https://comtrade.un.org}{Comtrade}.
+\item If \code{is.mirrorData = TRUE} and \code{partners = 'World'}, no \emph{"World"}
+aggregate is available via \href{https://comtrade.un.org}{Comtrade}.
+In this case, \code{download_Comtrade()} will download mirror trade data
+for \href{https://comtrade.un.org/data/da}{all available countries}, and
+creates and returns an artificial 'World' aggregate by summing up over
+all available countries.
 }}
 
-\item{tradecode}{Select trade database and classification to be extracted; default is \code{HS2007}/\code{H3}; monthly trade data only available following \code{HS} classification; the full list of possible trade classifications and corresponding input arguments used in the \code{comtradeRggregator} package are provided in table \href{https://github.com/amannj/comtradeRggregator#trade-classifications}{Trade Classification}; argument accepts long classification names, e.g. \code{HS2007}, as well as abbreviation, e.g. \code{HS3}, as inputs.}
+\item{tradecode}{Select trade database and classification to be extracted;
+default is \code{HS2007}/\code{H3}; monthly trade data only available following \code{HS}
+classification; the full list of possible trade classifications and
+corresponding input arguments used in the \code{comtradeRggregator} package are
+provided in table Trade Classification (
+\href{https://github.com/amannj/comtradeRggregator#trade-classifications}{link});
+argument accepts long classification names, e.g. \code{HS2007}, as well as
+abbreviation, e.g. \code{HS3}, as inputs.}
 
-\item{ag}{Level of aggregation of trade data; varies by trade data set; see  table \href{https://github.com/amannj/comtradeRggregator#trade-classifications}{Trade Classification} for more information.}
+\item{ag}{Level of aggregation of trade data; varies by trade data set; see
+Trade Classification (
+\href{https://github.com/amannj/comtradeRggregator#trade-classifications}{link})
+for more information.}
 
-\item{type}{Type of trade data to be extracted (either \code{services} or \code{commodities}); currently only \code{type = commodities} implemented.}
+\item{type}{Type of trade data to be extracted
+(either \code{services} or \code{commodities}); currently only
+\code{type = commodities} implemented.}
 
-\item{select.stats}{Trade statistics to be reported; either \code{trade_value_usd}, \code{qty_unit_code}, \code{qty_unit}, \code{alt_qty_unit_code}, \code{alt_qty_unit}, \verb{qty, alt_qty}, \code{netweight_kg}, \code{gross_weight_kg} or \code{all}; default is \code{all}.}
+\item{select.stats}{Trade statistics to be reported;
+either \code{trade_value_usd}, \code{qty_unit_code}, \code{qty_unit}, \code{alt_qty_unit_code},
+\code{alt_qty_unit}, \verb{qty, alt_qty}, \code{netweight_kg}, \code{gross_weight_kg}
+or \code{all}; default is \code{all}.}
 
-\item{direction}{Direction of trade flow reported; either \code{imports}, \code{exports}, \code{re-imports}, \code{re-exports} or \code{all}; default is \code{all}.}
+\item{direction}{Direction of trade flow reported; either \code{imports},
+\code{exports}, \code{re-imports}, \code{re-exports} or \code{all}; default is \code{all}.}
 
-\item{token}{Set Comtrade token to increase hourly queries from \href{https://comtrade.un.org/Data/Doc/API}{Comtrade API}; increases the speed of large data extraction as it increases the number of queries that can be run per hour.}
+\item{token}{Set Comtrade token to increase hourly queries from
+\href{https://comtrade.un.org/Data/Doc/API}{Comtrade API}; increases the speed
+of large data extraction as it increases the number of queries that can be
+run per hour.}
 
-\item{ext_cnt}{Number of countries extracted with each query; default is 5 which is also the maximum in \href{https://github.com/ropensci/comtradr}{comtradr}.}
+\item{ext_cnt}{Number of countries extracted with each query; default is
+5 which is also the maximum in
+\href{https://github.com/ropensci/comtradr}{comtradr}.}
 
-\item{is.mirrorData}{Extract mirror trade data? default is \code{FALSE}; Set to \code{TRUE} to extract mirror trade data from country/countries specified in argument \code{partners}. For example, if \code{is.mirrorData = TRUE} export data from countries specified in argument \code{countries} to countries specified in argument \code{partners} is measured as import data from countries specified in argument \code{countries} to countries specified in argument \code{partners} as reported by countries specified in argument \code{partners}.}
+\item{is.mirrorData}{Extract mirror trade data? default is \code{FALSE};
+set to \code{TRUE} to extract mirror trade data from country/countries specified
+in argument \code{partners}. For example, if \code{is.mirrorData = TRUE} export data
+from countries specified in argument \code{countries} to countries specified in
+argument \code{partners} is measured as import data from countries specified in
+argument \code{countries} to countries specified in argument \code{partners} as
+reported by countries specified in argument \code{partners}.}
 
-\item{rm.temporaryFiles}{Remove temporary download files stored at location provided in argument \code{location.temporaryFiles}; default is \code{TRUE}.}
+\item{rm.temporaryFiles}{Remove temporary download files stored at location
+provided in argument \code{location.temporaryFiles}; default is \code{TRUE}.}
 
-\item{location.temporaryFiles}{Location of temporary file downloads; default is \verb{<your package directory>\\data\\tmp\\<date-and-time-stamp>}; if you decide to use a different location, an alternative temporary folder needs to be created first.}
+\item{location.temporaryFiles}{Location of temporary file downloads;
+default is \verb{your local package directory\\data\\tmp\\<date-and-time-stamp>};
+if you decide to use a different location, an alternative temporary
+folder needs to be created first.}
 
-\item{build.Comtrade}{After having downloaded the separate temporary files (which will be saved to \code{location.temporaryFiles}), should function \code{download_Comtrade()} return a complete data object? Default is \code{TRUE}.}
+\item{build.Comtrade}{After having downloaded the separate temporary
+files (which will be saved to \code{location.temporaryFiles}), should function
+\code{download_Comtrade()} return a complete data object? Default is \code{TRUE}.}
 
-\item{sleep}{Number of seconds to wait before the next Comtrade API query is started; default is 5.}
+\item{sleep}{Number of seconds to wait before the next Comtrade API
+query is started; default is 5.}
 }
 \description{
-Main function to generate trade data querie that is processed in \code{download_Comtrade_core()}  to interact with \code{comtradr::ct_search()} and \href{https://comtrade.un.org/data/doc/api/}{Comtrade's API} to extract Comtrade trade data.
+Main function to generate trade data querie that is processed
+in \code{download_Comtrade_core()}  to interact with \code{comtradr::ct_search()}
+and \href{https://comtrade.un.org/data/doc/api/}{Comtrade's API} to
+extract Comtrade trade data.
 }
 \examples{
 \dontrun{
