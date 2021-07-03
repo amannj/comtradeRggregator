@@ -28,6 +28,16 @@ lapply(pkgs[!(pkgs %in% installed.packages())], install.packages)
 lapply(pkgs, library, character.only = TRUE)
 ```
 
+
+```{r access.token, include=FALSE}
+my_auth_token = "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"
+
+bad_token = '...'
+good_token <- "lhsmuyUVrMuKuxtet0TbbJdfVUChniTF2DqR8kUxb9PqNxf2aQ+AqE+BwKHKycyg84HWaXUszKnPCKJ8zO5eFqoANzWiPaGX7dX/XEUAO0jImhk6ro/YqiL4hsPn4VLxHK5hSnE8vsHebKzR28GjyA=="
+
+```
+
+
 # comtradeRggregator <img src='man/figures/logo1.png' align="right" height="139" />
 
 
@@ -60,7 +70,7 @@ The package offers functionality to download and aggregate [Comtrade trade data]
 | Reclassification of trade data according to official standards                 | no                                                    | selectively                           | yes                                                    |
 | API integration in R                                                           | [comtradr](https://github.com/ropensci/comtradr)      | no                                    | [comtradr](https://github.com/ropensci/comtradr)       |
 | Designated option to download mirror trade data                                | no                                                    | no                                    | yes                                                    |
-| Integrated  product nomenclature mapping                                       | no                                                    | [WITS](https://wits.worldbank.org/product_concordance.html) concordance tables | [WITS](https://wits.worldbank.org/product_concordance.html) and [United Nations Statistical Division (UNSD)](https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp) concordance tables |
+| Integrated  product nomenclature mapping                                       | no                                                    | [WITS](https://wits.worldbank.org/product_concordance.html) concordance tables | [WITS](https://wits.worldbank.org/product_concordance.html) and [UNSD](https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp) concordance tables |
 
 
 ## Features
@@ -197,7 +207,7 @@ To install the latest development version of `comtradeRggregator` directly from 
 # Download `comtradeRggregator`; private repository, requires `auth_token`.
 devtools::install_github("amannj/comtradeRggregator",
   ref = "master",
-  auth_token = "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",
+  auth_token = my_auth_token,
   force = TRUE
 )
 ```
@@ -553,8 +563,17 @@ mirrX_AT_DE %>%
 
 ------------------------------------------------------------------------
 
+## Axiliary functions
 
-## `add_lzs()`
+The `comtradeRggregator` package comes with a set of auxiliary functions that 
+are run in the process of executing the main functions. Typically, you 
+would not have to execute any of them by themselves; however, some of them might
+come in handy at some point which is why this short section is dedicated to 
+them.
+
+------------------------------------------------------------------------
+
+### `add_lzs()`
 
 Adds leading zeros to variable `var` of data frame such that `nchar(var) = length`.
 For the full documentation, type `?add_lzs` in R or visit the reference section of `add_lzs()`.
@@ -567,19 +586,64 @@ df <- tibble(var = c("1", "11", "111"))
 df %>% add_lzs(variable = "var", variable.length = 3)
 ```
 
+------------------------------------------------------------------------
 
+### `check_token()`
+
+`comtradeRggregator` is written in a way to minimise the cases where you run
+into usage limits imposed by the Comtrade API with an 
+unregistered guest account. With that said, having a registered account
+can speed up the download process considerably
+as the limits for unauthenticated , i.e. guests accounts, 
+are set to 100 requests per hour (per IP address or authenticated user). 
+
+Consequently, is advisable that you obtain an 
+authentication code (token) for large bulk downloads.
+You can then feed this token into the `download_Comtrade()`
+function using the `token` argument. Please see 
+[this](https://amannj.github.io/resources/comtradeRggregator/articles/handling-errors.html#error-code-409-1)
+help article for a more extensive discussion on this topic.
+
+
+The function `check_token()` checks validity of a supplied Comtrade token as 
+described in Comtrade's
+[API documentation](https://comtrade.un.org/data/doc/api/#APIKey) and builds on
+the validation provided via the official
+[Access Rights Information](https://comtrade.un.org/ws/CheckRights.aspx)
+mask as well as the official Comtrade API service (
+[link](https://comtrade.un.org/api/swagger/ui/index#!/Auth/Auth_Authorize)).
+
+`check_token()` is executed with every `download_Comtrade()` run; however,
+you can also run it as a separate function if you want to check the validity 
+of a particular token and without running a Comtrade query.
+
+
+#### Example 1
+
+In this example we evaluate the `check_token()` function when providing 
+
+1. no token (the default);
+2. a 'bad', i.e., unregistered token;
+3. a 'good', i.e., registered token.
+
+
+
+
+```{r message=FALSE, warning=FALSE}
+check_token() # no token; default
+check_token(token = bad_token)
+check_token(token = good_token)
+```
 
 
 ------------------------------------------------------------------------
 
-
-## `rm_temporaryFiles()`
-
+### `rm_temporaryFiles()`
 
 Remove all temporary files and folders 
 For the full documentation, type `?rm_temporaryFiles` in R or visit the reference section of `rm_temporaryFiles()`.
 
-### Example 1
+#### Example 1
 
 If there exist temporary files to be deleted, function `rm_temporaryFiles()` returns: 
 
@@ -587,7 +651,7 @@ If there exist temporary files to be deleted, function `rm_temporaryFiles()` ret
 rm_temporaryFiles(location.temporaryFiles = NULL)
 ```
 
-### Example 2 
+#### Example 2 
 
 If there are no temporary files to be deleted, function `rm_temporaryFiles()` returns: 
 

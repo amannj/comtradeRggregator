@@ -37,6 +37,7 @@ Depends:
     rlang (>= 0.4.10),
     R (>= 3.5)
 Imports: 
+    rjson,
     stringr
 Remotes: 
     amannj/comtradr@sitc-bug
