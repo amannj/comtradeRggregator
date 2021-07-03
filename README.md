@@ -36,14 +36,15 @@ download and reclassification that are absent from either the
 [Comtrade](https://comtrade.un.org) or
 [WITS](https://wits.worldbank.org/) web interfaces:
 
-| Feature                                                        | [Comtrade](https://comtrade.un.org)              | [WITS](https://wits.worldbank.org/) | `comtradeRggregator`                             |
-|----------------------------------------------------------------|--------------------------------------------------|-------------------------------------|--------------------------------------------------|
-| Incorporating recent data updates and revisions                | yes                                              | with delay                          | yes (via Comtrade)                               |
-| Extraction of monthly trade data                               | yes                                              | no                                  | yes                                              |
-| Advanced querying and bulk download without registration       | no                                               | no                                  | yes, but slow                                    |
-| Reclassification of trade data according to official standards | no                                               | selectively                         | yes                                              |
-| API integration in R                                           | [comtradr](https://github.com/ropensci/comtradr) | no                                  | [comtradr](https://github.com/ropensci/comtradr) |
-| Designated option to download mirror trade data                | no                                               | no                                  | yes                                              |
+| Feature                                                        | [Comtrade](https://comtrade.un.org)                 | [WITS](https://wits.worldbank.org/)                                            | `comtradeRggregator`                                                                                                                                                                                         |
+|----------------------------------------------------------------|-----------------------------------------------------|--------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Incorporating recent data updates and revisions                | yes                                                 | with delay                                                                     | yes (via Comtrade)                                                                                                                                                                                           |
+| Extraction of monthly trade data                               | yes                                                 | no                                                                             | yes                                                                                                                                                                                                          |
+| User limits without registration                               | [yes](https://comtrade.un.org/data/doc/api/#APIKey) | yes                                                                            | no                                                                                                                                                                                                           |
+| Reclassification of trade data according to official standards | no                                                  | selectively                                                                    | yes                                                                                                                                                                                                          |
+| API integration in R                                           | [comtradr](https://github.com/ropensci/comtradr)    | no                                                                             | [comtradr](https://github.com/ropensci/comtradr)                                                                                                                                                             |
+| Designated option to download mirror trade data                | no                                                  | no                                                                             | yes                                                                                                                                                                                                          |
+| Integrated product nomenclature mapping                        | no                                                  | [WITS](https://wits.worldbank.org/product_concordance.html) concordance tables | [WITS](https://wits.worldbank.org/product_concordance.html) and [United Nations Statistical Division (UNSD)](https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp) concordance tables |
 
 ## Features
 
@@ -1318,15 +1319,15 @@ AT_World
 #>    classification period trade_flow reporter partner commodity_code commodity   
 #>    <chr>           <int> <chr>      <chr>    <chr>   <chr>          <chr>       
 #>  1 H3               2018 Export     Austria  World   010110         Live horses~
-#>  2 H3               2018 Export     Austria  World   010190         Live horses~
-#>  3 H3               2018 Export     Austria  World   010210         Live bovine~
-#>  4 H3               2018 Export     Austria  World   010290         Live bovine~
-#>  5 H3               2018 Export     Austria  World   010310         Live swine:~
-#>  6 H3               2018 Export     Austria  World   010391         Live swine ~
-#>  7 H3               2018 Export     Austria  World   010392         Live swine ~
-#>  8 H3               2018 Export     Austria  World   010410         Live sheep  
-#>  9 H3               2018 Export     Austria  World   010420         Live goats  
-#> 10 H3               2018 Export     Austria  World   010511         Live fowls ~
+#>  2 H3               2018 Import     Austria  World   010190         Live horses~
+#>  3 H3               2018 Export     Austria  World   010190         Live horses~
+#>  4 H3               2018 Import     Austria  World   010210         Live bovine~
+#>  5 H3               2018 Export     Austria  World   010210         Live bovine~
+#>  6 H3               2018 Import     Austria  World   010290         Live bovine~
+#>  7 H3               2018 Export     Austria  World   010290         Live bovine~
+#>  8 H3               2018 Import     Austria  World   010310         Live swine:~
+#>  9 H3               2018 Export     Austria  World   010310         Live swine:~
+#> 10 H3               2018 Import     Austria  World   010391         Live swine ~
 #> # ... with 9,422 more rows, and 1 more variable: trade_value_usd <dbl>
 ```
 
@@ -1336,7 +1337,7 @@ Sometimes you might want to extract very specific information on
 particular trade flows between two countries.
 
 For example, in order to extract `commodity` `re-exports` reported by
-`Austria` at `AG6` level following hte `HS2007` nomenclature for trade
+`Austria` at `AG6` level following the `HS2007` nomenclature for trade
 with `Germany` in `2018`, run the command below. As you can see, this
 returns an empty data frame. This means that there is no trade data
 recorded on [Comtrade](https://comtrade.un.org) that meets the specific
@@ -1475,14 +1476,14 @@ da1 <- is.available_Comtrade(
 )
 head(da1)
 #> # A tibble: 6 x 2
-#>   country    year
-#>   <chr>     <dbl>
-#> 1 Algeria    2008
-#> 2 Andorra    2008
-#> 3 Argentina  2008
-#> 4 Armenia    2008
-#> 5 Australia  2008
-#> 6 Austria    2008
+#>   country               year
+#>   <chr>                <dbl>
+#> 1 China, Hong Kong SAR  2008
+#> 2 Hungary               2008
+#> 3 Iceland               2008
+#> 4 Ireland               2008
+#> 5 Israel                2008
+#> 6 Italy                 2008
 ```
 
 ### Example 2
@@ -1503,8 +1504,8 @@ da2
 #> # A tibble: 2 x 2
 #>   country  year
 #>   <chr>   <dbl>
-#> 1 Austria  2012
-#> 2 Germany  2012
+#> 1 Germany  2012
+#> 2 Austria  2012
 ```
 
 The same can also be done for monthly data. As seen below, only for
@@ -1605,14 +1606,14 @@ I3 %>%
 #>    <chr>          <chr>          <chr>                         
 #>  1 H3             010110         0121                          
 #>  2 H3             010190         0121                          
-#>  3 H3             010210         0121                          
-#>  4 H3             010290         0121                          
-#>  5 H3             010310         0122                          
-#>  6 H3             010391         0122                          
-#>  7 H3             010392         0122                          
-#>  8 H3             010410         0121                          
-#>  9 H3             010420         0121                          
-#> 10 H3             010511         0122                          
+#>  3 H3             010190         0121                          
+#>  4 H3             010210         0121                          
+#>  5 H3             010210         0121                          
+#>  6 H3             010290         0121                          
+#>  7 H3             010290         0121                          
+#>  8 H3             010310         0122                          
+#>  9 H3             010310         0122                          
+#> 10 H3             010391         0122                          
 #> # ... with 9,422 more rows
 ```
 
