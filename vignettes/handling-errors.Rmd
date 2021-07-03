@@ -39,7 +39,7 @@ However, this is **not** practice we wish to encourage. Instead, it is advised t
 
 2. You can check the validity of your token [here](https://comtrade.un.org/ws/CheckRights.aspx).
 
-3. Use the token as input parameter `token` in function `download_Comtrade()` to get unlimited (authenticated) usage of 10,000 requests per hour .
+3. Use the token as input parameter `token` in function `download_Comtrade()` to get unlimited (authenticated) usage of 10,000 requests per hour.
 
 ## Error code 500
 
