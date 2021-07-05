@@ -1,5 +1,7 @@
 #' @title Comtrade Data Availability
 #'
+#' @description Checks data availability of Comtrade data.
+#'
 #' @format A data frame with 65k rows and 10 variables:
 #' \describe{
 #'   \item{type}{Type of trade data to be extracted (either `services` or `commodities`).}
@@ -14,7 +16,9 @@
 #'   \item{isPartnerDetail}{Partner detail.}
 #' }
 #' @examples
-#' Comtrade_DA
+#' \dontrun{
+#' update_ComtradeDA()
+#' }
 #' @source \url{https://comtrade.un.org/data/da}
 "Comtrade_DA"
 
@@ -1419,7 +1423,7 @@
 #' | 852910                 | antennas and antenna reflectors and parts thereof                                                                                             |  32                               | Manufacture of radio, television and communication equipment and appara~ |
 #' | 852990                 | parts (except antennas and reflectors) for use with radio transmission, radar, radio navigational aid, reception and television apparatus, n~ |  32                               | Manufacture of radio, television and communication equipment and appara~ |
 #'
-#'Please see the official UNSD documentation for further information.
+#' Please see the official UNSD documentation for further information.
 #'
 #' @format A data frame with 5,205 rows and 4 variables:
 #' \describe{

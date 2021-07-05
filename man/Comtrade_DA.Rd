@@ -26,9 +26,11 @@ A data frame with 65k rows and 10 variables:
 Comtrade_DA
 }
 \description{
-Comtrade Data Availability
+Checks data availability of Comtrade data.
 }
 \examples{
-Comtrade_DA
+\dontrun{
+update_ComtradeDA()
+}
 }
 \keyword{datasets}

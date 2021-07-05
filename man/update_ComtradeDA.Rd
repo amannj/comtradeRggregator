@@ -3,6 +3,9 @@
 \name{update_ComtradeDA}
 \alias{update_ComtradeDA}
 \title{Update Comtrade Data Availability File}
+\source{
+\url{https://comtrade.un.org/data/da}
+}
 \usage{
 update_ComtradeDA(
   directory = system.file("data", package = "comtradeRggregator"),
@@ -15,6 +18,21 @@ update_ComtradeDA(
 
 \item{file}{Name of file containing information on Comtrade's data
 availability; default is \verb{Comtrade_DataAvailability-<date stamp>}.}
+}
+\value{
+A data frame with 65k rows and 10 variables:
+\describe{
+\item{type}{Type of trade data to be extracted (either \code{services} or \code{commodities}).}
+\item{freq}{Frequency of data extract; either \code{annual} or \code{monthly}.}
+\item{px}{Abbreviation of target trade classification.}
+\item{r}{Country code.}
+\item{rDesc}{Country name description.}
+\item{ps}{Year.}
+\item{TotalRecords}{Number of records.}
+\item{isOriginal}{Is original data.}
+\item{publicationDate}{Publication date.}
+\item{isPartnerDetail}{Partner detail.}
+}
 }
 \description{
 Extract or validate list of exporters for which in a
@@ -33,6 +51,11 @@ becomes available and is documented in the official Comtrade
 \href{https://comtrade.un.org/data/da}{data availability file},
 \code{comtradeRggregator} will use this information no later than 24
 hours after its publication.
+}
+\examples{
+\dontrun{
+update_ComtradeDA()
+}
 }
 \keyword{Comtrade}
 \keyword{availability}

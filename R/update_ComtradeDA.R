@@ -9,7 +9,7 @@
 #' `comtradeRggregator` uses trade information corresponding to
 #' [official Comtrade data availability](https://comtrade.un.org/data/da)
 #'  which it updates once a day and stores locally on your machine:
-#'`your local package directory/data/Comtrade_DataAvailability-<date stamp>.rds`
+#' `your local package directory/data/Comtrade_DataAvailability-<date stamp>.rds`
 #'   The locally stored Comtrade Data Availability file is used in
 #'   every `download_Comtrade()` data query. In other words, if new data
 #'   becomes available and is documented in the official Comtrade
@@ -20,14 +20,35 @@
 #'  `data/`
 #' @param file Name of file containing information on Comtrade's data
 #' availability; default is `Comtrade_DataAvailability-<date stamp>`.
+#' @returns  A data frame with 65k rows and 10 variables:
+#' \describe{
+#'   \item{type}{Type of trade data to be extracted (either `services` or `commodities`).}
+#'   \item{freq}{Frequency of data extract; either `annual` or `monthly`.}
+#'   \item{px}{Abbreviation of target trade classification.}
+#'   \item{r}{Country code.}
+#'   \item{rDesc}{Country name description.}
+#'   \item{ps}{Year.}
+#'   \item{TotalRecords}{Number of records.}
+#'   \item{isOriginal}{Is original data.}
+#'   \item{publicationDate}{Publication date.}
+#'   \item{isPartnerDetail}{Partner detail.}
+#' }
+#' @examples
+#' \dontrun{
+#' update_ComtradeDA()
+#' }
+#' @source \url{https://comtrade.un.org/data/da}
 #' @keywords Comtrade data availability
 #' @export
 #' @import dplyr comtradr tibble readr rlang
 update_ComtradeDA <- function(directory =
                                 system.file("data",
-                                            package = "comtradeRggregator"),
-                              file = paste0("Comtrade_DataAvailability-",
-                                            Sys.Date())) {
+                                  package = "comtradeRggregator"
+                                ),
+                              file = paste0(
+                                "Comtrade_DataAvailability-",
+                                Sys.Date()
+                              )) {
   # Check and remove if file is outdated
   file_exists <- list.files(directory, pattern = file)
 
