@@ -26,7 +26,6 @@
 #'
 #' @param token Comtrade token; default is NULL.
 #' @keywords api token Comtrade
-#' @so
 #' @export
 #' @import rjson
 #' @examples
