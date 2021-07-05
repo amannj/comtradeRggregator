@@ -193,7 +193,7 @@ Monthly trade data is only reported as *HS Combined* (`HS`) which combines all r
 ## Reclassification of trade data to other standards
 
 Reclassification of [Comtrade trade data](https://comtrade.un.org) is possible using the information in the [Concordance Table](https://github.com/amannj/comtradeRggregator#concordance-table) by employing the function `convert_Comtrade()`. The function
-requires trade data at most granular levels for the *Harmonised System (HS)*, which is the aggregation level `AG6`,  and for the *International Standard Industrial Classification (ISIC)* standard (`AG4`); see [Trade Classifications](https://github.com/amannj/comtradeRggregator#trade-classifications) for more information. For the *Standard International Trade Classification (SITC)* standard, `AG4` as well as `AG5` is required.
+requires trade data at the most granular levels for the *Harmonised System (HS)* nomenclature, i.e., `AG6`. For the *Standard International Trade Classification (SITC)* standard, `AG4` as well as `AG5` data is required.
 
 
 ------------------------------------------------------------------------
@@ -594,10 +594,9 @@ df %>% add_lzs(variable = "var", variable.length = 3)
 into usage limits imposed by the Comtrade API with an 
 unregistered guest account. With that said, having a registered account
 can speed up the download process considerably
-as the limits for unauthenticated , i.e. guests accounts, 
-are set to 100 requests per hour (per IP address or authenticated user). 
-
-Consequently, is advisable that you obtain an 
+as the limits for unauthenticated , i.e. guest accounts, 
+are restricted to 100 requests per hour (per IP address or authenticated user). 
+Consequently, it is advisable that you obtain an 
 authentication code (token) for large bulk downloads.
 You can then feed this token into the `download_Comtrade()`
 function using the `token` argument. Please see 
@@ -607,20 +606,20 @@ help article for a more extensive discussion on this topic.
 
 The function `check_token()` checks validity of a supplied Comtrade token as 
 described in Comtrade's
-[API documentation](https://comtrade.un.org/data/doc/api/#APIKey) and builds on
+[API documentation](https://comtrade.un.org/data/doc/api/#APIKey), and builds on
 the validation provided via the official
 [Access Rights Information](https://comtrade.un.org/ws/CheckRights.aspx)
 mask as well as the official Comtrade API service (
 [link](https://comtrade.un.org/api/swagger/ui/index#!/Auth/Auth_Authorize)).
 
-`check_token()` is executed with every `download_Comtrade()` run; however,
+`check_token()` is executed every time you run `download_Comtrade()`; however,
 you can also run it as a separate function if you want to check the validity 
 of a particular token and without running a Comtrade query.
 
 
 #### Example 1
 
-In this example we evaluate the `check_token()` function when providing 
+In this example we evaluate the `check_token()` function when providing:
 
 1. no token (the default);
 2. a 'bad', i.e., unregistered token;
