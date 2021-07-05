@@ -50,18 +50,18 @@ check_token <- function(token = NULL) {
     if (is.list(info_token)) {
       exist_token <- TRUE
       message(
-        "\n Comtrade token added; download limit set to 1,000 queries per hour.\n"
+        "Comtrade token added; download limit set to 10,000 queries per hour.\n"
       )
     } else if (is.null(info_token)) {
       exist_token <- FALSE
       message(
-        "\n Comtrade token incorrect; download restricted to 100 queries per hour.\n"
+        "Comtrade token incorrect; download restricted to 100 queries per hour.\n"
       )
     }
     return(exist_token)
   } else {
     message(
-      "\n No Comtrade token specified; download restricted to 100 queries per hour.\n"
+      "No Comtrade token specified; download restricted to 100 queries per hour.\n"
     )
   }
 }
