@@ -68,8 +68,9 @@ download and reclassification that are absent from either the
     Request](https://comtrade.un.org/data/doc/api/#DataAvailabilityRequests)
     for more information. The full list of possible trade
     classifications and their corresponding input arguments used in the
-    `comtradeRggregator` package are provided in table [Trade
-    Classifications](https://github.com/amannj/comtradeRggregator#trade-classifications):
+    `comtradeRggregator` package are provided in the [Trade
+    Classifications](https://github.com/amannj/comtradeRggregator#trade-classifications)
+    table:
 
 ### Trade Classifications
 
@@ -703,7 +704,7 @@ U
 </tr>
 <tr grouplength="4">
 <td colspan="21" style="border-bottom: 1px solid;">
-<strong>Standard International Trade Classification (SITC)</strong>
+<strong>Standard International Trade Classification (SITC)†</strong>
 </td>
 </tr>
 <tr>
@@ -968,7 +969,8 @@ S4
 </tr>
 <tr grouplength="3">
 <td colspan="21" style="border-bottom: 1px solid;">
-<strong>International Standard Industrial Classification (ISIC)</strong>
+<strong>International Standard Industrial Classification
+(ISIC)††</strong>
 </td>
 </tr>
 <tr>
@@ -1171,14 +1173,18 @@ U
 <tr>
 <td style="padding: 0; " colspan="100%">
 <span style="font-style: italic;">Note: </span> <sup></sup> W for WITS;
-U for UN-Stats.
+U for UNSD.<br> <sup></sup> †: For the Standard International Trade
+Classification (SITC) standard, AG4 as well as AG5 data is required.<br>
+<sup></sup> ††: ISIC nomenclature not available as Comtrade download
+option; concordance tables provided to facilitate re-classification
+across different standards.
 </td>
 </tr>
 <tr>
 <td style="padding: 0; " colspan="100%">
 <span style="font-style: italic;">x</span> <sup>a</sup> : Example for
 concordance across seemingly unrelated classifications: H5 &gt;&gt; H3
-&gt;&gt; I3.
+&gt;&gt; I3.<br>
 </td>
 </tr>
 </tfoot>
@@ -1206,7 +1212,7 @@ information corresponding to [official Comtrade data
 availability](https://comtrade.un.org/data/da) which it updates once a
 day and stores locally on your machine:
 
-`<your local package location>/data/Comtrade_DataAvailability-<date stamp>.csv.gz`
+`<your local package location>/data/Comtrade_DataAvailability-<date stamp>.rds`
 
 The locally stored Comtrade Data Availability file is used in every
 `download_Comtrade()` data query. In other words, if new data becomes
@@ -1219,11 +1225,11 @@ Comtrade Data Availability file can be accessed in R by typing
 
 ## Extraction of monthly trade data
 
-Monthly trade data is only reported as *HS Combined* (`HS`) which
+Monthly trade data is only reported as `HS Combined` (`HS`) which
 combines all revisions of the Harmonised System nomenclature. As a
 country reports its tariff scheduled for a given year in only one
-revision, that is *HS1988/1992* (`H0`), *HS1996* (`H1`) or *HS2002*
-(`H2`) etc., combining these different revisions enables users to choose
+revision, that is `HS1992` (`H0`), `HS1996` (`H1`) or `HS2002` (`H2`)
+etc., combining these different revisions enables users to choose
 products without having to know in which nomenclature a particular
 country reports in a particular year; see
 [here](https://wits.worldbank.org/WITS/wits/WITSHELP/Content/Annex/Annex1.About_WITS_HS_Combined.htm)
@@ -1682,8 +1688,8 @@ download_Comtrade(
 
 Please note that the chaining of concordance tables may be very
 intriguing; however, it’s not free of any downsides as is discussed in
-the article on \[chaining concordance
-tables\])(<https://amannj.github.io/resources/comtradeRggregator/articles/chaining-concordance-tables.html>).
+the article on [chaining concordance
+tables](https://amannj.github.io/resources/comtradeRggregator/articles/chaining-concordance-tables.html).
 
 ------------------------------------------------------------------------
 
@@ -1782,15 +1788,14 @@ obtain an authentication code (token) for large bulk downloads. You can
 then feed this token into the `download_Comtrade()` function using the
 `token` argument. Please see
 [this](https://amannj.github.io/resources/comtradeRggregator/articles/handling-errors.html#error-code-409-1)
-help article for a more extensive discussion on this topic.
-
-The function `check_token()` checks validity of a supplied Comtrade
-token as described in Comtrade’s [API
+help article for a more extensive discussion on this topic. The function
+`check_token()` checks validity of a supplied Comtrade token as
+described in Comtrade’s [API
 documentation](https://comtrade.un.org/data/doc/api/#APIKey), and builds
 on the validation provided via the official [Access Rights
 Information](https://comtrade.un.org/ws/CheckRights.aspx) mask as well
-as the official Comtrade API service 
-([link](https://comtrade.un.org/api/swagger/ui/index#!/Auth/Auth_Authorize)).
+as the official Comtrade API service; [see
+here](https://comtrade.un.org/api/swagger/ui/index#!/Auth/Auth_Authorize).
 
 `check_token()` is executed every time you run `download_Comtrade()`;
 however, you can also run it as a separate function if you want to check
@@ -1806,14 +1811,18 @@ In this example we evaluate the `check_token()` function when providing:
 
 ``` r
 check_token() # no token; default
-#>  No Comtrade token specified; download restricted to 100 queries per hour.
-#> 
+#> No Comtrade token specified; download restricted to 100 queries per hour.
+```
+
+``` r
 check_token(token = bad_token)
-#>  Comtrade token incorrect; download restricted to 100 queries per hour.
+#> Comtrade token incorrect; download restricted to 100 queries per hour.
 #> [1] FALSE
-#> 
+```
+
+``` r
 check_token(token = good_token)
-#>  Comtrade token added; download limit set to 1,000 queries per hour.
+#> Comtrade token added; download limit set to 10,000 queries per hour.
 #> [1] TRUE
 ```
 
