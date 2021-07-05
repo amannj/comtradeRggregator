@@ -30,7 +30,7 @@ lapply(pkgs, library, character.only = TRUE)
 
 
 ```{r access.token, include=FALSE}
-my_auth_token = "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"
+auth_token = "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"
 
 bad_token = '...'
 good_token <- "lhsmuyUVrMuKuxtet0TbbJdfVUChniTF2DqR8kUxb9PqNxf2aQ+AqE+BwKHKycyg84HWaXUszKnPCKJ8zO5eFqoANzWiPaGX7dX/XEUAO0jImhk6ro/YqiL4hsPn4VLxHK5hSnE8vsHebKzR28GjyA=="
@@ -207,7 +207,7 @@ To install the latest development version of `comtradeRggregator` directly from 
 # Download `comtradeRggregator`; private repository, requires `auth_token`.
 devtools::install_github("amannj/comtradeRggregator",
   ref = "master",
-  auth_token = my_auth_token,
+  auth_token = auth_token,
   force = TRUE
 )
 ```
@@ -609,8 +609,7 @@ described in Comtrade's
 [API documentation](https://comtrade.un.org/data/doc/api/#APIKey), and builds on
 the validation provided via the official
 [Access Rights Information](https://comtrade.un.org/ws/CheckRights.aspx)
-mask as well as the official Comtrade API service (
-[link](https://comtrade.un.org/api/swagger/ui/index#!/Auth/Auth_Authorize)).
+mask as well as the official Comtrade API service; [see here](https://comtrade.un.org/api/swagger/ui/index#!/Auth/Auth_Authorize).
 
 `check_token()` is executed every time you run `download_Comtrade()`; however,
 you can also run it as a separate function if you want to check the validity 
@@ -628,9 +627,11 @@ In this example we evaluate the `check_token()` function when providing:
 
 
 
-```{r message=FALSE, warning=FALSE}
+```{r message=TRUE, warning=TRUE}
 check_token() # no token; default
+
 check_token(token = bad_token)
+
 check_token(token = good_token)
 ```
 

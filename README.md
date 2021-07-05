@@ -36,15 +36,15 @@ download and reclassification that are absent from either the
 [Comtrade](https://comtrade.un.org) or
 [WITS](https://wits.worldbank.org/) web interfaces:
 
-| Feature                                                        | [Comtrade](https://comtrade.un.org)                 | [WITS](https://wits.worldbank.org/)                                            | `comtradeRggregator`                                                                                                                                                                                         |
-|----------------------------------------------------------------|-----------------------------------------------------|--------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Incorporating recent data updates and revisions                | yes                                                 | with delay                                                                     | yes (via Comtrade)                                                                                                                                                                                           |
-| Extraction of monthly trade data                               | yes                                                 | no                                                                             | yes                                                                                                                                                                                                          |
-| User limits without registration                               | [yes](https://comtrade.un.org/data/doc/api/#APIKey) | yes                                                                            | no                                                                                                                                                                                                           |
-| Reclassification of trade data according to official standards | no                                                  | selectively                                                                    | yes                                                                                                                                                                                                          |
-| API integration in R                                           | [comtradr](https://github.com/ropensci/comtradr)    | no                                                                             | [comtradr](https://github.com/ropensci/comtradr)                                                                                                                                                             |
-| Designated option to download mirror trade data                | no                                                  | no                                                                             | yes                                                                                                                                                                                                          |
-| Integrated product nomenclature mapping                        | no                                                  | [WITS](https://wits.worldbank.org/product_concordance.html) concordance tables | [WITS](https://wits.worldbank.org/product_concordance.html) and [United Nations Statistical Division (UNSD)](https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp) concordance tables |
+| Feature                                                        | [Comtrade](https://comtrade.un.org)                 | [WITS](https://wits.worldbank.org/)                                            | `comtradeRggregator`                                                                                                                                                   |
+|----------------------------------------------------------------|-----------------------------------------------------|--------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Incorporating recent data updates and revisions                | yes                                                 | with delay                                                                     | yes (via Comtrade)                                                                                                                                                     |
+| Extraction of monthly trade data                               | yes                                                 | no                                                                             | yes                                                                                                                                                                    |
+| User limits without registration                               | [yes](https://comtrade.un.org/data/doc/api/#APIKey) | yes                                                                            | no                                                                                                                                                                     |
+| Reclassification of trade data according to official standards | no                                                  | selectively                                                                    | yes                                                                                                                                                                    |
+| API integration in R                                           | [comtradr](https://github.com/ropensci/comtradr)    | no                                                                             | [comtradr](https://github.com/ropensci/comtradr)                                                                                                                       |
+| Designated option to download mirror trade data                | no                                                  | no                                                                             | yes                                                                                                                                                                    |
+| Integrated product nomenclature mapping                        | no                                                  | [WITS](https://wits.worldbank.org/product_concordance.html) concordance tables | [WITS](https://wits.worldbank.org/product_concordance.html) and [UNSD](https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp) concordance tables |
 
 ## Features
 
@@ -1235,12 +1235,10 @@ Reclassification of [Comtrade trade data](https://comtrade.un.org) is
 possible using the information in the [Concordance
 Table](https://github.com/amannj/comtradeRggregator#concordance-table)
 by employing the function `convert_Comtrade()`. The function requires
-trade data at most granular levels for the *Harmonised System (HS)*,
-which is the aggregation level `AG6`, and for the *International
-Standard Industrial Classification (ISIC)* standard (`AG4`); see [Trade
-Classifications](https://github.com/amannj/comtradeRggregator#trade-classifications)
-for more information. For the *Standard International Trade
-Classification (SITC)* standard, `AG4` as well as `AG5` is required.
+trade data at the most granular levels for the *Harmonised System (HS)*
+nomenclature, i.e., `AG6`. For the *Standard International Trade
+Classification (SITC)* standard, `AG4` as well as `AG5` data is
+required.
 
 ------------------------------------------------------------------------
 
@@ -1254,7 +1252,7 @@ use:
 # Download `comtradeRggregator`; private repository, requires `auth_token`.
 devtools::install_github("amannj/comtradeRggregator",
   ref = "master",
-  auth_token = "...",
+  auth_token = auth_token,
   force = TRUE
 )
 ```
@@ -1740,7 +1738,17 @@ mirrX_AT_DE %>%
 
 ------------------------------------------------------------------------
 
-## `add_lzs()`
+## Axiliary functions
+
+The `comtradeRggregator` package comes with a set of auxiliary functions
+that are run in the process of executing the main functions. Typically,
+you would not have to execute any of them by themselves; however, some
+of them might come in handy at some point which is why this short
+section is dedicated to them.
+
+------------------------------------------------------------------------
+
+### `add_lzs()`
 
 Adds leading zeros to variable `var` of data frame such that
 `nchar(var) = length`. For the full documentation, type `?add_lzs` in R
@@ -1762,13 +1770,62 @@ df %>% add_lzs(variable = "var", variable.length = 3)
 
 ------------------------------------------------------------------------
 
-## `rm_temporaryFiles()`
+### `check_token()`
+
+`comtradeRggregator` is written in a way to minimise the cases where you
+run into usage limits imposed by the Comtrade API with an unregistered
+guest account. With that said, having a registered account can speed up
+the download process considerably as the limits for unauthenticated ,
+i.e. guest accounts, are restricted to 100 requests per hour (per IP
+address or authenticated user). Consequently, it is advisable that you
+obtain an authentication code (token) for large bulk downloads. You can
+then feed this token into the `download_Comtrade()` function using the
+`token` argument. Please see
+[this](https://amannj.github.io/resources/comtradeRggregator/articles/handling-errors.html#error-code-409-1)
+help article for a more extensive discussion on this topic.
+
+The function `check_token()` checks validity of a supplied Comtrade
+token as described in Comtrade’s [API
+documentation](https://comtrade.un.org/data/doc/api/#APIKey), and builds
+on the validation provided via the official [Access Rights
+Information](https://comtrade.un.org/ws/CheckRights.aspx) mask as well
+as the official Comtrade API service 
+([link](https://comtrade.un.org/api/swagger/ui/index#!/Auth/Auth_Authorize)).
+
+`check_token()` is executed every time you run `download_Comtrade()`;
+however, you can also run it as a separate function if you want to check
+the validity of a particular token and without running a Comtrade query.
+
+#### Example 1
+
+In this example we evaluate the `check_token()` function when providing:
+
+1.  no token (the default);
+2.  a ‘bad’, i.e., unregistered token;
+3.  a ‘good’, i.e., registered token.
+
+``` r
+check_token() # no token; default
+#>  No Comtrade token specified; download restricted to 100 queries per hour.
+#> 
+check_token(token = bad_token)
+#>  Comtrade token incorrect; download restricted to 100 queries per hour.
+#> [1] FALSE
+#> 
+check_token(token = good_token)
+#>  Comtrade token added; download limit set to 1,000 queries per hour.
+#> [1] TRUE
+```
+
+------------------------------------------------------------------------
+
+### `rm_temporaryFiles()`
 
 Remove all temporary files and folders For the full documentation, type
 `?rm_temporaryFiles` in R or visit the reference section of
 `rm_temporaryFiles()`.
 
-### Example 1
+#### Example 1
 
 If there exist temporary files to be deleted, function
 `rm_temporaryFiles()` returns:
@@ -1778,7 +1835,7 @@ rm_temporaryFiles(location.temporaryFiles = NULL)
 #> Temporary files deleted.
 ```
 
-### Example 2
+#### Example 2
 
 If there are no temporary files to be deleted, function
 `rm_temporaryFiles()` returns:
