@@ -26,7 +26,7 @@
 #' or particular month of a particular year
 #' @param .px Trade classification abbreviation `.px` for further processing of
 #' Comtrade download
-#' @param t Generic time index for internatl processing.
+#' @param time_count Generic time index for monthly time processing.
 #' @keywords Comtrade country list.
 #' @export
 #' @import dplyr comtradr tibble readr rlang
@@ -44,7 +44,7 @@ gen_CountryList <- function(directory =
                             frequency = "annual",
                             time = 2010,
                             .px = "ag6",
-                            t = 1) {
+                            time_count = 1) {
 
   ## Check if update necessary first
   Comtrade_DA <- update_ComtradeDA(directory, file)
@@ -64,7 +64,7 @@ gen_CountryList <- function(directory =
         "ps" = as.character(.data$ps),
         "ps" = paste0(substr(.data$ps, 1, 4), "-", substr(.data$ps, 5, 6))
       ) %>%
-      filter(.data$ps == time[t]) -> ls_cnt
+      filter(.data$ps == time[time_count]) -> ls_cnt
   } else {
     stop("Option `frequency` incorrectly specified.")
   }

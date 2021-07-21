@@ -4,13 +4,13 @@
 \alias{eval_ag}
 \title{Evaluate Trade Classification}
 \usage{
-eval_ag(ag = ag, tradecode = tradecode, frequency = "annual")
+eval_ag(ag = ag, nomenclature = nomenclature, frequency = "annual")
 }
 \arguments{
 \item{ag}{Level of aggregation of trade data; varies by trade data
 set.}
 
-\item{tradecode}{Select trade database and classification to be
+\item{nomenclature}{Select trade database and classification to be
 extracted; default is \code{HS2007};
 monthly trade data only available following \code{HS} classification;
 for the full list of possible trade classifications and their
@@ -27,14 +27,14 @@ of Comtrade download
 }
 \description{
 Evaluates if a particular trade data set provided
-in argument \code{tradecode} is available for the provided level of
+in argument \code{nomenclature} is available for the provided level of
 aggregation in argument \code{ag}. Automatically switches to
 \code{HS (combined)} if argument \code{frequency = 'monthly'}.
 Returns classification abbreviation \code{.px} for further processing
 of Comtrade download
 }
 \examples{
-eval_ag(ag = "AG2", tradecode = "HS2007")
-eval_ag(ag = "AG2", tradecode = "HS", frequency = "monthly")
+eval_ag(ag = "AG2", nomenclature = "HS2007")
+eval_ag(ag = "AG2", nomenclature = "HS", frequency = "monthly")
 }
 \keyword{selection}

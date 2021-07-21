@@ -11,7 +11,7 @@ gen_CountryList(
   frequency = "annual",
   time = 2010,
   .px = "ag6",
-  t = 1
+  time_count = 1
 )
 }
 \arguments{
@@ -33,7 +33,7 @@ or particular month of a particular year}
 \item{.px}{Trade classification abbreviation \code{.px} for further processing of
 Comtrade download}
 
-\item{t}{Generic time index for internatl processing.}
+\item{time_count}{Generic time index for monthly time processing.}
 }
 \description{
 Extract or validate list of exporters for which in a given

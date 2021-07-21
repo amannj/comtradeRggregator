@@ -20,172 +20,172 @@ test_that("%not.in% TRUE or FALSE", {
 
 # Test eval_ag --------
 ## Tradecoe false
-test_that("eval_ag evaluates if tradecode and ag match", {
+test_that("eval_ag evaluates if nomenclature and ag match", {
   ag0 <- function() {
     eval_ag(
       ag = c("AG2"),
-      tradecode = "S5",
+      nomenclature = "S5",
       frequency = "annual"
     )
   }
-  expect_error(ag0(), "Tradecode*")
+  expect_error(ag0(), "Nomenclature*")
 })
 
 ## HS correct
-test_that("eval_ag checks ag and returns tradecode abbreviation", {
+test_that("eval_ag checks ag and returns nomenclature abbreviation", {
   ag1 <- eval_ag(
     ag = c("AG2", "AG4", "AG6"),
-    tradecode = "HS",
+    nomenclature = "HS",
     frequency = "annual"
   )
   expect_equal(ag1, "HS")
 })
-test_that("eval_ag checks ag and returns tradecode abbreviation", {
+test_that("eval_ag checks ag and returns nomenclature abbreviation", {
   ag1 <- eval_ag(
     ag = c("AG2", "AG4", "AG6"),
-    tradecode = "H0",
+    nomenclature = "H0",
     frequency = "annual"
   )
   expect_equal(ag1, "H0")
 })
-test_that("eval_ag checks ag and returns tradecode abbreviation", {
+test_that("eval_ag checks ag and returns nomenclature abbreviation", {
   ag1 <- eval_ag(
     ag = c("AG2", "AG4", "AG6"),
-    tradecode = "H1",
+    nomenclature = "H1",
     frequency = "annual"
   )
   expect_equal(ag1, "H1")
 })
-test_that("eval_ag checks ag and returns tradecode abbreviation", {
+test_that("eval_ag checks ag and returns nomenclature abbreviation", {
   ag1 <- eval_ag(
     ag = c("AG2", "AG4", "AG6"),
-    tradecode = "H2",
+    nomenclature = "H2",
     frequency = "annual"
   )
   expect_equal(ag1, "H2")
 })
-test_that("eval_ag checks ag and returns tradecode abbreviation", {
+test_that("eval_ag checks ag and returns nomenclature abbreviation", {
   ag1 <- eval_ag(
     ag = c("AG2", "AG4", "AG6"),
-    tradecode = "H3",
+    nomenclature = "H3",
     frequency = "annual"
   )
   expect_equal(ag1, "H3")
 })
-test_that("eval_ag checks ag and returns tradecode abbreviation", {
+test_that("eval_ag checks ag and returns nomenclature abbreviation", {
   ag1 <- eval_ag(
     ag = c("AG2", "AG4", "AG6"),
-    tradecode = "H4",
+    nomenclature = "H4",
     frequency = "annual"
   )
   expect_equal(ag1, "H4")
 })
-test_that("eval_ag checks ag and returns tradecode abbreviation", {
+test_that("eval_ag checks ag and returns nomenclature abbreviation", {
   ag1 <- eval_ag(
     ag = c("AG2", "AG4", "AG6"),
-    tradecode = "H5",
+    nomenclature = "H5",
     frequency = "annual"
   )
   expect_equal(ag1, "H5")
 })
-test_that("eval_ag checks ag and returns tradecode abbreviation", {
+test_that("eval_ag checks ag and returns nomenclature abbreviation", {
   ag1 <- eval_ag(
     ag = c("AG1", "AG2", "AG3"),
-    tradecode = "BE",
+    nomenclature = "BE",
     frequency = "annual"
   )
   expect_equal(ag1, "BE")
 })
-# tradecode and wrong AG
-test_that("eval_ag checks if ag and tradecodes don't match", {
+# nomenclature and wrong AG
+test_that("eval_ag checks if ag and nomenclatures don't match", {
   ag_HS <- function() {
     eval_ag(
       ag = c("AGx"),
-      tradecode = "HS",
+      nomenclature = "HS",
       frequency = "annual"
     )
   }
   ag_H0 <- function() {
     eval_ag(
       ag = c("AGx"),
-      tradecode = "HS1992",
+      nomenclature = "HS1992",
       frequency = "annual"
     )
   }
   ag_H1 <- function() {
     eval_ag(
       ag = c("AGx"),
-      tradecode = "HS1996",
+      nomenclature = "HS1996",
       frequency = "annual"
     )
   }
   ag_H2 <- function() {
     eval_ag(
       ag = c("AGx"),
-      tradecode = "HS2002",
+      nomenclature = "HS2002",
       frequency = "annual"
     )
   }
   ag_H3 <- function() {
     eval_ag(
       ag = c("AGx"),
-      tradecode = "HS2007",
+      nomenclature = "HS2007",
       frequency = "annual"
     )
   }
   ag_H4 <- function() {
     eval_ag(
       ag = c("AGx"),
-      tradecode = "HS2012",
+      nomenclature = "HS2012",
       frequency = "annual"
     )
   }
   ag_H5 <- function() {
     eval_ag(
       ag = c("AGx"),
-      tradecode = "HS2017",
+      nomenclature = "HS2017",
       frequency = "annual"
     )
   }
   ag_ST <- function() {
     eval_ag(
       ag = c("AGx"),
-      tradecode = "SITC",
+      nomenclature = "SITC",
       frequency = "annual"
     )
   }
   ag_S1 <- function() {
     eval_ag(
       ag = c("AGx"),
-      tradecode = "SITCrev1",
+      nomenclature = "SITCrev1",
       frequency = "annual"
     )
   }
   ag_S2 <- function() {
     eval_ag(
       ag = c("AGx"),
-      tradecode = "SITCrev2",
+      nomenclature = "SITCrev2",
       frequency = "annual"
     )
   }
   ag_S3 <- function() {
     eval_ag(
       ag = c("AGx"),
-      tradecode = "SITCrev3",
+      nomenclature = "SITCrev3",
       frequency = "annual"
     )
   }
   ag_S4 <- function() {
     eval_ag(
       ag = c("AGx"),
-      tradecode = "SITCrev4",
+      nomenclature = "SITCrev4",
       frequency = "annual"
     )
   }
   ag_BE <- function() {
     eval_ag(
       ag = c("AGx"),
-      tradecode = "BEC",
+      nomenclature = "BEC",
       frequency = "annual"
     )
   }
@@ -223,9 +223,9 @@ test_that("is string scalar", {
 
 
 
-# Test conversion of trade codes with convert_tradecodes --------
-test_that("Test conversion of trade codes with convert_tradecodes", {
-  df_tradecode <- tibble(
+# Test conversion of trade codes with convert_nomenclatures --------
+test_that("Test conversion of trade codes with convert_nomenclatures", {
+  df_nomenclature <- tibble(
     "Abbr" = c(
       "HS",
       "H0",
@@ -276,20 +276,20 @@ test_that("Test conversion of trade codes with convert_tradecodes", {
     )
   )
 
-  for (i in seq_along(df_tradecode)) {
-    ag <- convert_tradecodes(
-      tradecode = df_tradecode[i, 1] %>% pull(),
+  for (i in seq_along(df_nomenclature)) {
+    ag <- convert_nomenclature(
+      nomenclature = df_nomenclature[i, 1] %>% pull(),
       return = "Name", eval = TRUE
     )
-    expect_equal(ag, df_tradecode[i, 2] %>% pull())
+    expect_equal(ag, df_nomenclature[i, 2] %>% pull())
   }
 })
 
 
-test_that("convert_tradecodes requires well-defined inputs", {
+test_that("convert_nomenclatures requires well-defined inputs", {
   err1 <- function() {
-    convert_tradecodes(
-      tradecode = "not_contained",
+    convert_nomenclature(
+      nomenclature = "not_contained",
       return = "Name", eval = TRUE
     )
   }

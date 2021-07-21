@@ -10,8 +10,8 @@ download_Comtrade(
   month = NULL,
   countries = "all",
   partners = "World",
-  tradecode = "HS2007",
-  ag = "AG6",
+  nomenclature = "HS2007",
+  commodity = "AG6",
   type = "commodities",
   select.stats = "all",
   direction = "all",
@@ -52,16 +52,17 @@ creates and returns an artificial 'World' aggregate by summing up over
 all available countries.
 }}
 
-\item{tradecode}{Select trade database and classification to be extracted;
-default is \code{HS2007}/\code{H3}; monthly trade data only available following \code{HS}
-classification; the full list of possible trade classifications and
-corresponding input arguments used in the \code{comtradeRggregator} package are
+\item{nomenclature}{Select nomenclature and corresponding trade database for
+data extraction;  default is \code{HS2007}/\code{H3}; monthly trade data only available
+for \code{HS}. The full list of possible trade classifications and
+corresponding input arguments are
 provided in table Trade Classification (
 \href{https://github.com/amannj/comtradeRggregator#trade-classifications}{link});
 argument accepts long classification names, e.g. \code{HS2007}, as well as
 abbreviation, e.g. \code{HS3}, as inputs.}
 
-\item{ag}{Level of aggregation of trade data; varies by trade data set; see
+\item{commodity}{Specify commodity code or trade data aggregate for download.
+Both vary by trade data set; see
 Trade Classification (
 \href{https://github.com/amannj/comtradeRggregator#trade-classifications}{link})
 for more information.}
@@ -123,8 +124,8 @@ AT_World <- download_Comtrade(
   frequency = "annual",
   countries = "Austria",
   partners = "World",
-  tradecode = "HS2007",
-  ag = "AG6",
+  nomenclature = "HS2007",
+  commodity = "AG6",
   type = "commodities",
   select.stats = "trade_value_usd",
   direction = "all"

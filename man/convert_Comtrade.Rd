@@ -62,7 +62,7 @@ AT_World <- download_Comtrade(
   frequency = "annual",
   countries = "Austria",
   partners = "World",
-  tradecode = "HS2007",
+  nomenclature = "HS2007",
   ag = "AG6",
   type = "commodities",
   select.stats = "trade_value_usd",

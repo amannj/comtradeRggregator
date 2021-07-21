@@ -9,7 +9,7 @@ download_Comtrade_wrapper(
   date = "2019",
   dir = "all",
   is.mirrorData = FALSE,
-  aggregation_level = "AG6",
+  commodity = "AG6",
   select.stats = c("trade_value_usd", "qty_unit_code", "qty_unit", "alt_qty_unit_code",
     "alt_qty_unit", "qty", "alt_qty", "netweight_kg", "gross_weight_kg"),
   frequency = "annual",
@@ -26,7 +26,7 @@ download_Comtrade_wrapper(
 
 \item{is.mirrorData}{Parameter passed on from \code{download_Comtrade()}.}
 
-\item{aggregation_level}{Parameter passed on from \code{download_Comtrade()}.}
+\item{commodity}{Parameter passed on from \code{download_Comtrade()}.}
 
 \item{select.stats}{Parameter passed on from \code{download_Comtrade()}.}
 

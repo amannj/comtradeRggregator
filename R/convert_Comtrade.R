@@ -40,7 +40,7 @@
 #'   frequency = "annual",
 #'   countries = "Austria",
 #'   partners = "World",
-#'   tradecode = "HS2007",
+#'   nomenclature = "HS2007",
 #'   ag = "AG6",
 #'   type = "commodities",
 #'   select.stats = "trade_value_usd",
@@ -66,14 +66,14 @@ convert_Comtrade <- function(data,
                              classification.to = "I3") {
 
 
-  ## Check `tradecode` and return arg  ------
-  cls.from <- convert_tradecodes(
-    tradecode = classification.from,
+  ## Check `nomenclature` and return arg  ------
+  cls.from <- convert_nomenclature(
+    nomenclature = classification.from,
     return = "Abbr",
     eval = TRUE
   )
-  cls.to <- convert_tradecodes(
-    tradecode = classification.to,
+  cls.to <- convert_nomenclature(
+    nomenclature = classification.to,
     return = "Abbr",
     eval = TRUE
   )
@@ -99,7 +99,7 @@ convert_Comtrade <- function(data,
     )
   } else if (cls.from %in% c(
     "I2", "I3", "I31", "I4", "S1",
-    "S2", "S3", "S4", "IU", "MT"
+    "IU", "MT"
   )) {
     check_args(
       s_cclgth, "4",

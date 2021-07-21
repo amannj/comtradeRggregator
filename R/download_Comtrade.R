@@ -24,15 +24,16 @@
 #'    for [all available countries](https://comtrade.un.org/data/da), and
 #'    creates and returns an artificial 'World' aggregate by summing up over
 #'    all available countries.
-#' @param tradecode Select trade database and classification to be extracted;
-#' default is `HS2007`/`H3`; monthly trade data only available following `HS`
-#' classification; the full list of possible trade classifications and
-#' corresponding input arguments used in the `comtradeRggregator` package are
+#' @param nomenclature Select nomenclature and corresponding trade database for
+#' data extraction;  default is `HS2007`/`H3`; monthly trade data only available
+#' for `HS`. The full list of possible trade classifications and
+#' corresponding input arguments are
 #' provided in table Trade Classification (
 #' [link](https://github.com/amannj/comtradeRggregator#trade-classifications));
 #' argument accepts long classification names, e.g. `HS2007`, as well as
 #' abbreviation, e.g. `HS3`, as inputs.
-#' @param ag Level of aggregation of trade data; varies by trade data set; see
+#' @param commodity Specify commodity code or trade data aggregate for download.
+#' Both vary by trade data set; see
 #' Trade Classification (
 #' [link](https://github.com/amannj/comtradeRggregator#trade-classifications))
 #' for more information.
@@ -81,8 +82,8 @@
 #'   frequency = "annual",
 #'   countries = "Austria",
 #'   partners = "World",
-#'   tradecode = "HS2007",
-#'   ag = "AG6",
+#'   nomenclature = "HS2007",
+#'   commodity = "AG6",
 #'   type = "commodities",
 #'   select.stats = "trade_value_usd",
 #'   direction = "all"
@@ -95,8 +96,8 @@ download_Comtrade <- function(year = "2018",
                               month = NULL,
                               countries = "all",
                               partners = "World",
-                              tradecode = "HS2007",
-                              ag = "AG6",
+                              nomenclature = "HS2007",
+                              commodity = "AG6",
                               type = "commodities",
                               select.stats = "all",
                               direction = "all",
@@ -118,10 +119,10 @@ download_Comtrade <- function(year = "2018",
   }
 
 
-
   ## Check `frequency` ------
   frequency.ok <- c("annual", "monthly")
   check_args(frequency, frequency.ok, "frequency")
+
 
 
   ## Check `month` ------
@@ -142,17 +143,20 @@ download_Comtrade <- function(year = "2018",
   }
 
 
-  ## Check `tradecode` and return arg  ------
-  tradecode <- convert_tradecodes(tradecode = tradecode, return = "Name")
+  ## Check `nomenclature` and return arg  ------
+  nomenclature <- convert_nomenclature(
+    nomenclature = nomenclature,
+    return = "Name"
+  )
 
   ### Check for updates to country/commodity databases:
   ### Checks if Comtrade has made an update to either database specified
-  ### by arg. `tradecode` and
+  ### by arg. `nomenclature` and
   ### updates/switches databases automatically.
   ct_type <- comtradr::ct_commodity_db_type()
 
-  if (ct_type != tradecode) {
-    comtradr::ct_update_databases(commodity_type = tradecode)
+  if (ct_type != nomenclature) {
+    comtradr::ct_update_databases(commodity_type = nomenclature)
   }
   ### Return warning message for monthly data.
   if (tolower(frequency) == "monthly") {
@@ -163,16 +167,29 @@ download_Comtrade <- function(year = "2018",
   }
 
 
-  ## Check `ag` ------
-  ag <- toupper(ag)
-  ag.ok <- c("TOTAL", paste0("AG", c("1":"6")))
-  check_args(ag, ag.ok, "ag")
+  ## Check `commodity` ------
+  commodity <- toupper(commodity)
+  commodity.ok <- c("TOTAL", paste0("AG", c("1":"6")))
+  commodity.num <- stringr::str_extract(commodity, "^([0-9]*)$")
+  ### Check if aggregated download (AG) or individual trade codes are supplied;
+  ag <- ifelse(
+    commodity %in% commodity.ok,
+    commodity,
+    ### check if supplied trade codes match structure of corresponding nomenclature
+    ifelse(
+      !is.na(commodity.num) & nchar(commodity.num) %in% nchar(commodity),
+      paste0("AG", nchar(commodity.num)),
+      stop("Variable 'commodity' incorrectly specified.")
+    )
+  )
+
+
 
   ### Check if selected trade aggregation is reported in the respective
   ### database and return error if not.
   .px <- eval_ag(
     ag = ag,
-    tradecode = tradecode,
+    nomenclature = nomenclature,
     frequency = frequency
   )
 
@@ -252,13 +269,15 @@ download_Comtrade <- function(year = "2018",
   check_args(build.Comtrade, build.Comtrade.ok, "build.Comtrade")
 
 
-  ## Check `sleep`
+  ## Check `sleep` -----
   sleep.ok <- c(5:600)
   check_args(sleep, sleep.ok, "sleep")
 
 
   ## Define internal download directory -----------
   int_ddir <- system.file("data", package = "comtradeRggregator")
+
+
 
   # Generate folder structure for temporary downloads  ------------
   time_stamp <- format(Sys.time(), "%Y-%m-%d_%I.%M%p")
@@ -300,11 +319,13 @@ download_Comtrade <- function(year = "2018",
   }
 
 
+
   # Download data availability file once per extract and day   ------------
   Comtrade_DA <- update_ComtradeDA(
     directory = int_ddir,
     file = paste0("Comtrade_DataAvailability-", Sys.Date())
   )
+
 
 
   # Extract COMTRADE data ------------
@@ -335,7 +356,7 @@ download_Comtrade <- function(year = "2018",
         frequency = frequency,
         .px = .px,
         time = time,
-        t = t
+        time_count = t
       )
 
       ## Check data availability for `countries` and
@@ -399,7 +420,15 @@ download_Comtrade <- function(year = "2018",
 
       ## Loop through reporter groups j=1,...J and aggregation level
       for (j in 1:J) {
-        for (.ag in ag) {
+        for (.ag in unique(ag)) {
+          ### If multiple aggregates are downloaded, replace `commodity`
+          ### argument with evaluated aggregate for download
+          if(identical(ag, commodity)) {
+            down.commod <- .ag
+          } else {
+            down.commod <- commodity[ag == .ag]
+          }
+
           ### Select country list for extraction
           i <- ls_cntj[idx][!is.na(ls_cntj[idx])]
 
@@ -412,7 +441,7 @@ download_Comtrade <- function(year = "2018",
                 partners = partners,
                 date = time[t],
                 dir = direction,
-                aggregation_level = .ag,
+                commodity = down.commod,
                 is.mirrorData = is.mirrorData,
                 select.stats = .select.stats,
                 frequency = tolower(frequency),
@@ -423,8 +452,8 @@ download_Comtrade <- function(year = "2018",
                   df_download_all,
                   paste0(
                     loc_folder, "/",
-                    tradecode, "-vanilla_",
-                    ag, "-", tolower(frequency), "_",
+                    nomenclature, "-vanilla_",
+                    .ag, "-", tolower(frequency), "_",
                     time[t], "_", j, "-", J, ".rds"
                   )
                 )
@@ -447,7 +476,7 @@ download_Comtrade <- function(year = "2018",
                   partners = l,
                   date = time[t],
                   dir = direction,
-                  aggregation_level = .ag,
+                  commodity = down.commod,
                   is.mirrorData = is.mirrorData,
                   select.stats = .select.stats,
                   frequency = tolower(frequency),
@@ -458,8 +487,8 @@ download_Comtrade <- function(year = "2018",
                     df_download_all,
                     paste0(
                       loc_folder, "/",
-                      tradecode, "-vanilla_",
-                      ag, "-", tolower(frequency), "_",
+                      nomenclature, "-vanilla_",
+                      .ag, "-", tolower(frequency), "_",
                       k, "-", K, "_",
                       time[t], "_", j, "-", J, ".rds"
                     )
@@ -490,7 +519,7 @@ download_Comtrade <- function(year = "2018",
                 partners = i,
                 date = time[t],
                 dir = direction,
-                aggregation_level = .ag,
+                commodity = down.commod,
                 is.mirrorData = is.mirrorData,
                 select.stats = .select.stats,
                 frequency = tolower(frequency),
@@ -501,8 +530,8 @@ download_Comtrade <- function(year = "2018",
                   df_download_mirrored,
                   paste0(
                     loc_folder, "/",
-                    tradecode, "-mirrored_",
-                    ag, "-", tolower(frequency), "_",
+                    nomenclature, "-mirrored_",
+                    .ag, "-", tolower(frequency), "_",
                     k, "-", K, "_",
                     time[t], "_", j, "-", J, ".rds"
                   )
@@ -513,7 +542,7 @@ download_Comtrade <- function(year = "2018",
             }
           }
           ### Update message
-          message(j, "/", J, " for ", ag, " and year ", t, " completed.")
+          message(j, "/", J, " for ", .ag, " and year ", t, " completed.")
           message("")
         }
         ## Update index

@@ -5,7 +5,7 @@
 #' @param date Year/year-month for which to extract data.
 #' @param dir  Parameter passed on from `download_Comtrade()`.
 #' @param is.mirrorData  Parameter passed on from `download_Comtrade()`.
-#' @param aggregation_level Parameter passed on from `download_Comtrade()`.
+#' @param commodity Parameter passed on from `download_Comtrade()`.
 #' @param select.stats  Parameter passed on from `download_Comtrade()`.
 #' @param frequency Parameter passed on from `download_Comtrade()`.
 #' @param partners Parameter passed on from `download_Comtrade()`.
@@ -20,7 +20,7 @@ download_Comtrade_wrapper <- function(rep = "Austria",
                                       date = "2019",
                                       dir = "all",
                                       is.mirrorData = FALSE,
-                                      aggregation_level = "AG6",
+                                      commodity = "AG6",
                                       select.stats = c(
                                         "trade_value_usd", "qty_unit_code",
                                         "qty_unit", "alt_qty_unit_code",
@@ -48,7 +48,7 @@ download_Comtrade_wrapper <- function(rep = "Austria",
           freq = frequency,
           start_date = date,
           end_date = date,
-          commod_codes = aggregation_level,
+          commod_codes = commodity,
           trade_direction = dir
         ) %>%
           # Reshape
@@ -76,7 +76,7 @@ download_Comtrade_wrapper <- function(rep = "Austria",
             freq = frequency,
             start_date = date,
             end_date = date,
-            commod_codes = aggregation_level,
+            commod_codes = commodity,
             trade_direction = dir
           ) %>%
             # Reshape

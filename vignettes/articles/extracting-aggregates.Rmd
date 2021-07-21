@@ -1,0 +1,73 @@
+---
+title: "Extracting aggregated trade data"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Extracting aggregated trade data}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+Trade data is often reclassified following different standards; see (Concordance Table)[https://amannj.github.io/resources/comtradeRggregator/index.html#concordance-table]
+for all possible mappings that are possible using `comtradeRggregator`.
+
+However, in all those cases the internal logic of the conversion is that we use
+'all' trade data, which is then mapped onto a different classification. What if, 
+in turn, we want to extract only a set of traded commodities that belong to only
+a specific sub-group of the target classification? 
+
+In the example below we assume we want to extract all *SITC Rev. 2* (`S2`) trade data
+that belongs to a very specific manufacturing sector, say, *ISIC Rev. 2* (`I2`)
+sector `3530 - Petroleum refineries`. We can accomplish this in a few simple
+steps:
+
+
+
+First, we load the `comtradeRggregator` package.
+
+```{r message=FALSE, warning=FALSE}
+library(comtradeRggregator)
+```
+
+
+Next, we extract all `S2` codes that correspond to the `I2` sector `3530`
+which we want to extract:
+
+```{r message=FALSE, warning=FALSE}
+comm_petrol <- S2_I2 %>%
+  filter(`ISIC Revision 2 Product Code` == 3530)
+comm_petrol
+```
+
+In a next step we use the SITC commodity codes of `comm_petrol` as an input argument
+for the API query:
+
+```{r message=FALSE, warning=FALSE}
+data_extract <- download_Comtrade(
+  year = "2018",
+  frequency = "annual",
+  countries = "France",
+  partners = "Germany",
+  nomenclature = "S2",
+  commodity = comm_petrol %>% pull(`SITC Revision 2 Product Code`),
+  select.stats = "trade_value_usd"
+)
+```
+
+
+Finally, we re-classify the extracted data back to `S2` using 
+`convert_Comtrade()`:
+
+```{r}
+convert_Comtrade(data_extract,
+                 classification.from = 'S2',
+                 classification.to = 'I2') %>%
+  distinct(`ISIC Revision 2 Product Code`)
+
+```

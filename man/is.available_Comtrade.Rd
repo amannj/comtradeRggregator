@@ -10,7 +10,7 @@ is.available_Comtrade(
   type = "commodities",
   frequency = "annual",
   month = NULL,
-  tradecode = "H3",
+  nomenclature = "H3",
   year = 2008,
   directory = system.file("data", package = "comtradeRggregator"),
   file = paste0("Comtrade_DataAvailability-", Sys.Date())
@@ -34,7 +34,7 @@ default is \code{annual}.}
 extracts; only takes one entry as monthly trade data availability varies
 by month.}
 
-\item{tradecode}{Select trade database and classification to be extracted;
+\item{nomenclature}{Select trade database and classification to be extracted;
 default is \code{HS2007}; monthly trade data only available following \code{HS}
 classification; the full list of possible trade classifications and their
 corresponding input arguments used in the \code{comtradeRggregator} package are
@@ -69,14 +69,14 @@ will use this information no later than 24 hours after its publication.
 }
 \examples{
 \dontrun{
-is.available_Comtrade(frequency = "annual", tradecode = "H3", year = 2008)
+is.available_Comtrade(frequency = "annual", nomenclature = "H3", year = 2008)
 is.available_Comtrade(
   is.contained = c("Austria", "Germany"),
-  frequency = "annual", tradecode = "H2", year = 2012
+  frequency = "annual", nomenclature = "H2", year = 2012
 )
 is.available_Comtrade(
   is.contained = c("Austria", "Germany"),
-  frequency = "monthly", month = "01", tradecode = "H3", year = 2020
+  frequency = "monthly", month = "01", nomenclature = "H3", year = 2020
 )
 }
 }

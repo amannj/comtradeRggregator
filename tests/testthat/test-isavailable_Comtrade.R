@@ -8,7 +8,7 @@ library(comtradeRggregator) # load package
 test_that("is.available_Comtrade returns data frame", {
   da1 <- is.available_Comtrade(
     frequency = "annual",
-    tradecode = "H3",
+    nomenclature = "H3",
     year = "2008"
   )
 
@@ -21,7 +21,7 @@ test_that("is.available_Comtrade returns evaluated list of
   da2 <- is.available_Comtrade(
     is.contained = c("Austria", "Germany"),
     frequency = "annual",
-    tradecode = "H2",
+    nomenclature = "H2",
     year = "2012"
   )
   expect_s3_class(da2, "data.frame")
@@ -35,7 +35,7 @@ test_that("is.available_Comtrade returns evaluated list of
       is.contained = c("Austria", "Germany"),
       frequency = "monthly",
       month = "01",
-      tradecode = "H3",
+      nomenclature = "H3",
       year = "2020"
     )
   }
@@ -49,7 +49,7 @@ test_that("is.available_Comtrade returns evaluated list of
     is.contained = c("Austria", "Germany"),
     frequency = "monthly",
     month = "01",
-    tradecode = "H3",
+    nomenclature = "H3",
     year = "2020"
   )
   expect_s3_class(da3, "data.frame")
@@ -63,7 +63,7 @@ test_that("is.available_Comtrade returns evaluated list of
     is.contained = "ustr",
     is.fuzzy = TRUE,
     frequency = "annual",
-    tradecode = "HS2017",
+    nomenclature = "HS2017",
     year = "2019"
   )
 
@@ -78,7 +78,7 @@ test_that("is.available_Comtrade returns evaluated list of
     is.contained = "ustr",
     is.fuzzy = TRUE,
     frequency = "monthly",
-    tradecode = "HS2017",
+    nomenclature = "HS2017",
     year = "2019",
     month = "05"
   )
@@ -93,7 +93,7 @@ test_that("is.available_Comtrade requires input for monthly data", {
       is.contained = "ustr",
       is.fuzzy = TRUE,
       frequency = "monthly",
-      tradecode = "HS2017",
+      nomenclature = "HS2017",
       year = "2019"
     )
   }
@@ -107,7 +107,7 @@ test_that("is.available_Comtrade accepts input for monthl of length 1 only", {
       is.contained = "ustr",
       is.fuzzy = TRUE,
       frequency = "monthly",
-      tradecode = "HS2017",
+      nomenclature = "HS2017",
       year = "2019",
       month = c("01", "02")
     )

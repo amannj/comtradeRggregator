@@ -28,7 +28,7 @@
 #' @param month Optional parameter for `monthly` extract; ignored for `annual`
 #' extracts; only takes one entry as monthly trade data availability varies
 #' by month.
-#' @param tradecode  Select trade database and classification to be extracted;
+#' @param nomenclature  Select trade database and classification to be extracted;
 #' default is `HS2007`; monthly trade data only available following `HS`
 #' classification; the full list of possible trade classifications and their
 #' corresponding input arguments used in the `comtradeRggregator` package are
@@ -44,14 +44,14 @@
 #' @import dplyr comtradr tibble readr rlang
 #' @examples
 #' \dontrun{
-#' is.available_Comtrade(frequency = "annual", tradecode = "H3", year = 2008)
+#' is.available_Comtrade(frequency = "annual", nomenclature = "H3", year = 2008)
 #' is.available_Comtrade(
 #'   is.contained = c("Austria", "Germany"),
-#'   frequency = "annual", tradecode = "H2", year = 2012
+#'   frequency = "annual", nomenclature = "H2", year = 2012
 #' )
 #' is.available_Comtrade(
 #'   is.contained = c("Austria", "Germany"),
-#'   frequency = "monthly", month = "01", tradecode = "H3", year = 2020
+#'   frequency = "monthly", month = "01", nomenclature = "H3", year = 2020
 #' )
 #' }
 is.available_Comtrade <- function(is.contained = NULL,
@@ -59,7 +59,7 @@ is.available_Comtrade <- function(is.contained = NULL,
                                   type = "commodities",
                                   frequency = "annual",
                                   month = NULL,
-                                  tradecode = "H3",
+                                  nomenclature = "H3",
                                   year = 2008,
                                   directory =
                                     system.file("data",
@@ -67,8 +67,8 @@ is.available_Comtrade <- function(is.contained = NULL,
                                   file = paste0("Comtrade_DataAvailability-",
                                                 Sys.Date())) {
 
-  ## Check `tradecode` and return arg  ------
-  tradecode <- convert_tradecodes(tradecode = tradecode, return = "Abbr")
+  ## Check `nomenclature` and return arg  ------
+  nomenclature <- convert_nomenclature(nomenclature = nomenclature, return = "Abbr")
 
 
   ## Download data availability file once per extract and day   ------------
@@ -82,7 +82,7 @@ is.available_Comtrade <- function(is.contained = NULL,
   if (tolower(frequency) == "annual") {
     Comtrade_DA %>%
       filter(
-        .data$px %in% tradecode,
+        .data$px %in% nomenclature,
         .data$ps %in% year
       ) %>%
       select('country' = .data$rDesc, 'year' = .data$ps) %>%

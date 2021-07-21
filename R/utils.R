@@ -16,14 +16,14 @@
 #' @title Evaluate Trade Classification
 #'
 #' @description Evaluates if a particular trade data set provided
-#' in argument `tradecode` is available for the provided level of
+#' in argument `nomenclature` is available for the provided level of
 #' aggregation in argument `ag`. Automatically switches to
 #' `HS (combined)` if argument `frequency = 'monthly'`.
 #' Returns classification abbreviation `.px` for further processing
 #' of Comtrade download
 #' @param ag Level of aggregation of trade data; varies by trade data
 #' set.
-#' @param tradecode  Select trade database and classification to be
+#' @param nomenclature  Select trade database and classification to be
 #' extracted; default is `HS2007`;
 #' monthly trade data only available following `HS` classification;
 #'  for the full list of possible trade classifications and their
@@ -38,14 +38,14 @@
 #' @export
 #' @import dplyr comtradr tibble readr rlang
 #' @examples
-#' eval_ag(ag = "AG2", tradecode = "HS2007")
-#' eval_ag(ag = "AG2", tradecode = "HS", frequency = "monthly")
+#' eval_ag(ag = "AG2", nomenclature = "HS2007")
+#' eval_ag(ag = "AG2", nomenclature = "HS", frequency = "monthly")
 eval_ag <- function(ag = ag,
-                    tradecode = tradecode,
+                    nomenclature = nomenclature,
                     frequency = "annual") {
 
   ## Match classifications
-  .px <- convert_tradecodes(tradecode = tradecode, return = "Abbr", eval = TRUE)
+  .px <- convert_nomenclature(nomenclature = nomenclature, return = "Abbr", eval = TRUE)
 
   if (.px == "HS" | tolower(frequency) == "monthly") {
     is_ag <- c("TOTAL", "AG2", "AG4", "AG6")
@@ -79,9 +79,9 @@ eval_ag <- function(ag = ag,
   if (sum(ag %in% is_ag) != length(ag)) {
     ag_missing <- ag[ag %in% is_ag == FALSE]
     stop(
-      "\nSpecified aggregate(s) '", paste0(ag_missing, collapse = "', '"),
-      "' not reported in selected trade data base.\nSelected trade data base '",
-      tradecode, "' reportes in aggregated commodity codes: '",
+      "\nSpecified aggregate '", paste0(ag_missing, collapse = "', '"),
+      "' not reported in selected trade data base.\nSelected trade database '",
+      nomenclature, "' reportes in aggregated commodity codes: '",
       paste0(is_ag, collapse = "','"),
       "'.\nPlease see https://comtrade.un.org for more information.\n"
     )
@@ -129,28 +129,31 @@ check_args <- function(is, ok, arg) {
 }
 
 
-#' @title Convert Trade Codes
+#' @title Convert nomenclature arguments
 #'
-#' @description  Converts and harmonises trade code inputs for further
-#' processing (e.g. `H3` vs. `HS2007`).
-#' @param tradecode Trade code input;
+#' @description  Converts and harmonises nomenclature inputs for further
+#' processing.
+#' @param nomenclature Specifies selected nomenclature;
 #' see
 #' [here](amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications)
 #' for more information.
 #' @param return Return either `Name` or `Abbr` (abbreviation) of commodity code
-#' @param eval if `TRUE`, `tradecode` must be contained within
-#' `df_tradecode` which is used as input validation for
+#' @param eval if `TRUE`, `nomenclature` must be contained within
+#' `df_nomenclature` which is used as input validation for
 #' `download_Comtrade()`; set `FALSE` for `convert_Comtrade()`.
-#' @keywords tradecode convert
+#' @keywords nomenclature conversion
+#' @examples
+#' convert_nomenclature(nomenclature = 'H3', return = 'Name')
+#' convert_nomenclature(nomenclature = 'HS2007', return = 'Abbr')
 #' @export
 #' @import dplyr comtradr tibble readr rlang
 #' @source \url{amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications}
-convert_tradecodes <- function(tradecode = tradecode,
+convert_nomenclature <- function(nomenclature = nomenclature,
                                return = "Name",
                                eval = TRUE) {
 
-  # List of trade classifications available via Comtrade
-  df_tradecode <- tibble(
+  # List of nomenclatures available via Comtrade
+  df_nomenclature <- tibble(
     "Abbr" = c(
       "HS",
       "H0",
@@ -203,24 +206,24 @@ convert_tradecodes <- function(tradecode = tradecode,
     )
   )
   # Extract relevant row
-  df_tradecode <- df_tradecode[which(df_tradecode == tradecode,
+  df_nomenclature <- df_nomenclature[which(df_nomenclature == nomenclature,
     arr.ind = TRUE
   )[1], ]
 
   if (eval == TRUE) {
-    empty_df <- df_tradecode %>%
+    empty_df <- df_nomenclature %>%
       filter(!is.na(.data$Abbr) & !is.na(.data$Name)) %>%
       nrow() == 0
     if (empty_df) {
       stop(
-        "Tradecode '", tradecode,
+        "Nomenclature '", nomenclature,
         "' not available.
            Please check available trade classifications for download.'"
       )
     }
   }
-  if (tradecode != "HS") {
-    df_tradecode %>% pull(return)
+  if (nomenclature != "HS") {
+    df_nomenclature %>% pull(return)
   } else {
     return("HS")
   }
