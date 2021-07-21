@@ -1,6 +1,6 @@
 # Our file is called "test-utils.R" - we test all utils.R functions
 library(testthat) # load testthat package
-local_edition(3)
+# local_edition(3)
 library(comtradeRggregator) # load our package
 
 
@@ -285,7 +285,6 @@ test_that("Test conversion of trade codes with convert_nomenclatures", {
   }
 })
 
-
 test_that("convert_nomenclatures requires well-defined inputs", {
   err1 <- function() {
     convert_nomenclature(
@@ -295,3 +294,4 @@ test_that("convert_nomenclatures requires well-defined inputs", {
   }
   expect_error(err1())
 })
+

@@ -1,6 +1,6 @@
 # Our file is called "test-convert_Comtrade.R"
 library(testthat) # load testthat package
-local_edition(3)
+#local_edition(3)
 library(comtradeRggregator) # load package
 
 

@@ -1,6 +1,6 @@
 # Our file is called "test-build_Comtrade.R"
 library(testthat) # load testthat package
-local_edition(3)
+# local_edition(3)
 library(comtradeRggregator) # load package
 
 
@@ -102,14 +102,14 @@ test_that("build_Comtrade returns NULL if input data frame is empty", {
   dir.create(loc)
 
   df <- tibble(
-    "classification" = NA ,
-    "period"  = NA,
-    "commodity_code"  = NA,
-    "commodity"  = NA,
+    "classification" = NA,
+    "period" = NA,
+    "commodity_code" = NA,
+    "commodity" = NA,
     "reporter" = NA,
     "partner" = NA,
-    "trade_flow"= NA,
-    "trade_value_usd"= NA
+    "trade_flow" = NA,
+    "trade_value_usd" = NA
   )
   saveRDS(df, paste0(loc, "/df.rds"))
 

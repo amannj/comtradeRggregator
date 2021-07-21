@@ -1,6 +1,6 @@
 # Our file is called "test-download_ComtradeDA.R"
 library(testthat) # load testthat package
-local_edition(3)
+#local_edition(3)
 library(comtradeRggregator) # load package
 
 mytoken <- "lhsmuyUVrMuKuxtet0TbbJdfVUChniTF2DqR8kUxb9PqNxf2aQ+AqE+BwKHKycyg84HWaXUszKnPCKJ8zO5eFqoANzWiPaGX7dX/XEUAO0jImhk6ro/YqiL4hsPn4VLxHK5hSnE8vsHebKzR28GjyA=="
@@ -302,8 +302,6 @@ test_that("download_Comtrade fails if no monthly data for country available", {
 
   expect_error(AT_World())
 })
-
-
 
 
 test_that("download_Comtrade accepts commodity codes for different AG", {
