@@ -1,6 +1,6 @@
 # Our file is called "test-download_ComtradeDA.R"
 library(testthat) # load testthat package
-#local_edition(3)
+# local_edition(3)
 library(comtradeRggregator) # load package
 
 mytoken <- "lhsmuyUVrMuKuxtet0TbbJdfVUChniTF2DqR8kUxb9PqNxf2aQ+AqE+BwKHKycyg84HWaXUszKnPCKJ8zO5eFqoANzWiPaGX7dX/XEUAO0jImhk6ro/YqiL4hsPn4VLxHK5hSnE8vsHebKzR28GjyA=="
@@ -421,7 +421,25 @@ test_that("download_Comtrade fails if no reasonable input arguments
     )
   }
 
-
+  err14 <- function() {
+    download_Comtrade(
+    year = "2018",
+    frequency = "annual",
+    countries = "Austria",
+    partners = "World",
+    nomenclature = "HS2007",
+    commodity = "ag6",
+    direction = c("imports", "exploits"),
+    type = "commodities",
+    select.stats = "trade_value_usd",
+    token = mytoken,
+    ext_cnt = 5,
+    is.mirrorData = FALSE,
+    rm.temporaryFiles = TRUE,
+    location.temporaryFiles = NULL,
+    sleep = 5
+  )
+}
 
 
 
@@ -438,6 +456,7 @@ test_that("download_Comtrade fails if no reasonable input arguments
   expect_error(err11())
   expect_error(err12())
   expect_error(err13())
+  expect_error(err14())
 })
 
 
@@ -469,23 +488,23 @@ test_that("download_Comtrade fails if no monthly data for country available", {
 
 test_that("download_Comtrade takes 12 months as default monthly argument", {
   OZ_World <- download_Comtrade(
-      year = "2018",
-      frequency = "monthly",
-      month = NULL,
-      countries = "Australia",
-      partners = "World",
-      nomenclature = "HS2012",
-      commodity = "ag6",
-      direction = "all",
-      type = "commodities",
-      select.stats = "all",
-      token = mytoken,
-      ext_cnt = 5,
-      is.mirrorData = FALSE,
-      rm.temporaryFiles = TRUE,
-      location.temporaryFiles = NULL,
-      sleep = 6
-    )
+    year = "2018",
+    frequency = "monthly",
+    month = NULL,
+    countries = "Australia",
+    partners = "World",
+    nomenclature = "HS2012",
+    commodity = c("650100"),
+    direction = "all",
+    type = "commodities",
+    select.stats = "all",
+    token = mytoken,
+    ext_cnt = 5,
+    is.mirrorData = FALSE,
+    rm.temporaryFiles = TRUE,
+    location.temporaryFiles = NULL,
+    sleep = 6
+  )
 
   expect_s3_class(OZ_World, "data.frame")
   expect_equal(ncol(OZ_World), 16)
@@ -516,6 +535,6 @@ test_that("download_Comtrade accepts commodity codes for different AG", {
   expect_true(identical(
     AT_DE %>%
       distinct(commodity_code) %>% pull(),
-    c("65", "6501", "650100")))
+    c("65", "6501", "650100")
+  ))
 })
-

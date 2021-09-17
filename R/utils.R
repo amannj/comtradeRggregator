@@ -123,7 +123,7 @@ is.strsclr <- function(x) is.character(x) && length(x) == 1
 #' check_args(is = c("b"), ok = ("a"), arg = "test")
 #' }
 check_args <- function(is, ok, arg) {
-  if (is %in% ok != TRUE) {
+  if(all(is %in% ok)  != TRUE) {
     stop(paste0("Variable '", arg, "' incorrectly specified."))
   }
 }
