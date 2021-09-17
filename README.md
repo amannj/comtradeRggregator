@@ -1262,15 +1262,6 @@ devtools::install_github("amannj/comtradeRggregator",
   auth_token = auth_token,
   force = TRUE
 )
-#> 
-#>          checking for file 'C:\Users\amann\AppData\Local\Temp\RtmpCIgXQS\remotes1d8857706157\amannj-comtradeRggregator-75f290bcf61ebbd9b6d347564ade2388e3179240/DESCRIPTION' ...  v  checking for file 'C:\Users\amann\AppData\Local\Temp\RtmpCIgXQS\remotes1d8857706157\amannj-comtradeRggregator-75f290bcf61ebbd9b6d347564ade2388e3179240/DESCRIPTION'
-#>       -  preparing 'comtradeRggregator': (1.7s)
-#>    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   v  checking DESCRIPTION meta-information
-#>       -  checking for LF line-endings in source and make files and shell scripts
-#>       -  checking for empty or unneeded directories
-#>       -  building 'comtradeRggregator_0.0.0.9000.tar.gz'
-#>      
-#> 
 ```
 
 Note that you will need
