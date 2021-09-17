@@ -14,8 +14,8 @@ knitr::opts_chunk$set(
 )
 ```
 
-Trade data is often reclassified following different standards; see (Concordance Table)[https://amannj.github.io/resources/comtradeRggregator/index.html#concordance-table]
-for all possible mappings that are possible using `comtradeRggregator`.
+Trade data is often reclassified following different standards; see [Concordance Table](https://amannj.github.io/resources/comtradeRggregator/index.html#concordance-table)
+for all mappings that are possible using `comtradeRggregator`.
 
 However, in all those cases the internal logic of the conversion is that we use
 'all' trade data, which is then mapped onto a different classification. What if, 
@@ -31,7 +31,7 @@ steps:
 
 First, we load the `comtradeRggregator` package.
 
-```{r message=FALSE, warning=FALSE}
+```{r message=FALSE}
 library(comtradeRggregator)
 ```
 

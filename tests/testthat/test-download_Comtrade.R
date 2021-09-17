@@ -4,7 +4,6 @@ library(testthat) # load testthat package
 library(comtradeRggregator) # load package
 
 mytoken <- "lhsmuyUVrMuKuxtet0TbbJdfVUChniTF2DqR8kUxb9PqNxf2aQ+AqE+BwKHKycyg84HWaXUszKnPCKJ8zO5eFqoANzWiPaGX7dX/XEUAO0jImhk6ro/YqiL4hsPn4VLxHK5hSnE8vsHebKzR28GjyA=="
-mytempDirectory <- "C:/Users/juerg/Desktop/tmp"
 
 
 test_that("download_Comtrade returns a data frame", {
@@ -27,6 +26,60 @@ test_that("download_Comtrade returns a data frame", {
   )
 
   expect_s3_class(AT_World, "data.frame")
+})
+
+
+test_that("download_Comtrade returns a data frame, temporary files user location", {
+  loc_path <- system.file(package = "comtradeRggregator")
+  loc <- paste0(loc_path, "/tests-data")
+  dir.create(loc)
+
+  DE_World <- download_Comtrade(
+    year = "2007",
+    frequency = "annual",
+    countries = "Germany",
+    partners = "World",
+    nomenclature = "HS2007",
+    commodity = "ag6",
+    direction = "all",
+    type = "commodities",
+    select.stats = "all",
+    token = mytoken,
+    ext_cnt = 5,
+    is.mirrorData = FALSE,
+    rm.temporaryFiles = TRUE,
+    location.temporaryFiles = loc,
+    sleep = 5
+  )
+
+  expect_s3_class(DE_World, "data.frame")
+
+  unlink(loc, recursive = TRUE)
+})
+
+
+
+test_that("download_Comtrade returns NULL if build.Comtraede != TRUE", {
+  AT_World <- download_Comtrade(
+    year = "2018",
+    frequency = "annual",
+    countries = "Austria",
+    partners = "World",
+    nomenclature = "HS2007",
+    commodity = "ag6",
+    direction = "all",
+    type = "commodities",
+    select.stats = "all",
+    token = mytoken,
+    ext_cnt = 5,
+    build.Comtrade = FALSE,
+    is.mirrorData = FALSE,
+    rm.temporaryFiles = TRUE,
+    location.temporaryFiles = NULL,
+    sleep = 5
+  )
+
+  expect_equal(AT_World, NULL)
 })
 
 
@@ -267,6 +320,111 @@ test_that("download_Comtrade fails if no reasonable input arguments
     )
   }
 
+  err9 <- function() {
+    download_Comtrade(
+      year = "2018",
+      frequency = "monthly",
+      month = 13,
+      countries = "Australia",
+      partners = "NoCountries",
+      nomenclature = "HS2017",
+      commodity = "ag6",
+      direction = "exports",
+      type = "commodities",
+      select.stats = "mystats",
+      token = mytoken,
+      ext_cnt = 5,
+      is.mirrorData = FALSE,
+      rm.temporaryFiles = TRUE,
+      location.temporaryFiles = NULL,
+      sleep = 10
+    )
+  }
+
+  err10 <- function() {
+    download_Comtrade(
+      year = "2018",
+      frequency = "annual",
+      countries = "Austria",
+      partners = "World",
+      nomenclature = "HS2012",
+      commodity = "ag6",
+      direction = "all",
+      type = "commodities",
+      select.stats = "some",
+      token = mytoken,
+      ext_cnt = 5,
+      is.mirrorData = FALSE,
+      rm.temporaryFiles = TRUE,
+      location.temporaryFiles = NULL,
+      sleep = 10
+    )
+  }
+
+  err11 <- function() {
+    download_Comtrade(
+      year = "2018",
+      frequency = "annual",
+      countries = "Austria",
+      partners = "World",
+      nomenclature = "HS2012",
+      commodity = "ag6",
+      direction = "all",
+      type = "commodities",
+      select.stats = "some",
+      token = mytoken,
+      ext_cnt = 5,
+      is.mirrorData = FALSE,
+      rm.temporaryFiles = TRUE,
+      location.temporaryFiles = 42,
+      sleep = 10
+    )
+  }
+
+  err12 <- function() {
+    download_Comtrade(
+      year = "2018",
+      frequency = "annual",
+      countries = "Austria",
+      partners = NULL,
+      nomenclature = "HS2012",
+      commodity = "ag6",
+      direction = "all",
+      type = "commodities",
+      select.stats = "some",
+      token = mytoken,
+      ext_cnt = 5,
+      is.mirrorData = FALSE,
+      rm.temporaryFiles = TRUE,
+      location.temporaryFiles = 42,
+      sleep = 10
+    )
+  }
+
+  err13 <- function() {
+    download_Comtrade(
+      year = "2018",
+      frequency = "annual",
+      countries = "Austria",
+      partners = "Atlantis",
+      nomenclature = "HS2012",
+      commodity = "ag6",
+      direction = "all",
+      type = "commodities",
+      select.stats = "some",
+      token = mytoken,
+      ext_cnt = 5,
+      is.mirrorData = FALSE,
+      rm.temporaryFiles = TRUE,
+      location.temporaryFiles = 42,
+      sleep = 10
+    )
+  }
+
+
+
+
+
   expect_error(err1())
   expect_error(err2())
   expect_error(err3())
@@ -275,6 +433,11 @@ test_that("download_Comtrade fails if no reasonable input arguments
   expect_error(err6())
   expect_error(err7())
   expect_error(err8())
+  expect_error(err9())
+  expect_error(err10())
+  expect_error(err11())
+  expect_error(err12())
+  expect_error(err13())
 })
 
 
@@ -304,6 +467,32 @@ test_that("download_Comtrade fails if no monthly data for country available", {
 })
 
 
+test_that("download_Comtrade takes 12 months as default monthly argument", {
+  OZ_World <- download_Comtrade(
+      year = "2018",
+      frequency = "monthly",
+      month = NULL,
+      countries = "Australia",
+      partners = "World",
+      nomenclature = "HS2012",
+      commodity = "ag6",
+      direction = "all",
+      type = "commodities",
+      select.stats = "all",
+      token = mytoken,
+      ext_cnt = 5,
+      is.mirrorData = FALSE,
+      rm.temporaryFiles = TRUE,
+      location.temporaryFiles = NULL,
+      sleep = 6
+    )
+
+  expect_s3_class(OZ_World, "data.frame")
+  expect_equal(ncol(OZ_World), 16)
+})
+
+
+
 test_that("download_Comtrade accepts commodity codes for different AG", {
   AT_DE <- download_Comtrade(
     year = "2018",
@@ -329,3 +518,4 @@ test_that("download_Comtrade accepts commodity codes for different AG", {
       distinct(commodity_code) %>% pull(),
     c("65", "6501", "650100")))
 })
+

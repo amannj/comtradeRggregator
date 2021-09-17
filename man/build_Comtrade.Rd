@@ -20,7 +20,7 @@ build_Comtrade(
 location provided in argument \code{location.temporaryFiles} when building
 Comtrade trade data set; default is \code{TRUE}.}
 
-\item{is.mirrorData}{Is data set that is to be build mirror data? default
+\item{is.mirrorData}{Is data set that is to be built mirror data? default
 is \code{FALSE}, i.e. non-mirror data.}
 
 \item{partner}{List of partner countries. Needs to be provided

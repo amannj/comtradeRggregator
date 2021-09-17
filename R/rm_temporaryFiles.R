@@ -2,7 +2,7 @@
 #'
 #' @description Remove all temporary files and download
 #' directories created by `download_Comtrade()`.
-#' Run this In case in `download_Comtrade()` had been set
+#' Run this in case in `download_Comtrade()` had been set
 #' to `rm.temporaryFiles = FALSE` but you now wish to
 #' remove  all temporary files and directories.
 #' @param location.temporaryFiles  Location of temporary

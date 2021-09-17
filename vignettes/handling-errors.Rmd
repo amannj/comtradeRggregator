@@ -22,7 +22,7 @@ errors see [w3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
 
 ## Error code 400
 
-Typically, you get a **400 (bad request) error** whenever any of the input parameters ins specified incorrectly.
+Typically, you get a **400 (bad request) error** whenever any of the input parameters are specified incorrectly.
 
 Double-check all input parameters for `download_Comtrade()` for any issues/inconsistencies.
 
@@ -33,7 +33,7 @@ One of the most common issues is that if you hit a usage limit a,
 
 Whenever such an error occurs during one of its queries, `comtradeRggregator` pauses the data query and, after a specified cool-off of an hour, tries to resume the download. This means that you can conveniently max out the user limit for bulk downloads, and  `comtradeRggregator` will make sure your query fails because of usage limits. The limits for unauthenticated requests, i.e. guests, are set to 100 requests per hour (per IP address or authenticated user). See [Comtrade's API help page](https://comtrade.un.org/data/doc/api/) for more information.
 
-However, this is **not** practice we wish to encourage. Instead, it is advised that for large bulk downloads you obtain an authentication code (token) which you can then use when calling `download_Comtrade()`. This will allow you to 
+However, this is **not** practice I would wish to encourage. Instead, it is advised that for large bulk downloads you obtain an authentication code (token) which you can then use when calling `download_Comtrade()`. This will allow you to 
 
 1. Follow the instruction on Comtrade's API page to [Comtrade's API help page](https://comtrade.un.org/data/doc/api/) to get access to an authentication code (token).
 
@@ -60,6 +60,6 @@ Error in curl::curl_fetch_memory(url, handle = handle) :
   Operation was aborted by an application callback
 ```
 
-From experience, and in context of this package, the error message relates to file you are trying to download with `curl`. In other words, there are limits on the respective file sizes and download times per file, and one of your `download_Comtrade()` queries might hit one of those `curl` limits.
+From experience, and in the context of this package, the error message relates to file you are trying to download with `curl`. In other words, there are limits on the respective file sizes and download times per file, and one of your `download_Comtrade()` queries might hit one of those `curl` limits.
   
 In such a case, try re-running your `download_Comtrade()` query by reducing the value for `ext_cnt` which sets the number of countries extracted with each query (default and maximum is 5). The lower the number for `ext_cnt`, the fewer countries are downloaded simultaneously, hence the smaller the file size and the shorter the download time. Alternatively, the same error message also gets triggered when your device gets disconnected from the internet, so also double-check to make sure you are still online.

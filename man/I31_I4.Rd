@@ -3,9 +3,9 @@
 \docType{data}
 \name{I31_I4}
 \alias{I31_I4}
-\title{Concordance Table: I3 to I4}
+\title{Concordance Table: I31 to I4}
 \format{
-A data frame with 586  rows and 4 variables:
+A data frame with 586  rows and 3 variables:
 \describe{
 \item{ISIC Revision 3.1 Product Code}{International Standard Industrial Classification \verb{ISIC Rev. 3.1} (\code{I31}) Product code.}
 \item{ISIC Revision 4 Product Code}{International Standard Industrial Classification \verb{ISIC Rev. 4} (\code{I4}) Product code.}
@@ -19,7 +19,7 @@ A data frame with 586  rows and 4 variables:
 I31_I4
 }
 \description{
-Concordance table from \verb{ISIC Rev.3.1} (\code{I3.1}) and  \verb{ISIC Rev.4} (\code{I4}).
+Concordance table from \verb{ISIC Rev. 3.1} (\code{I31}) and  \verb{ISIC Rev.4} (\code{I4}).
 }
 \examples{
 I31_I4

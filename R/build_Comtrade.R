@@ -17,7 +17,7 @@
 #' @param rm.temporaryFiles Remove temporary download files stored at
 #' location provided in argument `location.temporaryFiles` when building
 #' Comtrade trade data set; default is `TRUE`.
-#' @param is.mirrorData Is data set that is to be build mirror data? default
+#' @param is.mirrorData Is data set that is to be built mirror data? default
 #' is `FALSE`, i.e. non-mirror data.
 #' @param partner List of partner countries. Needs to be provided
 #' if `is.mirrorData = TRUE`; default is `NULL`, i.e. no mirror data download.

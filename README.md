@@ -94,18 +94,22 @@ reclassification that are absent from either the
     [Comtrade](https://comtrade.un.org) trade data.
 
 -   Provides function for easy reclassification of trade data using
-    official concordance tables from the [United Nations Statistical
-    Division
-    (UNSD)](https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp)
+    official concordance tables from the \[United Nations Statistical
+    Division (UNSD) - see
+    [here](https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp)
+    and
+    [here](https://unstats.un.org/unsd/trade/classifications/bec.asp),
     and the [World Integrated Trade Solution
-    (WITS)](https://wits.worldbank.org/product_concordance.html); see
-    [Concordance
-    Table](https://amannj.github.io/resources/comtradeRggregator/#concordance-table)
-    below. To access respective concordance tables in R, type
-    `<tradecode from>_<tradecode to>`. For example, the concordance
-    table for reclassifying `H3` trade data according to the `H0`
-    nomenclature is stored as object `H3_H0` and its R help file can be
-    accessed by typing `?H3_H0`.
+    (WITS)](https://wits.worldbank.org/product_concordance.html). For a
+    complete summary of available [Concordance
+    Tables](https://amannj.github.io/resources/comtradeRggregator/#concordance-table),
+    please see below. To access any of the respective concordance tables
+    in R, type `<tradecode from>_<tradecode to>`. For example, the
+    concordance table for reclassifying `H3` trade data according to the
+    `H0` nomenclature is stored as object `H3_H0` and its R help file
+    can be accessed by typing `?H3_H0`. The R help files provide further
+    information on the nature and individual features of the respective
+    concordance matrices.
 
 ### Concordance Table
 
@@ -1236,7 +1240,7 @@ for more information on the *HS Combined* nomenclature.
 
 Reclassification of [Comtrade trade data](https://comtrade.un.org) is
 possible using the information in the [Concordance
-Table](https://github.com/amannj/comtradeRggregator#concordance-table)
+Table](https://amannj.github.io/resources/comtradeRggregator/index.html#concordance-table)
 by employing the function `convert_Comtrade()`. The function requires
 trade data at the most granular levels for the *Harmonised System (HS)*
 nomenclature, i.e., `AG6`. For the *Standard International Trade
@@ -1258,6 +1262,15 @@ devtools::install_github("amannj/comtradeRggregator",
   auth_token = auth_token,
   force = TRUE
 )
+#> 
+#>          checking for file 'C:\Users\amann\AppData\Local\Temp\RtmpCIgXQS\remotes1d8857706157\amannj-comtradeRggregator-75f290bcf61ebbd9b6d347564ade2388e3179240/DESCRIPTION' ...  v  checking for file 'C:\Users\amann\AppData\Local\Temp\RtmpCIgXQS\remotes1d8857706157\amannj-comtradeRggregator-75f290bcf61ebbd9b6d347564ade2388e3179240/DESCRIPTION'
+#>       -  preparing 'comtradeRggregator': (1.7s)
+#>    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   v  checking DESCRIPTION meta-information
+#>       -  checking for LF line-endings in source and make files and shell scripts
+#>       -  checking for empty or unneeded directories
+#>       -  building 'comtradeRggregator_0.0.0.9000.tar.gz'
+#>      
+#> 
 ```
 
 Note that you will need
@@ -1361,6 +1374,43 @@ download_Comtrade(
 
 ### Example 3
 
+There might be cases where you want to download a very specific group of
+traded commodities that may potentially also be part of a different
+level of aggregation. In the example below, we extract Austrian exports
+to Germany for the commodity groups `65 - Headgear and parts thereof`
+(`AG2`) as well as the corresponding sub-aggregates `6501` and `650100`,
+respectively.<sup>[1](#fn1)</sup> Also see
+[here](https://amannj.github.io/resources/comtradeRggregator/articles/extracting-aggregates.html)
+for a more detailed discussion and some best practice advice on how to
+use `comtradeRggregator` in such a scenario.
+
+``` r
+download_Comtrade(year = "2018",
+                  frequency = "annual",
+                  countries = "Austria",
+                  partners = "Germany",
+                  nomenclature = "HS2007",
+                  commodity = c("65", "6501", "650100"),
+                  type = "commodities",
+                  select.stats = "trade_value_usd",
+                  direction = "exports")
+#> # A tibble: 3 x 8
+#>   classification period trade_flow reporter partner commodity_code commodity    
+#>   <chr>           <int> <chr>      <chr>    <chr>   <chr>          <chr>        
+#> 1 H3               2018 Export     Austria  Germany 65             Headgear and~
+#> 2 H3               2018 Export     Austria  Germany 6501           Hat-forms, h~
+#> 3 H3               2018 Export     Austria  Germany 650100         Hat-forms, h~
+#> # ... with 1 more variable: trade_value_usd <int>
+```
+
+With `download_Comtrade()` you can not only download specific commodity
+codes in this way, but also complete aggregates. For example, in case
+you want to download all traded commodities at the 2- and 4-digit level,
+i.e., `AG2` and `AG4`, you can do so by changing the input argument for
+`commodity` of the above query to `commodity = c("AG2", "AG4")`.
+
+### Example 4
+
 Sometimes trade data between countries does not “add up”: For example,
 in 2020 country A reported USD *X* millions exports to country B while B
 was reporting USD *Y* millions, where *X* ≠ *Y*. In such cases it makes
@@ -1371,7 +1421,7 @@ this. The relation of the queries used for the extraction of trade data
 and mirrored trade data is illustrated in the example below:
 
 Reported imports by Germany from Austria and reported mirrored exports
-by Austria to Germany are identical by definition.<sup>[1](#fn1)</sup>
+by Austria to Germany are identical by definition.<sup>[2](#fn2)</sup>
 Note that in the query below we can use either `tradecode` names or
 abbreviations as input arguments for `tradecode` as provided in table
 [Trade Classifications](#trade-classifications).
@@ -1410,9 +1460,9 @@ IM_DE_AT %>%
 #> [1] 1
 ```
 
-### Example 4
+### Example 5
 
-Note that in *Example 3* above, we have instructed `download_Comtrade()`
+Note that in *Example 4* above, we have instructed `download_Comtrade()`
 to keep the temporary download files (by invoking
 `rm.temporaryFiles = FALSE`) for query `mirrX_AT_DE` while also using
 this temporary data to build the completed Comtrade data from the query
@@ -1424,10 +1474,10 @@ Comtrade, and build the trade data in R at a later stage using
 `build_comtrade()`; more on `build_comtrade()` [below](#build_comtrade).
 
 Below, we instruct `download_Comtrade()` to run the same query as for
-`mirrX_AT_DE` in *Example 3*; however, by setting
+`mirrX_AT_DE` in *Example 4*; however, by setting
 `build.Comtrade = FALSE` and `rm.temporaryFiles = FALSE` we ensure that
 the trade data downloaded from Comtrade will only be stored locally but
-not build and loaded into R.
+not built and loaded into R.
 
 ``` r
 mirrX_AT_DE_v2 <- download_Comtrade(
@@ -1450,36 +1500,6 @@ mirrX_AT_DE_v2
 #> NULL
 ```
 
-### Example 5
-
-There might be cases where you want to download a very specific group of
-traded commodities that may potentially also be part of a different
-level of aggregation. In the example below, we extract Austrian exports
-to Germany for the commodity groups `65 - Headgear and parts thereof`
-(`AG2`) as well as the corresponding sub-aggregates `6501` and `650100`,
-respectively.<sup>[3](#fn3)</sup> Also see
-[here](https://amannj.github.io/resources/comtradeRggregator/articles/extracting-aggregates.html)
-for a more detailed discussion and some best practice advise on how to
-use `comtradeRggregator` in such a scenario.
-
-``` r
-download_Comtrade(year = "2018",
-                  frequency = "annual",
-                  countries = "Austria",
-                  partners = "Germany",
-                  nomenclature = "HS2007",
-                  commodity = c("65", "6501", "650100"),
-                  type = "commodities",
-                  select.stats = "trade_value_usd",
-                  direction = "exports")
-```
-
-With `download_Comtrade()` you can not only download specific commodity
-codes in this way, but also complete aggregates. For example, in case
-you want to download all traded commodities at the 2- and 4-digit level,
-i.e., `AG2` and `AG4`, you can do so by changing the input argument for
-`commodity` of the above query to `commodity = c("AG2", "AG4")`.
-
 ------------------------------------------------------------------------
 
 ## `is.available_Comtrade()`
@@ -1490,14 +1510,15 @@ classification, frequency and/or country is available via
 can use function `is.available_Comtrade()`. Similar to
 `download_Comtrade()` this function uses the [Comtrade Data Availability
 file](https://comtrade.un.org/data/da) which it updates once a
-day.<sup>[2](#fn2)</sup> For the full documentation, type
+day.<sup>[3](#fn3)</sup> For the full documentation, type
 `?is.available_Comtrade` in R or visit the reference section of
 `is.available_Comtrade()`.
 
 ### Example 1
 
-To get a tibble listing all countries for which `annual`, `HS2007` trade
-data is available for the year `2008`, run:
+To get a [tibble](https://tibble.tidyverse.org/) listing all countries
+for which `annual`, `HS2007` trade data is available for the year
+`2008`, run:
 
 ``` r
 da1 <- is.available_Comtrade(
@@ -1580,7 +1601,6 @@ is.available_Comtrade(
 #>   <chr>     <dbl>
 #> 1 Australia  2019
 #> 2 Austria    2019
-
 is.available_Comtrade(
   is.contained = "ustr",
   is.fuzzy = TRUE,
@@ -1698,23 +1718,23 @@ download_Comtrade(
     `HS 2007 Product Code`, `ISIC Revision 3 Product Code`
   )
 #> # A tibble: 4,876 x 4
-#>    `Original Comtrade~ `HS 2017 Product ~ `HS 2007 Product~ `ISIC Revision 3 Pr~
-#>    <chr>               <chr>              <chr>             <chr>               
-#>  1 H5                  010121             010110            0121                
-#>  2 H5                  010129             010190            0121                
-#>  3 H5                  010221             010210            0121                
-#>  4 H5                  010229             010290            0121                
-#>  5 H5                  010310             010310            0122                
-#>  6 H5                  010391             010391            0122                
-#>  7 H5                  010392             010392            0122                
-#>  8 H5                  010410             010410            0121                
-#>  9 H5                  010420             010420            0121                
-#> 10 H5                  010511             010511            0122                
+#>    `Original Comtrade Query` `HS 2017 Product~ `HS 2007 Produc~ `ISIC Revision ~
+#>    <chr>                     <chr>             <chr>            <chr>           
+#>  1 H5                        010121            010110           0121            
+#>  2 H5                        010129            010190           0121            
+#>  3 H5                        010221            010210           0121            
+#>  4 H5                        010229            010290           0121            
+#>  5 H5                        010310            010310           0122            
+#>  6 H5                        010391            010391           0122            
+#>  7 H5                        010392            010392           0122            
+#>  8 H5                        010410            010410           0121            
+#>  9 H5                        010420            010420           0121            
+#> 10 H5                        010511            010511           0122            
 #> # ... with 4,866 more rows
 ```
 
 Please note that the chaining of concordance tables may be very
-intriguing; however, it’s not free of any downsides as is discussed in
+intriguing; however, it’s not free of its downsides as is discussed in
 the article on [chaining concordance
 tables](https://amannj.github.io/resources/comtradeRggregator/articles/chaining-concordance-tables.html).
 
@@ -1857,8 +1877,8 @@ check_token(token = good_token)
 
 ### `rm_temporaryFiles()`
 
-Remove all temporary files and folders For the full documentation, type
-`?rm_temporaryFiles` in R or visit the reference section of
+Removes all temporary files and folders. For the full documentation,
+type `?rm_temporaryFiles` in R or visit the reference section of
 `rm_temporaryFiles()`.
 
 #### Example 1
@@ -1901,14 +1921,20 @@ rm_temporaryFiles(location.temporaryFiles = NULL)
 
 # Footnotes
 
-<a name="fn1">1</a>: Note that we set `rm.temporaryFiles = FALSE` in the
-second query to demonstrate (i) how to [rebuild trade data set using
+<a name="fn1">1</a>: In case you are looking for a particular commodity,
+e.g., ‘sheep’, but do not know the corresponding commodity code, you can
+use [comtradr](https://github.com/ropensci/comtradr)’s
+[`ct_commodity_lookup()`](https://docs.ropensci.org/comtradr/reference/ct_commodity_lookup.html)
+function.
+
+<a name="fn2">2</a>: Note that we set `rm.temporaryFiles = FALSE` in the
+second query to demonstrate (i) how to [rebuild a trade data set using
 temporary data files using
 `build_Comtrade()`](https://github.com/amannj/comtradeRggregator#build_comtrade),
 and (ii) the [different return messages for
 `rm_temporaryFiles()`](https://github.com/amannj/comtradeRggregator#rm_temporaryfiles).
 
-<a name="fn2">2</a>: The same is true for `download_Comtrade()`. In
+<a name="fn3">3</a>: The same is true for `download_Comtrade()`. In
 other words, both `download_Comtrade()` and `is.available_Comtrade()`
 will check the time stamp of the internally stored Comtrade Data
 Availability file and update it once a day using the official [Comtrade
@@ -1916,9 +1942,3 @@ Data Availability](https://comtrade.un.org/data/da) file. For further
 reference, the locally stored Comtrade Data Availability file can be
 accessed by typing `Comtrade_DA`, and the help page can be accessed by
 typing `?Comtrade_DA`.
-
-<a name="fn3">3</a>: In case you are looking for a particular commodity,
-e.g., ‘sheep’, but do not know the corresponding commodity code, you can
-use [comtradr](https://github.com/ropensci/comtradr)’s
-[ct\_commodity\_lookup()](https://docs.ropensci.org/comtradr/reference/ct_commodity_lookup.html)
-function.

@@ -1,6 +1,6 @@
 #' @title  Extract Comtrade Data
 #'
-#' @description  Main function to generate trade data querie that is processed
+#' @description  Main function to generate trade data query that is processed
 #' in `download_Comtrade_core()`  to interact with `comtradr::ct_search()`
 #' and [Comtrade's API](https://comtrade.un.org/data/doc/api/) to
 #' extract Comtrade trade data.
@@ -9,7 +9,7 @@
 #' either `annual` or `monthly`; default is `annual`.
 #' @param month  Optional parameter for `monthly` extract; ignored for
 #'  `annual` extracts; default is all 12 months if
-#'  `frequency = 'monthly'` while argument `monty` remains unspecified.
+#'  `frequency = 'monthly'` while argument `monthy` remains unspecified.
 #' @param countries Select list of countries to be extracted; default is `all`.
 #' @param partners Specify partner country/countries or `World`
 #' (as provided by Comtrade); use option `all` if you want to
@@ -31,7 +31,7 @@
 #' provided in table Trade Classification (
 #' [link](https://github.com/amannj/comtradeRggregator#trade-classifications));
 #' argument accepts long classification names, e.g. `HS2007`, as well as
-#' abbreviation, e.g. `HS3`, as inputs.
+#' abbreviations, e.g. `HS3`, as inputs.
 #' @param commodity Specify commodity code or trade data aggregate for download.
 #' Both vary by trade data set; see
 #' Trade Classification (

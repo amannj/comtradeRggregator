@@ -5,7 +5,7 @@
 \alias{H5_S4}
 \title{Concordance Table: H5 to S4}
 \format{
-A data frame with 5,386 rows and 4 variables:
+A data frame with 5,386 rows and 3 variables:
 \describe{
 \item{HS 2017 Product Code}{Harmonised System \verb{HS 2017} (\code{H5}) Product code.}
 \item{SITC Revision 4 Product Code}{Standard International Trade Classification \verb{SITC Rev.4} (\code{S4}) Product code.}

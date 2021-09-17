@@ -32,7 +32,7 @@ either \code{annual} or \code{monthly}; default is \code{annual}.}
 
 \item{month}{Optional parameter for \code{monthly} extract; ignored for
 \code{annual} extracts; default is all 12 months if
-\code{frequency = 'monthly'} while argument \code{monty} remains unspecified.}
+\code{frequency = 'monthly'} while argument \code{monthy} remains unspecified.}
 
 \item{countries}{Select list of countries to be extracted; default is \code{all}.}
 
@@ -59,7 +59,7 @@ corresponding input arguments are
 provided in table Trade Classification (
 \href{https://github.com/amannj/comtradeRggregator#trade-classifications}{link});
 argument accepts long classification names, e.g. \code{HS2007}, as well as
-abbreviation, e.g. \code{HS3}, as inputs.}
+abbreviations, e.g. \code{HS3}, as inputs.}
 
 \item{commodity}{Specify commodity code or trade data aggregate for download.
 Both vary by trade data set; see
@@ -112,7 +112,7 @@ files (which will be saved to \code{location.temporaryFiles}), should function
 query is started; default is 5.}
 }
 \description{
-Main function to generate trade data querie that is processed
+Main function to generate trade data query that is processed
 in \code{download_Comtrade_core()}  to interact with \code{comtradr::ct_search()}
 and \href{https://comtrade.un.org/data/doc/api/}{Comtrade's API} to
 extract Comtrade trade data.

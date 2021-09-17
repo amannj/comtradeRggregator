@@ -5,8 +5,8 @@
 #                          auth_token = "..."
 # )
 
-# run codecov
-#covr::codecov(token = "625f5add-28a3-4c5b-9964-a1d71a14258d")
+##run codecov
+covr::codecov(token = "625f5add-28a3-4c5b-9964-a1d71a14258d")
 
 # run gp
 #   library(comtradeRggregator)
@@ -22,6 +22,12 @@ rjson::fromJSON(
   file = paste0("https://comtrade.un.org/api/getUserInfo?token=", actualtoken)
 )
 
+library(dplyr)
+comtradr::ct_register_token("sometoken")
+comtradr::ct_search(reporters ="China",partners="All",
+          trade_direction ="all",freq = "annual",
+          start_date ="all",end_date = "all",commod_codes = "01") %>%
+  as_tibble()
 
 #
 #

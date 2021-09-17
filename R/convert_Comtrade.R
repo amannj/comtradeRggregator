@@ -1,28 +1,21 @@
 #' @title Convert Comtrade Trade Data
 #'
 #' @description Offers conversion tables for Comtrade trade data following
-#' official tables from the UN Statistics Division (
-#' [UNSD](unstats.un.org/unsd/classifications/Econ#corresp-hs))
-#' and the World Integrated Trade Solution (
-#' [WITS](wits.worldbank.org/product_concordance.html)).
+#' official tables from the UN Statistics Division ([UNSD](unstats.un.org/unsd/classifications/Econ#corresp-hs))
+#' and the World Integrated Trade Solution ([WITS](wits.worldbank.org/product_concordance.html)).
 #' For a complete list of concordance tables please see
-#' `comtradeRggregator`'s Concordance Table (
-#' [link](amannj.github.io/resources/comtradeRggregator/index.html#concordance-table)).
-#' Please see
-#' [here](amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications)
+#' `comtradeRggregator`'s Concordance Table ([link](amannj.github.io/resources/comtradeRggregator/index.html#concordance-table)).
+#' Please see [here](amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications)
 #' for a list of all nomenclatures supported by `comtradeRggregator`.
 #' @param data A data frame or vector containing (a variable listing)
 #' commodity codes following one of the supported
-#' nomenclatures; see
-#' [here](amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications).
+#' nomenclatures; see [here](amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications).
 #' @param classification.from Abbreviation of origin classification supported
-#' by `comtradeRggregator`'s Concordance Table (
-#' [link](amannj.github.io/resources/comtradeRggregator/index.html#concordance-table)).
+#' by `comtradeRggregator`'s Concordance Table ([link](amannj.github.io/resources/comtradeRggregator/index.html#concordance-table)).
 #' @param commodity.code  Name of variable containing the commodity codes
 #' corresponding to trade classification; default is `commodity_code`.
 #' @param classification.to Abbreviation of target classification based on
-#' `comtradeRggregator`'s Concordance Table (
-#' [link](amannj.github.io/resources/comtradeRggregator/index.html#concordance-table)).
+#' `comtradeRggregator`'s Concordance Table ([link](amannj.github.io/resources/comtradeRggregator/index.html#concordance-table)).
 #' @keywords concordance
 #' @export
 #' @import dplyr comtradr tibble readr rlang
@@ -55,7 +48,7 @@
 #'     classification.to = "I3"
 #'   )
 #' }
-#' @source \url{unstats.un.org/unsd/classifications/Econ#corresp-hs}
+#' @details \url{unstats.un.org/unsd/classifications/Econ#corresp-hs}
 #' \url{wits.worldbank.org/product_concordance.html}
 #' \url{unstats.un.org/unsd/classifications/Econ#corresp-hs}
 #' \url{amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications}

@@ -16,7 +16,7 @@ temporary folder needs to be created first.}
 \description{
 Remove all temporary files and download
 directories created by \code{download_Comtrade()}.
-Run this In case in \code{download_Comtrade()} had been set
+Run this in case in \code{download_Comtrade()} had been set
 to \code{rm.temporaryFiles = FALSE} but you now wish to
 remove  all temporary files and directories.
 }

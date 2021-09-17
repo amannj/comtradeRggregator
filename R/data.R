@@ -1545,7 +1545,7 @@
 #'
 #' @description Concordance table from `HS 2017` (`H5`) to `HS 1988/92` (`H0`).
 #'
-#' @format A data frame with 5,388 rows and 4 variables:
+#' @format A data frame with 5,388 rows and 3 variables:
 #' \describe{
 #'   \item{HS 2017 Product Code}{Harmonised System `HS 2017` (`H5`) Product code.}
 #'   \item{HS 1988/92 Product Code}{Harmonised System `HS 1988/92` (`H0`) Product code.}
@@ -1561,7 +1561,7 @@
 #'
 #' @description Concordance table from `HS 2017` (`H5`) to `HS 1996` (`H1`).
 #'
-#' @format A data frame with 5,388 rows and 4 variables:
+#' @format A data frame with 5,388 rows and 3 variables:
 #' \describe{
 #'   \item{HS 2017 Product Code}{Harmonised System `HS 2017` (`H5`) Product code.}
 #'   \item{HS 1996 Product Code}{Harmonised System `HS 1996` (`H1`) Product code.}
@@ -1577,7 +1577,7 @@
 #'
 #' @description Concordance table from `HS 2017` (`H5`) to `HS 2002` (`H2`).
 #'
-#' @format A data frame with 5,388  rows and 4 variables:
+#' @format A data frame with 5,388  rows and 3 variables:
 #' \describe{
 #'   \item{HS 2017 Product Code}{Harmonised System `HS 2017` (`H5`) Product code.}
 #'   \item{HS 2002 Product Code}{Harmonised System `HS 2002` (`H2`) Product code.}
@@ -1593,7 +1593,7 @@
 #'
 #' @description Concordance table from `HS 2017` (`H5`) to `HS 2007` (`H3`).
 #'
-#' @format A data frame with 5,388 rows and 4 variables:
+#' @format A data frame with 5,388 rows and 3 variables:
 #' \describe{
 #'   \item{HS 2017 Product Code}{Harmonised System `HS 2017` (`H5`) Product code.}
 #'   \item{HS 2007 Product Code}{Harmonised System `HS 2007` (`H3`) Product code.}
@@ -1609,7 +1609,7 @@
 #'
 #' @description Concordance table from `HS 2017` (`H5`) to `HS 2012` (`H4`).
 #'
-#' @format A data frame with 5,388 rows and 4 variables:
+#' @format A data frame with 5,388 rows and 3 variables:
 #' \describe{
 #'   \item{HS 2017 Product Code}{Harmonised System `HS 2017` (`H5`) Product code.}
 #'   \item{HS 2012 Product Code}{Harmonised System `HS 2012` (`H4`) Product code.}
@@ -1625,7 +1625,7 @@
 #'
 #' @description Concordance table from `HS 2017` (`H5`) to `SITC Rev.1` (`S1`).
 #'
-#' @format A data frame with 5,380 rows and 4 variables:
+#' @format A data frame with 5,380 rows and 3 variables:
 #' \describe{
 #'   \item{HS 2017 Product Code}{Harmonised System `HS 2017` (`H5`) Product code.}
 #'   \item{SITC Revision 1 Product Code}{Standard International Trade Classification `SITC Rev.1` (`S1`) Product code.}
@@ -1640,7 +1640,7 @@
 #' @title Concordance Table: H5 to S2
 #'
 #' @description Concordance table from `HS 2017` (`H5`) to `SITC Rev.2` (`S2`).
-#' @format A data frame with 5,386 rows and 4 variables:
+#' @format A data frame with 5,386 rows and 3 variables:
 #' \describe{
 #'   \item{HS 2017 Product Code}{Harmonised System `HS 2017` (`H5`) Product code.}
 #'   \item{SITC Revision 2 Product Code}{Standard International Trade Classification `SITC Rev.2` (`S2`) Product code.}
@@ -1656,7 +1656,7 @@
 #'
 #' @description Concordance table from `HS 2017` (`H5`) to `SITC Rev.3` (`S3`).
 #'
-#' @format A data frame with 5,386 rows and 4 variables:
+#' @format A data frame with 5,386 rows and 3 variables:
 #' \describe{
 #'   \item{HS 2017 Product Code}{Harmonised System `HS 2017` (`H5`) Product code.}
 #'   \item{SITC Revision 3 Product Code}{Standard International Trade Classification `SITC` Revision 3 Product code.}
@@ -1672,7 +1672,7 @@
 #'
 #' @description Concordance table from `HS 2017` (`H5`) to `SITC Rev.4` (`S4`).
 #'
-#' @format A data frame with 5,386 rows and 4 variables:
+#' @format A data frame with 5,386 rows and 3 variables:
 #' \describe{
 #'   \item{HS 2017 Product Code}{Harmonised System `HS 2017` (`H5`) Product code.}
 #'   \item{SITC Revision 4 Product Code}{Standard International Trade Classification `SITC Rev.4` (`S4`) Product code.}
@@ -1797,7 +1797,7 @@
 #' @description Concordance table from `ISIC Rev.2` (`I2`) and  `ISIC Rev.3` (`I3`).
 #'
 #'
-#' @format A data frame with 586  rows and 4 variables:
+#' @format A data frame with 586  rows and 3 variables:
 #' \describe{
 #'   \item{ISIC Revision 2 Product Code}{International Standard Industrial Classification `ISIC Rev. 2` (`I2`) Product code.}
 #'   \item{ISIC Revision 3 Product Code}{International Standard Industrial Classification `ISIC Rev. 3` (`I3`) Product code.}
@@ -1831,7 +1831,7 @@
 #' @description Concordance table from `ISIC Rev.3` (`I3`) and  `ISIC Rev.2` (`I2`).
 #'
 #'
-#' @format A data frame with 586  rows and 4 variables:
+#' @format A data frame with 586  rows and 3 variables:
 #' \describe{
 #'   \item{ISIC Revision 3 Product Code}{International Standard Industrial Classification `ISIC Rev. 3` (`I3`) Product code.}
 #'   \item{ISIC Revision 2 Product Code}{International Standard Industrial Classification `ISIC Rev. 2` (`I2`) Product code.}
@@ -1845,10 +1845,10 @@
 
 #' @title Concordance Table: I3 to I31
 #'
-#' @description Concordance table from `ISIC Rev.3` (`I3`) and  `ISIC Rev.3.1` (`I3.1`).
+#' @description Concordance table from `ISIC Rev.3` (`I3`) and  `ISIC Rev. 3.1` (`I31`).
 #'
 #'
-#' @format A data frame with 562   rows and 4 variables:
+#' @format A data frame with 562   rows and 3 variables:
 #' \describe{
 #'   \item{ISIC Revision 3 Product Code}{International Standard Industrial Classification `ISIC Rev. 3` (`I3`) Product code.}
 #'   \item{ISIC Revision 3.1 Product Code}{International Standard Industrial Classification `ISIC Rev. 3.1` (`I31`) Product code.}
@@ -1861,10 +1861,10 @@
 
 #' @title Concordance Table: I31 to I3
 #'
-#' @description Concordance table from `ISIC Rev.3.1` (`I3.1`) and  `ISIC Rev.3` (`I3`).
+#' @description Concordance table from `ISIC Rev. 3.1` (`I31`) and  `ISIC Rev.3` (`I3`).
 #'
 #'
-#' @format A data frame with 316  rows and 4 variables:
+#' @format A data frame with 316  rows and 3 variables:
 #' \describe{
 #'   \item{ISIC Revision 3.1 Product Code}{International Standard Industrial Classification `ISIC Rev. 3.1` (`I31`) Product code.}
 #'   \item{ISIC Revision 3 Product Code}{International Standard Industrial Classification `ISIC Rev. 3` (`I3`) Product code.}
@@ -1876,12 +1876,12 @@
 "I31_I3"
 
 
-#' @title Concordance Table: I3 to I4
+#' @title Concordance Table: I31 to I4
 #'
-#' @description Concordance table from `ISIC Rev.3.1` (`I3.1`) and  `ISIC Rev.4` (`I4`).
+#' @description Concordance table from `ISIC Rev. 3.1` (`I31`) and  `ISIC Rev.4` (`I4`).
 #'
 #'
-#' @format A data frame with 586  rows and 4 variables:
+#' @format A data frame with 586  rows and 3 variables:
 #' \describe{
 #'   \item{ISIC Revision 3.1 Product Code}{International Standard Industrial Classification `ISIC Rev. 3.1` (`I31`) Product code.}
 #'   \item{ISIC Revision 4 Product Code}{International Standard Industrial Classification `ISIC Rev. 4` (`I4`) Product code.}

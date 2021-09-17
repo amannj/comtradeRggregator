@@ -20,7 +20,7 @@ library(kableExtra)
 library(dplyr)
 ```
 
-`comtradeRggregator` provides function for easy reclassification of trade data using official concordance tables from the [United Nations Statistical Division (UNSD)](https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp) and the [World Integrated Trade Solution (WITS)](https://wits.worldbank.org/product_concordance.html); see [Concordance Table](https://amannj.github.io/resources/comtradeRggregator/index.html#concordance-table) below. To access respective concordance tables in R, type `<tradecode from>_<tradecode to>`. For example, the concordance table for reclassifying `H3` trade data according to the `H0` nomenclature is stored as object `H3_H0` and its R help file can be accessed by typing `?H3_H0`.
+`comtradeRggregator` provides an option for easy reclassification of trade data using official concordance tables from the [United Nations Statistical Division (UNSD)](https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp) and the [World Integrated Trade Solution (WITS)](https://wits.worldbank.org/product_concordance.html); see [Concordance Table](https://amannj.github.io/resources/comtradeRggregator/index.html#concordance-table) below. To access the respective concordance tables in R, type `<tradecode from>_<tradecode to>`. For example, the concordance table for reclassifying `H3` trade data according to the `H0` nomenclature is stored as object `H3_H0` and its R help file can be accessed by typing `?H3_H0`.
 
 However, in some cases no official concordance tables between two standards are available. For example, there is no direct concordance for reclassifying `H4` trade data to `MTN`.
 
@@ -88,7 +88,7 @@ kable(table,
 It goes without saying that in an ideal world, one would prefer to download and convert trade data for which there exists an official concordance table as this will always give you identical or better results than when chaining concordance tables. There are, however, situations, where this might not be possible, and we need to resort to a chaining of concordance tables to get from a  
 particular desired classification to another one.
 
-The subsequent section should therefore be read as a set of (not comprehensive) examples of how to chain concordance tables using `comtradeRggrecator` without any guarantee that this will (always) produce sensible results.
+The subsequent section should therefore be read as a set of (not comprehensive) examples of how to chain concordance tables using `comtradeRggregator` without any guarantee that this will (always) produce sensible results.
 
 ```{r message=FALSE}
 library(comtradeRggregator)
@@ -121,8 +121,8 @@ AT_World_H4 <- download_Comtrade(
   frequency = "annual",
   countries = "Austria",
   partners = "World",
-  tradecode = "HS2012",
-  ag = "AG6",
+  nomenclature = "HS2012",
+  commodity = "AG6",
   type = "commodities",
   select.stats = "trade_value_usd",
   direction = "exports"
@@ -178,8 +178,8 @@ AT_World_H3_MTN <- download_Comtrade(
   frequency = "annual",
   countries = "Austria",
   partners = "World",
-  tradecode = "HS2007",
-  ag = "AG6",
+  nomenclature = "HS2007",
+  commodity = "AG6",
   type = "commodities",
   select.stats = "trade_value_usd",
   direction = "exports"
@@ -225,6 +225,7 @@ tibble(
 
 
 df_out %>%
+  mutate_if(is.numeric, scientific = F, format, digits=0) %>%
   kable(
     caption = "Table 2: Comparison concordance results",
     col.names = c("", "`AT_World_H4`", "`AT_World_H4_H3`", "`AT_World_H4_H3_MTN`", "`AT_World_H3_MTN`")
