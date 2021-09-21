@@ -39,6 +39,6 @@ Depends:
 Imports: 
     rjson,
     stringr
-Remotes: 
-    amannj/comtradr@sitc-bug
+Remotes:
+    ropensci/comtradr
 VignetteBuilder: knitr
