@@ -2,8 +2,7 @@
 library(testthat) # load testthat package
 # local_edition(3)
 library(comtradeRggregator) # load package
-
-mytoken <- "lhsmuyUVrMuKuxtet0TbbJdfVUChniTF2DqR8kUxb9PqNxf2aQ+AqE+BwKHKycyg84HWaXUszKnPCKJ8zO5eFqoANzWiPaGX7dX/XEUAO0jImhk6ro/YqiL4hsPn4VLxHK5hSnE8vsHebKzR28GjyA=="
+source("P:/packages/comtradeRggregator/R/comtrade_token.R")
 
 
 test_that("download_Comtrade returns a data frame", {
@@ -423,23 +422,23 @@ test_that("download_Comtrade fails if no reasonable input arguments
 
   err14 <- function() {
     download_Comtrade(
-    year = "2018",
-    frequency = "annual",
-    countries = "Austria",
-    partners = "World",
-    nomenclature = "HS2007",
-    commodity = "ag6",
-    direction = c("imports", "exploits"),
-    type = "commodities",
-    select.stats = "trade_value_usd",
-    token = mytoken,
-    ext_cnt = 5,
-    is.mirrorData = FALSE,
-    rm.temporaryFiles = TRUE,
-    location.temporaryFiles = NULL,
-    sleep = 5
-  )
-}
+      year = "2018",
+      frequency = "annual",
+      countries = "Austria",
+      partners = "World",
+      nomenclature = "HS2007",
+      commodity = "ag6",
+      direction = c("imports", "exploits"),
+      type = "commodities",
+      select.stats = "trade_value_usd",
+      token = mytoken,
+      ext_cnt = 5,
+      is.mirrorData = FALSE,
+      rm.temporaryFiles = TRUE,
+      location.temporaryFiles = NULL,
+      sleep = 5
+    )
+  }
 
 
 

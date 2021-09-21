@@ -8,3 +8,4 @@ data/tmp/*
 data/Comtrade_DataAvailability*
 docs
 inst/doc
+README.Rmd
