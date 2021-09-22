@@ -26,4 +26,5 @@ fromm WITS' \verb{HS combined} concordance tables (\url{https://wits.worldbank.o
 \examples{
 S3_S2
 }
-\keyword{datasets}
+\keyword{Concordance}
+\keyword{table}

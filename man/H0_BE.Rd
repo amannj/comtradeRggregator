@@ -25,4 +25,5 @@ Concordance table fromm \verb{HS 1988/92} (\code{H0}) to \code{BEC4}
 \examples{
 H0_BE
 }
-\keyword{datasets}
+\keyword{Concordance}
+\keyword{table}

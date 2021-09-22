@@ -63,8 +63,8 @@ abbreviations, e.g. \code{HS3}, as inputs.}
 
 \item{commodity}{Specify commodity code or trade data aggregate for download.
 Both vary by trade data set; see
-Trade Classification (
-\href{https://github.com/amannj/comtradeRggregator#trade-classifications}{link})
+Trade Classification
+(\href{https://amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications}{link})
 for more information.}
 
 \item{type}{Type of trade data to be extracted
@@ -133,9 +133,6 @@ AT_World <- download_Comtrade(
 AT_World
 }
 
-}
-\references{
-\href{https://docs.ropensci.org/comtradr/index.html}{comtradr}
 }
 \keyword{Comtrade}
 \keyword{data}

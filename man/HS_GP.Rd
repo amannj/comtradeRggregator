@@ -25,4 +25,5 @@ Concordance table from \verb{HS Combined} (\code{HS}) to \code{GTAP}
 \examples{
 HS_GP
 }
-\keyword{datasets}
+\keyword{Concordance}
+\keyword{table}

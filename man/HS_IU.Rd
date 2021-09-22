@@ -25,4 +25,5 @@ Concordance table from \verb{HS Combined} (\code{HS}) to \code{SIC}
 \examples{
 HS_IU
 }
-\keyword{datasets}
+\keyword{Concordance}
+\keyword{table}

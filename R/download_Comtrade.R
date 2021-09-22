@@ -34,8 +34,8 @@
 #' abbreviations, e.g. `HS3`, as inputs.
 #' @param commodity Specify commodity code or trade data aggregate for download.
 #' Both vary by trade data set; see
-#' Trade Classification (
-#' [link](https://github.com/amannj/comtradeRggregator#trade-classifications))
+#' Trade Classification
+#' ([link](https://amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications))
 #' for more information.
 #' @param type Type of trade data to be extracted
 #' (either `services` or `commodities`); currently only
@@ -74,7 +74,6 @@
 #' @keywords Comtrade data download
 #' @export
 #' @import dplyr comtradr tibble readr rlang
-#' @references [comtradr](https://docs.ropensci.org/comtradr/index.html)
 #' @examples
 #' \dontrun{
 #' AT_World <- download_Comtrade(

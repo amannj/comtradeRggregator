@@ -23,4 +23,5 @@ Concordance table from \verb{HS 2017} (\code{H5}) to \verb{BEC Rev. 4} (\code{BE
 \examples{
 H5_BE
 }
-\keyword{datasets}
+\keyword{Concordance}
+\keyword{table}

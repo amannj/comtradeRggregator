@@ -25,4 +25,5 @@ Concordance table from \verb{HS 2007} (\code{H3}) to \code{GTAP}
 \examples{
 H3_GP
 }
-\keyword{datasets}
+\keyword{Concordance}
+\keyword{table}

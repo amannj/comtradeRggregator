@@ -43,8 +43,7 @@ data download by default. See documentation of \code{download_Comtrade()}
 for more information.
 }
 \seealso{
-\code{\link[=download_Comtrade]{download_Comtrade()}},
-\code{browseVignettes("comtradeRggregator")}
+\code{\link[=download_Comtrade]{download_Comtrade()}}
 }
 \keyword{build}
 \keyword{comtrade}

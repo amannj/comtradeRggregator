@@ -24,4 +24,5 @@ Concordance table from \verb{HS 2017} (\code{H5}) to \verb{SITC Rev.2} (\code{S2
 \examples{
 H5_S2
 }
-\keyword{datasets}
+\keyword{Concordance}
+\keyword{table}

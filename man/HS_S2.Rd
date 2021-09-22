@@ -25,4 +25,5 @@ Concordance table from \verb{HS Combined} (\code{HS}) to \verb{SITC Rev. 2}
 \examples{
 HS_S2
 }
-\keyword{datasets}
+\keyword{Concordance}
+\keyword{table}

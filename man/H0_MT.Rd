@@ -25,4 +25,5 @@ Concordance table from \verb{HS 1988/92} (\code{H0}) to \verb{MTN Categories}
 \examples{
 H0_MT
 }
-\keyword{datasets}
+\keyword{Concordance}
+\keyword{table}

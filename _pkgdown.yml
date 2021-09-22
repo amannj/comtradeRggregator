@@ -4,3 +4,24 @@ home:
 authors:
   "Juergen Amann":
     href: https://amannj.github.io
+
+reference:
+- contents:
+  - comtradeRggregator
+- title: Main Functions
+  desc:  The main functions of the `comtradRggregator` package.
+- contents:
+  - build_Comtrade
+  - convert_Comtrade
+  - download_Comtrade
+  - is.available_Comtrade
+- title: Auxiliary Functions
+  desc:  The list of auxiliary functions of the `comtradRggregator` package.
+- contents:
+  - add_lzs
+  - check_token
+  - rm_temporaryFiles
+- title: Concordance Tables
+  desc:  A complete list of all integrated concordance tables.
+- contents:
+  - has_keyword("Concordance")

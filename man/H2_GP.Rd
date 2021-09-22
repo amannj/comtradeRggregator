@@ -25,4 +25,5 @@ Concordance table from \verb{HS 2002} (\code{H2}) to \code{GTAP}
 \examples{
 H2_GP
 }
-\keyword{datasets}
+\keyword{Concordance}
+\keyword{table}

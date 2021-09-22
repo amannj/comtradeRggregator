@@ -8,8 +8,7 @@
 #' data download by default. See documentation of `download_Comtrade()`
 #' for more information.
 #'
-#' @seealso [comtradeRggregator::download_Comtrade()],
-#' `browseVignettes("comtradeRggregator")`
+#' @seealso [comtradeRggregator::download_Comtrade()]
 #'
 #' @param directory  Location of temporary file downloads; default is
 #'

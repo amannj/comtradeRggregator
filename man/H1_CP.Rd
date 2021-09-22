@@ -25,4 +25,5 @@ Concordance table from \verb{HS 1996} (\code{H1}) to \code{CPC}
 \examples{
 H1_CP
 }
-\keyword{datasets}
+\keyword{Concordance}
+\keyword{table}

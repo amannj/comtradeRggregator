@@ -25,4 +25,5 @@ Concordance table from \verb{HS Combined} (\code{HS}) to \verb{HS 1996} (\code{H
 \examples{
 HS_H1
 }
-\keyword{datasets}
+\keyword{Concordance}
+\keyword{table}

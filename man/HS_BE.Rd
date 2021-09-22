@@ -25,4 +25,5 @@ Concordance table from \verb{HS Combined} (\code{HS}) to \code{BEC}
 \examples{
 HS_BE
 }
-\keyword{datasets}
+\keyword{Concordance}
+\keyword{table}

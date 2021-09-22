@@ -25,4 +25,5 @@ Concordance table from \verb{HS 2002} (\code{H2}) to \verb{ISIC Rev. 3}
 \examples{
 H2_I3
 }
-\keyword{datasets}
+\keyword{Concordance}
+\keyword{table}

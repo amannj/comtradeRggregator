@@ -25,4 +25,5 @@ Concordance table fromm \verb{HS 1988/92} (\code{H0}) to \code{CCCN}
 \examples{
 H0_CC
 }
-\keyword{datasets}
+\keyword{Concordance}
+\keyword{table}

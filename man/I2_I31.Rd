@@ -24,4 +24,5 @@ Concordance table from \verb{ISIC Rev.2} (\code{I2}) and  \verb{ISIC Rev.3.1} (\
 \examples{
 I2_I31
 }
-\keyword{datasets}
+\keyword{Concordance}
+\keyword{table}

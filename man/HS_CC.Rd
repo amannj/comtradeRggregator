@@ -22,4 +22,5 @@ HS_CC
 \description{
 Concordance table from \verb{HS Combined} (\code{HS}) to \code{CCCN} (\code{CN})
 }
-\keyword{datasets}
+\keyword{Concordance}
+\keyword{table}

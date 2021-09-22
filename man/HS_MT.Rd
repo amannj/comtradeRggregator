@@ -25,4 +25,5 @@ Concordance table from \verb{HS Combined} (\code{HS}) to \verb{MTN Categories}
 \examples{
 HS_MT
 }
-\keyword{datasets}
+\keyword{Concordance}
+\keyword{table}

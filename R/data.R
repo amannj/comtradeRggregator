@@ -37,6 +37,7 @@
 #' @examples
 #' HS_BE
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "HS_BE"
 
 
@@ -52,6 +53,7 @@
 #'   \item{CCCN Product Description}{Customs Co-operation Council Nomenclature `CCCN` Product description.}
 #' }
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "HS_CC"
 
 
@@ -69,6 +71,7 @@
 #' @examples
 #' HS_CP
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "HS_CP"
 
 
@@ -86,6 +89,7 @@
 #' @examples
 #' HS_GP
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "HS_GP"
 
 
@@ -103,6 +107,7 @@
 #' @examples
 #' HS_H0
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "HS_H0"
 
 
@@ -120,6 +125,7 @@
 #' @examples
 #' HS_H1
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "HS_H1"
 
 
@@ -137,6 +143,7 @@
 #' @examples
 #' HS_H2
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "HS_H2"
 
 
@@ -154,6 +161,7 @@
 #' @examples
 #' HS_H3
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "HS_H3"
 
 
@@ -171,6 +179,7 @@
 #' @examples
 #' HS_H4
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "HS_H4"
 
 
@@ -188,6 +197,7 @@
 #' @examples
 #' HS_I2
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "HS_I2"
 
 
@@ -205,6 +215,7 @@
 #' @examples
 #' HS_I3
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "HS_I3"
 
 
@@ -222,6 +233,7 @@
 #' @examples
 #' HS_IU
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "HS_IU"
 
 
@@ -239,6 +251,7 @@
 #' @examples
 #' HS_MT
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "HS_MT"
 
 
@@ -256,6 +269,7 @@
 #' @examples
 #' HS_S1
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "HS_S1"
 
 
@@ -273,6 +287,7 @@
 #' @examples
 #' HS_S2
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "HS_S2"
 
 
@@ -290,6 +305,7 @@
 #' @examples
 #' HS_S3
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "HS_S3"
 
 
@@ -307,6 +323,7 @@
 #' @examples
 #' HS_S4
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "HS_S4"
 
 
@@ -324,6 +341,7 @@
 #' @examples
 #' H0_BE
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H0_BE"
 
 
@@ -341,6 +359,7 @@
 #' @examples
 #' H0_CC
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H0_CC"
 
 
@@ -358,6 +377,7 @@
 #' @examples
 #' H0_CP
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H0_CP"
 
 
@@ -376,6 +396,7 @@
 #' H0_GP
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
 #' \url{https://www.gtap.agecon.purdue.edu/}
+#' @keywords Concordance table
 "H0_GP"
 
 
@@ -393,6 +414,7 @@
 #' @examples
 #' H0_I2
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H0_I2"
 
 
@@ -410,6 +432,7 @@
 #' @examples
 #' H0_I3
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H0_I3"
 
 
@@ -427,6 +450,7 @@
 #' @examples
 #' H0_IU
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H0_IU"
 
 
@@ -444,6 +468,7 @@
 #' @examples
 #' H0_MT
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H0_MT"
 
 
@@ -461,6 +486,7 @@
 #' @examples
 #' H0_S1
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H0_S1"
 
 
@@ -478,6 +504,7 @@
 #' @examples
 #' H0_S2
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H0_S2"
 
 
@@ -495,6 +522,7 @@
 #' @examples
 #' H0_S3
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H0_S3"
 
 
@@ -512,6 +540,7 @@
 #' @examples
 #' H0_S4
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H0_S4"
 
 
@@ -529,6 +558,7 @@
 #' @examples
 #' H1_BE
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H1_BE"
 
 
@@ -546,6 +576,7 @@
 #' @examples
 #' H1_CC
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H1_CC"
 
 
@@ -563,6 +594,7 @@
 #' @examples
 #' H1_CP
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H1_CP"
 
 
@@ -580,6 +612,7 @@
 #' @examples
 #' H1_GP
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H1_GP"
 
 
@@ -597,6 +630,7 @@
 #' @examples
 #' H1_H0
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H1_H0"
 
 
@@ -614,6 +648,7 @@
 #' @examples
 #' H1_I2
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H1_I2"
 
 
@@ -631,6 +666,7 @@
 #' @examples
 #' H1_I3
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H1_I3"
 
 
@@ -648,6 +684,7 @@
 #' @examples
 #' H1_IU
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H1_IU"
 
 
@@ -665,6 +702,7 @@
 #' @examples
 #' H1_MT
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H1_MT"
 
 
@@ -682,6 +720,7 @@
 #' @examples
 #' H1_S1
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H1_S1"
 
 
@@ -699,6 +738,7 @@
 #' @examples
 #' H1_S2
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H1_S2"
 
 
@@ -716,6 +756,7 @@
 #' @examples
 #' H1_S3
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H1_S3"
 
 
@@ -733,6 +774,7 @@
 #' @examples
 #' H1_S4
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H1_S4"
 
 
@@ -750,6 +792,7 @@
 #' @examples
 #' H2_BE
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H2_BE"
 
 
@@ -767,6 +810,7 @@
 #' @examples
 #' H2_CC
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H2_CC"
 
 
@@ -784,6 +828,7 @@
 #' @examples
 #' H2_CP
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H2_CP"
 
 
@@ -801,6 +846,7 @@
 #' @examples
 #' H2_GP
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H2_GP"
 
 
@@ -818,6 +864,7 @@
 #' @examples
 #' H2_H0
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H2_H0"
 
 
@@ -835,6 +882,7 @@
 #' @examples
 #' H2_H1
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H2_H1"
 
 
@@ -852,6 +900,7 @@
 #' @examples
 #' H2_I2
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H2_I2"
 
 
@@ -869,6 +918,7 @@
 #' @examples
 #' H2_I3
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H2_I3"
 
 
@@ -886,6 +936,7 @@
 #' @examples
 #' H2_IU
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H2_IU"
 
 
@@ -903,6 +954,7 @@
 #' @examples
 #' H2_MT
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H2_MT"
 
 
@@ -920,6 +972,7 @@
 #' @examples
 #' H2_S1
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H2_S1"
 
 
@@ -937,6 +990,7 @@
 #' @examples
 #' H2_S2
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H2_S2"
 
 
@@ -954,6 +1008,7 @@
 #' @examples
 #' H2_S3
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H2_S3"
 
 
@@ -971,6 +1026,7 @@
 #' @examples
 #' H2_S4
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H2_S4"
 
 
@@ -988,6 +1044,7 @@
 #' @examples
 #' H3_BE
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H3_BE"
 
 
@@ -1005,6 +1062,7 @@
 #' @examples
 #' H3_CC
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H3_CC"
 
 
@@ -1022,6 +1080,7 @@
 #' @examples
 #' H3_CP
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H3_CP"
 
 
@@ -1039,6 +1098,7 @@
 #' @examples
 #' H3_GP
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H3_GP"
 
 
@@ -1056,6 +1116,7 @@
 #' @examples
 #' H3_H0
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H3_H0"
 
 
@@ -1073,6 +1134,7 @@
 #' @examples
 #' H3_H1
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H3_H1"
 
 
@@ -1090,6 +1152,7 @@
 #' @examples
 #' H3_H2
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H3_H2"
 
 
@@ -1107,6 +1170,7 @@
 #' @examples
 #' H3_I2
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H3_I2"
 
 
@@ -1124,6 +1188,7 @@
 #' @examples
 #' H3_I3
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H3_I3"
 
 
@@ -1141,6 +1206,7 @@
 #' @examples
 #' H3_IU
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H3_IU"
 
 
@@ -1158,6 +1224,7 @@
 #' @examples
 #' H3_MT
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H3_MT"
 
 
@@ -1175,6 +1242,7 @@
 #' @examples
 #' H3_S1
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H3_S1"
 
 
@@ -1192,6 +1260,7 @@
 #' @examples
 #' H3_S2
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H3_S2"
 
 
@@ -1209,6 +1278,7 @@
 #' @examples
 #' H3_S3
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H3_S3"
 
 
@@ -1226,6 +1296,7 @@
 #' @examples
 #' H3_S4
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "H3_S4"
 
 
@@ -1241,6 +1312,7 @@
 #' @examples
 #' H4_BE
 #' @source \url{https://unstats.un.org/unsd/classifications/Econ#Correspondences}
+#' @keywords Concordance table
 "H4_BE"
 
 
@@ -1262,6 +1334,7 @@
 #' @examples
 #' H4_BE5
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/bec.asp}
+#' @keywords Concordance table
 "H4_BE5"
 
 
@@ -1280,6 +1353,7 @@
 #' @examples
 #' H4_CP
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/bec.asp}
+#' @keywords Concordance table
 "H4_CP"
 
 
@@ -1298,6 +1372,7 @@
 #' @examples
 #' H4_GP
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/bec.asp}
+#' @keywords Concordance table
 "H4_GP"
 
 
@@ -1316,6 +1391,7 @@
 #' @examples
 #' H4_H0
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+#' @keywords Concordance table
 "H4_H0"
 
 
@@ -1334,6 +1410,7 @@
 #' @examples
 #' H4_H1
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+#' @keywords Concordance table
 "H4_H1"
 
 
@@ -1352,6 +1429,7 @@
 #' @examples
 #' H4_H2
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+#' @keywords Concordance table
 "H4_H2"
 
 
@@ -1370,6 +1448,7 @@
 #' @examples
 #' H4_H3
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+#' @keywords Concordance table
 "H4_H3"
 
 
@@ -1435,6 +1514,7 @@
 #' @examples
 #' H4_I31
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/bec.asp}
+#' @keywords Concordance table
 "H4_I31"
 
 #' @title Concordance Table: H4 to I4
@@ -1451,6 +1531,7 @@
 #' @examples
 #' H4_I4
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/bec.asp}
+#' @keywords Concordance table
 "H4_I4"
 
 
@@ -1469,6 +1550,7 @@
 #' @examples
 #' H4_S1
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+#' @keywords Concordance table
 "H4_S1"
 
 
@@ -1487,6 +1569,7 @@
 #' @examples
 #' H4_S2
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+#' @keywords Concordance table
 "H4_S2"
 
 
@@ -1505,6 +1588,7 @@
 #' @examples
 #' H4_S3
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+#' @keywords Concordance table
 "H4_S3"
 
 
@@ -1523,6 +1607,7 @@
 #' @examples
 #' H4_S4
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+#' @keywords Concordance table
 "H4_S4"
 
 
@@ -1538,6 +1623,7 @@
 #' @examples
 #' H5_BE
 #' @source \url{https://unstats.un.org/unsd/classifications/Econ#Correspondences}
+#' @keywords Concordance table
 "H5_BE"
 
 
@@ -1554,6 +1640,7 @@
 #' @examples
 #' H5_H0
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+#' @keywords Concordance table
 "H5_H0"
 
 
@@ -1570,6 +1657,7 @@
 #' @examples
 #' H5_H1
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+#' @keywords Concordance table
 "H5_H1"
 
 
@@ -1586,6 +1674,7 @@
 #' @examples
 #' H5_H2
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+#' @keywords Concordance table
 "H5_H2"
 
 
@@ -1602,6 +1691,7 @@
 #' @examples
 #' H5_H3
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+#' @keywords Concordance table
 "H5_H3"
 
 
@@ -1618,6 +1708,7 @@
 #' @examples
 #' H5_H4
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+#' @keywords Concordance table
 "H5_H4"
 
 
@@ -1634,6 +1725,7 @@
 #' @examples
 #' H5_S1
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+#' @keywords Concordance table
 "H5_S1"
 
 
@@ -1649,6 +1741,7 @@
 #' @examples
 #' H5_S2
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+#' @keywords Concordance table
 "H5_S2"
 
 
@@ -1665,6 +1758,7 @@
 #' @examples
 #' H5_S3
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+#' @keywords Concordance table
 "H5_S3"
 
 
@@ -1681,6 +1775,7 @@
 #' @examples
 #' H5_S4
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+#' @keywords Concordance table
 "H5_S4"
 
 
@@ -1698,6 +1793,7 @@
 #' @examples
 #' S1_BE
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "S1_BE"
 
 
@@ -1715,6 +1811,7 @@
 #' @examples
 #' S2_BE
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "S2_BE"
 
 
@@ -1732,6 +1829,7 @@
 #' @examples
 #' S2_I2
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "S2_I2"
 
 
@@ -1751,6 +1849,7 @@
 #' @examples
 #' S2_S1
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "S2_S1"
 
 
@@ -1770,6 +1869,7 @@
 #' @examples
 #' S3_S1
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "S3_S1"
 
 
@@ -1789,6 +1889,7 @@
 #' @examples
 #' S3_S2
 #' @source \url{https://wits.worldbank.org/product_concordance.html}
+#' @keywords Concordance table
 "S3_S2"
 
 
@@ -1806,6 +1907,7 @@
 #' @examples
 #' I2_I3
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+#' @keywords Concordance table
 "I2_I3"
 
 
@@ -1823,6 +1925,7 @@
 #' @examples
 #' I2_I31
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+#' @keywords Concordance table
 "I2_I31"
 
 
@@ -1840,6 +1943,7 @@
 #' @examples
 #' I3_I2
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+#' @keywords Concordance table
 "I3_I2"
 
 
@@ -1857,6 +1961,7 @@
 #' @examples
 #' I3_I31
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+#' @keywords Concordance table
 "I3_I31"
 
 #' @title Concordance Table: I31 to I3
@@ -1873,6 +1978,7 @@
 #' @examples
 #' I31_I3
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+#' @keywords Concordance table
 "I31_I3"
 
 
@@ -1890,4 +1996,5 @@
 #' @examples
 #' I31_I4
 #' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+#' @keywords Concordance table
 "I31_I4"

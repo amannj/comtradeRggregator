@@ -71,4 +71,5 @@ Please see the official UNSD documentation for further information.
 \examples{
 H4_I31
 }
-\keyword{datasets}
+\keyword{Concordance}
+\keyword{table}

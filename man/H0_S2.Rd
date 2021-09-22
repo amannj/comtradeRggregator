@@ -25,4 +25,5 @@ Concordance table from \verb{HS 1988/92} (\code{H0}) to \verb{SITC Rev. 2}
 \examples{
 H0_S2
 }
-\keyword{datasets}
+\keyword{Concordance}
+\keyword{table}

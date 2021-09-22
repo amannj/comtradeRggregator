@@ -3,34 +3,36 @@
 \docType{package}
 \name{comtradeRggregator}
 \alias{comtradeRggregator}
-\title{\code{comtradeRggregator} package}
+\title{The \code{comtradeRggregator} package}
 \description{
-The goal of "comtradeRggregator" package is to provide a simple tool to
-download and reclassify large chunks of Comtrade trade data.
+The goal of the \code{comtradeRggregator} package is to provide a simple tool to
+download and reclassify large chunks of
+\href{https://comtrade.un.org}{Comtrade trade data} trade data.
 It offers functionality to download and aggregate Comtrade trade data
-using Comtrade's official API and provides  options for easy
+using Comtrade's \href{https://comtrade.un.org/data/doc/api/}{API}
+and provides  options for easy
 reclassification of trade data using official
-United Nations Statistical Division (UNSD) and
-World Integrated Trade Solution (WITS).
+\href{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}{United Nations Statistical Division (UNSD)}
+and the \href{https://wits.worldbank.org/product_concordance.html}{World Integrated Trade Solution (WITS)}.
 }
 \details{
-\code{comtradeRggregator}:
+The \code{comtradeRggregator} package:
 \itemize{
-\item \href{amannj.github.io/resources/comtradeRggregator}{project web page}
-\item \href{github.com/amannj/comtradeRggregator}{GitHub}.
+\item \href{https://amannj.github.io/resources/comtradeRggregator}{package web page}
+\item \href{https://github.com/amannj/comtradeRggregator}{GitHub}
 }
 
-\code{comtradr}
+The \code{comtradr} package:
 \itemize{
-\item \href{docs.ropensci.org/comtradr/}{rOpenSci}
-\item \href{github.com/ropensci/comtradr}{Github}
+\item \href{https://docs.ropensci.org/comtradr/}{rOpenSci}
+\item \href{https://github.com/ropensci/comtradr}{Github}
 }
 
-Concordance tables
+Concordance tables:
 \itemize{
 \item United Nations Statistical Division
-\href{unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}{(UNSD)}
+\href{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}{(UNSD)}
 \item World Integrated Trade Solution
-\href{wits.worldbank.org/product_concordance.html}{(WITS)}.
+\href{https://wits.worldbank.org/product_concordance.html}{(WITS)}
 }
 }

@@ -25,4 +25,5 @@ Concordance table from \verb{HS 2007} (\code{H3}) to \code{SIC}
 \examples{
 H3_IU
 }
-\keyword{datasets}
+\keyword{Concordance}
+\keyword{table}

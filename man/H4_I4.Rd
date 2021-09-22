@@ -25,4 +25,5 @@ Concordance table from \verb{HS 2012} (\code{H4}) to \verb{ISIC Rev. 4} (\code{I
 \examples{
 H4_I4
 }
-\keyword{datasets}
+\keyword{Concordance}
+\keyword{table}

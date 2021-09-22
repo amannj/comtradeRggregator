@@ -25,4 +25,5 @@ Concordance table from \verb{HS Combined} (\code{HS}) to \code{CPC}
 \examples{
 HS_CP
 }
-\keyword{datasets}
+\keyword{Concordance}
+\keyword{table}

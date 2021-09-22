@@ -1,30 +1,32 @@
-#' \code{comtradeRggregator} package
+#' The \code{comtradeRggregator} package
 #'
-#' The goal of "comtradeRggregator" package is to provide a simple tool to
-#' download and reclassify large chunks of Comtrade trade data.
+#' The goal of the `comtradeRggregator` package is to provide a simple tool to
+#' download and reclassify large chunks of
+#' [Comtrade trade data](https://comtrade.un.org) trade data.
 #' It offers functionality to download and aggregate Comtrade trade data
-#' using Comtrade's official API and provides  options for easy
+#' using Comtrade's [API](https://comtrade.un.org/data/doc/api/)
+#' and provides  options for easy
 #' reclassification of trade data using official
-#' United Nations Statistical Division (UNSD) and
-#' World Integrated Trade Solution (WITS).
+#' [United Nations Statistical Division (UNSD)](https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp)
+#' and the [World Integrated Trade Solution (WITS)](https://wits.worldbank.org/product_concordance.html).
 #'
 #'
-#' `comtradeRggregator`:
+#' The `comtradeRggregator` package:
 #'
-#' - \href{amannj.github.io/resources/comtradeRggregator}{project web page}
-#' - \href{github.com/amannj/comtradeRggregator}{GitHub}.
+#' - \href{https://amannj.github.io/resources/comtradeRggregator}{package web page}
+#' - \href{https://github.com/amannj/comtradeRggregator}{GitHub}
 #'
-#'  `comtradr`
+#' The `comtradr` package:
 #'
-#'  - \href{docs.ropensci.org/comtradr/}{rOpenSci}
-#'  - \href{github.com/ropensci/comtradr}{Github}
+#'  - \href{https://docs.ropensci.org/comtradr/}{rOpenSci}
+#'  - \href{https://github.com/ropensci/comtradr}{Github}
 #'
-#'  Concordance tables
+#' Concordance tables:
 #'
 #' - United Nations Statistical Division
-#' [(UNSD)](unstats.un.org/unsd/trade/classifications/correspondence-tables.asp)
+#' [(UNSD)](https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp)
 #' - World Integrated Trade Solution
-#' [(WITS)](wits.worldbank.org/product_concordance.html).
+#' [(WITS)](https://wits.worldbank.org/product_concordance.html)
 #'
 #'
 #' @docType package

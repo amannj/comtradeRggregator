@@ -25,4 +25,5 @@ Concordance table from \verb{HS 1988/92} (\code{H0}) to \code{CPC}
 \examples{
 H0_CP
 }
-\keyword{datasets}
+\keyword{Concordance}
+\keyword{table}

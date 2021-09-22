@@ -121,7 +121,7 @@ AT_World_H4 <- download_Comtrade(
   frequency = "annual",
   countries = "Austria",
   partners = "World",
-  nomenclature = "HS2012",
+  nomenclature = "HS2017",
   commodity = "AG6",
   type = "commodities",
   select.stats = "trade_value_usd",

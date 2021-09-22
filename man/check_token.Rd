@@ -16,8 +16,8 @@ in Comtrade's
 
 The validity of the token can be checked using the official
 \href{https://comtrade.un.org/ws/CheckRights.aspx}{Access Rights Information}
-mask, or directly via the official API service (
-\href{https://comtrade.un.org/api/swagger/ui/index#!/Auth/Auth_Authorize}{link}).
+mask, or directly via the official API service
+(\href{https://comtrade.un.org/api/swagger/ui/index#!/Auth/Auth_Authorize}{link}).
 
 In order to add a valid token to your \code{comtradeRggregator} query:
 \enumerate{

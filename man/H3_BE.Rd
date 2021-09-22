@@ -25,4 +25,5 @@ Concordance table from \verb{HS 2007} (\code{H3}) to \code{BEC}
 \examples{
 H3_BE
 }
-\keyword{datasets}
+\keyword{Concordance}
+\keyword{table}

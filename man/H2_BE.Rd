@@ -25,4 +25,5 @@ Concordance table from \verb{HS 2002} (\code{H2}) to \code{BEC}
 \examples{
 H2_BE
 }
-\keyword{datasets}
+\keyword{Concordance}
+\keyword{table}

@@ -25,4 +25,5 @@ Concordance table from \verb{SITC Rev.2} (\code{S2}) to \verb{ISIC Rev. 2} (\cod
 \examples{
 S2_I2
 }
-\keyword{datasets}
+\keyword{Concordance}
+\keyword{table}

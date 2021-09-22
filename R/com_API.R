@@ -6,8 +6,8 @@
 #'
 #' The validity of the token can be checked using the official
 #' [Access Rights Information](https://comtrade.un.org/ws/CheckRights.aspx)
-#' mask, or directly via the official API service (
-#' [link](https://comtrade.un.org/api/swagger/ui/index#!/Auth/Auth_Authorize)).
+#' mask, or directly via the official API service
+#' ([link](https://comtrade.un.org/api/swagger/ui/index#!/Auth/Auth_Authorize)).
 #'
 #' In order to add a valid token to your `comtradeRggregator` query:
 #'

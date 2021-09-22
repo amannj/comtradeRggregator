@@ -25,4 +25,5 @@ Concordance table from \verb{HS 2012} (\code{H4})to \code{CPC}
 \examples{
 H4_CP
 }
-\keyword{datasets}
+\keyword{Concordance}
+\keyword{table}

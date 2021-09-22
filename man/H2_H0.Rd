@@ -25,4 +25,5 @@ Concordance table from \verb{HS 2002} (\code{H2}) to \verb{HS 1988/92} (\code{H0
 \examples{
 H2_H0
 }
-\keyword{datasets}
+\keyword{Concordance}
+\keyword{table}

@@ -25,4 +25,5 @@ Concordance table from \verb{HS 2007} (\code{H3}) to \code{CCCN}
 \examples{
 H3_CC
 }
-\keyword{datasets}
+\keyword{Concordance}
+\keyword{table}

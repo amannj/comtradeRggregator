@@ -25,4 +25,5 @@ Concordance table from \verb{HS 2007} (\code{H3}) to \verb{HS 2002} (\code{H2})
 \examples{
 H3_H2
 }
-\keyword{datasets}
+\keyword{Concordance}
+\keyword{table}

@@ -25,4 +25,5 @@ Concordance table from \verb{SITC Rev.1} (\code{S1}) to \code{BEC}.
 \examples{
 S1_BE
 }
-\keyword{datasets}
+\keyword{Concordance}
+\keyword{table}
