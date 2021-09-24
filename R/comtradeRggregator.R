@@ -1,6 +1,6 @@
 #' The \code{comtradeRggregator} package
 #'
-#' The goal of the `comtradeRggregator` package is to provide a simple tool to
+#' The `comtradeRggregator` package provides a simple tool to
 #' download and reclassify large chunks of
 #' [Comtrade trade data](https://comtrade.un.org) trade data.
 #' It offers functionality to download and aggregate Comtrade trade data

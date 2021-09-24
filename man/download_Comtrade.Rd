@@ -56,8 +56,8 @@ all available countries.
 data extraction;  default is \code{HS2007}/\code{H3}; monthly trade data only available
 for \code{HS}. The full list of possible trade classifications and
 corresponding input arguments are
-provided in table Trade Classification (
-\href{https://github.com/amannj/comtradeRggregator#trade-classifications}{link});
+provided in table Trade Classification
+(\href{https://github.com/amannj/comtradeRggregator#trade-classifications}{link});
 argument accepts long classification names, e.g. \code{HS2007}, as well as
 abbreviations, e.g. \code{HS3}, as inputs.}
 

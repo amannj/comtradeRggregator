@@ -22,7 +22,7 @@ However, in all those cases the internal logic of the conversion is that we use
 in turn, we want to extract only a set of traded commodities that belong to only
 a specific sub-group of the target classification? 
 
-In the example below we assume we want to extract all *SITC Rev. 2* (`S2`) trade data
+In the example below, we assume we want to extract all *SITC Rev. 2* (`S2`) trade data
 that belongs to a very specific manufacturing sector, say, *ISIC Rev. 2* (`I2`)
 sector `3530 - Petroleum refineries`. We can accomplish this in a few simple
 steps:
@@ -39,13 +39,14 @@ library(comtradeRggregator)
 Next, we extract all `S2` codes that correspond to the `I2` sector `3530`
 which we want to extract:
 
+
 ```{r message=FALSE, warning=FALSE}
 comm_petrol <- S2_I2 %>%
   filter(`ISIC Revision 2 Product Code` == 3530)
 comm_petrol
 ```
 
-In a next step we use the SITC commodity codes of `comm_petrol` as an input argument
+In the next step, we use the SITC commodity codes of `comm_petrol` as an input argument
 for the API query:
 
 ```{r message=FALSE, warning=FALSE}

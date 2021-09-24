@@ -1,6 +1,6 @@
 #' @title Convert Comtrade Trade Data
 #'
-#' @description Offers conversion tables for Comtrade trade data following
+#' @description This function offers conversion tables for Comtrade trade data following
 #' official tables from the UN Statistics Division ([UNSD](https://unstats.un.org/unsd/classifications/Econ#corresp-hs))
 #' and the World Integrated Trade Solution ([WITS](https://wits.worldbank.org/product_concordance.html)).
 #' For a complete list of concordance tables please see

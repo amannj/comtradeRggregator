@@ -85,7 +85,7 @@ kable(table,
 
 # Practical examples
 
-It goes without saying that in an ideal world, one would prefer to download and convert trade data for which there exists an official concordance table as this will always give you identical or better results than when chaining concordance tables. There are, however, situations, where this might not be possible, and we need to resort to a chaining of concordance tables to get from a  
+It goes without saying that in an ideal world, one would prefer to download and convert trade data for which there exists an official concordance table, as this will always give you identical or better results than when chaining concordance tables. There are, however, situations, where this might not be possible, and we need to resort to the chaining of concordance tables to get from a  
 particular desired classification to another one.
 
 The subsequent section should therefore be read as a set of (not comprehensive) examples of how to chain concordance tables using `comtradeRggregator` without any guarantee that this will (always) produce sensible results.
@@ -98,7 +98,7 @@ library(comtradeRggregator)
 
 # Concordance `H4` to `MTN`
 
-For this example we start with a data extract following the `HS 2012` (`H4`) nomenclature which we want to convert to the `Multilateral Trade Negotiations` (`MTN`) standard. As illustrated in the [Concordance Table](https://amannj.github.io/resources/comtradeRggregator/index.html#concordance-table) above, there is no designated concordance table available. We can, however use the fact that
+For this example, we start with a data extract following the `HS 2012` (`H4`) nomenclature, which we want to convert to the `Multilateral Trade Negotiations` (`MTN`) standard. As illustrated in the [Concordance Table](https://amannj.github.io/resources/comtradeRggregator/index.html#concordance-table) above, there is no designated concordance table available. We can, however, use the fact that
 
 - there is a designated concordance table between `H4` and `H3`;
 - there is another designated concordance table between `H3` and `MTN`.
@@ -121,7 +121,7 @@ AT_World_H4 <- download_Comtrade(
   frequency = "annual",
   countries = "Austria",
   partners = "World",
-  nomenclature = "HS2017",
+  nomenclature = "HS2012",
   commodity = "AG6",
   type = "commodities",
   select.stats = "trade_value_usd",
@@ -139,7 +139,7 @@ AT_World_H4_H3 <- AT_World_H4 %>%
   )
 ```
 
-As you can see, `convert_Comtrade()` informs you that commodity code `999999 - Commodities not specified according to kind` contained in `AT_World_H4` could not be matched to any `H3` classification. In the given example this seems fine as commodity code `999999 - Commodities not specified according to kind` seems to belong to a 'catch-all' category of otherwise unspecified commodities:
+As you can see, `convert_Comtrade()` informs you that commodity code `999999 - Commodities not specified according to kind` contained in `AT_World_H4` could not be matched to any `H3` classification. In the given example, this is fine as this particular commodity code belongs to a "catch-all" category of otherwise unspecified commodities:
 
 ```{r}
 AT_World_H4_H3 %>%
@@ -147,7 +147,7 @@ AT_World_H4_H3 %>%
   select(commodity_code, commodity, `HS 2007 Product Code`, trade_value_usd)
 ```
 
-This "catch-all" category is lost during the conversion step, and you should always double-check to make sure you do not 'lose too many' commodity groups when converting between standards.
+We lose this "catch-all" category during the conversion step, and you should always double-check to make sure you do not 'lose too many' commodity groups when converting between standards.
 
 #### Step 3. Use `convert_Comtrade()` again to convert from `H3` to `MTN`
 
@@ -159,13 +159,13 @@ AT_World_H4_H3_MTN <- AT_World_H4_H3 %>%
   )
 ```
 
-Here you can see that in the last step `convert_Comtrade()` has more difficulties matching the respective commodity  codes to `MTN` aggregates. 
+Here you can see that in the last step, `convert_Comtrade()` has more difficulties matching the respective commodity codes to `MTN` aggregates. 
 
-Is this problem the result of chaining concordance tables? This is explored in the next section.
+Is this problem the result of chaining concordance tables? We explore this in the next section.
 
 ### How good is the `H4` to `MTN` concordance?
 
-In the table below we compare the results of the different conversion steps where we look at the trade volume of exports (in USD) of  `AT_World_H4` (the baseline) vs. `AT_World_H4_H3` and `AT_World_H4_H3_MTN`. Basically, we want to know how much of the baseline data is lost during the different conversion steps. The two metrics for this are 
+In the table below, we compare the results of the different conversion steps where we look at the trade volume of exports (in USD) of  `AT_World_H4` (the baseline) vs. `AT_World_H4_H3` and `AT_World_H4_H3_MTN`. We want to know how much of the baseline data is lost during the different conversion steps. The two metrics for this are 
 
 - the absolute difference between the trade volume of exports (in USD) after each reclassification vs. the baseline; and
 - the percentage difference of the same aggregates.
@@ -190,9 +190,9 @@ AT_World_H3_MTN <- download_Comtrade(
   )
 ```
 
-As Table 2 below illustrates, the conversion from `H4` to `H3` results in a loss of roughly 5 percentage points of trade data. The difference in the sums is exclusively due to `999999 - Commodities not specified according to kind` as established before. Chaining concordance tables results in a total loss of 8 percentage points which is indeed notable. However, as `AT_World_H3_MTN` indicates, this loss is mostly due to the unmapped category `999999 - Commodities not specified according to kind`, and not the result of chaining concordance tables.
+As Table 2 below illustrates, the conversion from `H4` to `H3` results in a loss of roughly five percentage points of trade data. The difference in the sums is exclusively due to `999999 - Commodities not specified according to kind` as established before. Chaining concordance tables results in a total loss of 8 percentage points which is indeed notable. However, as `AT_World_H3_MTN` indicates, this loss is mostly due to the unmapped category `999999 - Commodities not specified according to kind`, and not the result of chaining concordance tables.
 
-In other words, chaining concordance tables to transform `H4` trade data to the `MTN` classification does seem to produce sensible results on the basis of the explored example.
+In other words, chaining concordance tables to transform `H4` trade data to the `MTN` classification does seem to produce sensible results based on the explored example.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 AT_World_H4 %>%
@@ -216,7 +216,7 @@ AT_World_H3_MTN %>%
 
 
 tibble(
-  Summary = c("Trade value USD", "Absolute difference to `AT_World_H4`", "Share in `AT_World_H4` (in %)"),
+  Summary = c("Trade value (in USD)", "Absolute difference to `AT_World_H4`  (in USD)", "Share in `AT_World_H4` (%)"),
   AT_World_H4 = c(c11, abs(c11 - c11), round(c11 / c11 * 100, 0)),
   AT_World_H4_H3 = c(c12, abs(c12 - c11), round(c12 / c11 * 100, 0)),
   AT_World_H4_H3_MTN = c(c13, abs(c13 - c11), round(c13 / c11 * 100, 0)),

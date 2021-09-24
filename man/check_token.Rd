@@ -38,7 +38,6 @@ check_token() # by default, no token provided.
 \dontrun{
 check_token(token = "your token") # add your access token
 }
-
 }
 \keyword{Comtrade}
 \keyword{api}

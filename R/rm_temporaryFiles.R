@@ -20,6 +20,10 @@
 #' @keywords remove
 #' @export
 #' @import dplyr comtradr tibble readr rlang
+#' @examples
+#' \dontrun{
+#' rm_temporaryFiles(location.temporaryFiles = <location of your temporary files>)
+#' }
 rm_temporaryFiles <- function(location.temporaryFiles = NULL) {
 
   ## Obtain location of temporary directory
@@ -49,3 +53,4 @@ rm_temporaryFiles <- function(location.temporaryFiles = NULL) {
     message("Temporary directory already empty. Nothing to delete.")
   }
 }
+

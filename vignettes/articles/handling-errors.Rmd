@@ -28,12 +28,12 @@ Double-check all input parameters for `download_Comtrade()` for any issues/incon
 
 ## Error code 409
 
-One of the most common issues is that if you hit a usage limit a,
+One of the most common issues is that if you hit a usage limit a
 **409 (conflict) error** is returned along with a message specifying why the request was blocked and when requests may resume.
 
-Whenever such an error occurs during one of its queries, `comtradeRggregator` pauses the data query and, after a specified cool-off of an hour, tries to resume the download. This means that you can conveniently max out the user limit for bulk downloads, and  `comtradeRggregator` will make sure your query fails because of usage limits. The limits for unauthenticated requests, i.e. guests, are set to 100 requests per hour (per IP address or authenticated user). See [Comtrade's API help page](https://comtrade.un.org/data/doc/api/) for more information.
+Whenever such an error occurs during one of its queries, `comtradeRggregator` pauses the data query. Next, after a specified cool-off of an hour, it tries to resume the download. This means that you can conveniently max out the user limit for bulk downloads, and  `comtradeRggregator` will ensure your query fails because of usage limits. The limits for unauthenticated requests, i.e. guests, are set to 100 requests per hour (per IP address or authenticated user). See [Comtrade's API help page](https://comtrade.un.org/data/doc/api/) for more information.
 
-However, this is **not** practice I would wish to encourage. Instead, it is advised that for large bulk downloads you obtain an authentication code (token) which you can then use when calling `download_Comtrade()`. This will allow you to 
+However, this is **not** practice I would wish to encourage. Instead, you should acquire an authentication code (token) which you can then use when calling `download_Comtrade()`for large bulk downloads.
 
 1. Follow the instruction on Comtrade's API page to [Comtrade's API help page](https://comtrade.un.org/data/doc/api/) to get access to an authentication code (token).
 
@@ -45,21 +45,21 @@ However, this is **not** practice I would wish to encourage. Instead, it is advi
 
 Unexplored/unspecified error. `comtradeRggregator` will pause the download for 60 seconds and re-send the last unsuccessful query again.
 
-This should typically eliminate the issue and your request should go through after at most a handful of attempts.
+This should typically eliminate the issue, and your request should go through after at most a handful of attempts.
 
-In case you are running a very large request, consider increasing the interval between every single request by increasing the parameter value for `sleep` in `download_Comtrade()`.
+In case you are running a big request, i.e., you try to download a big chunk of data, consider increasing the interval between every single request. You can do this by increasing the parameter value for `sleep` in `download_Comtrade()`.
 
 # Other error messages
 
 ### Error in `curl::curl_fetch_memory()`
 
-Sometimes, especially when downloading large(r) chunks of data, you might run into the following error message.
+Sometimes, especially when downloading large(r) chunks of data, you might run into the following error message:
 
 ```
 Error in curl::curl_fetch_memory(url, handle = handle) : 
   Operation was aborted by an application callback
 ```
 
-From experience, and in the context of this package, the error message relates to file you are trying to download with `curl`. In other words, there are limits on the respective file sizes and download times per file, and one of your `download_Comtrade()` queries might hit one of those `curl` limits.
+From experience, and in the context of this package, the error message relates to the file you are trying to download with `curl`. In other words, there are limits on the respective file sizes and download times per file, and one of your `download_Comtrade()` queries might hit one of those `curl` limits.
   
-In such a case, try re-running your `download_Comtrade()` query by reducing the value for `ext_cnt` which sets the number of countries extracted with each query (default and maximum is 5). The lower the number for `ext_cnt`, the fewer countries are downloaded simultaneously, hence the smaller the file size and the shorter the download time. Alternatively, the same error message also gets triggered when your device gets disconnected from the internet, so also double-check to make sure you are still online.
+In such a case, try re-running your `download_Comtrade()` query by reducing the value for `ext_cnt`, which sets the number of countries extracted with each request (default and maximum is 5). The lower the number for `ext_cnt`, the fewer countries are downloaded simultaneously, hence the smaller the file size and the shorter the download time. Alternatively, the same error message also gets triggered when your device gets disconnected from the internet, so also double-check to make sure you are still online.

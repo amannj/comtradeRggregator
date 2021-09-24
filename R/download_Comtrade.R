@@ -28,8 +28,8 @@
 #' data extraction;  default is `HS2007`/`H3`; monthly trade data only available
 #' for `HS`. The full list of possible trade classifications and
 #' corresponding input arguments are
-#' provided in table Trade Classification (
-#' [link](https://github.com/amannj/comtradeRggregator#trade-classifications));
+#' provided in table Trade Classification
+#' ([link](https://github.com/amannj/comtradeRggregator#trade-classifications));
 #' argument accepts long classification names, e.g. `HS2007`, as well as
 #' abbreviations, e.g. `HS3`, as inputs.
 #' @param commodity Specify commodity code or trade data aggregate for download.

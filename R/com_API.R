@@ -33,7 +33,6 @@
 #' \dontrun{
 #' check_token(token = "your token") # add your access token
 #' }
-#'
 check_token <- function(token = NULL) {
   if (!is.null(token)) {
     info_token <- NULL

@@ -20,4 +20,9 @@ Run this in case in \code{download_Comtrade()} had been set
 to \code{rm.temporaryFiles = FALSE} but you now wish to
 remove  all temporary files and directories.
 }
+\examples{
+\dontrun{
+rm_temporaryFiles(location.temporaryFiles = <location of your temporary files>)
+}
+}
 \keyword{remove}

@@ -6,7 +6,7 @@ Authors@R:
            family = "Amann",
            role = c("aut", "cre"),
            email = "amannj.work@gmail.com")
-Description: The goal of "comtradeRggregator" package is to provide a simple 
+Description: The "comtradeRggregator" package provides as simple 
     tool to download and reclassify large chunks of Comtrade trade data.
     It offers functionality to download and aggregate Comtrade trade data
     using Comtrade's official API and provides  options for easy

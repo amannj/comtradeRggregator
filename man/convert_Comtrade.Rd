@@ -26,7 +26,7 @@ corresponding to trade classification; default is \code{commodity_code}.}
 \code{comtradeRggregator}'s Concordance Table (\href{https://amannj.github.io/resources/comtradeRggregator/index.html#concordance-table}{link}).}
 }
 \description{
-Offers conversion tables for Comtrade trade data following
+This function offers conversion tables for Comtrade trade data following
 official tables from the UN Statistics Division (\href{https://unstats.un.org/unsd/classifications/Econ#corresp-hs}{UNSD})
 and the World Integrated Trade Solution (\href{https://wits.worldbank.org/product_concordance.html}{WITS}).
 For a complete list of concordance tables please see

@@ -5,7 +5,7 @@
 \alias{comtradeRggregator}
 \title{The \code{comtradeRggregator} package}
 \description{
-The goal of the \code{comtradeRggregator} package is to provide a simple tool to
+The \code{comtradeRggregator} package provides a simple tool to
 download and reclassify large chunks of
 \href{https://comtrade.un.org}{Comtrade trade data} trade data.
 It offers functionality to download and aggregate Comtrade trade data
