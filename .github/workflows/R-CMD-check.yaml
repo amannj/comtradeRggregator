@@ -24,6 +24,7 @@ jobs:
       - uses: r-lib/actions/setup-pandoc@v1 
       - name: Install dependencies
         run: |
+          echo COMTRADE_TOKEN="$COMTRADE_TOKEN" >> ~/.Renviron
           install.packages(c("remotes", "rcmdcheck"))
           remotes::install_deps(dependencies = TRUE)
         shell: Rscript {0}
