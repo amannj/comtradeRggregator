@@ -1,12 +1,14 @@
 ---
 title: "Introduction to comtradeRggregator"
-description: >
-  Download and Reclassify Comtrade Trade Data.
+description: "Download and Reclassify Comtrade Trade Data."
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Introduction to comtradeRggregator}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+toc:
+  inline: true
+  depth: 3
 ---
 
 First, load the package.

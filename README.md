@@ -67,7 +67,7 @@ reclassification that are absent from either the
     Request](https://comtrade.un.org/data/doc/api/#DataAvailabilityRequests)
     for more information. The full list of possible trade
     classifications and their corresponding input arguments used in the
-    `comtradeRggregator` package are provided in the [Trade
+    `comtradeRggregator` package is provided in the [Trade
     Classifications](https://amannj.github.io/resources/comtradeRggregator/#trade-classifications)
     table:
 
@@ -106,7 +106,7 @@ reclassification that are absent from either the
     please see below. To access any of the respective concordance tables
     in R, type `<tradecode from>_<tradecode to>`. For example, the
     concordance table for reclassifying `H3` trade data according to the
-    `H0` nomenclature is stored as object `H3_H0` and its R help file
+    `H0` nomenclature is stored as object `H3_H0`, and its R help file
     can be accessed by typing `?H3_H0`. The R help files provide further
     information on the nature and individual features of the respective
     concordance matrices.
@@ -1264,20 +1264,7 @@ devtools::install_github("amannj/comtradeRggregator",
   auth_token = auth_token,
   force = TRUE
 )
-#> cpp11 (0.3.1 -> 0.4.0) [CRAN]
-#> 
-#>   There is a binary version available but the source version is later:
-#>       binary source needs_compilation
-#> cpp11  0.3.1  0.4.0             FALSE
-#> 
-#>          checking for file 'C:\Users\amann\AppData\Local\Temp\Rtmpg7oHoE\remotes2fe0cf87676\amannj-comtradeRggregator-93cd4ff7912232581c5c59bec30a97f7f9a2d51b/DESCRIPTION' ...  v  checking for file 'C:\Users\amann\AppData\Local\Temp\Rtmpg7oHoE\remotes2fe0cf87676\amannj-comtradeRggregator-93cd4ff7912232581c5c59bec30a97f7f9a2d51b/DESCRIPTION'
-#>       -  preparing 'comtradeRggregator': (1.8s)
-#>    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   v  checking DESCRIPTION meta-information
-#>       -  checking for LF line-endings in source and make files and shell scripts
-#>       -  checking for empty or unneeded directories
-#>       -  building 'comtradeRggregator_0.0.0.9000.tar.gz'
-#>      
-#> 
+
 ```
 
 For more information as well as practical examples, please see the [Get
