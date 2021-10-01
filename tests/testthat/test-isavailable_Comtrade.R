@@ -1,10 +1,3 @@
-# Our file is called "test-isavailable_Comtrade.R"
-library(testthat) # load testthat package
-#local_edition(3)
-library(comtradeRggregator) # load package
-
-
-
 test_that("is.available_Comtrade returns data frame", {
   da1 <- is.available_Comtrade(
     frequency = "annual",

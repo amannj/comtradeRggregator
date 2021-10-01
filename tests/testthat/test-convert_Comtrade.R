@@ -1,10 +1,3 @@
-# Our file is called "test-convert_Comtrade.R"
-library(testthat) # load testthat package
-#local_edition(3)
-library(comtradeRggregator) # load package
-
-
-
 test_that("convert_Comtrade returns a data frame of length 1", {
   dat <- tibble("commodity_code" = c("220110"))
   out <- convert_Comtrade(dat,

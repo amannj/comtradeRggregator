@@ -1,7 +1,3 @@
-library(testthat) # load testthat package
-#local_edition(3)
-library(comtradeRggregator) # load our package
-
 test_that("check_token() checks if no token provided", {
   no_token <- function() check_token()
   expect_message(

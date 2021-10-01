@@ -1,10 +1,3 @@
-# Our file is called "test-build_Comtrade.R"
-library(testthat) # load testthat package
-# local_edition(3)
-library(comtradeRggregator) # load package
-
-
-
 test_that("build_Comtrade returns object 1 to 1 if no arguments are invoked", {
   loc_path <- system.file(package = "comtradeRggregator")
   loc <- paste0(loc_path, "/tests-data")

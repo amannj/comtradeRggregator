@@ -1,10 +1,3 @@
-# Our file is called "test-rm_temporaryFiles.R"
-library(testthat) # load testthat package
-#local_edition(3)
-library(comtradeRggregator) # load package
-
-
-
 test_that("remove temporary files of folder that exists
           but file does not exist", {
   msg1 <- function() rm_temporaryFiles(location.temporaryFiles = NULL)

@@ -1,10 +1,3 @@
-# Our file is called "test-utils.R" - we test all utils.R functions
-library(testthat) # load testthat package
-# local_edition(3)
-library(comtradeRggregator) # load our package
-
-
-
 # Test %not.in% ----------
 test_that("%not.in% TRUE or FALSE", {
   is.not.in <- 5 %not.in% c(1, 5)

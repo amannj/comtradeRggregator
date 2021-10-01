@@ -7,9 +7,6 @@ vignette: >
   %\VignetteIndexEntry{Introduction to comtradeRggregator}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
-toc:
-  inline: true
-  depth: 3
 ---
 
 First, load the package.
@@ -162,10 +159,18 @@ mirrX_AT_DE_v2 <- download_Comtrade(
   rm.temporaryFiles = FALSE,
   build.Comtrade = FALSE
 )
-#> Data download complete. Please see location specified in argument
-#> `location.temporaryFiles` for location of temporary files.
+## Data download complete. Please see location specified in argument
+## `location.temporaryFiles` for location of temporary files.
+```
+
+The object itself is a null object.
+
+```{r message=FALSE, warning=FALSE, eval=FALSE}
 mirrX_AT_DE_v2
-#> NULL
+```
+
+```{r message=FALSE, warning=FALSE, eval=FALSE}
+## NULL
 ```
 
 
@@ -439,27 +444,28 @@ of a particular token and without running a Comtrade query.
 ### Example 1
 
 
-In this example we evaluate the `check_token()` function when providing:
+In this example we evaluate the `check_token()` function when providing
 
-1. no token (the default);
-2. a 'bad', i.e., unregistered token;
-3. a 'good', i.e., registered token.
+- no token (the default):
 
-
-
-```{r message=TRUE, warning=TRUE}
+```{r message=FALSE, warning=FALSE, eval=FALSE}
 check_token() # no token; default
+## No Comtrade token specified; download restricted to 100 queries per hour.
 ```
 
-```{r message=TRUE, warning=TRUE}
+- a 'bad', i.e., unregistered token:
+
+```{r message=FALSE, warning=FALSE, eval=FALSE}
 bad_token <-  "..." # create a fake token
 check_token(token = bad_token)
+## Comtrade token incorrect; download restricted to 100 queries per hour.
 ```
+
+- a 'good', i.e., registered token:
 
 ```{r message=FALSE, warning=FALSE, eval=FALSE}
 check_token(token = good_token)
-#> Comtrade token added; download limit set to 10,000 queries per hour.
-#> [1] TRUE
+## Comtrade token added; download limit set to 10,000 queries per hour.
 ```
 
 

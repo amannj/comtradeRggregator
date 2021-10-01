@@ -1,8 +1,3 @@
-# Our file is called "test-download_ComtradeDA.R"
-library(testthat) # load testthat package
-# local_edition(3)
-library(comtradeRggregator) # load package
-#source("P:/packages/comtradeRggregator/R/COMTRADE_TOKEN.R")
 
 
 test_that("download_Comtrade returns a data frame", {
@@ -16,7 +11,7 @@ test_that("download_Comtrade returns a data frame", {
     direction = "all",
     type = "commodities",
     select.stats = "all",
-    token = COMTRADE_TOKEN,
+    token = Sys.getenv("COMTRADE_TOKEN"),
     ext_cnt = 5,
     is.mirrorData = FALSE,
     rm.temporaryFiles = TRUE,
@@ -43,7 +38,7 @@ test_that("download_Comtrade returns a data frame, temporary files user location
     direction = "all",
     type = "commodities",
     select.stats = "all",
-    token = COMTRADE_TOKEN,
+    token = Sys.getenv("COMTRADE_TOKEN"),
     ext_cnt = 5,
     is.mirrorData = FALSE,
     rm.temporaryFiles = TRUE,
@@ -69,67 +64,20 @@ test_that("download_Comtrade returns NULL if build.Comtraede != TRUE", {
     direction = "all",
     type = "commodities",
     select.stats = "all",
-    token = COMTRADE_TOKEN,
+    token = Sys.getenv("COMTRADE_TOKEN"),
     ext_cnt = 5,
     build.Comtrade = FALSE,
     is.mirrorData = FALSE,
     rm.temporaryFiles = TRUE,
     location.temporaryFiles = NULL,
-    sleep = 5
+    sleep = 20
   )
 
   expect_equal(AT_World, NULL)
 })
 
 
-test_that("download_Comtrade returns consistent mirror data", {
-  download_Comtrade(
-    year = c("2018"),
-    frequency = "annual",
-    month = NULL,
-    countries = "Germany",
-    partners = "Austria",
-    nomenclature = "HS2007",
-    commodity = c("ag6"),
-    select.stats = "trade_value_usd",
-    direction = "imports",
-    type = "commodities",
-    rm.temporaryFiles = TRUE,
-    token = COMTRADE_TOKEN,
-    ext_cnt = 5,
-    is.mirrorData = FALSE,
-    location.temporaryFiles = NULL
-  ) -> IM_DE_AT
 
-  download_Comtrade(
-    year = c("2018"),
-    frequency = "annual",
-    month = NULL,
-    countries = "Austria",
-    partners = "Germany",
-    nomenclature = "HS2007",
-    commodity = c("ag6"),
-    select.stats = "trade_value_usd",
-    direction = "exports",
-    type = "commodities",
-    rm.temporaryFiles = TRUE,
-    token = COMTRADE_TOKEN,
-    ext_cnt = 5,
-    is.mirrorData = TRUE,
-    location.temporaryFiles = NULL
-  ) -> mirrX_AT_DE
-
-  IM_DE_AT %>%
-    summarise(sum(trade_value_usd)) %>%
-    pull() / mirrX_AT_DE %>%
-      summarise(sum(trade_value_usd)) %>%
-      pull() -> s_out
-
-
-  expect_s3_class(IM_DE_AT, "data.frame")
-  expect_s3_class(mirrX_AT_DE, "data.frame")
-  expect_equal(s_out, 1)
-})
 
 
 test_that("download_Comtrade fails if country doesn't exist", {
@@ -144,7 +92,7 @@ test_that("download_Comtrade fails if country doesn't exist", {
       direction = "all",
       type = "commodities",
       select.stats = "all",
-      token = COMTRADE_TOKEN,
+      token = Sys.getenv("COMTRADE_TOKEN"),
       ext_cnt = 5,
       is.mirrorData = FALSE,
       rm.temporaryFiles = TRUE,
@@ -170,7 +118,7 @@ test_that("download_Comtrade fails if no reasonable input arguments
       direction = "all",
       type = "commodities",
       select.stats = "all",
-      token = COMTRADE_TOKEN,
+      token = Sys.getenv("COMTRADE_TOKEN"),
       ext_cnt = 5,
       is.mirrorData = FALSE,
       rm.temporaryFiles = TRUE,
@@ -190,7 +138,7 @@ test_that("download_Comtrade fails if no reasonable input arguments
       direction = "all",
       type = "commodities",
       select.stats = "all",
-      token = COMTRADE_TOKEN,
+      token = Sys.getenv("COMTRADE_TOKEN"),
       ext_cnt = 5,
       is.mirrorData = FALSE,
       rm.temporaryFiles = TRUE,
@@ -210,7 +158,7 @@ test_that("download_Comtrade fails if no reasonable input arguments
       direction = "all",
       type = "commodities",
       select.stats = "all",
-      token = COMTRADE_TOKEN,
+      token = Sys.getenv("COMTRADE_TOKEN"),
       ext_cnt = 5,
       is.mirrorData = FALSE,
       rm.temporaryFiles = TRUE,
@@ -230,7 +178,7 @@ test_that("download_Comtrade fails if no reasonable input arguments
       direction = "all",
       type = "commodities",
       select.stats = "all",
-      token = COMTRADE_TOKEN,
+      token = Sys.getenv("COMTRADE_TOKEN"),
       ext_cnt = 5,
       is.mirrorData = FALSE,
       rm.temporaryFiles = TRUE,
@@ -250,7 +198,7 @@ test_that("download_Comtrade fails if no reasonable input arguments
       direction = "all",
       type = "commodities",
       select.stats = "all",
-      token = COMTRADE_TOKEN,
+      token = Sys.getenv("COMTRADE_TOKEN"),
       ext_cnt = 5,
       is.mirrorData = FALSE,
       rm.temporaryFiles = TRUE,
@@ -270,7 +218,7 @@ test_that("download_Comtrade fails if no reasonable input arguments
       direction = "net exports",
       type = "commodities",
       select.stats = "all",
-      token = COMTRADE_TOKEN,
+      token = Sys.getenv("COMTRADE_TOKEN"),
       ext_cnt = 5,
       is.mirrorData = FALSE,
       rm.temporaryFiles = TRUE,
@@ -290,7 +238,7 @@ test_that("download_Comtrade fails if no reasonable input arguments
       direction = "exports",
       type = "services",
       select.stats = "all",
-      token = COMTRADE_TOKEN,
+      token = Sys.getenv("COMTRADE_TOKEN"),
       ext_cnt = 5,
       is.mirrorData = FALSE,
       rm.temporaryFiles = TRUE,
@@ -310,7 +258,7 @@ test_that("download_Comtrade fails if no reasonable input arguments
       direction = "exports",
       type = "commodities",
       select.stats = "mystats",
-      token = COMTRADE_TOKEN,
+      token = Sys.getenv("COMTRADE_TOKEN"),
       ext_cnt = 5,
       is.mirrorData = FALSE,
       rm.temporaryFiles = TRUE,
@@ -331,7 +279,7 @@ test_that("download_Comtrade fails if no reasonable input arguments
       direction = "exports",
       type = "commodities",
       select.stats = "mystats",
-      token = COMTRADE_TOKEN,
+      token = Sys.getenv("COMTRADE_TOKEN"),
       ext_cnt = 5,
       is.mirrorData = FALSE,
       rm.temporaryFiles = TRUE,
@@ -351,7 +299,7 @@ test_that("download_Comtrade fails if no reasonable input arguments
       direction = "all",
       type = "commodities",
       select.stats = "some",
-      token = COMTRADE_TOKEN,
+      token = Sys.getenv("COMTRADE_TOKEN"),
       ext_cnt = 5,
       is.mirrorData = FALSE,
       rm.temporaryFiles = TRUE,
@@ -371,7 +319,7 @@ test_that("download_Comtrade fails if no reasonable input arguments
       direction = "all",
       type = "commodities",
       select.stats = "some",
-      token = COMTRADE_TOKEN,
+      token = Sys.getenv("COMTRADE_TOKEN"),
       ext_cnt = 5,
       is.mirrorData = FALSE,
       rm.temporaryFiles = TRUE,
@@ -391,7 +339,7 @@ test_that("download_Comtrade fails if no reasonable input arguments
       direction = "all",
       type = "commodities",
       select.stats = "some",
-      token = COMTRADE_TOKEN,
+      token = Sys.getenv("COMTRADE_TOKEN"),
       ext_cnt = 5,
       is.mirrorData = FALSE,
       rm.temporaryFiles = TRUE,
@@ -411,7 +359,7 @@ test_that("download_Comtrade fails if no reasonable input arguments
       direction = "all",
       type = "commodities",
       select.stats = "some",
-      token = COMTRADE_TOKEN,
+      token = Sys.getenv("COMTRADE_TOKEN"),
       ext_cnt = 5,
       is.mirrorData = FALSE,
       rm.temporaryFiles = TRUE,
@@ -431,7 +379,7 @@ test_that("download_Comtrade fails if no reasonable input arguments
       direction = c("imports", "exploits"),
       type = "commodities",
       select.stats = "trade_value_usd",
-      token = COMTRADE_TOKEN,
+      token = Sys.getenv("COMTRADE_TOKEN"),
       ext_cnt = 5,
       is.mirrorData = FALSE,
       rm.temporaryFiles = TRUE,
@@ -459,6 +407,56 @@ test_that("download_Comtrade fails if no reasonable input arguments
 })
 
 
+test_that("download_Comtrade returns consistent mirror data", {
+  download_Comtrade(
+    year = c("2018"),
+    frequency = "annual",
+    month = NULL,
+    countries = "Germany",
+    partners = "Austria",
+    nomenclature = "HS2007",
+    commodity = c("ag6"),
+    select.stats = "trade_value_usd",
+    direction = "imports",
+    type = "commodities",
+    rm.temporaryFiles = TRUE,
+    token = Sys.getenv("COMTRADE_TOKEN"),
+    ext_cnt = 5,
+    is.mirrorData = FALSE,
+    location.temporaryFiles = NULL,
+    sleep = 30
+  ) -> IM_DE_AT
+
+  download_Comtrade(
+    year = c("2018"),
+    frequency = "annual",
+    month = NULL,
+    countries = "Austria",
+    partners = "Germany",
+    nomenclature = "HS2007",
+    commodity = c("ag6"),
+    select.stats = "trade_value_usd",
+    direction = "exports",
+    type = "commodities",
+    rm.temporaryFiles = TRUE,
+    token = Sys.getenv("COMTRADE_TOKEN"),
+    ext_cnt = 5,
+    is.mirrorData = TRUE,
+    location.temporaryFiles = NULL
+  ) -> mirrX_AT_DE
+
+  IM_DE_AT %>%
+    summarise(sum(trade_value_usd)) %>%
+    pull() / mirrX_AT_DE %>%
+      summarise(sum(trade_value_usd)) %>%
+      pull() -> s_out
+
+
+  expect_s3_class(IM_DE_AT, "data.frame")
+  expect_s3_class(mirrX_AT_DE, "data.frame")
+  expect_equal(s_out, 1)
+})
+
 test_that("download_Comtrade fails if no monthly data for country available", {
   AT_World <- function() {
     download_Comtrade(
@@ -472,7 +470,7 @@ test_that("download_Comtrade fails if no monthly data for country available", {
       direction = "all",
       type = "commodities",
       select.stats = "all",
-      token = COMTRADE_TOKEN,
+      token = Sys.getenv("COMTRADE_TOKEN"),
       ext_cnt = 5,
       is.mirrorData = FALSE,
       rm.temporaryFiles = TRUE,
@@ -497,7 +495,7 @@ test_that("download_Comtrade takes 12 months as default monthly argument", {
     direction = "all",
     type = "commodities",
     select.stats = "all",
-    token = COMTRADE_TOKEN,
+    token = Sys.getenv("COMTRADE_TOKEN"),
     ext_cnt = 5,
     is.mirrorData = FALSE,
     rm.temporaryFiles = TRUE,
@@ -522,7 +520,7 @@ test_that("download_Comtrade accepts commodity codes for different AG", {
     direction = "all",
     type = "commodities",
     select.stats = "all",
-    token = COMTRADE_TOKEN,
+    token = Sys.getenv("COMTRADE_TOKEN"),
     ext_cnt = 5,
     is.mirrorData = FALSE,
     rm.temporaryFiles = TRUE,
