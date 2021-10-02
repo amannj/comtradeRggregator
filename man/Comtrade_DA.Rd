@@ -23,14 +23,12 @@ A data frame with 65k rows and 10 variables:
 \url{https://comtrade.un.org/data/da}
 }
 \usage{
-data(Comtrade_DA)
+Comtrade_DA
 }
 \description{
 Checks data availability of Comtrade data.
 }
 \examples{
-\dontrun{
-update_ComtradeDA()
-}
+Comtrade_DA
 }
 \keyword{datasets}

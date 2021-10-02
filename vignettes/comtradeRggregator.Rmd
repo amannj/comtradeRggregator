@@ -2,7 +2,7 @@
 title: "Introduction to comtradeRggregator"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{overviewR: Easily Extracting Information About Your Data}
+  %\VignetteIndexEntry{comtradeRggregator: Download and Reclassify Comtrade Trade Data}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -147,7 +147,7 @@ Note that in *Example 4* above, we have instructed `download_Comtrade()` to keep
 
 Below, we instruct `download_Comtrade()` to run the same query as for `mirrX_AT_DE` in *Example 4*; however, by setting `build.Comtrade = FALSE` and `rm.temporaryFiles = FALSE` we ensure that the trade data downloaded from Comtrade will only be stored locally but not built and loaded into R.
 
-```{r message=FALSE, warning=FALSE, eval=FALSE}
+```{r eval=FALSE, message=FALSE, warning=FALSE}
 mirrX_AT_DE_v2 <- download_Comtrade(
   year = "2018",
   frequency = "annual",
@@ -168,11 +168,11 @@ mirrX_AT_DE_v2 <- download_Comtrade(
 
 The object itself is a null object.
 
-```{r message=FALSE, warning=FALSE, eval=FALSE}
+```{r eval=FALSE, message=FALSE, warning=FALSE}
 mirrX_AT_DE_v2
 ```
 
-```{r message=FALSE, warning=FALSE, eval=FALSE}
+```{r eval=FALSE, message=FALSE, warning=FALSE}
 ## NULL
 ```
 
@@ -373,7 +373,8 @@ We now use the function `build_Comtrade()` in such cases where argument `directo
 ```{r}
 # Location of temporary data download
 location_package <- system.file("data/tmp", package = "comtradeRggregator")
-location_files <- list.files(location_package)
+# Locate most recent temprarily download data package (i.e., mirrX_AT_DE)
+location_files <- list.files(location_package)[length(list.files(location_package))]
 
 # Rebuilt mirrored exports from Austria to Germany in 2018
 mirrX_AT_DE_rebuilt <- build_Comtrade(
