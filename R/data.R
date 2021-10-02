@@ -1,4 +1,4 @@
-#' @title Comtrade Data Availability
+#' @title Check and return availability of comtrade
 #'
 #' @description Checks data availability of Comtrade data.
 #'
@@ -20,6 +20,7 @@
 #' update_ComtradeDA()
 #' }
 #' @source \url{https://comtrade.un.org/data/da}
+#' @usage data(Comtrade_DA)
 "Comtrade_DA"
 
 

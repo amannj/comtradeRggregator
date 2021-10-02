@@ -3,7 +3,7 @@
 \docType{data}
 \name{Comtrade_DA}
 \alias{Comtrade_DA}
-\title{Comtrade Data Availability}
+\title{Check and return availability of comtrade}
 \format{
 A data frame with 65k rows and 10 variables:
 \describe{
@@ -23,7 +23,7 @@ A data frame with 65k rows and 10 variables:
 \url{https://comtrade.un.org/data/da}
 }
 \usage{
-Comtrade_DA
+data(Comtrade_DA)
 }
 \description{
 Checks data availability of Comtrade data.
