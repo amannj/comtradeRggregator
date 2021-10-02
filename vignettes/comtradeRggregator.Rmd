@@ -1,22 +1,23 @@
 ---
 title: "Introduction to comtradeRggregator"
-description: "Download and Reclassify Comtrade Trade Data."
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Introduction to comtradeRggregator}
+  %\VignetteIndexEntry{overviewR: Easily Extracting Information About Your Data}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
-toc:
-  inline: true
-  depth: 3
 ---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(collapse = TRUE,
+                      comment = "#>")
+```
 
 First, load the package.
 
 ```{r message=FALSE, warning=FALSE}
 library(comtradeRggregator)
 ```
-
 
 
 # Main Functions
