@@ -162,8 +162,8 @@ mirrX_AT_DE_v2 <- download_Comtrade(
   rm.temporaryFiles = FALSE,
   build.Comtrade = FALSE
 )
-## Data download complete. Please see location specified in argument
-## `location.temporaryFiles` for location of temporary files.
+#> Data download complete. Please see location specified in argument
+#> `location.temporaryFiles` for location of temporary files.
 ```
 
 The object itself is a null object.
@@ -173,13 +173,51 @@ mirrX_AT_DE_v2
 ```
 
 ```{r eval=FALSE, message=FALSE, warning=FALSE}
-## NULL
+#> NULL
 ```
 
 
 
+### Example 6
+
+The package comtradeRggregator also offers a simple option to download mirrored World trade data by downloading mirrored bilateral trade data and aggregating it up to mirrored global trade flows. In the simple example below, we download mirrored trade data for Austria. By setting `countries = "World"`, the package will create a mirrored data query for all global economies for the provided specification of year, trade flow, nomenclature, level of aggregation etc., and create a ready-to-use data frame if you set `build.Comtrade = TRUE`. In other words, to get the first mirrored export commodity flow for commodity group `01 - Live animals; animal products`, data from all countries that **import** this commodity from Austria are queried and aggregated. When aggregating the final data set, the 'order' of the trade flows is reversed, i.e. "imports" are expressed as "mirrored exports". This reversal is highlighted in column `reporter` and indicates that the  "reporter" is based on mirror data.
 
 
+
+```{r eval=FALSE, message=FALSE, warning=FALSE}
+AT_mirr <- download_Comtrade(
+  year = "2018",
+  frequency = "annual",
+  countries = "Austria",
+  partners = "World",
+  nomenclature = "HS2007",
+  commodity = "ag2",
+  select.stats = "trade_value_usd",
+  direction = "all",
+  type = "commodities",
+  is.mirrorData = TRUE,
+  rm.temporaryFiles = FALSE,
+  build.Comtrade = TRUE,
+)
+AT_mirr
+#> # A tibble: 363 x 8
+#>    classification period trade_flow reporter         partner commodity_code commodity    ~ trade_value_usd
+#>    <chr>           <int> <chr>      <chr>            <chr>   <chr>          <chr>        ~           <dbl>
+#>  1 H3               2018 Export     Austria mirrored World   01             Live animals;~       146122111
+#>  2 H3               2018 Export     Austria mirrored World   02             Meat and edib~      1279494900
+#>  3 H3               2018 Export     Austria mirrored World   03             Fish and crus~        10067362
+#>  4 H3               2018 Export     Austria mirrored World   04             Dairy produce~      1522685531
+#>  5 H3               2018 Export     Austria mirrored World   05             Products of a~        79271602
+#>  6 H3               2018 Export     Austria mirrored World   06             Live trees an~        26938801
+#>  7 H3               2018 Export     Austria mirrored World   07             Edible vegeta~       142130800
+#>  8 H3               2018 Export     Austria mirrored World   08             Edible fruit ~       209962703
+#>  9 H3               2018 Export     Austria mirrored World   09             Coffee, tea, ~       116804431
+#> 10 H3               2018 Export     Austria mirrored World   10             Cereals      ~       544971227
+#> # ... with 353 more rows
+```
+
+
+In elaborate cases such as the one above it is advisable to keep any temporarily downloaded data by setting `rm.temporaryFiles = FALSE`, and, ideally, to have access to an authenticated account [(see here)](https://comtrade.un.org/data/doc/api/). For a more practical application that requires a more elaborate mirror data download, please see [this](https://amannj.github.io/resources/comtradeRggregator/articles/mirror-data.html) article.
 
 
 ------------------------------------------------------------------------
