@@ -76,11 +76,33 @@ my_token <- Sys.getenv("COMTRADE_TOKEN")
 my_location <- "C:/Users/amann/Desktop/tmp"
 ```
 
-Define list of countries for extraction.
+Next, we want to define list of countries for extraction. The two examples we 
+use here are *Afghanistan* and the *Democratic Republic of the Congo*. 
+To double-check the correct spelling of the country names we use 
+`is.available_Comtrade()` with option `is.fuzzy = TRUE`. Below I run the check 
+for the *Democratic Republic of the Congo* only. However, for large queries it
+is advisable to double-check that all country names are correct before setting
+up the actual data query. If you don't do that, and are unlucky in the sense that
+a particular country name is spelled differently in 
+[comtrade](https://comtrade.un.org/), your data query will return an error.
+
+```{r message=FALSE, warning=FALSE}
+is.available_Comtrade(
+  is.contained = "Congo",
+  is.fuzzy = TRUE,
+  frequency = "annual",
+  nomenclature = "HS",
+  year = '2019'
+)
+```
+
+The final list of countries we want to query is:
 
 ```{r}
-country_list = c("Afghanistan", "Angola")
+country_list = c("Afghanistan", "Dem. Rep. of the Congo")
+
 ```
+
 
 When setting up this more elaborate query, there are a few things we should
 keep in mind:
