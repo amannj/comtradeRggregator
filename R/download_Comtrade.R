@@ -337,7 +337,7 @@ download_Comtrade <- function(year = "2018",
         time <- paste0(yr, "-", month)
       } else {
         # update time
-        month <- sprintf("%0.2d", month)
+        month <- sprintf("%0.2d", as.numeric(month))
         time <- paste0(yr, "-", month)
       }
     }
