@@ -104,7 +104,7 @@ With this function, you can not only download specific commodity codes in this w
 
 Sometimes trade data between countries do not "add up": For example, in 2020 country A reported USD $X$ millions exports to country B while B was reporting USD $Y$ millions, where $X \neq Y$. In such cases it makes sense to use [mirrored trade data](https://wits.worldbank.org/wits/wits/witshelp/Content/Data_Retrieval/T/Intro/B2.Imports_Exports_and_Mirror.htm). The function `download_Comtrade()` offers an easy option to accomplish this. The relation of the queries used for the extraction of trade data and mirrored trade data is illustrated in the example below: 
 
-Reported imports by Germany from Austria and reported mirrored exports by Austria to Germany are identical by definition.<sup>[2](#fn2)</sup> Note that in the query below we can use either `tradecode` names or abbreviations as input arguments for `tradecode` as provided in table [Trade Classifications](#trade-classifications).
+Reported imports by Germany from Austria and reported mirrored exports by Austria to Germany are identical by definition.<sup>[2](#fn2)</sup> Note that in the query below we can use either `tradecode` names or abbreviations as input arguments for `tradecode` as provided in table [Trade Classifications](https://amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications).
 
 ```{r message=FALSE, warning=FALSE}
 IM_DE_AT <- download_Comtrade(
@@ -180,7 +180,9 @@ mirrX_AT_DE_v2
 
 ### Example 6
 
-The package comtradeRggregator also offers a simple option to download mirrored World trade data by downloading mirrored bilateral trade data and aggregating it up to mirrored global trade flows. In the simple example below, we download mirrored trade data for Austria. By setting `countries = "World"`, the package will create a mirrored data query for all global economies for the provided specification of year, trade flow, nomenclature, level of aggregation etc., and create a ready-to-use data frame if you set `build.Comtrade = TRUE`. In other words, to get the first mirrored export commodity flow for commodity group `01 - Live animals; animal products`, data from all countries that **import** this commodity from Austria are queried and aggregated. When aggregating the final data set, the 'order' of the trade flows is reversed, i.e. "imports" are expressed as "mirrored exports". This reversal is highlighted in column `reporter` and indicates that the  "reporter" is based on mirror data.
+`comtradeRggregator` also offers simple options to download mirrored global trade data by downloading mirrored bilateral trade flows and aggregating it up to mirrored global trade data. In the simple example below, we download mirrored trade data for Austria. By setting `countries = "World"`, the package will create a mirrored data query for all global economies for the provided specification of year, trade flow, nomenclature, level of aggregation etc., and create a ready-to-use data frame.
+
+In other words, to get the first mirrored export commodity flow for commodity group `01 - Live animals; animal products` in the query below, data from all countries that *import* this commodity from Austria are queried and aggregated. Then, when aggregating the final data set, the 'order' of the trade flows is reversed, i.e. the previously downloaded *imports* are labelled as *mirrored exports*. This reversal is highlighted in column `reporter`.
 
 
 
@@ -217,7 +219,7 @@ AT_mirr
 ```
 
 
-In elaborate cases such as the one above it is advisable to keep any temporarily downloaded data by setting `rm.temporaryFiles = FALSE`, and, ideally, to have access to an authenticated account [(see here)](https://comtrade.un.org/data/doc/api/). For a more practical application that requires a more elaborate mirror data download, please see [this](https://amannj.github.io/resources/comtradeRggregator/articles/mirror-data.html) article.
+In elaborate cases such as the one above it is advisable to keep any temporarily downloaded data by setting `rm.temporaryFiles = FALSE`, and, ideally, to have access to an authenticated account; see [here](https://comtrade.un.org/data/doc/api/) for more information. For a more practical application, please see [this](https://amannj.github.io/resources/comtradeRggregator/articles/articles/mirror-data.html) article.
 
 
 ------------------------------------------------------------------------

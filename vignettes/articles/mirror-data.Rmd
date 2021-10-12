@@ -18,27 +18,47 @@ knitr::opts_chunk$set(
 ```
 
 
+## Why use mirror data?
+
+Sometimes trade data between countries do not "add up": For example, in 2020 
+country A reported USD $X$ millions exports to country B while B was reporting
+USD $Y$ millions, where $X \neq Y$; which data is more reliable?
+Alternatively, consider the case where country A does not report any trade data 
+at all; we can use trade data from all
+trade partners of country A to reconstruct its 'own' trade data?
+
+In such cases, it makes sense to use [mirrored trade data](https://wits.worldbank.org/wits/wits/witshelp/Content/Data_Retrieval/T/Intro/B2.Imports_Exports_and_Mirror.htm). 
+The function `download_Comtrade()` offers an easy option to accomplish this. While
+[Example 4](https://amannj.github.io/resources/comtradeRggregator/articles/comtradeRggregator.html#example-4)
+in the *Get Started guide* provides a simple introduction, a more complex
+example is discussed in this article.
+
+
+
+
 ## A more complex example
 
 
+
 Let's say you want to download monthly mirror trade data starting in 2019 at 
-the HS4 6-digit level for a handful of countries.
+the HS 6-digit level for a handful of countries for which there is no trade data
+available on [comtrade](https://comtrade.un.org/).
 
-
-While there are multiple areas where both comtrade and WITS offer similar functionality
-to the comtradeRggregator package, this is a scenario where both alternatives
+While there are multiple areas where both [comtrade](https://comtrade.un.org/) and 
+[WITS](https://wits.worldbank.org/) offer similar functionality
+to the `comtradeRggregator` package, this is a scenario where both alternatives
 are tedious to work with:
 
-- While WITS does offer a straight-forward integration of mirror data, there are
+- While [WITS](https://wits.worldbank.org/) does offer a straight-forward integration of mirror data, there are
  (at the time of writing this documentation in 2021) no options available to query 
  monthly data;
  
- - While comtrade does over the most recent and granular trade data, the options 
- to query mirror data are limited.
+ - While [comtrade](https://comtrade.un.org/) does over the most recent and granular trade data, the options 
+ to query mirror data are not there.
 
 
-As I will demonstrate below, this data can be obtained via comtradeRggregator with
-little to no additional effort.
+As I will demonstrate below, the same query can be run with
+little to no additional effort using `comtradeRggregator`.
 
 
 ## Implementation
@@ -56,25 +76,47 @@ my_token <- Sys.getenv("COMTRADE_TOKEN")
 my_location <- "C:/Users/amann/Desktop/tmp"
 ```
 
-Define list of countries for extraction
+Define list of countries for extraction.
 
 ```{r}
 country_list = c("Afghanistan", "Angola")
 ```
 
-Let's break up this query into two parts: a download for the years 2019 and 2020,  and a separate query for 2021. In such somewhat more elaborate cases,  it is advisable to keep any temporarily downloaded data by setting 
+When setting up this more elaborate query, there are a few things we should
+keep in mind:
+
+
+- It makes sense to break up this query into two parts: a download for the years 2019 and 2020,
+and a separate query for 2021. The reason for this is that at the time of writing 
+this  tutorial, trade data for all 12 months was available for 2019 and 2020, 
+but not for 2021 as this would make `download_Comtrade()`
+throw an error message.
+
+
+- It is advisable to keep any temporarily downloaded data by setting 
 `rm.temporaryFiles = FALSE`. I also want to save the temporary files in a 
 different location specified in variable `my_location`, so I also specify 
-`location.temporaryFiles = my_location` in the query below. In an ideal world, you will have access to an authenticated account 
-[(see here)](https://comtrade.un.org/data/doc/api/). I do, so I'm also providing my comtrade authentication token as part of the query. Finally, as we
-do not want to overwhelm the API, we reduce the number of extracted countries per sub-query to three, i.e. `ext_cnt  = 3`, instead of the default of five, 
-and increase the cool-down period between the separate queries from five to ten seconds between rounds by setting `speed = 10`. These last two steps are
-optional and only serve illustrative purposes.
+`location.temporaryFiles = my_location` in the query below. 
 
+- In an ideal world, you will have access to an authenticated account 
+[(see here)](https://comtrade.un.org/data/doc/api/). 
+I do, so I'm also providing my [comtrade](https://comtrade.un.org/) 
+authentication token as part of the query. 
 
-Note that for the first query we are not specifying 
+- Note that for the first query we are not specifying 
 the parameter `month` which, by default, will return data for all 12 months.
+Also, note that monthly [comtrade](https://comtrade.un.org/) data is only available following the 
+*HS combined nomenclature*.
 
+- Finally, as we do not want to overwhelm the API, we reduce the number of 
+extracted countries per sub-query to three, i.e. `ext_cnt  = 3`, instead of
+the default of five, and increase the cool-down period between the separate 
+queries from five to ten seconds between rounds by setting `speed = 10`. 
+These last two steps are optional and only serve illustrative purposes.
+
+
+With all of this out of the way, the final monthly mirror data query for 2019 and
+2020 looks like this:
 
 ```{r eval=FALSE, message=FALSE, warning=FALSE}
 mirr_part1 <- download_Comtrade(
@@ -82,7 +124,7 @@ mirr_part1 <- download_Comtrade(
   frequency = "monthly",
   countries = country_list,
   partners = "World",
-  nomenclature = "HS2012",
+  nomenclature = "HS",
   commodity = "ag6",
   select.stats = "trade_value_usd",
   direction = "all",
@@ -98,12 +140,16 @@ mirr_part1 <- download_Comtrade(
 ```
 
 
-Finally, we want to find the last month of 2021 for which any comtrade data is 
-available to download.
+For the 2021 query, we first want to find the last month of 2021 for which 
+trade data is available. This makes sense because we do not want to run a query for
+a month where no trade data is available as this would make `download_Comtrade()`
+throw an error message.
 
-You can either use the `is.available_Comtrade()` function for this, or, alternatively,
-the data file `Comtrade_DA`, which provides comtrade's data availability as a tibble.
-At the time of writing this tutorial, the most recent monthly trade data is July 2021.
+To check the data availability, you can either use the 
+`is.available_Comtrade()` function, or
+the data file `Comtrade_DA` which I am doing below. As you can see, at the 
+time of writing this tutorial, the most recent monthly trade data is July 2021.
+
 
 ```{r}
 Comtrade_DA %>% 
@@ -112,16 +158,17 @@ Comtrade_DA %>%
   summarise(x = max(mnth))
 ```
 
-
+The query for 2021 is identical to the first one with the exception of parameter
+`month = c(1:7)`. 
 
 ```{r eval=FALSE, message=FALSE, warning=FALSE}
 mirr_part2 <- download_Comtrade(
   year = c("2021"),
   frequency = "monthly",
-  month = c("01":"07"),
+  month = c(1:7),
   countries = country_list,
   partners = "World",
-  nomenclature = "HS2012",
+  nomenclature = "HS",
   commodity = "ag6",
   select.stats = "trade_value_usd",
   direction = "all",
