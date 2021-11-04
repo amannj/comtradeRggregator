@@ -52,7 +52,12 @@
 #' run per hour.
 #' @param ext_cnt Number of countries extracted with each query; default is
 #' 5 which is also the maximum in
-#' [comtradr](https://github.com/ropensci/comtradr).
+#' [comtradr](https://github.com/ropensci/comtradr). In case your query exceeds
+#'  the maximum resultset allowed by the comtrade API, reduce the number of
+#'  countries you extract with every query using the ext_cnt parameter.
+#'  For example, if a data extraction request fails with the default parameter
+#'  value `ext_cnt = 5`, try reducing it to, say, `ext_cnt = 3`.
+#'  This reduces the size of the resultset.
 #' @param is.mirrorData  Extract mirror trade data? default is `FALSE`;
 #' set to `TRUE` to extract mirror trade data from country/countries specified
 #' in argument `partners`. For example, if `is.mirrorData = TRUE` export data
