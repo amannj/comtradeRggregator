@@ -86,7 +86,12 @@ run per hour.}
 
 \item{ext_cnt}{Number of countries extracted with each query; default is
 5 which is also the maximum in
-\href{https://github.com/ropensci/comtradr}{comtradr}.}
+\href{https://github.com/ropensci/comtradr}{comtradr}. In case your query exceeds
+the maximum resultset allowed by the comtrade API, reduce the number of
+countries you extract with every query using the ext_cnt parameter.
+For example, if a data extraction request fails with the default parameter
+value \code{ext_cnt = 5}, try reducing it to, say, \code{ext_cnt = 3}.
+This reduces the size of the resultset.}
 
 \item{is.mirrorData}{Extract mirror trade data? default is \code{FALSE};
 set to \code{TRUE} to extract mirror trade data from country/countries specified
