@@ -40,5 +40,5 @@ Imports:
     rjson,
     stringr
 Remotes:
-    amannj/comtradr/token-validation
+    amannj/comtradr
 VignetteBuilder: knitr
