@@ -425,7 +425,7 @@ download_Comtrade <- function(year = "2018",
         for (.ag in unique(ag)) {
           ### If multiple aggregates are downloaded, replace `commodity`
           ### argument with evaluated aggregate for download
-          if(identical(ag, commodity)) {
+          if (identical(ag, commodity)) {
             down.commod <- .ag
           } else {
             down.commod <- commodity[ag == .ag]
