@@ -49,34 +49,34 @@ build_Comtrade <- function(directory =
             Empty data frame is returned.")
     df_out <- NULL
   } else if (nrow(df_out) > 1) {
-    if (is.mirrorData == TRUE) {
-      if (is.null(partner)) {
-        stop("Please provide list of partner countries for
-             mirror data download.")
-      }
-      df_out %>%
-        rename(
-          "partnernew" = .data$reporter,
-          "reporter" = .data$partner
-        ) %>%
-        mutate(
-          trade_flow = ifelse(.data$trade_flow == "Import",
-            "ExportX",
-            ifelse(.data$trade_flow == "Export", "ImportX",
-              ifelse(.data$trade_flow == "Re-Export",
-                "Re-ImportX",
-                "Re-ExportX"
-              )
-            )
-          ),
-          trade_flow = substr(.data$trade_flow, 1, nchar(.data$trade_flow) - 1)
-        ) %>%
-        select("classification", "period",
-          "trade_flow", "reporter",
-          partner = "partnernew",
-          everything()
-        ) -> df_out
-
+     if (is.mirrorData == TRUE) {
+    #   if (is.null(partner)) {
+    #     stop("Please provide list of partner countries for
+    #          mirror data download.")
+    #   }
+    #   df_out %>%
+    #     rename(
+    #       "partnernew" = .data$reporter,
+    #       "reporter" = .data$partner
+    #     ) %>%
+    #     mutate(
+    #       trade_flow = ifelse(.data$trade_flow == "Import",
+    #         "ExportX",
+    #         ifelse(.data$trade_flow == "Export", "ImportX",
+    #           ifelse(.data$trade_flow == "Re-Export",
+    #             "Re-ImportX",
+    #             "Re-ExportX"
+    #           )
+    #         )
+    #       ),
+    #       trade_flow = substr(.data$trade_flow, 1, nchar(.data$trade_flow) - 1)
+    #     ) %>%
+    #     select("classification", "period",
+    #       "trade_flow", "reporter",
+    #       partner = "partnernew",
+    #       everything()
+    #     ) -> df_out
+    #
       if (partner == "World") {
         df_out %>%
           mutate(partner = "World") %>%
@@ -91,7 +91,7 @@ build_Comtrade <- function(directory =
           ungroup() -> df_out
       }
     }
-    ## Remove temporary files/folder
+    # Remove temporary files/folder
     if (rm.temporaryFiles == TRUE) {
       lapply(tmp.Files, function(x) {
         file.remove(paste0(directory, "/", x))

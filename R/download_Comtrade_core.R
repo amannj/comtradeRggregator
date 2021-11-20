@@ -86,7 +86,29 @@ download_Comtrade_wrapper <- function(rep = "Austria",
               "partner", "commodity_code", "commodity",
               all_of(select.stats)
             ) %>%
-            mutate("partner" = paste0(.data$partner, " mirrored"))
+            mutate("partner" = paste0(.data$partner, " mirrored")) %>%
+            # "Mirror" data object for better consistency across extracts
+            rename(
+              "partnernew" = reporter,
+              "reporter" = partner
+            ) %>%
+            mutate(
+              trade_flow = ifelse(trade_flow == "Import",
+                "ExportX",
+                ifelse(trade_flow == "Export", "ImportX",
+                  ifelse(trade_flow == "Re-Export",
+                    "Re-ImportX",
+                    "Re-ExportX"
+                  )
+                )
+              ),
+              trade_flow = substr(trade_flow, 1, nchar(trade_flow) - 1)
+            ) %>%
+            select("classification", "period",
+              "trade_flow", "reporter",
+              partner = "partnernew",
+              everything()
+            )
         })
       }
     }
