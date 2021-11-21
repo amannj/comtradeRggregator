@@ -1,7 +1,8 @@
 #' @title Check Data Availability for Comtrade Trade Data Query
 #'
 #' @description Check if data of a particular trade data set, frequency or
-#' country is available.
+#' country is available. Only returns list of countries that actively report
+#' trade data for the specified classification.
 #' Data availability varies by country and classification, and new trade data is
 #' released/revised very frequently on [Comtrade](https://comtrade.un.org/).
 #' `comtradeRggregator` uses trade information corresponding to

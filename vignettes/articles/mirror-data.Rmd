@@ -18,27 +18,140 @@ knitr::opts_chunk$set(
 ```
 
 
-## Why use mirror data?
 
-Sometimes trade data between countries do not "add up": For example, in 2020 
-country A reported USD $X$ millions exports to country B while B was reporting
-USD $Y$ millions, where $X \neq Y$; which data is more reliable?
-Alternatively, consider the case where country A does not report any trade data 
-at all; we can use trade data from all
-trade partners of country A to reconstruct its 'own' trade data?
+## What is mirror data and why use it?
 
-In such cases, it makes sense to use [mirrored trade data](https://wits.worldbank.org/wits/wits/witshelp/Content/Data_Retrieval/T/Intro/B2.Imports_Exports_and_Mirror.htm). 
-The function `download_Comtrade()` offers an easy option to accomplish this. While
-[Example 4](https://amannj.github.io/resources/comtradeRggregator/articles/comtradeRggregator.html#example-4)
-in the *Get Started guide* provides a simple introduction, a more complex
-example is discussed in this article.
+Consider the case where country A does not report any trade data at all. What do we do?
+In such cases it makes sense to use [mirrored trade data](https://wits.worldbank.org/wits/wits/witshelp/Content/Data_Retrieval/T/Intro/B2.Imports_Exports_and_Mirror.htm). In a nutshell, using the mirrored data approach we can reconstruct trade data for country A, even if the country itself does not report andy trade figures, by looking at all trade flows in which country A participated. For example, you can reconstruct country A's exports to country B by looking at country B's imports from country A. 
 
+Do note, however, that this method is not free of limitations. Most importantly, the reliability
+of the mirrored trade data for country A depends on the data availability of trade data
+made available by A's trading partners and may potentially be systematically biased. Secondly,
+as comtrade trade data undergoes constant revisions and updates, changes in the mirrored
+aggregate are more likely than with non-mirrored data.
 
-
-
-## A more complex example
+These words of caution aside, the function `download_Comtrade()` offers an easy option perform mirror data extracts.  Below, we first revisit [Example 4](https://amannj.github.io/resources/comtradeRggregator/articles/comtradeRggregator.html#example-4)
+from the *Get Started guide* provides a simple introduction to this topic. Next,
+we turn to somewhat more involved user cases.
 
 
+
+## A simple example
+
+First, load the package.
+
+
+```{r message=FALSE}
+library(comtradeRggregator)
+```
+
+
+In [Example 4](https://amannj.github.io/resources/comtradeRggregator/articles/comtradeRggregator.html#example-4) we reconstructed Austria's export to Germany by looking at Germany's imports from Austria by setting `is.mirrorData = TRUE`. As you can see, variable `reporter` now is returned as `country name + "mirrored"`, indicating that the  the data was derived from a mirrored data query.
+
+
+```{r eval=FALSE, message=FALSE, warning=FALSE}
+mirrX_AT_DE <- download_Comtrade(
+  year = "2018",
+  frequency = "annual",
+  countries = "Austria",
+  partners = "Germany",
+  nomenclature = "H3",
+  commodity = "ag6",
+  select.stats = "trade_value_usd",
+  direction = "exports",
+  type = "commodities",
+  is.mirrorData = TRUE
+)
+mirrX_AT_DE
+#> # A tibble: 4,056 x 8
+#>    classification period trade_flow reporter         partner commodity_code commodity          trade_value_usd
+#>    <chr>           <int> <chr>      <chr>            <chr>   <chr>          <chr>                        <dbl>
+#>  1 H3               2018 Export     Austria mirrored Germany 010110         Live horses/asses~          578079
+#>  2 H3               2018 Export     Austria mirrored Germany 010190         Live horses/asses~           17717
+#>  3 H3               2018 Export     Austria mirrored Germany 010210         Live bovine anima~           75642
+#>  4 H3               2018 Export     Austria mirrored Germany 010290         Live bovine anima~         4329765
+#>  5 H3               2018 Export     Austria mirrored Germany 010391         Live swine other ~          916695
+#>  6 H3               2018 Export     Austria mirrored Germany 010392         Live swine other ~          219879
+#>  7 H3               2018 Export     Austria mirrored Germany 010410         Live sheep                  778978
+#>  8 H3               2018 Export     Austria mirrored Germany 010420         Live goats                   45964
+#>  9 H3               2018 Export     Austria mirrored Germany 010511         Live fowls of spe~         6716350
+#> 10 H3               2018 Export     Austria mirrored Germany 010512         Live turkeys, wei~            2194
+#> # ... with 4,046 more rows
+```
+
+Conceptually, reported imports by Germany from Austria and reported mirrored exports by Austria to Germany are identical by definition. Note that in the query below we can use either `tradecode` names or abbreviations as input arguments for `tradecode` as provided in table [Trade Classifications](https://amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications).
+
+```{r eval = FALSE, message=FALSE, warning=FALSE}
+IM_DE_AT <- download_Comtrade(
+  year = "2018",
+  frequency = "annual",
+  countries = "Germany",
+  partners = "Austria",
+  nomenclature = "HS2007",
+  commodity = "ag6",
+  select.stats = "trade_value_usd",
+  direction = "imports",
+  type = "commodities",
+  is.mirrorData = FALSE
+)
+IM_DE_AT %>%
+  summarise(sum(trade_value_usd)) %>%
+  pull() / mirrX_AT_DE %>%
+    summarise(sum(trade_value_usd)) %>%
+    pull()
+#> [1] 1
+```
+
+
+## Generating mirrored World trad data
+
+
+`comtradeRggregator` also offers simple options to download mirrored global trade data by downloading mirrored bilateral trade flows and aggregating it up to mirrored global trade data. In the simple example below, we download mirrored trade data for Austria. By setting `countries = "World"`, the package will create a mirrored data query for all global economies for the provided specification of year, trade flow, nomenclature, level of aggregation etc., and create a ready-to-use data frame.
+
+In other words, to get the first mirrored export commodity flow for commodity group `01 - Live animals; animal products` in the query below, data from all countries that *import* this commodity from Austria are queried and aggregated. Then, when aggregating the final data set, the 'order' of the trade flows is reversed, i.e. the previously downloaded *imports* are labelled as *mirrored exports*. This reversal is highlighted in column `reporter`.
+
+In elaborate cases such as the one above it is advisable to keep any temporarily downloaded data by setting `rm.temporaryFiles = FALSE`, and, ideally, to have access to an authenticated account; see [here](https://comtrade.un.org/data/doc/api/) for more information. 
+
+```{r eval=FALSE, message=FALSE, warning=FALSE}
+AT_mirr <- download_Comtrade(
+  year = "2018",
+  frequency = "annual",
+  countries = "Austria",
+  partners = "World",
+  nomenclature = "HS2007",
+  commodity = "ag2",
+  select.stats = "trade_value_usd",
+  direction = "all",
+  type = "commodities",
+  is.mirrorData = TRUE,
+  rm.temporaryFiles = FALSE,
+  build.Comtrade = TRUE,
+)
+AT_mirr
+#> # A tibble: 363 x 8
+#>    classification period trade_flow reporter         partner commodity_code commodity    ~ trade_value_usd
+#>    <chr>           <int> <chr>      <chr>            <chr>   <chr>          <chr>        ~           <dbl>
+#>  1 H3               2018 Export     Austria mirrored World   01             Live animals;~       146122111
+#>  2 H3               2018 Export     Austria mirrored World   02             Meat and edib~      1279494900
+#>  3 H3               2018 Export     Austria mirrored World   03             Fish and crus~        10067362
+#>  4 H3               2018 Export     Austria mirrored World   04             Dairy produce~      1522685531
+#>  5 H3               2018 Export     Austria mirrored World   05             Products of a~        79271602
+#>  6 H3               2018 Export     Austria mirrored World   06             Live trees an~        26938801
+#>  7 H3               2018 Export     Austria mirrored World   07             Edible vegeta~       142130800
+#>  8 H3               2018 Export     Austria mirrored World   08             Edible fruit ~       209962703
+#>  9 H3               2018 Export     Austria mirrored World   09             Coffee, tea, ~       116804431
+#> 10 H3               2018 Export     Austria mirrored World   10             Cereals      ~       544971227
+#> # ... with 353 more rows
+```
+
+
+
+
+
+
+## A more complex application
+
+### The problem
 
 Let's say you want to download monthly mirror trade data starting in 2019 at 
 the HS 6-digit level for a handful of countries for which there is no trade data
@@ -49,26 +162,20 @@ While there are multiple areas where both [comtrade](https://comtrade.un.org/) a
 to the `comtradeRggregator` package, this is a scenario where both alternatives
 are tedious to work with:
 
-- While [WITS](https://wits.worldbank.org/) does offer a straight-forward integration of mirror data, there are
+- [WITS](https://wits.worldbank.org/) does offer a straight-forward integration of mirror data, but there are
  (at the time of writing this documentation in 2021) no options available to query 
  monthly data;
  
- - While [comtrade](https://comtrade.un.org/) does over the most recent and granular trade data, the options 
- to query mirror data are not there.
+ - [Comtrade](https://comtrade.un.org/) does over the most recent and granular trade data, but there is no option to query mirror data.
 
 
-As I will demonstrate below, the same query can be run with
-little to no additional effort using `comtradeRggregator`.
+Using `comtradeRggregator`, the this query can be put together with a couple
+of line sof code.
 
 
-## Implementation
-
-First, load the package.
+### The implementation in `comtradeRggregator`
 
 
-```{r message=FALSE}
-library(comtradeRggregator)
-```
 
 ```{r, include = FALSE}
 # Load token; do not show
@@ -76,7 +183,7 @@ my_token <- Sys.getenv("COMTRADE_TOKEN")
 my_location <- "C:/Users/amann/Desktop/tmp"
 ```
 
-Next, we want to define list of countries for extraction. The two examples we 
+First, we want to define list of countries for extraction. The two examples we 
 use here are *Afghanistan* and the *Democratic Republic of the Congo*. 
 To double-check the correct spelling of the country names we use 
 `is.available_Comtrade()` with option `is.fuzzy = TRUE`. Below I run the check 
@@ -100,7 +207,6 @@ The final list of countries we want to query is:
 
 ```{r}
 country_list = c("Afghanistan", "Dem. Rep. of the Congo")
-
 ```
 
 

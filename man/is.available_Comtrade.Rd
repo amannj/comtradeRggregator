@@ -51,7 +51,8 @@ provided in table Trade Classifications
 }
 \description{
 Check if data of a particular trade data set, frequency or
-country is available.
+country is available. Only returns list of countries that actively report
+trade data for the specified classification.
 Data availability varies by country and classification, and new trade data is
 released/revised very frequently on \href{https://comtrade.un.org/}{Comtrade}.
 \code{comtradeRggregator} uses trade information corresponding to

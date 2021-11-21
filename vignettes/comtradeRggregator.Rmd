@@ -32,7 +32,7 @@ The main functions of the `comtradeRggregator` package are described below.
 Function `download_Comtrade()`  downloads and aggregates [Comtrade](https://comtrade.un.org) trade data using [Comtrade's API](https://comtrade.un.org/data/doc/api/) and builds on the [comtradr](https://github.com/ropensci/comtradr) package.
 For the full documentation, type `?download_Comtrade` in R or visit the reference section of `download_Comtrade()`.
 
-### Example 1
+### Example 1: A simple case
 
 To download `annual` global, i.e. `World`,  `commodity`  trade data in `USD` following the `HS2007` nomenclature for `all` available trade flows, i.e. imports, exports as well as [re-imports and re-exports](https://wits.worldbank.org/WITS/wits/WITSHELP/Content/Data_Retrieval/T/Intro/B2.Exports_Versus_Reexports.htm), at `AG6` level  reported by `Austria`  in `2018`, run:
 
@@ -52,10 +52,11 @@ AT_World
 ```
 
 
-### Example 2
+### Example 2: Narrow down your query
 
 
-Sometimes you might want to extract very specific information on particular trade flows between two countries. 
+Sometimes you might want to extract very specific information on particular trade flows between two countries. Use the parameters of `download_Comtrade()` to narrow down the 
+search.
 
 For example, to extract  `commodity` `re-exports` reported by `Austria` at `AG6` level following the `HS2007` nomenclature for trade with `Germany`   in `2018`, run the command below.  As you can see, this returns an empty data frame. This means that there is no trade data recorded on [Comtrade](https://comtrade.un.org) that meets the specific criteria. 
 
@@ -76,11 +77,14 @@ download_Comtrade(
 
 
 
-### Example 3
+### Example 3: Query across aggregates/commodity levels
 
-There might be cases where you want to download a specific group of traded commodities that may potentially also be part of a different level of aggregation. In the example below,
+There might be cases where you want to download a specific group of traded commodities that may potentially also be part of a different level of aggregation.  For example, in case you want to download all traded commodities at the 2- and 4-digit level, i.e., `AG2` and `AG4`, you can do so by using `commodity = c("AG2", "AG4")` when running `download_Comtrade()`.
+This works for trade aggregates as well as single commodities.
+
+In the example below,
 we extract Austrian exports to Germany for the commodity groups `65 - Headgear and parts thereof` (`AG2`) as well as the corresponding sub-aggregates `6501` and `650100`, respectively.<sup>[1](#fn1)</sup>
-Also see [here](https://amannj.github.io/resources/comtradeRggregator/articles/extracting-aggregates.html)
+Also see [here](https://amannj.github.io/resources/comtradeRggregator/articles/articles/extracting-aggregates.html)
 for a more detailed discussion and some best practice advice on how to use 
 `comtradeRggregator` in such a scenario.
 
@@ -96,15 +100,38 @@ download_Comtrade(year = "2018",
                   direction = "exports")
 ```
 
-With this function, you can not only download specific commodity codes in this way but also complete aggregates: For example, in case you want to download all traded commodities at the 2- and 4-digit level, i.e., `AG2` and `AG4`, you can do so by changing the input argument for `commodity` of the above query to `commodity = c("AG2", "AG4")`.
 
 
-### Example 4
+
+### Example 4: Extract mirrored data
 
 
-Sometimes trade data between countries do not "add up": For example, in 2020 country A reported USD $X$ millions exports to country B while B was reporting USD $Y$ millions, where $X \neq Y$. In such cases it makes sense to use [mirrored trade data](https://wits.worldbank.org/wits/wits/witshelp/Content/Data_Retrieval/T/Intro/B2.Imports_Exports_and_Mirror.htm). The function `download_Comtrade()` offers an easy option to accomplish this. The relation of the queries used for the extraction of trade data and mirrored trade data is illustrated in the example below: 
+Consider the case where country A does not report any trade data at all. What do we do?
+In such cases it makes sense to use [mirrored trade data](https://wits.worldbank.org/wits/wits/witshelp/Content/Data_Retrieval/T/Intro/B2.Imports_Exports_and_Mirror.htm). In a nutshell, using the mirrored data approach we can reconstruct trade data for country A by looking at all trade flows in which country A participated.
+Function `download_Comtrade()` offers an easy option to accomplish this. Please see [this](https://amannj.github.io/resources/comtradeRggregator/articles/articles/mirror-data.html) article for a more detailed explanation on the concepts of working with mirrored data in `comtradeRggregator`.
 
-Reported imports by Germany from Austria and reported mirrored exports by Austria to Germany are identical by definition.<sup>[2](#fn2)</sup> Note that in the query below we can use either `tradecode` names or abbreviations as input arguments for `tradecode` as provided in table [Trade Classifications](https://amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications).
+
+In the example below, we reconstructed Austria's export to Germany by looking at Germany's imports from Austria by setting `is.mirrorData = TRUE`. As you can see, variable `reporter` now is returned as `country name + "mirrored"`, indicating that the  the data was derived from a mirrored data query.
+
+
+
+```{r eval = FALSE, message=FALSE, warning=FALSE}
+mirrX_AT_DE <- download_Comtrade(
+  year = "2018",
+  frequency = "annual",
+  countries = "Austria",
+  partners = "Germany",
+  nomenclature = "H3",
+  commodity = "ag6",
+  select.stats = "trade_value_usd",
+  direction = "exports",
+  type = "commodities",
+  is.mirrorData = TRUE,
+)
+mirrX_AT_DE %>% select(trade_flow, reporter, partner, commodity_code, trade_value_usd)
+```
+
+Conceptually, reported imports by Germany from Austria and reported mirrored exports by Austria to Germany are identical by definition. Note that in the query below we can use either `tradecode` names or abbreviations as input arguments for `tradecode` as provided in table [Trade Classifications](https://amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications).
 
 ```{r message=FALSE, warning=FALSE}
 IM_DE_AT <- download_Comtrade(
@@ -119,19 +146,6 @@ IM_DE_AT <- download_Comtrade(
   type = "commodities",
   is.mirrorData = FALSE
 )
-mirrX_AT_DE <- download_Comtrade(
-  year = "2018",
-  frequency = "annual",
-  countries = "Austria",
-  partners = "Germany",
-  nomenclature = "H3",
-  commodity = "ag6",
-  select.stats = "trade_value_usd",
-  direction = "exports",
-  type = "commodities",
-  is.mirrorData = TRUE,
-  rm.temporaryFiles = FALSE
-)
 IM_DE_AT %>%
   summarise(sum(trade_value_usd)) %>%
   pull() / mirrX_AT_DE %>%
@@ -140,86 +154,10 @@ IM_DE_AT %>%
 ```
 
 
-### Example 5
-
-
-Note that in *Example 4* above, we have instructed `download_Comtrade()` to keep the temporary download files (by invoking `rm.temporaryFiles = FALSE`) for query `mirrX_AT_DE` while also using this temporary data to build the completed Comtrade data from the query and load it into R. The second step  happens automatically as the argument controlling this behaviour, `build.Comtrade` is set to `TRUE` by default. However, there might be cases where you only want `download_Comtrade()` to download the temporary trade data files from Comtrade, and build the trade data in R at a later stage using `build_comtrade()`; more on `build_comtrade()` [below](#build_comtrade).
-
-Below, we instruct `download_Comtrade()` to run the same query as for `mirrX_AT_DE` in *Example 4*; however, by setting `build.Comtrade = FALSE` and `rm.temporaryFiles = FALSE` we ensure that the trade data downloaded from Comtrade will only be stored locally but not built and loaded into R.
-
-```{r eval=FALSE, message=FALSE, warning=FALSE}
-mirrX_AT_DE_v2 <- download_Comtrade(
-  year = "2018",
-  frequency = "annual",
-  countries = "Austria",
-  partners = "Germany",
-  nomenclature = "H3",
-  commodity = "ag6",
-  select.stats = "trade_value_usd",
-  direction = "exports",
-  type = "commodities",
-  is.mirrorData = TRUE,
-  rm.temporaryFiles = FALSE,
-  build.Comtrade = FALSE
-)
-#> Data download complete. Please see location specified in argument
-#> `location.temporaryFiles` for location of temporary files.
-```
-
-The object itself is a null object.
-
-```{r eval=FALSE, message=FALSE, warning=FALSE}
-mirrX_AT_DE_v2
-```
-
-```{r eval=FALSE, message=FALSE, warning=FALSE}
-#> NULL
-```
 
 
 
-### Example 6
 
-`comtradeRggregator` also offers simple options to download mirrored global trade data by downloading mirrored bilateral trade flows and aggregating it up to mirrored global trade data. In the simple example below, we download mirrored trade data for Austria. By setting `countries = "World"`, the package will create a mirrored data query for all global economies for the provided specification of year, trade flow, nomenclature, level of aggregation etc., and create a ready-to-use data frame.
-
-In other words, to get the first mirrored export commodity flow for commodity group `01 - Live animals; animal products` in the query below, data from all countries that *import* this commodity from Austria are queried and aggregated. Then, when aggregating the final data set, the 'order' of the trade flows is reversed, i.e. the previously downloaded *imports* are labelled as *mirrored exports*. This reversal is highlighted in column `reporter`.
-
-
-
-```{r eval=FALSE, message=FALSE, warning=FALSE}
-AT_mirr <- download_Comtrade(
-  year = "2018",
-  frequency = "annual",
-  countries = "Austria",
-  partners = "World",
-  nomenclature = "HS2007",
-  commodity = "ag2",
-  select.stats = "trade_value_usd",
-  direction = "all",
-  type = "commodities",
-  is.mirrorData = TRUE,
-  rm.temporaryFiles = FALSE,
-  build.Comtrade = TRUE,
-)
-AT_mirr
-#> # A tibble: 363 x 8
-#>    classification period trade_flow reporter         partner commodity_code commodity    ~ trade_value_usd
-#>    <chr>           <int> <chr>      <chr>            <chr>   <chr>          <chr>        ~           <dbl>
-#>  1 H3               2018 Export     Austria mirrored World   01             Live animals;~       146122111
-#>  2 H3               2018 Export     Austria mirrored World   02             Meat and edib~      1279494900
-#>  3 H3               2018 Export     Austria mirrored World   03             Fish and crus~        10067362
-#>  4 H3               2018 Export     Austria mirrored World   04             Dairy produce~      1522685531
-#>  5 H3               2018 Export     Austria mirrored World   05             Products of a~        79271602
-#>  6 H3               2018 Export     Austria mirrored World   06             Live trees an~        26938801
-#>  7 H3               2018 Export     Austria mirrored World   07             Edible vegeta~       142130800
-#>  8 H3               2018 Export     Austria mirrored World   08             Edible fruit ~       209962703
-#>  9 H3               2018 Export     Austria mirrored World   09             Coffee, tea, ~       116804431
-#> 10 H3               2018 Export     Austria mirrored World   10             Cereals      ~       544971227
-#> # ... with 353 more rows
-```
-
-
-In elaborate cases such as the one above it is advisable to keep any temporarily downloaded data by setting `rm.temporaryFiles = FALSE`, and, ideally, to have access to an authenticated account; see [here](https://comtrade.un.org/data/doc/api/) for more information. For a more practical application, please see [this](https://amannj.github.io/resources/comtradeRggregator/articles/articles/mirror-data.html) article.
 
 
 ------------------------------------------------------------------------
@@ -229,7 +167,9 @@ In elaborate cases such as the one above it is advisable to keep any temporarily
 
 
 Sometimes you might want to check if data for a particular trade classification, frequency and/or country is available via  [Comtrade](https://comtrade.un.org) before running a query. 
-For this you can use function `is.available_Comtrade()`. Similar to `download_Comtrade()` this function uses the [Comtrade Data Availability file](<https://comtrade.un.org/data/da>) which it updates once a day.<sup>[3](#fn3)</sup>
+For this you can use function `is.available_Comtrade()`.<sup>[2](#fn2)</sup>
+
+Similar to `download_Comtrade()` this function uses the [Comtrade Data Availability file](<https://comtrade.un.org/data/da>) which it updates once a day.<sup>[3](#fn3)</sup>
 For the full documentation, type `?is.available_Comtrade` in R or visit the reference section of `is.available_Comtrade()`.
 
 
@@ -315,6 +255,8 @@ Sometimes you might want to reclassify trade data to a different nomenclature. F
 providing official concordance tables from [UN Statistics Division (UNSD)](https://unstats.un.org/unsd/classifications/Econ#corresp-hs) and the [World Integrated Trade Solution (WITS)](https://wits.worldbank.org/product_concordance.html). 
 For the full documentation, type `?convert_Comtrade` in R or visit the reference section of `convert_Comtrade()`.
 
+Reclassification of [Comtrade trade data](https://comtrade.un.org) is possible using the information in the [Concordance Table](https://amannj.github.io/resources/comtradeRggregator/index.html#concordance-table) by employing the function `convert_Comtrade()`. This  function
+requires trade data at the most granular levels for the *Harmonised System (HS)* nomenclature, i.e., `AG6`. For the *Standard International Trade Classification (SITC)* standard, `AG4` as well as `AG5` data is required.
 
 ### Example 1
 
@@ -391,42 +333,77 @@ Please note that the chaining of concordance tables may be very intriguing; howe
 ## `build_Comtrade()`
 
 
-Sometimes you might want to rebuild a data set using the temporary data files you downloaded from Comtrade. For example, you can use the function `build_Comtrade()` whenever you have a very large data query that you would like to run over multiple days (and turn off your computer in the meantime) before building the final Comtrade database. In such a case you would set `rm.temporaryFiles = FALSE` when running `download_Comtrade()` and then, after you have run all your queries, you would then point `build_Comtrade()` to the location of all your temporary data files. A more practical example is provided in the next paragraph.
-For the full documentation, type `?build_Comtrade` in R or visit the reference section of `build_Comtrade()`.
+By default,`download_Comtrade()` does not keep the temporary download files and
+returns the data of the query in memory.
+However, there might be cases where you only want `download_Comtrade()` to download the temporary trade data files from Comtrade, and build the trade data in R at a later stage. 
+For example, you might have a very large data query that you would like to run 
+over multiple days.
+
+In such a case you would set `rm.temporaryFiles = FALSE` when running `download_Comtrade()` and then, after you have run all your queries, you would then point `build_Comtrade()` to the location of all your temporary data files. For the full documentation, type `?build_Comtrade` in R or visit the reference section of `build_Comtrade()`.
+
+
 
 
 ### Example 1
 
 
-Recall that when downloading the data frame `mirrX_AT_DE` we triggered the option
-`rm.temporaryFiles = FALSE` and R told us that the temporary file will be stored in:
+#### Step 1: Data extraction
+
+Below, we instruct `download_Comtrade()` to run the same query as for `mirrX_AT_DE` in *Example 4*; however, by setting `build.Comtrade = FALSE` and `rm.temporaryFiles = FALSE` we ensure that the trade data downloaded from Comtrade will only be stored locally but not built and loaded into R.
+Of course, you could also keep the temporary data files and also build the data 
+set in memory. In this case you would set `build.Comtrade = TRUE` and `rm.temporaryFiles = FALSE`.
+
+
+```{r eval=TRUE, message=FALSE, warning=FALSE}
+AT_DE_v2 <- download_Comtrade(
+  year = "2018",
+  frequency = "annual",
+  countries = "Austria",
+  partners = "Germany",
+  nomenclature = "H3",
+  commodity = "ag6",
+  select.stats = "trade_value_usd",
+  direction = "exports",
+  type = "commodities",
+  rm.temporaryFiles = FALSE,
+  build.Comtrade = FALSE
+)
+#> Data download complete. Please see location specified in argument
+#> `location.temporaryFiles` for location of temporary files.
+```
+
+If you set `rm.temporaryFiles = FALSE` and do not specify the location where R should save the data (as we did above), R will save the data to the temporary file storage in:
 
 
 ```
 system.file("data/tmp", package = "comtradeRggregator")
 
 ```
+The object returned from the query itself is itself is a null object.
 
-We now use the function `build_Comtrade()` in such cases where argument `directory` takes the location of a specific, temporary data folder as an input argument. The remaining arguments correspond to the arguments in `download_Comtrade()` and have to be adjusted accordingly in case you want to divert from the defaults. For example, in case you want to delete the temporary files when using `build_Comtrade()`, set `rm.temporaryFiles = TRUE`.
+```{r eval=TRUE, message=FALSE, warning=FALSE}
+AT_DE_v2
+```
+
+
+#### Step 2: Data compilation
+
+
+We now use the function `build_Comtrade()` to build the data set. In cases where argument `directory` takes the location of a specific, provide the temporary data folder as an input argument. The remaining arguments correspond to the arguments in `download_Comtrade()` and have to be adjusted accordingly in case you want to divert from the defaults. For example, in case you want to delete the temporary files when using `build_Comtrade()`, set `rm.temporaryFiles = TRUE`; See `?build_Comtrade` for more information.
 
 
 ```{r}
 # Location of temporary data download
 location_package <- system.file("data/tmp", package = "comtradeRggregator")
-# Locate most recent temprarily download data package (i.e., mirrX_AT_DE)
+# Locate most recent temporarily download data package (i.e., mirrX_AT_DE)
 location_files <- list.files(location_package)[length(list.files(location_package))]
 
 # Rebuilt mirrored exports from Austria to Germany in 2018
-mirrX_AT_DE_rebuilt <- build_Comtrade(
+df_rebuilt <- build_Comtrade(
   directory = paste(location_package, location_files, sep = "/")
 )
 
-# Confirm that identical
-mirrX_AT_DE %>%
-  summarise(sum(trade_value_usd)) %>%
-  pull() / mirrX_AT_DE_rebuilt %>%
-    summarise(sum(trade_value_usd)) %>%
-    pull()
+df_rebuilt
 ```
 
 
@@ -554,6 +531,11 @@ rm_temporaryFiles(location.temporaryFiles = NULL)
 <a name="fn1">1</a>: In case you are looking for a particular commodity, e.g., 'sheep', but do not know the corresponding commodity code, you can use [comtradr](https://github.com/ropensci/comtradr)'s [`ct_commodity_lookup()`](https://docs.ropensci.org/comtradr/reference/ct_commodity_lookup.html) function.
 
 
-<a name="fn2">2</a>: Note that we set `rm.temporaryFiles = FALSE` in the second  query to demonstrate (i) how to [rebuild a trade data set using temporary data files using `build_Comtrade()`](https://github.com/amannj/comtradeRggregator#build_comtrade), and (ii) the [different return messages for `rm_temporaryFiles()`](https://github.com/amannj/comtradeRggregator#rm_temporaryfiles).
+<a name="fn2">2</a>: Note that `is.available_Comtrade()` only checks the data 
+availability for countries that actively report trade data. In case that there
+is no trade data available for the country of your interest, you can still use
+ [mirrored trade data](https://wits.worldbank.org/wits/wits/witshelp/Content/Data_Retrieval/T/Intro/B2.Imports_Exports_and_Mirror.htm) to reconstruct these trade flows.
+ Do note that in this case, the reconstructed trade flows are build on the basis
+ of trade data taken from the set of countries for which trade data is available, i.e., the list of countries that appear when you run `is.available_Comtrade()`.
 
 <a name="fn3">3</a>: The same is true for `download_Comtrade()`. In other words, both  `download_Comtrade()` and `is.available_Comtrade()` will check the timestamp of the internally stored Comtrade Data Availability file and update it once a day using the official [Comtrade Data Availability](<https://comtrade.un.org/data/da>)  file. For further reference, the locally stored Comtrade Data Availability file can be accessed by typing `Comtrade_DA`, and the help page can be accessed by typing `?Comtrade_DA`.
