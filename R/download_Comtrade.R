@@ -9,8 +9,10 @@
 #' either `annual` or `monthly`; default is `annual`.
 #' @param month  Optional parameter for `monthly` extract; ignored for
 #'  `annual` extracts; default is all 12 months if
-#'  `frequency = 'monthly'` while argument `monthy` remains unspecified.
-#' @param countries Select list of countries to be extracted; default is `all`.
+#'  `frequency = 'monthly'` while argument `monthly` remains unspecified.
+#' @param countries Specify country(s) of interest, as a character vector;
+#' can either be a vector of country names, or `all` (will download all available
+#' countries for the given specification); default is `all`.
 #' @param partners Specify partner country/countries or `World`
 #' (as provided by Comtrade); use option `all` if you want to
 #' download trade data from all
