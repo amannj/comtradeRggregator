@@ -27,7 +27,6 @@
 #' @param token Comtrade token; default is NULL.
 #' @keywords api token Comtrade
 #' @export
-#' @import rjson
 #' @examples
 #' check_token() # by default, no token provided.
 #' \dontrun{
@@ -35,32 +34,46 @@
 #' }
 check_token <- function(token = NULL) {
   if (!is.null(token)) {
-    info_token <- NULL
-    try(
-      {
-        suppressWarnings({
-          info_token <- rjson::fromJSON(
-            file = paste0("https://comtrade.un.org/api/getUserInfo?token=", token)
-          )
-        })
-      },
-      silent = TRUE
-    )
-    if (is.list(info_token)) {
-      exist_token <- TRUE
+    valid_token <- validate_token(token)
+
+    if (!is.null(valid_token)) {
+      active_token <- TRUE
       message(
         "Comtrade token added; download limit set to 10,000 queries per hour.\n"
       )
-    } else if (is.null(info_token)) {
-      exist_token <- FALSE
+    } else if (is.null(valid_token)) {
+      active_token <- FALSE
       message(
         "Comtrade token incorrect; download restricted to 100 queries per hour.\n"
       )
     }
-    return(exist_token)
+    return(active_token)
   } else {
+    active_token <- FALSE
     message(
       "No Comtrade token specified; download restricted to 100 queries per hour.\n"
     )
   }
+  return(active_token)
+}
+
+
+
+#' @title Validate Token
+#'
+#' @description  Verifies validity of token provided by user.
+#'
+#' @param token char string, API token
+#'
+#' @return Returns token if successfully validated by API; NULL otherwise.
+#' @import rjson
+#' @noRd
+validate_token <- function(token) {
+  result <- NULL
+  tryCatch(result <- rjson::fromJSON(
+    file = paste0("https://comtrade.un.org/api/getUserInfo?token=", token)
+  ),
+  error = function(e) e
+  )
+  if (!is.null(result)) token else result
 }
