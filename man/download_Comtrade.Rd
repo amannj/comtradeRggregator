@@ -32,9 +32,11 @@ either \code{annual} or \code{monthly}; default is \code{annual}.}
 
 \item{month}{Optional parameter for \code{monthly} extract; ignored for
 \code{annual} extracts; default is all 12 months if
-\code{frequency = 'monthly'} while argument \code{monthy} remains unspecified.}
+\code{frequency = 'monthly'} while argument \code{monthly} remains unspecified.}
 
-\item{countries}{Select list of countries to be extracted; default is \code{all}.}
+\item{countries}{Specify country(s) of interest, as a character vector;
+can either be a vector of country names, or \code{all} (will download all available
+countries for the given specification); default is \code{all}.}
 
 \item{partners}{Specify partner country/countries or \code{World}
 (as provided by Comtrade); use option \code{all} if you want to
