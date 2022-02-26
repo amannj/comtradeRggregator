@@ -4,7 +4,7 @@
 #' official tables from the UN Statistics Division ([UNSD](https://unstats.un.org/unsd/classifications/Econ#corresp-hs))
 #' and the World Integrated Trade Solution ([WITS](https://wits.worldbank.org/product_concordance.html)).
 #' For a complete list of concordance tables please see
-#' `comtradeRggregator`'s Concordance Table ([link](amannj.github.io/resources/comtradeRggregator/index.html#concordance-table)).
+#' `comtradeRggregator`'s [Concordance Table](https://amannj.github.io/resources/comtradeRggregator/index.html#concordance-table).
 #' Please see [here](https://amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications)
 #' for a list of all nomenclatures supported by `comtradeRggregator`.
 #' @param data A data frame or vector containing (a variable listing)

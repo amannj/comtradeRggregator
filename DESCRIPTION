@@ -37,6 +37,8 @@ Depends:
     rlang (>= 0.4.10),
     R (>= 3.5)
 Imports: 
+    utils,
+    httpuv,
     rjson,
     stringr
 Remotes:

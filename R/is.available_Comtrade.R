@@ -34,7 +34,7 @@
 #' classification; the full list of possible trade classifications and their
 #' corresponding input arguments used in the `comtradeRggregator` package are
 #' provided in table Trade Classifications
-#' ([link](https://github.com/amannj/comtradeRggregator#trade-classifications)).
+#' ([link](https://amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications)).
 #' @param year Year for which to extract data.
 #' @param file  Location of Comtrade Data Availability file; default is
 #' `Comtrade_DataAvailability-<time and date stamp>.csv.gz`.

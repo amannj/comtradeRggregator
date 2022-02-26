@@ -39,7 +39,7 @@ default is \code{HS2007}; monthly trade data only available following \code{HS}
 classification; the full list of possible trade classifications and their
 corresponding input arguments used in the \code{comtradeRggregator} package are
 provided in table Trade Classifications
-(\href{https://github.com/amannj/comtradeRggregator#trade-classifications}{link}).}
+(\href{https://amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications}{link}).}
 
 \item{year}{Year for which to extract data.}
 
