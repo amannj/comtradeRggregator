@@ -15,6 +15,11 @@
 #' `frequency = 'monthly'` while argument `monthly` remains unspecified.
 #' Corresponds to parameter `ps` in UN Comtrade data request format
 #' (see link below).
+#' @param countries Specify country(s) of interest, as a character vector;
+#' can either be a vector of country names, or `all` (will download all available
+#' countries for the given specification); default is `all`.
+#' Corresponds to parameter `r` in UN Comtrade data request format
+#' (see link below).
 #' @param nomenclature Select nomenclature and corresponding trade database for
 #' data extraction;  default is `HS2007`/`H3`; monthly trade data only available
 #' for `HS`. The full list of possible trade classifications and
@@ -23,18 +28,10 @@
 #' ([link](https://github.com/amannj/comtradeRggregator#trade-classifications));
 #' argument accepts long classification names, e.g. `HS2007`, as well as
 #' abbreviations, e.g. `HS3`, as inputs.
-#' @param commodity Specify commodity code or trade data aggregate for download.
-#' Both vary by trade data set; see
-#' Trade Classification
-#' ([link](https://amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications))
-#' for more information.
-#' Corresponds to parameter `px` in UN Comtrade data request format
-#' (see link below).
-#' @param countries Specify country(s) of interest, as a character vector;
-#' can either be a vector of country names, or `all` (will download all available
-#' countries for the given specification); default is `all`.
-#' Corresponds to parameter `r` in UN Comtrade data request format
-#' (see link below).
+#' @param token ...
+#' @param rm.zip ...
+#' @param rm.zip ...
+#' @param location.temporaryFiles ...
 #'
 #' @keywords download comtrade bulk
 #' @source https://comtrade.un.org/data/doc/api/bulk/#DataRequestsDwn https://comtrade.un.org/Data/doc/api/#DataResponses

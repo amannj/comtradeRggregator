@@ -14,6 +14,7 @@ reference:
   - build_Comtrade
   - convert_Comtrade
   - download_Comtrade
+  - download_bulk_Comtrade
   - is.available_Comtrade
 - title: Auxiliary Functions
   desc:  The list of auxiliary functions of the `comtradRggregator` package.

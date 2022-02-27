@@ -54,13 +54,11 @@ provided in table Trade Classification
 argument accepts long classification names, e.g. \code{HS2007}, as well as
 abbreviations, e.g. \code{HS3}, as inputs.}
 
-\item{commodity}{Specify commodity code or trade data aggregate for download.
-Both vary by trade data set; see
-Trade Classification
-(\href{https://amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications}{link})
-for more information.
-Corresponds to parameter \code{px} in UN Comtrade data request format
-(see link below).}
+\item{token}{...}
+
+\item{rm.zip}{...}
+
+\item{location.temporaryFiles}{...}
 }
 \description{
 Bulk data download from comtrade.org....
