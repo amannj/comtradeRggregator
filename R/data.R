@@ -1904,7 +1904,7 @@
 #' }
 #' @examples
 #' I2_I3
-#' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+#' @source \url{https://unstats.un.org/unsd/classifications/Econ/tables/ISIC/ISIC2_ISIC3/ISIC2-ISIC3.txt}
 #' @keywords Concordance table
 "I2_I3"
 
@@ -1922,7 +1922,7 @@
 #' }
 #' @examples
 #' I2_I31
-#' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+#' @source \url{https://unstats.un.org/unsd/classifications/Econ/tables/ISIC/ISIC2_ISIC31/ISIC_Rev_2-ISIC_Rev_3_1_correspondence.txt}
 #' @keywords Concordance table
 "I2_I31"
 
@@ -1940,7 +1940,7 @@
 #' }
 #' @examples
 #' I3_I2
-#' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+#' @source \url{https://unstats.un.org/unsd/classifications/Econ/tables/ISIC/ISIC3_ISIC2/ISIC3-ISIC2.txt}
 #' @keywords Concordance table
 "I3_I2"
 
@@ -1958,7 +1958,7 @@
 #' }
 #' @examples
 #' I3_I31
-#' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+#' @source \url{https://unstats.un.org/unsd/classifications/Econ/tables/ISIC/ISIC31_ISIC3/ISIC_Rev_31-ISIC_Rev_3_correspondence.txt}
 #' @keywords Concordance table
 "I3_I31"
 
@@ -1975,7 +1975,7 @@
 #' }
 #' @examples
 #' I31_I3
-#' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+#' @source \url{https://unstats.un.org/unsd/classifications/Econ/tables/ISIC/ISIC31_ISIC3/ISIC_Rev_31-ISIC_Rev_3_correspondence.txt}
 #' @keywords Concordance table
 "I31_I3"
 
@@ -1993,6 +1993,6 @@
 #' }
 #' @examples
 #' I31_I4
-#' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+#' @source \url{https://unstats.un.org/unsd/classifications/Econ/tables/ISIC/ISIC31_ISIC4/ISIC31_ISIC4.txt}
 #' @keywords Concordance table
 "I31_I4"

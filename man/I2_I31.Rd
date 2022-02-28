@@ -13,7 +13,7 @@ A data frame with 562   rows and 4 variables:
 }
 }
 \source{
-\url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+\url{https://unstats.un.org/unsd/classifications/Econ/tables/ISIC/ISIC2_ISIC31/ISIC_Rev_2-ISIC_Rev_3_1_correspondence.txt}
 }
 \usage{
 I2_I31
