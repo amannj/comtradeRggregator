@@ -58,6 +58,8 @@ abbreviations, e.g. \code{HS3}, as inputs.}
 
 \item{rm.zip}{...}
 
+\item{load.data}{...}
+
 \item{location.temporaryFiles}{...}
 }
 \description{
