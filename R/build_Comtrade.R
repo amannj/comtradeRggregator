@@ -44,7 +44,7 @@ build_Comtrade <- function(directory =
   df_out <- bind_rows(tmp.Data) %>%
     distinct(across(everything()))
 
-  if (nrow(na.omit(df_out)) == 0) {
+  if (nrow(df_out) == 0) {
     warning("Data query did not produce any results.
             Empty data frame is returned.")
     df_out <- NULL
