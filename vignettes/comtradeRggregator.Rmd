@@ -77,19 +77,19 @@ download_Comtrade(
 
 
 
-### Example 3: Query across aggregates/commodity levels
+### Example 3: Query across aggregates/commodity levels or years
 
-There might be cases where you want to download a specific group of traded commodities that may potentially also be part of a different level of aggregation.  For example, in case you want to download all traded commodities at the 2- and 4-digit level, i.e., `AG2` and `AG4`, you can do so by using `commodity = c("AG2", "AG4")` when running `download_Comtrade()`.
+There might be cases where you want to download a specific group of traded commodities that may potentially also be part of a different level of aggregation over multiple years.  For example, in case you want to download all traded commodities at the 2- and 4-digit level, i.e., `AG2` and `AG4`, you can do so by using `commodity = c("AG2", "AG4")` when running `download_Comtrade()`.
 This works for trade aggregates as well as single commodities.
 
 In the example below,
-we extract Austrian exports to Germany for the commodity groups `65 - Headgear and parts thereof` (`AG2`) as well as the corresponding sub-aggregates `6501` and `650100`, respectively.<sup>[1](#fn1)</sup>
+we extract Austrian exports to Germany for the commodity groups `65 - Headgear and parts thereof` (`AG2`) as well as the corresponding sub-aggregates `6501` and `650100` for the years 2018 and 2019, respectively.<sup>[1](#fn1)</sup>
 Also see [here](https://amannj.github.io/resources/comtradeRggregator/articles/articles/extracting-aggregates.html)
 for a more detailed discussion and some best practice advice on how to use 
 `comtradeRggregator` in such a scenario.
 
 ```{r message=FALSE, warning=FALSE}
-download_Comtrade(year = "2018",
+download_Comtrade(year = c("2018", "2019"),
                   frequency = "annual",
                   countries = "Austria",
                   partners = "Germany",

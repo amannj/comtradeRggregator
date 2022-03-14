@@ -25,7 +25,8 @@ download_Comtrade(
 )
 }
 \arguments{
-\item{year}{Year for which to extract data.}
+\item{year}{Year for which to extract data. Allows for the specification of
+multiple years (see example 2 below).}
 
 \item{frequency}{Frequency of data extract;
 either \code{annual} or \code{monthly}; default is \code{annual}.}
@@ -64,7 +65,9 @@ argument accepts long classification names, e.g. \code{HS2007}, as well as
 abbreviations, e.g. \code{HS3}, as inputs.}
 
 \item{commodity}{Specify commodity code or trade data aggregate for download.
-Both vary by trade data set; see
+Allows for the specification of different levels of commodity aggregation
+(see example 2 below).
+Commodity codes vary by trade data set; see
 Trade Classification
 (\href{https://amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications}{link})
 for more information.}
@@ -126,6 +129,7 @@ extract Comtrade trade data.
 }
 \examples{
 \dontrun{
+# Example 1
 AT_World <- download_Comtrade(
   year = "2018",
   frequency = "annual",
@@ -138,6 +142,17 @@ AT_World <- download_Comtrade(
   direction = "all"
 )
 AT_World
+
+# Example 2: Multiple years and levels of aggregation
+download_Comtrade(year = c("2018", "2019"),
+frequency = "annual",
+countries = "Austria",
+partners = "Germany",
+nomenclature = "HS2007",
+commodity = c("65", "6501", "650100"),
+type = "commodities",
+select.stats = "trade_value_usd",
+direction = "exports")
 }
 
 }

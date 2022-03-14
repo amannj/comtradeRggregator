@@ -4,7 +4,8 @@
 #' in `download_Comtrade_core()`  to interact with `comtradr::ct_search()`
 #' and [Comtrade's API](https://comtrade.un.org/data/doc/api/) to
 #' extract Comtrade trade data.
-#' @param year Year for which to extract data.
+#' @param year Year for which to extract data. Allows for the specification of
+#' multiple years (see example 2 below).
 #' @param frequency Frequency of data extract;
 #' either `annual` or `monthly`; default is `annual`.
 #' @param month  Optional parameter for `monthly` extract; ignored for
@@ -35,7 +36,9 @@
 #' argument accepts long classification names, e.g. `HS2007`, as well as
 #' abbreviations, e.g. `HS3`, as inputs.
 #' @param commodity Specify commodity code or trade data aggregate for download.
-#' Both vary by trade data set; see
+#' Allows for the specification of different levels of commodity aggregation
+#' (see example 2 below).
+#' Commodity codes vary by trade data set; see
 #' Trade Classification
 #' ([link](https://amannj.github.io/resources/comtradeRggregator/index.html#trade-classifications))
 #' for more information.
@@ -83,6 +86,7 @@
 #' @import dplyr comtradr tibble readr rlang
 #' @examples
 #' \dontrun{
+#' # Example 1
 #' AT_World <- download_Comtrade(
 #'   year = "2018",
 #'   frequency = "annual",
@@ -95,6 +99,17 @@
 #'   direction = "all"
 #' )
 #' AT_World
+#'
+#' # Example 2: Multiple years and levels of aggregation
+#' download_Comtrade(year = c("2018", "2019"),
+#' frequency = "annual",
+#' countries = "Austria",
+#' partners = "Germany",
+#' nomenclature = "HS2007",
+#' commodity = c("65", "6501", "650100"),
+#' type = "commodities",
+#' select.stats = "trade_value_usd",
+#' direction = "exports")
 #' }
 #'
 download_Comtrade <- function(year = "2018",
