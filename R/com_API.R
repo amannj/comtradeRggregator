@@ -73,7 +73,7 @@ validate_token <- function(token) {
   tryCatch(result <- rjson::fromJSON(
     file = paste0("https://comtrade.un.org/api/getUserInfo?token=", token)
   ),
-  error = function(e) e
+  error = function(e) e, warning = function(w) w
   )
   if (!is.null(result)) token else result
 }
