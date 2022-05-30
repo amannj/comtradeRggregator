@@ -1,5 +1,3 @@
-
-
 test_that("download_Comtrade returns a data frame", {
   AT_World <- download_Comtrade(
     year = "2018",
