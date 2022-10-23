@@ -74,7 +74,7 @@ gen_CountryList <- function(directory =
   ls_cnt %>%
     group_by(.data$rDesc) %>%
     tally() %>%
-    filter(.data$rDesc %not.in% c("ASEAN", "EU-28",
+    filter(.data$rDesc %not.in% c("ASEAN", "EU-28", "EU",
                                   "Other Asia, nes", "Niue")) %>%
     pull(.data$rDesc)
 }
