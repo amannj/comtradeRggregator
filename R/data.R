@@ -1388,7 +1388,7 @@
 #' }
 #' @examples
 #' H4_H0
-#' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+#' @source \url{https://unstats.un.org/unsd/classifications/Econ}
 #' @keywords Concordance table
 "H4_H0"
 
@@ -1407,7 +1407,7 @@
 #' }
 #' @examples
 #' H4_H1
-#' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+#' @source \url{https://unstats.un.org/unsd/classifications/Econ}
 #' @keywords Concordance table
 "H4_H1"
 
@@ -1426,7 +1426,7 @@
 #' }
 #' @examples
 #' H4_H2
-#' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+#' @source \url{https://unstats.un.org/unsd/classifications/Econ}
 #' @keywords Concordance table
 "H4_H2"
 
@@ -1445,7 +1445,7 @@
 #' }
 #' @examples
 #' H4_H3
-#' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+#' @source \url{https://unstats.un.org/unsd/classifications/Econ}
 #' @keywords Concordance table
 "H4_H3"
 
@@ -1455,8 +1455,10 @@
 #' @title Concordance Table: H4 to I3.1
 #'
 #' @description Concordance table from `HS 2012` (`H4`) to `ISIC Rev. 3.1` (`I3.1`).
-#' Please note that the H4_I31 does not provide ISIC Rev. 3.1 4-digit
-#' level for the following commodities for which concordance is only available
+#' Please see the official UNSD documentation for further information.
+#'
+#' Note that the concordance table `H4_I31` does not provide ISIC Rev. 3.1 4-digit
+#' mappings for the following commodities. There, concordance is only available
 #' at the 2-digit and 3-digit level, respectively:
 #'
 #' | `HS 2012 Product Code` | `HS 2012 Product Description`                                                                                                                 |  `ISIC Revision 3.1 Product Code` | `ISIC Revision 3.1 Product Description`                                  |
@@ -1500,7 +1502,6 @@
 #' | 852910                 | antennas and antenna reflectors and parts thereof                                                                                             |  32                               | Manufacture of radio, television and communication equipment and appara~ |
 #' | 852990                 | parts (except antennas and reflectors) for use with radio transmission, radar, radio navigational aid, reception and television apparatus, n~ |  32                               | Manufacture of radio, television and communication equipment and appara~ |
 #'
-#' Please see the official UNSD documentation for further information.
 #'
 #' @format A data frame with 5,205 rows and 4 variables:
 #' \describe{
@@ -1511,7 +1512,7 @@
 #' }
 #' @examples
 #' H4_I31
-#' @source \url{https://unstats.un.org/unsd/trade/classifications/bec.asp}
+#' @source \url{https://unstats.un.org/unsd/classifications/Econ}
 #' @keywords Concordance table
 "H4_I31"
 
@@ -1528,7 +1529,7 @@
 #' }
 #' @examples
 #' H4_I4
-#' @source \url{https://unstats.un.org/unsd/trade/classifications/bec.asp}
+#' @source \url{https://unstats.un.org/unsd/classifications/Econ}
 #' @keywords Concordance table
 "H4_I4"
 
@@ -1547,7 +1548,7 @@
 #' }
 #' @examples
 #' H4_S1
-#' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+#' @source \url{https://unstats.un.org/unsd/classifications/Econ}
 #' @keywords Concordance table
 "H4_S1"
 
@@ -1566,7 +1567,7 @@
 #' }
 #' @examples
 #' H4_S2
-#' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+#' @source \url{https://unstats.un.org/unsd/classifications/Econ}
 #' @keywords Concordance table
 "H4_S2"
 
@@ -1585,7 +1586,7 @@
 #' }
 #' @examples
 #' H4_S3
-#' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+#' @source \url{https://unstats.un.org/unsd/classifications/Econ}
 #' @keywords Concordance table
 "H4_S3"
 
@@ -1604,7 +1605,7 @@
 #' }
 #' @examples
 #' H4_S4
-#' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+#' @source \url{https://unstats.un.org/unsd/classifications/Econ}
 #' @keywords Concordance table
 "H4_S4"
 
@@ -1637,7 +1638,7 @@
 #' }
 #' @examples
 #' H5_H0
-#' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+#' @source \url{https://unstats.un.org/unsd/classifications/Econ}
 #' @keywords Concordance table
 "H5_H0"
 
@@ -1654,7 +1655,7 @@
 #' }
 #' @examples
 #' H5_H1
-#' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+#' @source \url{https://unstats.un.org/unsd/classifications/Econ}
 #' @keywords Concordance table
 "H5_H1"
 
@@ -1671,7 +1672,7 @@
 #' }
 #' @examples
 #' H5_H2
-#' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+#' @source \url{https://unstats.un.org/unsd/classifications/Econ}
 #' @keywords Concordance table
 "H5_H2"
 
@@ -1688,7 +1689,7 @@
 #' }
 #' @examples
 #' H5_H3
-#' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+#' @source \url{https://unstats.un.org/unsd/classifications/Econ}
 #' @keywords Concordance table
 "H5_H3"
 
@@ -1705,7 +1706,7 @@
 #' }
 #' @examples
 #' H5_H4
-#' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+#' @source \url{https://unstats.un.org/unsd/classifications/Econ}
 #' @keywords Concordance table
 "H5_H4"
 
@@ -1722,7 +1723,7 @@
 #' }
 #' @examples
 #' H5_S1
-#' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+#' @source \url{https://unstats.un.org/unsd/classifications/Econ}
 #' @keywords Concordance table
 "H5_S1"
 
@@ -1738,7 +1739,7 @@
 #' }
 #' @examples
 #' H5_S2
-#' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+#' @source \url{https://unstats.un.org/unsd/classifications/Econ}
 #' @keywords Concordance table
 "H5_S2"
 
@@ -1755,7 +1756,7 @@
 #' }
 #' @examples
 #' H5_S3
-#' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+#' @source \url{https://unstats.un.org/unsd/classifications/Econ}
 #' @keywords Concordance table
 "H5_S3"
 
@@ -1772,7 +1773,7 @@
 #' }
 #' @examples
 #' H5_S4
-#' @source \url{https://unstats.un.org/unsd/trade/classifications/correspondence-tables.asp}
+#' @source \url{https://unstats.un.org/unsd/classifications/Econ}
 #' @keywords Concordance table
 "H5_S4"
 
